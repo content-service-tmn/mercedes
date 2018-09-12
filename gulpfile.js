@@ -58,7 +58,7 @@ var config = {
     //     baseDir: "./"
     // },
     //tunnel: true,
-    proxy: 'http://cs.loc' //openserver
+    proxy: 'http://mercedes.loc' //openserver
     // port: 9000
     //logPrefix: "Frontend_Devil"
 };
