@@ -6,7 +6,7 @@
   <?php include_once($config->paths->templates . "common/_head.php"); ?>
 </head>
 
-<body class="no-touch">
+<body>
 
 
 
