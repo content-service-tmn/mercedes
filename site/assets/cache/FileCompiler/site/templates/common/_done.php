@@ -12,6 +12,7 @@
 
 <?= $templateRender; ?>
 
+<script src="<?= $config->urls->templates . 'assets/js/script.js'?>"></script>
 
 </body>
 
