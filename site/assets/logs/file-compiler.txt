@@ -13,3 +13,4 @@
 2018-09-12 14:35:27	guest	http://mercedes.cw40247.tmweb.ru/	Compiled file: /site/modules/TracyDebugger/includes/TD.php
 2018-09-12 14:35:28	guest	http://mercedes.cw40247.tmweb.ru/	Compiled file: /site/templates/common/_init.php
 2018-09-12 14:35:29	guest	http://mercedes.cw40247.tmweb.ru/	Compiled file: /site/templates/home.php
+2018-09-13 12:02:06	guest	http://mercedes.cw40247.tmweb.ru/catalog/b-4/	Compiled file: /site/templates/layout_class.php
