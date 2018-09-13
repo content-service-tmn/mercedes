@@ -1,16 +1,9 @@
+<?php namespace Processwire; ?>
 <div class="mfp-bg mfp-ready"></div>
 <div class="mfp-wrap mfp-close-btn-in mfp-auto-cursor mfp-ready" tabindex="-1" style="overflow: hidden auto; height: 1024px;"><div class="mfp-container mfp-ajax-holder mfp-s-ready"><div class="mfp-content"><div id="product_modal" class="product-modal modal-template">
-
     <div class="product-modal__head">G 63, номер заказа 0852460219</div>
-
     <div class="product-gallery product-gallery--modal">
-
-
             <div class="product-gallery__images owl-carousel owl-loaded owl-drag">
-
-
-
-
                             <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 2903px;"><div class="owl-item active" style="width: 725.75px;"><div class="product-gallery__image">
                         <picture>
                             <source srcset="https://sales.mercedes-orenburg.ru/image/cache/catalog/cars/order_0852460219/15356894235950001-767x479_crop.jpg, https://sales.mercedes-orenburg.ru/image/cache/catalog/cars/order_0852460219/15356894235950001-1534x958_crop.jpg 1.5x" media="(max-width: 767px)">

@@ -14,3 +14,6 @@
 2018-09-12 14:35:28	guest	http://mercedes.cw40247.tmweb.ru/	Compiled file: /site/templates/common/_init.php
 2018-09-12 14:35:29	guest	http://mercedes.cw40247.tmweb.ru/	Compiled file: /site/templates/home.php
 2018-09-13 12:02:06	guest	http://mercedes.cw40247.tmweb.ru/catalog/b-4/	Compiled file: /site/templates/layout_class.php
+2018-09-13 13:10:13	developer	http://mercedes.cw40247.tmweb.ru/mercedes/catalog/b-4/	Compiled file: /site/templates/layout_class.php
+2018-09-13 14:16:10	developer	http://mercedes.cw40247.tmweb.ru/mercedes/	Maintenance/Copy new version of source file to target file: /site/templates/common/_head.php => /site/assets/cache/FileCompiler/site/templates/common/_head.php
+2018-09-13 14:30:06	developer	http://mercedes.cw40247.tmweb.ru/mercedes/	Compiled file: /site/modules/TracyDebugger/includes/CodeProcessor.php
