@@ -44,3 +44,37 @@ function rusdate($param, $time) {
 	}
 	return date(str_replace($arrParam, $arrReplace, $param), $time);
 }
+
+function getCarInfo($pages, $id){
+    $properties = [];
+    $car = $pages->get("template=layout_car, car_id={$id}");
+
+    foreach($car->parent()->modifications as $mod){
+        if ($mod->class_id == $car->car_modification_id){
+            foreach($mod->fields as $field){
+                $properties[$field->name] = $mod[$field->name];
+            }
+        }
+    }
+
+
+    foreach($car->fields as $field){
+        $properties[$field->name] = $car->get($field->name);
+    }
+
+    return $properties;
+}
+
+function getComplectation($str) {
+    $table = [];
+    foreach ($pages->get("layout_equipment")->equipment as $line){
+        $table[$line->code] = $line->name;
+    }
+
+    $result = [];
+    $str = str_replace(" ", "", $str);
+    foreach (explode(",", $str) as $code){
+        $result[$code] = $table[$code];
+    }
+    return $result;
+}

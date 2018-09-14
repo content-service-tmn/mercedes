@@ -35,4 +35,19 @@ foreach ($rows as $i => $line) {
     array_push($parents, $p);
 
 }
+
+
+/*<?php namespace Processwire;
+
+foreach (["car_id"=>"Идентификатор", "car_year"=>"Год выпуска", "car_cabin"=>"Салон", "car_color"=>"Цвет", "car_accessories"=>"Комплектация", "car_photos"=>"Фотографии",
+             "car_price"=>"Цена", "car_special_proposal"=>"Специальное предложение"] as $item => $label){
+    $field = new Field();
+    $field->name = $item;
+    $field->type = "Text";
+    $field->label = $label;
+    $fields->save($field);
+}
+
+
+?>*/
 ?>
