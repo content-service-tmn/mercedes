@@ -1,4 +1,4 @@
-<?php namespace Processwire;?>
+<?php namespace Processwire; ?>
 <div class="site-wrapper">
   <header class="header js-header header--home">
     <div class="container">
@@ -27,16 +27,16 @@
         </div>
         <div class="header__nav nav-class js-navigation-desktop">
           <ul>
-            <?php foreach($pages->find("parent=catalog") as $category): ?>
-            <li>
-              <a href="<?=$category->url?>"><?=$category->title?></a>
-              <ul>
-                <?php foreach($pages->find("parent={$category->name}") as $pge): ?>
-                  <li><a href="<?=$pge->url?>"><?=$pge->title?></a></li>
-                <?php endforeach; ?>
-              </ul>
-            </li>
-            <?php endforeach; ?>
+              <?php foreach ($pages->find("parent=catalog") as $category): ?>
+                <li>
+                  <a href="<?= $category->url ?>"><?= $category->title ?></a>
+                  <ul>
+                      <?php foreach ($pages->find("parent={$category->id}") as $pge): ?>
+                        <li><a href="<?= $pge->url ?>"><?= $pge->title ?></a></li>
+                      <?php endforeach; ?>
+                  </ul>
+                </li>
+              <?php endforeach; ?>
           </ul>
         </div>
 
@@ -357,116 +357,38 @@
 
         <div class="home-products">
 
+            <?php foreach ($page->home_show_categories as $category): ?>
+                <?php
+                foreach ($category->home_show_category as $ctg): ?>
+                    <?php $i = 0;
+                    foreach ($ctg->home_show_link as $link): ?>
+                      <a href="https://sales.mercedes-orenburg.ru/c-coupe/"
+                         class="home-product <?php if ($i == 0) echo 'home-product--first' ?>">
+                          <?php  bd($link); if ($i == 0): ?>
+                            <div class="home-product__category"><?= $ctg->home_show_title ?></div>
+                          <?php endif; ?>
+                        <div class="home-product__image">
+                          <img src="<?= $link->class_preview->url ?>"
+                               alt="<?= $link->title ?>">
+                        </div>
+                        <div class="home-product__info">
+                          <div class="home-product__name"><?= $link->title ?></div>
+                          <div class="home-product__price">от <span>2 904 438</span> ₽</div>
+                          <div class="home-product__in-stock">4
+                            шт. в наличии</div>
+                          <div class="home-product__button">
+                            <svg class="icon icon-arrow-round">
+                              <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-arrow-round"></use>
+                            </svg>
+                          </div>
+                        </div>
+                      </a>
+                        <?php $i++; endforeach; ?>
+                <?php endforeach; ?>
+            <?php endforeach; ?>
 
-          <a href="https://sales.mercedes-orenburg.ru/c-sedan/" class="home-product home-product--first">
-            <div class="home-product__category">Седаны</div>
-            <div class="home-product__image">
-              <img src="https://sales.mercedes-orenburg.ru/image/cache/catalog/models_ico/0004-272x153_resize.png"
-                   srcset="https://sales.mercedes-orenburg.ru/image/cache/catalog/models_ico/0004-544x306_resize.png 1.5x"
-                   alt="C-Класс седан">
-            </div>
-            <div class="home-product__info">
-              <div class="home-product__name">C -
-                Класс седан</div>
-              <div class="home-product__price">от <span>2 606 800</span> ₽</div>
-              <div class="home-product__in-stock">
-                4
-                шт. в наличии                                        </div>
-              <div class="home-product__button">
-                <svg class="icon icon-arrow-round">
-                  <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-arrow-round"></use>
-                </svg>
-              </div>
-            </div>
-          </a>
 
-          <a href="https://sales.mercedes-orenburg.ru/e-sedan/" class="home-product">
-            <div class="home-product__image">
-              <img src="https://sales.mercedes-orenburg.ru/image/cache/catalog/models_ico/0010-272x153_resize.png"
-                   srcset="https://sales.mercedes-orenburg.ru/image/cache/catalog/models_ico/0010-544x306_resize.png  1.5x"
-                   alt="E-Класс седан">
-            </div>
-            <div class="home-product__info">
-              <div class="home-product__name">E -
-                Класс седан</div>
-              <div class="home-product__price">от <span>2 890 000</span> ₽</div>
-              <div class="home-product__in-stock">
-                11
-                шт. в наличии                                        </div>
-              <div class="home-product__button">
-                <svg class="icon icon-arrow-round">
-                  <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-arrow-round"></use>
-                </svg>
-              </div>
-            </div>
-          </a>
-
-          <a href="https://sales.mercedes-orenburg.ru/s-sedan/" class="home-product">
-            <div class="home-product__image">
-              <img src="https://sales.mercedes-orenburg.ru/image/cache/catalog/models_ico/0022-272x153_resize.png"
-                   srcset="https://sales.mercedes-orenburg.ru/image/cache/catalog/models_ico/0022-544x306_resize.png  1.5x"
-                   alt="S-Класс седан">
-            </div>
-            <div class="home-product__info">
-              <div class="home-product__name">S -
-                Класс седан</div>
-              <div class="home-product__price">от <span>7 801 942</span> ₽</div>
-              <div class="home-product__in-stock">
-                14
-                шт. в наличии                                        </div>
-              <div class="home-product__button">
-                <svg class="icon icon-arrow-round">
-                  <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-arrow-round"></use>
-                </svg>
-              </div>
-            </div>
-          </a>
-
-          <a href="https://sales.mercedes-orenburg.ru/s-maybach/" class="home-product">
-            <div class="home-product__image">
-              <img src="https://sales.mercedes-orenburg.ru/image/cache/catalog/models_ico/0025-272x153_resize.png"
-                   srcset="https://sales.mercedes-orenburg.ru/image/cache/catalog/models_ico/0025-544x306_resize.png  1.5x"
-                   alt="S-Класс Maybach">
-            </div>
-            <div class="home-product__info">
-              <div class="home-product__name">S -
-                Класс
-                Maybach</div>
-              <div class="home-product__price">от <span>10 510 946</span> ₽</div>
-              <div class="home-product__in-stock">
-                4
-                шт. в наличии                                        </div>
-              <div class="home-product__button">
-                <svg class="icon icon-arrow-round">
-                  <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-arrow-round"></use>
-                </svg>
-              </div>
-            </div>
-          </a>
-
-          <a href="https://sales.mercedes-orenburg.ru/c-coupe/" class="home-product home-product--first">
-            <div class="home-product__category">Купе</div>
-            <div class="home-product__image">
-              <img src="https://sales.mercedes-orenburg.ru/image/cache/catalog/models_ico/0005-272x153_resize.png"
-                   srcset="https://sales.mercedes-orenburg.ru/image/cache/catalog/models_ico/0005-544x306_resize.png 1.5x"
-                   alt="C-Класс купе">
-            </div>
-            <div class="home-product__info">
-              <div class="home-product__name">C -
-                Класс купе</div>
-              <div class="home-product__price">от <span>2 904 438</span> ₽</div>
-              <div class="home-product__in-stock">
-                4
-                шт. в наличии                                        </div>
-              <div class="home-product__button">
-                <svg class="icon icon-arrow-round">
-                  <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-arrow-round"></use>
-                </svg>
-              </div>
-            </div>
-          </a>
-
-          <a href="https://sales.mercedes-orenburg.ru/cla-coupe/" class="home-product">
+          <!-- <a href="https://sales.mercedes-orenburg.ru/cla-coupe/" class="home-product">
             <div class="home-product__image">
               <img src="https://sales.mercedes-orenburg.ru/image/cache/catalog/models_ico/0007-272x153_resize.png"
                    srcset="https://sales.mercedes-orenburg.ru/image/cache/catalog/models_ico/0007-544x306_resize.png  1.5x"
@@ -1009,7 +931,7 @@
                 </svg>
               </div>
             </div>
-          </a>
+          </a>-->
 
         </div>
 
@@ -1757,7 +1679,6 @@
         <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-arrow-round"></use>
       </svg>
     </div>
-
   </noindex>
 
 </div>
