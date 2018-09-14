@@ -373,7 +373,7 @@
                         </div>
                         <div class="home-product__info">
                           <div class="home-product__name"><?= $link->title ?></div>
-                          <div class="home-product__price">от <span>2 904 438</span> ₽</div>
+                          <div class="home-product__price"><?=getLowestPrice($link->id, $pages)?></div>
                           <div class="home-product__in-stock">4
                             шт. в наличии</div>
                           <div class="home-product__button">
