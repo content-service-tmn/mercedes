@@ -364,7 +364,7 @@
                     foreach ($ctg->home_show_link as $link): ?>
                       <a href="https://sales.mercedes-orenburg.ru/c-coupe/"
                          class="home-product <?php if ($i == 0) echo 'home-product--first' ?>">
-                          <?php  bd($link); if ($i == 0): ?>
+                          <?php  bd($link->get("class_preview")); if ($i == 0): ?>
                             <div class="home-product__category"><?= $ctg->home_show_title ?></div>
                           <?php endif; ?>
                         <div class="home-product__image">
