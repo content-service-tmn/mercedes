@@ -6,7 +6,7 @@
   <?php include_once($config->paths->templates . "common/_head.php"); ?>
 </head>
 
-<body data-route="common-home">
+<body class="no-touch" data-route="<?= $page->template->name; ?>">
 
 
 

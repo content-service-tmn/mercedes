@@ -5992,12 +5992,12 @@ function(e) {
     }
     var e = s("body").attr("data-route");
     switch (enterFormSubmit(), validatePhone(), e) {
-        case "common-home":
+        case "home":
             lazyLoadOnSlider(), homeFilterInit(), s('#home-filter input[type="checkbox"]').on("change", function() {
                 homeFilter()
             }), updateTradeIn();
             break;
-        case "car-model":
+        case "layout_class":
             lazyLoadOnList(), listFilterInit(), s("#list-filter").find('input[type="checkbox"], input[type="radio"], select').on("change", function() {
                 listFilter()
             }), s(document).on("click", "#list-filter .select-js__item", function() {
