@@ -82,8 +82,15 @@ function listFilterInit() {
 }
 
 function homeFilter() {
-  console.log(1);
-  console.log($("#home-filter"));
+  var isAmg = $("#home-filter input[name='amg']").attr("value")==1?true:false;
+  var min = $("#home-filter input[name='price[min]']").attr("value");
+  var max = $("#home-filter input[name='price[max]']").attr("value");
+  var categories = [];
+  $("#home-filter input.filter-cars__input:checked").each(function(index) {
+    categories[index]=$(this).attr('id');
+  });
+  console.log(categories);
+  //todo
 
     // $.ajax({
     //     url: "index.php?route=common/home/filter",
@@ -138,47 +145,47 @@ function getModelInfo(t) {
 }
 
 function updateTradeIn() {
-    $(document).on("click", '[data-name="brand"] .select-js__item', function() {
-        $.ajax({
-            url: "index.php?route=common/bottom/updateTradeIn",
-            type: "post",
-            data: {
-                brand: $('#form-trade_in [name="brand"]').val()
-            },
-            dataType: "json"
-        }).done(function(t) {
-            if (0 !== t.length) {
-                var e = "",
-                    i = "";
-                for (var n in t.models.forEach(function(t) {
-                        "Модель" === t.model ? e += '<option value="Не выбрана">' + t.model + "</option>" : e += '<option value="' + t.model + '">' + t.model + "</option>"
-                    }), t.years.reverse()) "Год" === t.years[n] ? i += '<option value="Не выбран">' + t.years[n] + "</option>" : i += '<option value="' + t.years[n] + '">' + t.years[n] + "</option>";
-                $('#form-trade_in [data-name="model"]').remove(), $('#form-trade_in select[name="model"]').html(e).select(), $('#form-trade_in [data-name="year"]').remove(), $('#form-trade_in select[name="year"]').html(i).select()
-            }
-        }).fail(function(t) {
-            console.log(t)
-        })
-    }), $('#form-trade_in [name="brand"]').on("change", function() {
-        $.ajax({
-            url: "index.php?route=common/bottom/updateTradeIn",
-            type: "post",
-            data: {
-                brand: $(this).val()
-            },
-            dataType: "json"
-        }).done(function(t) {
-            if (0 !== t.length) {
-                var e = "",
-                    i = "";
-                for (var n in t.models.forEach(function(t) {
-                        "Модель" === t.model ? e += '<option value="Не выбрана">' + t.model + "</option>" : e += '<option value="' + t.model + '">' + t.model + "</option>"
-                    }), t.years.reverse()) "Год" === t.years[n] ? i += '<option value="Не выбран">' + t.years[n] + "</option>" : i += '<option value="' + t.years[n] + '">' + t.years[n] + "</option>";
-                $('#form-trade_in select[name="model"]').html(e), $('#form-trade_in select[name="year"]').html(i), appendSelectValue()
-            }
-        }).fail(function(t) {
-            console.log(t)
-        })
-    })
+    // $(document).on("click", '[data-name="brand"] .select-js__item', function() {
+    //     $.ajax({
+    //         url: "index.php?route=common/bottom/updateTradeIn",
+    //         type: "post",
+    //         data: {
+    //             brand: $('#form-trade_in [name="brand"]').val()
+    //         },
+    //         dataType: "json"
+    //     }).done(function(t) {
+    //         if (0 !== t.length) {
+    //             var e = "",
+    //                 i = "";
+    //             for (var n in t.models.forEach(function(t) {
+    //                     "Модель" === t.model ? e += '<option value="Не выбрана">' + t.model + "</option>" : e += '<option value="' + t.model + '">' + t.model + "</option>"
+    //                 }), t.years.reverse()) "Год" === t.years[n] ? i += '<option value="Не выбран">' + t.years[n] + "</option>" : i += '<option value="' + t.years[n] + '">' + t.years[n] + "</option>";
+    //             $('#form-trade_in [data-name="model"]').remove(), $('#form-trade_in select[name="model"]').html(e).select(), $('#form-trade_in [data-name="year"]').remove(), $('#form-trade_in select[name="year"]').html(i).select()
+    //         }
+    //     }).fail(function(t) {
+    //         console.log(t)
+    //     })
+    // }), $('#form-trade_in [name="brand"]').on("change", function() {
+    //     $.ajax({
+    //         url: "index.php?route=common/bottom/updateTradeIn",
+    //         type: "post",
+    //         data: {
+    //             brand: $(this).val()
+    //         },
+    //         dataType: "json"
+    //     }).done(function(t) {
+    //         if (0 !== t.length) {
+    //             var e = "",
+    //                 i = "";
+    //             for (var n in t.models.forEach(function(t) {
+    //                     "Модель" === t.model ? e += '<option value="Не выбрана">' + t.model + "</option>" : e += '<option value="' + t.model + '">' + t.model + "</option>"
+    //                 }), t.years.reverse()) "Год" === t.years[n] ? i += '<option value="Не выбран">' + t.years[n] + "</option>" : i += '<option value="' + t.years[n] + '">' + t.years[n] + "</option>";
+    //             $('#form-trade_in select[name="model"]').html(e), $('#form-trade_in select[name="year"]').html(i), appendSelectValue()
+    //         }
+    //     }).fail(function(t) {
+    //         console.log(t)
+    //     })
+    // })
 }
 
 function appendSelectValue() {
