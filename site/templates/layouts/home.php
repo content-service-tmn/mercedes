@@ -270,12 +270,12 @@
                 foreach ($category->home_show_category as $ctg): ?>
                     <?php $i = 0;
                     foreach ($ctg->home_show_link as $link): ?>
-                      <a href="<?= $link->url ?>" data-category="<?= $link->title ?>"
+                      <a href="<?= $link->url ?>" data-category="<?= $link->title ?>" <?php if ($category->home_show_isAmg) echo "data-amg=\"true\""?>
                          data-price="<?= getLowestPrice($link->id, $pages) ?>"
                          class="home-product <?php if ($i == 0) echo 'home-product--first' ?>">
                           <?php bd($pages->get("id=" . $link->id)->class_preview->first()->url);
                           if ($i == 0): ?>
-                            <div class="home-product__category"><?= $ctg->home_show_title ?></div>
+                            <div class="home-product__category"><?= ($category->home_show_isAmg)?$ctg->home_show_title . " AMG":$ctg->home_show_title  ?></div>
                           <?php endif; ?>
                         <div class="home-product__image">
                           <img src="<?= $pages->get("id=" . $link->id)->class_preview->first()->url ?>"
@@ -285,7 +285,7 @@
                           <div class="home-product__name"><?= $link->parent()->title . " " . $link->title ?></div>
                           <div class="home-product__price"><?php $prc = getLowestPrice($link->id, $pages);
                               echo ($prc != 0) ? "от <span>{$prc}</span> ₽" : "По запросу" ?></div>
-                          <div class="home-product__in-stock">4
+                          <div class="home-product__in-stock"><?=$pages->find("template=layout_car, parent={$link->id}")->count()?>
                             шт. в наличии</div>
                           <div class="home-product__button">
                             <svg class="icon icon-arrow-round">
