@@ -89,9 +89,9 @@ function getLowestPrice($id, $pages) {
         }
     }
     if ($min != 9999999999999) {
-        return "от <span>" . $min . "</span> ₽";
+        return $min;
     }
-    else return "По запросу";
+    else return 0;
 }
 
 

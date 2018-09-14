@@ -190,118 +190,26 @@
                 <div class="home-filter__body-title">Тип автомобиля</div>
 
                 <div class="filter-cars">
-                  <div class="filter-cars__item">
-                    <input type="checkbox" class="filter-cars__input" id="sedan" name="types[]" value="sedan">
-                    <label class="filter-cars__label" for="sedan">
+                    <?php $used = []; foreach ($page->home_show_categories as $category): ?>
+                        <?php
+                        foreach ($category->home_show_category as $ctg): ?>
+                            <?php foreach ($ctg->home_show_link as $link): if(!in_array($link->title, $used)): ?>
+                              <div class="filter-cars__item">
+                                <input type="checkbox" class="filter-cars__input" id="<?= $link->title ?>" name="types[]"
+                                       value="<?= $link->title ?>">
+                                <label class="filter-cars__label" for="<?= $link->title ?>">
                                              <span class="filter-cars__item-icon">
                                                  <svg class="icon icon-sedan">
                                                     <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-sedan"></use>
                                                  </svg>
                                              </span>
-                      <span class="filter-cars__item-title">Седаны</span>
-                    </label>
-                  </div>
-                  <div class="filter-cars__item">
-                    <input type="checkbox" class="filter-cars__input" id="coupe" name="types[]" value="coupe">
-                    <label class="filter-cars__label" for="coupe">
-                                             <span class="filter-cars__item-icon">
-                                                 <svg class="icon icon-coupe">
-                                                    <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-coupe"></use>
-                                                 </svg>
-                                             </span>
-                      <span class="filter-cars__item-title">Купе</span>
-                    </label>
-                  </div>
-                  <div class="filter-cars__item">
-                    <input type="checkbox" class="filter-cars__input" id="suv" name="types[]" value="suv">
-                    <label class="filter-cars__label" for="suv">
-                                             <span class="filter-cars__item-icon">
-                                                 <svg class="icon icon-suv">
-                                                    <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-suv"></use>
-                                                 </svg>
-                                             </span>
-                      <span class="filter-cars__item-title">Внедорожники</span>
-                    </label>
-                  </div>
-                  <div class="filter-cars__item">
-                    <input type="checkbox" class="filter-cars__input" id="wagon" name="types[]" value="wagon">
-                    <label class="filter-cars__label" for="wagon">
-                                             <span class="filter-cars__item-icon">
-                                                 <svg class="icon icon-wagon">
-                                                    <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-wagon"></use>
-                                                 </svg>
-                                             </span>
-                      <span class="filter-cars__item-title">Универсалы</span>
-                    </label>
-                  </div>
-                  <div class="filter-cars__item">
-                    <input type="checkbox" class="filter-cars__input" id="hatchback" name="types[]" value="hatchback">
-                    <label class="filter-cars__label" for="hatchback">
-                                             <span class="filter-cars__item-icon">
-                                                 <svg class="icon icon-hatchback">
-                                                    <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-hatchback"></use>
-                                                 </svg>
-                                             </span>
-                      <span class="filter-cars__item-title">Хэтчбеки</span>
-                    </label>
-                  </div>
-                  <div class="filter-cars__item">
-                    <input type="checkbox" class="filter-cars__input" id="convertible" name="types[]"
-                           value="convertible">
-                    <label class="filter-cars__label" for="convertible">
-                                             <span class="filter-cars__item-icon">
-                                                 <svg class="icon icon-convertible">
-                                                    <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-convertible"></use>
-                                                 </svg>
-                                             </span>
-                      <span class="filter-cars__item-title">Кабриолеты</span>
-                    </label>
-                  </div>
-                  <div class="filter-cars__item">
-                    <input type="checkbox" class="filter-cars__input" id="roadster" name="types[]" value="roadster">
-                    <label class="filter-cars__label" for="roadster">
-                                             <span class="filter-cars__item-icon">
-                                                 <svg class="icon icon-roadster">
-                                                    <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-roadster"></use>
-                                                 </svg>
-                                             </span>
-                      <span class="filter-cars__item-title">Родстеры</span>
-                    </label>
-                  </div>
-                  <div class="filter-cars__item">
-                    <input type="checkbox" class="filter-cars__input" id="shooting-brake" name="types[]"
-                           value="shooting-brake">
-                    <label class="filter-cars__label" for="shooting-brake">
-                                             <span class="filter-cars__item-icon">
-                                                 <svg class="icon icon-shooting-brake">
-                                                    <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-shooting-brake"></use>
-                                                 </svg>
-                                             </span>
-                      <span class="filter-cars__item-title">Shooting Brake</span>
-                    </label>
-                  </div>
-                  <div class="filter-cars__item">
-                    <input type="checkbox" class="filter-cars__input" id="minivan" name="types[]" value="minivan">
-                    <label class="filter-cars__label" for="minivan">
-                                             <span class="filter-cars__item-icon">
-                                                 <svg class="icon icon-minivan">
-                                                    <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-minivan"></use>
-                                                 </svg>
-                                             </span>
-                      <span class="filter-cars__item-title">Минивэны</span>
-                    </label>
-                  </div>
-                  <div class="filter-cars__item">
-                    <input type="checkbox" class="filter-cars__input" id="pickup" name="types[]" value="pickup">
-                    <label class="filter-cars__label" for="pickup">
-                                             <span class="filter-cars__item-icon">
-                                                 <svg class="icon icon-pickup">
-                                                    <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-pickup"></use>
-                                                 </svg>
-                                             </span>
-                      <span class="filter-cars__item-title">Пикапы</span>
-                    </label>
-                  </div>
+                                  <span class="filter-cars__item-title"><?= $link->title ?></span>
+                                </label>
+                              </div>
+                                <?php $used[] = $link->title; endif; endforeach; ?>
+                        <?php endforeach; ?>
+                    <?php endforeach; ?>
+
                 </div>
 
                 <div class="home-filter__body-close">
@@ -362,18 +270,21 @@
                 foreach ($category->home_show_category as $ctg): ?>
                     <?php $i = 0;
                     foreach ($ctg->home_show_link as $link): ?>
-                      <a href="<?=$link->url?>"
+                      <a href="<?= $link->url ?>" data-category="<?= $link->title ?>"
+                         data-price="<?= getLowestPrice($link->id, $pages) ?>"
                          class="home-product <?php if ($i == 0) echo 'home-product--first' ?>">
-                          <?php  bd($pages->get("id=".$link->id)->class_preview->first()->url); if ($i == 0): ?>
+                          <?php bd($pages->get("id=" . $link->id)->class_preview->first()->url);
+                          if ($i == 0): ?>
                             <div class="home-product__category"><?= $ctg->home_show_title ?></div>
                           <?php endif; ?>
                         <div class="home-product__image">
-                          <img src="<?= $pages->get("id=".$link->id)->class_preview->first()->url ?>"
+                          <img src="<?= $pages->get("id=" . $link->id)->class_preview->first()->url ?>"
                                alt="<?= $link->title ?>">
                         </div>
                         <div class="home-product__info">
-                          <div class="home-product__name"><?= $link->title ?></div>
-                          <div class="home-product__price"><?=getLowestPrice($link->id, $pages)?></div>
+                          <div class="home-product__name"><?= $link->parent()->title . " " . $link->title ?></div>
+                          <div class="home-product__price"><?php $prc = getLowestPrice($link->id, $pages);
+                              echo ($prc != 0) ? "от <span>{$prc}</span> ₽" : "По запросу" ?></div>
                           <div class="home-product__in-stock">4
                             шт. в наличии</div>
                           <div class="home-product__button">
