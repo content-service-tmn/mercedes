@@ -362,13 +362,13 @@
                 foreach ($category->home_show_category as $ctg): ?>
                     <?php $i = 0;
                     foreach ($ctg->home_show_link as $link): ?>
-                      <a href="https://sales.mercedes-orenburg.ru/c-coupe/"
+                      <a href="<?=$link->url?>"
                          class="home-product <?php if ($i == 0) echo 'home-product--first' ?>">
-                          <?php  bd($link->getField("class_preview")); if ($i == 0): ?>
+                          <?php  bd($pages->get("id=".$link->id)->class_preview->first()->url); if ($i == 0): ?>
                             <div class="home-product__category"><?= $ctg->home_show_title ?></div>
                           <?php endif; ?>
                         <div class="home-product__image">
-                          <img src="<?= $link->class_preview->url ?>"
+                          <img src="<?= $pages->get("id=".$link->id)->class_preview->first()->url ?>"
                                alt="<?= $link->title ?>">
                         </div>
                         <div class="home-product__info">
