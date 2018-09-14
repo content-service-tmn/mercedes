@@ -1,6 +1,0 @@
-2018-09-13 13:58:21	developer	http://mercedes.cw40247.tmweb.ru/processwire/page/edit/?id=1622	Unknown Selector operator: '$' -- was your selector value properly escaped?  (in /wire/core/Selectors.php line 378)
-2018-09-13 13:58:49	developer	http://mercedes.cw40247.tmweb.ru/processwire/page/edit/?id=1622	Unknown Selector operator: '$' -- was your selector value properly escaped?  (in /wire/core/Selectors.php line 378)
-2018-09-13 13:58:49	developer	http://mercedes.cw40247.tmweb.ru/processwire/page/edit/?id=1622	Unknown Selector operator: '$' -- was your selector value properly escaped?  (in /wire/core/Selectors.php line 378)
-2018-09-13 13:58:51	developer	http://mercedes.cw40247.tmweb.ru/processwire/page/edit/?id=1622	Unknown Selector operator: '$' -- was your selector value properly escaped?  (in /wire/core/Selectors.php line 378)
-2018-09-13 13:59:38	developer	http://mercedes.cw40247.tmweb.ru/processwire/page/edit/?id=1622	Unknown Selector operator: '' -- was your selector value properly escaped?  (in /wire/core/Selectors.php line 378)
-2018-09-13 13:59:40	developer	http://mercedes.cw40247.tmweb.ru/processwire/page/edit/?id=1622	Unknown Selector operator: '' -- was your selector value properly escaped?  (in /wire/core/Selectors.php line 378)
