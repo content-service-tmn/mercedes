@@ -82,16 +82,19 @@ function listFilterInit() {
 }
 
 function homeFilter() {
-    $.ajax({
-        url: "index.php?route=common/home/filter",
-        type: "post",
-        data: $("#home-filter").serialize(),
-        dataType: "html"
-    }).done(function(t) {
-        $(".home-products").html(t)
-    }).fail(function(t) {
-        console.log(t)
-    })
+  console.log(1);
+  console.log($("#home-filter"));
+
+    // $.ajax({
+    //     url: "index.php?route=common/home/filter",
+    //     type: "post",
+    //     data: $("#home-filter").serialize(),
+    //     dataType: "html"
+    // }).done(function(t) {
+    //     $(".home-products").html(t)
+    // }).fail(function(t) {
+    //     console.log(t)
+    // })
 }
 
 function listFilter() {
