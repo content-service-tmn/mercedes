@@ -81,4 +81,17 @@ function getComplectation($str, $pages) {
     return $result;
 }
 
-var_dump(getComplectation("03B,08U,09U,14U,15U,165,16U,17U,1B1,218,235,258,26U,270,274", $pages));
+function getLowestPrice($id, $pages) {
+    $min = 9999999999999;
+    foreach ($pages->find("template=layout_car, parent={$id}") as $pge){
+        if (isset($pge->car_price) && $pge->car_price<$min){
+            $min = $pge->car_price;
+        }
+    }
+    if ($min != 9999999999999) {
+        return $min;
+    }
+    else return 0;
+}
+
+
