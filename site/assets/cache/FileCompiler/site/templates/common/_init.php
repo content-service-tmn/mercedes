@@ -22,8 +22,8 @@ $site = $pages->get('/');
  *
  */
 
- require_once(\ProcessWire\wire('files')->compile($config->paths->templates . 'common/_functions.php',array('includes'=>true,'namespace'=>true,'modules'=>true,'skipIfNamespace'=>true)));
- require_once(\ProcessWire\wire('files')->compile($config->paths->templates . 'common/_forms.php',array('includes'=>true,'namespace'=>true,'modules'=>true,'skipIfNamespace'=>true)));
+require_once($config->paths->templates . 'common/_functions.php');
+require_once($config->paths->templates . 'common/_forms.php');
 
 $notify = array();
 

@@ -98,9 +98,9 @@ class TD extends TracyDebugger {
         array_push(\TracyDebugger::$dumpItems, $dumpItem);
 
         if(isset(\TracyDebugger::$showPanels) && in_array('dumpsRecorder', \TracyDebugger::$showPanels)) {
-            $dumpsRecorderItems = \ProcessWire\wire('session')->tracyDumpsRecorderItems ?: array();
+            $dumpsRecorderItems = wire('session')->tracyDumpsRecorderItems ?: array();
             array_push($dumpsRecorderItems, $dumpItem);
-            \ProcessWire\wire('session')->tracyDumpsRecorderItems = $dumpsRecorderItems;
+            wire('session')->tracyDumpsRecorderItems = $dumpsRecorderItems;
         }
     }
 
