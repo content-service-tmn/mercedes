@@ -82,26 +82,28 @@ function listFilterInit() {
 }
 
 function homeFilter() {
-  var isAmg = $("#home-filter input[name='amg']").attr("value")==1?true:false;
-  var min = $("#home-filter input[name='price[min]']").attr("value");
-  var max = $("#home-filter input[name='price[max]']").attr("value");
+  var isAmg = $("#home-filter input[name='amg']").attr("value");
+  var min = parseInt($("#home-filter input[name='price[min]']").attr("value").replace(/\s/g, ''));
+  var max = parseInt($("#home-filter input[name='price[max]']").attr("value").replace(/\s/g, ''));
   var categories = [];
   $("#home-filter input.filter-cars__input:checked").each(function(index) {
     categories[index]=$(this).attr('id');
   });
-  console.log(categories);
-  //todo
+  $(".home-product").addClass('js-hidden');
+  $(".home-product").filter(function() {
+    var price = parseInt($(this).attr('data-price').replace(/\s/g, ''));
+    return price>=min && price<=max;
+  })
+  .filter(function(){
+    if (categories.length==0) return true;
+    return categories.includes($(this).attr("data-category"));
+  })
+  .filter (function() {
+    if (isAmg=="0") return true;
+    return $(this).attr("data-amg")==isAmg;
+  })
+  .removeClass('js-hidden');
 
-    // $.ajax({
-    //     url: "index.php?route=common/home/filter",
-    //     type: "post",
-    //     data: $("#home-filter").serialize(),
-    //     dataType: "html"
-    // }).done(function(t) {
-    //     $(".home-products").html(t)
-    // }).fail(function(t) {
-    //     console.log(t)
-    // })
 }
 
 function listFilter() {

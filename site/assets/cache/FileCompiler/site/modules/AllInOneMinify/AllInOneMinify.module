@@ -28,7 +28,7 @@
  * ----------------------------------------------------------------------------------
  */
 
-class AllInOneMinify extends WireData implements Module, ConfigurableModule {
+class AllInOneMinify extends \ProcessWire\WireData implements \ProcessWire\Module, \ProcessWire\ConfigurableModule {
 
     // ------------------------------------------------------------------------
     // Name of the cache folder.
@@ -63,7 +63,7 @@ class AllInOneMinify extends WireData implements Module, ConfigurableModule {
             // The module'ss title, typically a little more descriptive than the 
             // class name
             // ------------------------------------------------------------------------
-            'title' => __('AIOM+ (All In One Minify) for CSS, LESS, JS and HTML'), 
+            'title' => \ProcessWire\__('AIOM+ (All In One Minify) for CSS, LESS, JS and HTML'), 
 
             // ------------------------------------------------------------------------
             // Version: major, minor, revision, i.e. 100 = 1.1.0
@@ -75,7 +75,7 @@ class AllInOneMinify extends WireData implements Module, ConfigurableModule {
             // ------------------------------------------------------------------------
             // Summary is brief description of what this module is
             // ------------------------------------------------------------------------
-            'summary' => __('AIOM+ (All In One Minify) is a module to easily improve the performance of your website. By a simple function call Stylesheets, LESS  and Javascript files can be parsed, minimized and combined into one single file. This reduces the server requests, loading time and minimizes the traffic. In addition, the generated HTML source code can be minimized and all generated files can be loaded over a cookieless domain (domain sharding).'),
+            'summary' => \ProcessWire\__('AIOM+ (All In One Minify) is a module to easily improve the performance of your website. By a simple function call Stylesheets, LESS  and Javascript files can be parsed, minimized and combined into one single file. This reduces the server requests, loading time and minimizes the traffic. In addition, the generated HTML source code can be minimized and all generated files can be loaded over a cookieless domain (domain sharding).'),
             
             // ------------------------------------------------------------------------
             // Optional URL to more information about the module
@@ -109,94 +109,94 @@ class AllInOneMinify extends WireData implements Module, ConfigurableModule {
         // ------------------------------------------------------------------------
         // Initialize InputField wrapper
         // ------------------------------------------------------------------------
-        $fields             = new InputfieldWrapper(); 
+        $fields             = new \ProcessWire\InputfieldWrapper(); 
         
         // ------------------------------------------------------------------------
         // Define text input field for the stylesheet-prefix.
         // ------------------------------------------------------------------------
-        $field              = wire('modules')->get('InputfieldText');
+        $field              = \ProcessWire\wire('modules')->get('InputfieldText');
         $field->name        = 'stylesheet_prefix';
-        $field->label       = __('Stylesheet-Prefix');
+        $field->label       = \ProcessWire\__('Stylesheet-Prefix');
         $field->columnWidth = 33;
-        $field->value       = (!empty($data['stylesheet_prefix'])) ? wire('sanitizer')->name($data['stylesheet_prefix']) : 'css_';
-        $field->description = __('The prefix of the generated combined stylesheet file. Allowed: Alphanumeric characters like "A-Z, 0-9 and _ -".');
+        $field->value       = (!empty($data['stylesheet_prefix'])) ? \ProcessWire\wire('sanitizer')->name($data['stylesheet_prefix']) : 'css_';
+        $field->description = \ProcessWire\__('The prefix of the generated combined stylesheet file. Allowed: Alphanumeric characters like "A-Z, 0-9 and _ -".');
         $fields->add($field); 
  
         // ------------------------------------------------------------------------
         // Define text input field for the javascript-prefix.
         // ------------------------------------------------------------------------
-        $field              = wire('modules')->get('InputfieldText');
+        $field              = \ProcessWire\wire('modules')->get('InputfieldText');
         $field->name        = 'javascript_prefix';
-        $field->label       = __('Javascript-Prefix');
+        $field->label       = \ProcessWire\__('Javascript-Prefix');
         $field->columnWidth = 34;
-        $field->value       = (!empty($data['javascript_prefix'])) ? wire('sanitizer')->name($data['javascript_prefix']) : 'js_';
-        $field->description = __('The prefix of the generated combined javascript file. Allowed: Alphanumeric characters like "A-Z, 0-9 and _ -".');
+        $field->value       = (!empty($data['javascript_prefix'])) ? \ProcessWire\wire('sanitizer')->name($data['javascript_prefix']) : 'js_';
+        $field->description = \ProcessWire\__('The prefix of the generated combined javascript file. Allowed: Alphanumeric characters like "A-Z, 0-9 and _ -".');
         $fields->add($field); 
 
         // ------------------------------------------------------------------------
         // Define text input field for the maximum cache lifetime.
         // ------------------------------------------------------------------------
-        $field              = wire('modules')->get('InputfieldText');
+        $field              = \ProcessWire\wire('modules')->get('InputfieldText');
         $field->name        = 'max_cache_lifetime';
-        $field->label       = __('Lifetime');
+        $field->label       = \ProcessWire\__('Lifetime');
         $field->columnWidth = 33;
         $field->value       = (!empty($data['max_cache_lifetime'])) ? self::_sanitizeNumericCacheTime($data['max_cache_lifetime']) : 2419200;
-        $field->description = __('The max. lifetime of the cached files in seconds. Min. 60 seconds, max. 31536000 seconds (1 year).');
+        $field->description = \ProcessWire\__('The max. lifetime of the cached files in seconds. Min. 60 seconds, max. 31536000 seconds (1 year).');
         $fields->add($field);
 
         // ------------------------------------------------------------------------
         // Define checkbox field to enable or disable the HTML minimization.
         // ------------------------------------------------------------------------
-        $field              = wire('modules')->get('InputfieldCheckbox');
+        $field              = \ProcessWire\wire('modules')->get('InputfieldCheckbox');
         $field->name        = 'html_minify';
-        $field->label       = __('HTML minify');
+        $field->label       = \ProcessWire\__('HTML minify');
         $field->columnWidth = 25;
         $field->value       = (isset($data['html_minify'])) ? $data['html_minify'] : 1;
         $field->checked     = ($field->value == 1) ? 'checked' : '';
-        $field->description = __('In order to remove unnecessary whitespace and comments from the HTML source code, enable this option.');
+        $field->description = \ProcessWire\__('In order to remove unnecessary whitespace and comments from the HTML source code, enable this option.');
         $fields->add($field); 
 
         // ------------------------------------------------------------------------
         // Define checkbox field to enable or disable the development mode.
         // ------------------------------------------------------------------------
-        $field              = wire('modules')->get('InputfieldCheckbox');
+        $field              = \ProcessWire\wire('modules')->get('InputfieldCheckbox');
         $field->name        = 'development_mode';
-        $field->label       = __('Development mode');
+        $field->label       = \ProcessWire\__('Development mode');
         $field->columnWidth = 25;
         $field->value       = (isset($data['development_mode'])) ? $data['development_mode'] : 0;
         $field->checked     = ($field->value == 1) ? 'checked' : '';
-        $field->description = __('Enable development mode to prevent caching by the browser and not to minimize the files.');
+        $field->description = \ProcessWire\__('Enable development mode to prevent caching by the browser and not to minimize the files.');
         $fields->add($field); 
 
         // ------------------------------------------------------------------------
         // Define checkbox field to enable or disable the directory traversal option.
         // ------------------------------------------------------------------------
-        $field              = wire('modules')->get('InputfieldCheckbox');
+        $field              = \ProcessWire\wire('modules')->get('InputfieldCheckbox');
         $field->name        = 'directory_traversal';
-        $field->label       = __('Allow Directory Traversal');
+        $field->label       = \ProcessWire\__('Allow Directory Traversal');
         $field->columnWidth = 25;
         $field->value       = (isset($data['directory_traversal'])) ? $data['directory_traversal'] : 0;
         $field->checked     = ($field->value == 1) ? 'checked' : '';
-        $field->description = __('Enable the directory traversal option to make it possible to add files from outside of the template folders. (../)');
+        $field->description = \ProcessWire\__('Enable the directory traversal option to make it possible to add files from outside of the template folders. (../)');
         $fields->add($field); 
 
         // ------------------------------------------------------------------------
         // Define button to empty the cache.
         // ------------------------------------------------------------------------
         $_cacheInfo         = self::_getNumberOfCacheFiles();
-        $field              = wire('modules')->get('InputfieldMarkup');
+        $field              = \ProcessWire\wire('modules')->get('InputfieldMarkup');
         $field->columnWidth = 25;
-        $field->label       = __('Cache control');
-        $field->description = __('Here you can delete all cached files.').'<br /><br />';
-        $field->description.= sprintf(__('Cached files: %s | Used space: %s'), $_cacheInfo['numberOfFiles'], $_cacheInfo['bytesTotal']);
+        $field->label       = \ProcessWire\__('Cache control');
+        $field->description = \ProcessWire\__('Here you can delete all cached files.').'<br /><br />';
+        $field->description.= sprintf(\ProcessWire\__('Cached files: %s | Used space: %s'), $_cacheInfo['numberOfFiles'], $_cacheInfo['bytesTotal']);
         
             // ------------------------------------------------------------------------
             // Add custom button to markup field
             // ------------------------------------------------------------------------
-            $field_button           = wire('modules')->get('InputfieldButton');
+            $field_button           = \ProcessWire\wire('modules')->get('InputfieldButton');
             $field_button->name     = 'empty_cache';
-            $field_button->value    = __('Empty cache');
-            $field_button->href     = 'edit?name='.wire('input')->get('name').'&cache=clear';
+            $field_button->value    = \ProcessWire\__('Empty cache');
+            $field_button->href     = 'edit?name='.\ProcessWire\wire('input')->get('name').'&cache=clear';
 
         $field->add($field_button); 
         $fields->add($field);
@@ -204,45 +204,45 @@ class AllInOneMinify extends WireData implements Module, ConfigurableModule {
         // ------------------------------------------------------------------------
         // Define text input field for domain sharding.
         // ------------------------------------------------------------------------
-        $field              = wire('modules')->get('InputfieldText');
+        $field              = \ProcessWire\wire('modules')->get('InputfieldText');
         $field->name        = 'domain_sharding';
-        $field->label       = __('Domain sharding');
+        $field->label       = \ProcessWire\__('Domain sharding');
         $field->columnWidth = 50;
         $field->attr(array('placeholder' => 'http://static.mysite.com'));
         $field->value       = (!empty($data['domain_sharding'])) ? self::_validateURL($data['domain_sharding']) : '';
-        $field->description = __('In order to speed up the download of stylesheets and javascripts, this can be made available via a second subdomain (parallel download and Cookieless domain). The second subdomain (eg static.mysite.com) must also point to the web root directory of ProcessWire. Leave the field blank to disable this option.');
+        $field->description = \ProcessWire\__('In order to speed up the download of stylesheets and javascripts, this can be made available via a second subdomain (parallel download and Cookieless domain). The second subdomain (eg static.mysite.com) must also point to the web root directory of ProcessWire. Leave the field blank to disable this option.');
         $fields->add($field); 
 
         // ------------------------------------------------------------------------
         // Define text input field for domain sharding with SSL.
         // ------------------------------------------------------------------------
-        $field              = wire('modules')->get('InputfieldText');
+        $field              = \ProcessWire\wire('modules')->get('InputfieldText');
         $field->name        = 'domain_sharding_ssl';
-        $field->label       = __('Domain sharding (SSL)');
+        $field->label       = \ProcessWire\__('Domain sharding (SSL)');
         $field->columnWidth = 50;
         $field->attr(array('placeholder' => 'https://static.mysite.com'));
         $field->value       = (!empty($data['domain_sharding_ssl'])) ? self::_validateURL($data['domain_sharding_ssl']) : '';
-        $field->description = __('In order to speed up the download of stylesheets and javascripts, this can be made available via a second subdomain (parallel download and Cookieless domain). The second subdomain (eg static.mysite.com) must also point to the web root directory of ProcessWire. Leave the field blank to disable this option.');
+        $field->description = \ProcessWire\__('In order to speed up the download of stylesheets and javascripts, this can be made available via a second subdomain (parallel download and Cookieless domain). The second subdomain (eg static.mysite.com) must also point to the web root directory of ProcessWire. Leave the field blank to disable this option.');
         $fields->add($field);
         
         // ------------------------------------------------------------------------
         // Define markup input field for usage tips.
         // ------------------------------------------------------------------------
-        $field              = wire('modules')->get('InputfieldMarkup');
+        $field              = \ProcessWire\wire('modules')->get('InputfieldMarkup');
         $field->columnWidth = 50;
-        $field->label       = __('How to use AIOM+');
-        $field->description = sprintf(__('Quick introduction to the module and how you use it. Full documentation under: %s'), 'https://github.com/conclurer/ProcessWire-AIOM-All-In-One-Minify');
-        $field->markupText  = file_get_contents(wire('config')->paths->AllInOneMinify.'doc'.DIRECTORY_SEPARATOR.'how-to-use.html');
+        $field->label       = \ProcessWire\__('How to use AIOM+');
+        $field->description = sprintf(\ProcessWire\__('Quick introduction to the module and how you use it. Full documentation under: %s'), 'https://github.com/conclurer/ProcessWire-AIOM-All-In-One-Minify');
+        $field->markupText  = file_get_contents(\ProcessWire\wire('config')->paths->AllInOneMinify.'doc'.DIRECTORY_SEPARATOR.'how-to-use.html');
         $fields->add($field);
 
         // ------------------------------------------------------------------------
         // Define markup input field for performance tips.
         // ------------------------------------------------------------------------
-        $field              = wire('modules')->get('InputfieldMarkup');
+        $field              = \ProcessWire\wire('modules')->get('InputfieldMarkup');
         $field->columnWidth = 50;
-        $field->label       = __('Performance tips');
-        $field->description = __('Tips how you can improve the performance of your page even further and what you need to consider if you are using domain sharding.');
-        $field->markupText  = file_get_contents(wire('config')->paths->AllInOneMinify.'doc'.DIRECTORY_SEPARATOR.'htaccess-and-performance-tips.html');
+        $field->label       = \ProcessWire\__('Performance tips');
+        $field->description = \ProcessWire\__('Tips how you can improve the performance of your page even further and what you need to consider if you are using domain sharding.');
+        $field->markupText  = file_get_contents(\ProcessWire\wire('config')->paths->AllInOneMinify.'doc'.DIRECTORY_SEPARATOR.'htaccess-and-performance-tips.html');
         $fields->add($field);
  
         // ------------------------------------------------------------------------
@@ -261,17 +261,17 @@ class AllInOneMinify extends WireData implements Module, ConfigurableModule {
         // ------------------------------------------------------------------------
         // Check if the folder already exists.
         // ------------------------------------------------------------------------
-        if(is_dir(wire('config')->paths->assets.self::$cacheDir.DIRECTORY_SEPARATOR)) return true;
+        if(is_dir(\ProcessWire\wire('config')->paths->assets.self::$cacheDir.DIRECTORY_SEPARATOR)) return true;
 
         // ------------------------------------------------------------------------
         // Try to create the folder recursively.
         // ------------------------------------------------------------------------
-        if(wireMkdir(wire('config')->paths->assets.self::$cacheDir.DIRECTORY_SEPARATOR) === false) {
+        if(\ProcessWire\wiremkdir(\ProcessWire\wire('config')->paths->assets.self::$cacheDir.DIRECTORY_SEPARATOR) === false) {
             
             // ------------------------------------------------------------------------
             // If the folder can not be created, trigger an error.
             // ------------------------------------------------------------------------
-            throw new WireException('The cache folder ('.wire('config')->paths->assets.self::$cacheDir.DIRECTORY_SEPARATOR.') could not be created.');
+            throw new \ProcessWire\WireException('The cache folder ('.\ProcessWire\wire('config')->paths->assets.self::$cacheDir.DIRECTORY_SEPARATOR.') could not be created.');
         }
     }
 
@@ -285,7 +285,7 @@ class AllInOneMinify extends WireData implements Module, ConfigurableModule {
         // ------------------------------------------------------------------------
         // Check if the folder already removed.
         // ------------------------------------------------------------------------
-        if(!is_dir(wire('config')->paths->assets.self::$cacheDir.DIRECTORY_SEPARATOR)) return true;
+        if(!is_dir(\ProcessWire\wire('config')->paths->assets.self::$cacheDir.DIRECTORY_SEPARATOR)) return true;
 
         // ------------------------------------------------------------------------
         // Remove all combined files in the cache folder.
@@ -295,12 +295,12 @@ class AllInOneMinify extends WireData implements Module, ConfigurableModule {
         // ------------------------------------------------------------------------
         // Try to remove the cache folder.
         // ------------------------------------------------------------------------
-        if(wireChmod(wire('config')->paths->assets.self::$cacheDir.DIRECTORY_SEPARATOR) === false OR wireRmdir(wire('config')->paths->assets.self::$cacheDir.DIRECTORY_SEPARATOR, true) === false) {
+        if(\ProcessWire\wirechmod(\ProcessWire\wire('config')->paths->assets.self::$cacheDir.DIRECTORY_SEPARATOR) === false OR \ProcessWire\wirermdir(\ProcessWire\wire('config')->paths->assets.self::$cacheDir.DIRECTORY_SEPARATOR, true) === false) {
 
             // ------------------------------------------------------------------------
             // If the folder and files can not be removed, trigger an error.
             // ------------------------------------------------------------------------
-            throw new WireException('The cache folder ('.wire('config')->paths->assets.self::$cacheDir.DIRECTORY_SEPARATOR.') and files could not be removed.');
+            throw new \ProcessWire\WireException('The cache folder ('.\ProcessWire\wire('config')->paths->assets.self::$cacheDir.DIRECTORY_SEPARATOR.') and files could not be removed.');
         }
     }
 
@@ -370,8 +370,8 @@ class AllInOneMinify extends WireData implements Module, ConfigurableModule {
         // ------------------------------------------------------------------------
         // Set module configuration
         // ------------------------------------------------------------------------
-        self::$cssCachePrefix       = wire('sanitizer')->name($this->stylesheet_prefix);
-        self::$jsCachePrefix        = wire('sanitizer')->name($this->javascript_prefix);
+        self::$cssCachePrefix       = \ProcessWire\wire('sanitizer')->name($this->stylesheet_prefix);
+        self::$jsCachePrefix        = \ProcessWire\wire('sanitizer')->name($this->javascript_prefix);
         self::$cacheMaxLifetime     = self::_sanitizeNumericCacheTime($this->max_cache_lifetime);
         self::$enableHTMLMinify     = ($this->html_minify == 1) ? true : false;
         self::$developmentMode      = ($this->development_mode == 1) ? true : false;
@@ -415,10 +415,10 @@ class AllInOneMinify extends WireData implements Module, ConfigurableModule {
         // ------------------------------------------------------------------------
         // Check if at least one file was passed.
         // ------------------------------------------------------------------------
-        if(empty($javascripts)) throw new WireException('There were no files specified to minimize.');
+        if(empty($javascripts)) throw new \ProcessWire\WireException('There were no files specified to minimize.');
 
         // Support passing of $config->scripts as argument which is of type FilenameArray
-        if(($javascripts instanceof FilenameArray))
+        if(($javascripts instanceof \ProcessWire\FilenameArray))
             $javascripts = (array) $javascripts->getIterator(); // Convert to array
 
         // ------------------------------------------------------------------------
@@ -434,7 +434,7 @@ class AllInOneMinify extends WireData implements Module, ConfigurableModule {
         // Check if there is already a combined and cached file. If not, 
         // generating a new minimized cache file.
         // ------------------------------------------------------------------------
-        if(!file_exists(wire('config')->paths->assets.self::$cacheDir.DIRECTORY_SEPARATOR.$cacheFile) OR self::$developmentMode === true) {
+        if(!file_exists(\ProcessWire\wire('config')->paths->assets.self::$cacheDir.DIRECTORY_SEPARATOR.$cacheFile) OR self::$developmentMode === true) {
 
             // ------------------------------------------------------------------------
             // Load the minimization Library
@@ -448,13 +448,13 @@ class AllInOneMinify extends WireData implements Module, ConfigurableModule {
             //              from stdin and outputs to stdout, this library accepts a 
             //              string as input and returns another string as output.
             //------------------------------------------------------------------------
-            require_once(wire('config')->paths->AllInOneMinify.'lib'.DIRECTORY_SEPARATOR.'JSMin-v2.1.7.php');
+ require_once(\ProcessWire\wire('files')->compile(\ProcessWire\wire('config')->paths->AllInOneMinify.'lib'.DIRECTORY_SEPARATOR.'JSMin-v2.1.7.php',array('includes'=>true,'namespace'=>true,'modules'=>false,'skipIfNamespace'=>false)));
 
             // ------------------------------------------------------------------------
             // Expire all CacheFiles
             // ------------------------------------------------------------------------
             if(class_exists('PageRender')) {
-                if(file_exists(wire('config')->paths->cache.PageRender::cacheDirName."/")) CacheFile::removeAll(wire('config')->paths->cache.PageRender::cacheDirName."/");
+                if(file_exists(\ProcessWire\wire('config')->paths->cache.\ProcessWire\PageRender::cacheDirName."/")) \ProcessWire\CacheFile::removeAll(\ProcessWire\wire('config')->paths->cache.\ProcessWire\PageRender::cacheDirName."/");
             }
 
             // ------------------------------------------------------------------------
@@ -475,12 +475,12 @@ class AllInOneMinify extends WireData implements Module, ConfigurableModule {
             // ------------------------------------------------------------------------
             // Write the minimized file to the file system.
             // ------------------------------------------------------------------------
-            if (file_put_contents(wire('config')->paths->assets.self::$cacheDir.DIRECTORY_SEPARATOR.$cacheFile, self::_generatorInformation($_js), LOCK_EX) !== false) {
-                if(wireChmod(wire('config')->paths->assets.self::$cacheDir.DIRECTORY_SEPARATOR.$cacheFile) === false) {
-                    throw new WireException('The permissions (chmod) for the combined js file could not be set. Verify that the permissions in the ProcessWire Configuration are sufficient ($config->chmodFile).');
+            if (file_put_contents(\ProcessWire\wire('config')->paths->assets.self::$cacheDir.DIRECTORY_SEPARATOR.$cacheFile, self::_generatorInformation($_js), LOCK_EX) !== false) {
+                if(\ProcessWire\wirechmod(\ProcessWire\wire('config')->paths->assets.self::$cacheDir.DIRECTORY_SEPARATOR.$cacheFile) === false) {
+                    throw new \ProcessWire\WireException('The permissions (chmod) for the combined js file could not be set. Verify that the permissions in the ProcessWire Configuration are sufficient ($config->chmodFile).');
                 }
             } else {
-                throw new WireException('The combined js file can not be written. Check if the script has sufficient permissions.');
+                throw new \ProcessWire\WireException('The combined js file can not be written. Check if the script has sufficient permissions.');
             }
         }
 
@@ -508,10 +508,10 @@ class AllInOneMinify extends WireData implements Module, ConfigurableModule {
         // ------------------------------------------------------------------------
         // Check if at least one file was passed.
         // ------------------------------------------------------------------------
-        if(empty($stylesheets)) throw new WireException('There were no files specified to minimize.');
+        if(empty($stylesheets)) throw new \ProcessWire\WireException('There were no files specified to minimize.');
 
         // Support passing of $config->styles as argument which is of type FilenameArray
-        if(($stylesheets instanceof FilenameArray))
+        if(($stylesheets instanceof \ProcessWire\FilenameArray))
             $stylesheets = (array) $stylesheets->getIterator(); // Convert to array
 
         // ------------------------------------------------------------------------
@@ -527,7 +527,7 @@ class AllInOneMinify extends WireData implements Module, ConfigurableModule {
         // Check if there is already a combined and cached file. If not, 
         // generating a new minimized cache file.
         // ------------------------------------------------------------------------
-        if(!file_exists(wire('config')->paths->assets.self::$cacheDir.DIRECTORY_SEPARATOR.$cacheFile) OR self::$developmentMode === true) {
+        if(!file_exists(\ProcessWire\wire('config')->paths->assets.self::$cacheDir.DIRECTORY_SEPARATOR.$cacheFile) OR self::$developmentMode === true) {
 
             // ------------------------------------------------------------------------
             // Load the css minimization Library
@@ -538,7 +538,7 @@ class AllInOneMinify extends WireData implements Module, ConfigurableModule {
             // @description PHP port of the CSS minification tool distributed with
             //              YUICompressor.
             //------------------------------------------------------------------------
-            require_once(wire('config')->paths->AllInOneMinify.'lib'.DIRECTORY_SEPARATOR.'cssmin.php');
+ require_once(\ProcessWire\wire('files')->compile(\ProcessWire\wire('config')->paths->AllInOneMinify.'lib'.DIRECTORY_SEPARATOR.'cssmin.php',array('includes'=>true,'namespace'=>true,'modules'=>false,'skipIfNamespace'=>false)));
 
             // ------------------------------------------------------------------------
             // Load the URL Rewriting Library
@@ -551,7 +551,7 @@ class AllInOneMinify extends WireData implements Module, ConfigurableModule {
             //              output to root-relative URIs so that each link points to the 
             //              same location it did in its original file.
             //------------------------------------------------------------------------
-            require_once(wire('config')->paths->AllInOneMinify.'lib'.DIRECTORY_SEPARATOR.'UriRewriter.php');
+ require_once(\ProcessWire\wire('files')->compile(\ProcessWire\wire('config')->paths->AllInOneMinify.'lib'.DIRECTORY_SEPARATOR.'UriRewriter.php',array('includes'=>true,'namespace'=>true,'modules'=>false,'skipIfNamespace'=>false)));
 
             // ------------------------------------------------------------------------
             // Load the LESS compiler Library
@@ -570,13 +570,13 @@ class AllInOneMinify extends WireData implements Module, ConfigurableModule {
             //                (for obvious reasons).
             //              - Definition of custom functions.
             //------------------------------------------------------------------------
-            require_once(wire('config')->paths->AllInOneMinify.'lib'.DIRECTORY_SEPARATOR.'Less'.DIRECTORY_SEPARATOR.'Less.php');
+ require_once(\ProcessWire\wire('files')->compile(\ProcessWire\wire('config')->paths->AllInOneMinify.'lib'.DIRECTORY_SEPARATOR.'Less'.DIRECTORY_SEPARATOR.'Less.php',array('includes'=>true,'namespace'=>true,'modules'=>false,'skipIfNamespace'=>false)));
 
             // ------------------------------------------------------------------------
             // Expire all CacheFiles
             // ------------------------------------------------------------------------
             if(class_exists('PageRender')) {
-                if(file_exists(wire('config')->paths->cache.PageRender::cacheDirName."/")) CacheFile::removeAll(wire('config')->paths->cache.PageRender::cacheDirName."/");
+                if(file_exists(\ProcessWire\wire('config')->paths->cache.\ProcessWire\PageRender::cacheDirName."/")) \ProcessWire\CacheFile::removeAll(\ProcessWire\wire('config')->paths->cache.\ProcessWire\PageRender::cacheDirName."/");
             }
 
             // ------------------------------------------------------------------------
@@ -621,12 +621,12 @@ class AllInOneMinify extends WireData implements Module, ConfigurableModule {
             // ------------------------------------------------------------------------
             // Write the minimized file to the file system.
             // ------------------------------------------------------------------------
-            if (file_put_contents(wire('config')->paths->assets.self::$cacheDir.DIRECTORY_SEPARATOR.$cacheFile, self::_generatorInformation($_css), LOCK_EX) !== false) {
-                if(wireChmod(wire('config')->paths->assets.self::$cacheDir.DIRECTORY_SEPARATOR.$cacheFile) === false) {
-                    throw new WireException('The permissions (chmod) for the combined CSS file could not be set. Verify that the permissions in the ProcessWire Configuration are sufficient ($config->chmodFile).');
+            if (file_put_contents(\ProcessWire\wire('config')->paths->assets.self::$cacheDir.DIRECTORY_SEPARATOR.$cacheFile, self::_generatorInformation($_css), LOCK_EX) !== false) {
+                if(\ProcessWire\wirechmod(\ProcessWire\wire('config')->paths->assets.self::$cacheDir.DIRECTORY_SEPARATOR.$cacheFile) === false) {
+                    throw new \ProcessWire\WireException('The permissions (chmod) for the combined CSS file could not be set. Verify that the permissions in the ProcessWire Configuration are sufficient ($config->chmodFile).');
                 }
             } else {
-                throw new WireException('The combined CSS file can not be written. Check if the script has sufficient permissions.');
+                throw new \ProcessWire\WireException('The combined CSS file can not be written. Check if the script has sufficient permissions.');
             }
         }
 
@@ -655,7 +655,7 @@ class AllInOneMinify extends WireData implements Module, ConfigurableModule {
         // ------------------------------------------------------------------------
         // Generating a data iterator of the cache directory.
         // ------------------------------------------------------------------------
-        $_cacheFiles = new RecursiveDirectoryIterator(wire('config')->paths->assets.self::$cacheDir.DIRECTORY_SEPARATOR);
+        $_cacheFiles = new RecursiveDirectoryIterator(\ProcessWire\wire('config')->paths->assets.self::$cacheDir.DIRECTORY_SEPARATOR);
 
         // Clear PHP stat() cache
         // ------------------------------------------------------------------------
@@ -665,14 +665,14 @@ class AllInOneMinify extends WireData implements Module, ConfigurableModule {
         // Remove all files that are older than the maximum lifetime.
         // ------------------------------------------------------------------------
         foreach($_cacheFiles as $_cacheFile) {
-            if(((filemtime(wire('config')->paths->assets.self::$cacheDir.DIRECTORY_SEPARATOR.$_cacheFile->getFilename()) + self::$cacheMaxLifetime) < time() OR $force_all === true) AND is_file($_cacheFile)) {
-                $_file  = wire('config')->paths->assets.self::$cacheDir.DIRECTORY_SEPARATOR.$_cacheFile->getFilename();
-                if(wireChmod($_file) !== false) {
+            if(((filemtime(\ProcessWire\wire('config')->paths->assets.self::$cacheDir.DIRECTORY_SEPARATOR.$_cacheFile->getFilename()) + self::$cacheMaxLifetime) < time() OR $force_all === true) AND is_file($_cacheFile)) {
+                $_file  = \ProcessWire\wire('config')->paths->assets.self::$cacheDir.DIRECTORY_SEPARATOR.$_cacheFile->getFilename();
+                if(\ProcessWire\wirechmod($_file) !== false) {
                     if(unlink($_file) === false) {
-                        throw new WireException('The old cache files could not be deleted.');
+                        throw new \ProcessWire\WireException('The old cache files could not be deleted.');
                     }
                 } else {
-                    throw new WireException('The permissions (chmod) to delete old cache files could not be changed.');
+                    throw new \ProcessWire\WireException('The permissions (chmod) to delete old cache files could not be changed.');
                 }
             }
         }
@@ -734,7 +734,7 @@ class AllInOneMinify extends WireData implements Module, ConfigurableModule {
         // Initialize allowed extension array, current page id and files array.
         // ------------------------------------------------------------------------
         $extension          = is_array($extension) ? $extension : array($extension);
-        $current_page_id    = wire('page')->id;
+        $current_page_id    = \ProcessWire\wire('page')->id;
         $_asset_files       = array();
 
         // ------------------------------------------------------------------------
@@ -751,7 +751,7 @@ class AllInOneMinify extends WireData implements Module, ConfigurableModule {
                 // ------------------------------------------------------------------------
                 // Find all page ids based on the passed selector.
                 // ------------------------------------------------------------------------
-                $conditional_pages = wire('pages')->find($_asset_file['loadOn'])->explode('id');
+                $conditional_pages = \ProcessWire\wire('pages')->find($_asset_file['loadOn'])->explode('id');
                 
                 // ------------------------------------------------------------------------
                 // Check if current page matched the conditional page id.
@@ -794,7 +794,7 @@ class AllInOneMinify extends WireData implements Module, ConfigurableModule {
         // ------------------------------------------------------------------------
         // Filter Directory Traversal (default: yes)
         // ------------------------------------------------------------------------
-        $_path  = (self::$directoryTraversal !== true) ? str_ireplace(array('../', './', '%2e%2e%2f', '..%2F'), '', wire('config')->paths->templates.$_file) : wire('config')->paths->templates.$_file;
+        $_path  = (self::$directoryTraversal !== true) ? str_ireplace(array('../', './', '%2e%2e%2f', '..%2F'), '', \ProcessWire\wire('config')->paths->templates.$_file) : \ProcessWire\wire('config')->paths->templates.$_file;
         
         // ------------------------------------------------------------------------
         // Check existence and whether there is no external source.
@@ -824,7 +824,7 @@ class AllInOneMinify extends WireData implements Module, ConfigurableModule {
         // ------------------------------------------------------------------------
         // Generating a data iterator of the cache directory.
         // ------------------------------------------------------------------------
-        $_cacheFiles    = new RecursiveDirectoryIterator(wire('config')->paths->assets.self::$cacheDir.DIRECTORY_SEPARATOR);
+        $_cacheFiles    = new RecursiveDirectoryIterator(\ProcessWire\wire('config')->paths->assets.self::$cacheDir.DIRECTORY_SEPARATOR);
 
         // ------------------------------------------------------------------------
         // Initialize $_numberOfFiles and $_bytesTotal variable
@@ -865,7 +865,7 @@ class AllInOneMinify extends WireData implements Module, ConfigurableModule {
         // ------------------------------------------------------------------------
         // If the parameter and the template are correct, clear the cache.
         // ------------------------------------------------------------------------
-        if(wire('input')->get('cache') == 'clear' AND $event->object->template == 'admin') {
+        if(\ProcessWire\wire('input')->get('cache') == 'clear' AND $event->object->template == 'admin') {
             
             // ------------------------------------------------------------------------
             // Clear cache.
@@ -875,7 +875,7 @@ class AllInOneMinify extends WireData implements Module, ConfigurableModule {
             // ------------------------------------------------------------------------
             // Redirect to module configuration.
             // ------------------------------------------------------------------------
-            wire('session')->redirect($event->object->httpUrl.'edit?name='.wire('input')->get('name'));
+            \ProcessWire\wire('session')->redirect($event->object->httpUrl.'edit?name='.\ProcessWire\wire('input')->get('name'));
         }
     }
 
@@ -902,13 +902,13 @@ class AllInOneMinify extends WireData implements Module, ConfigurableModule {
         // If the template requires SSL.
         // ------------------------------------------------------------------------
         if(self::$templateUseSSL === true) {
-            return self::$domainShardingSSL.wire('config')->urls->assets.self::$cacheDir;
+            return self::$domainShardingSSL.\ProcessWire\wire('config')->urls->assets.self::$cacheDir;
 
         // ------------------------------------------------------------------------
         // Else the default domain.
         // ------------------------------------------------------------------------
         } else {
-            return self::$domainSharding.wire('config')->urls->assets.self::$cacheDir;
+            return self::$domainSharding.\ProcessWire\wire('config')->urls->assets.self::$cacheDir;
         }
     }
 
@@ -955,7 +955,7 @@ class AllInOneMinify extends WireData implements Module, ConfigurableModule {
         // ------------------------------------------------------------------------
         // Validate string
         // ------------------------------------------------------------------------
-        $_url   = wire('sanitizer')->url($url);
+        $_url   = \ProcessWire\wire('sanitizer')->url($url);
         $_url   = (substr($_url, -1) == '/') ? substr($_url, 0, strlen($_url) - 1) : $_url;
 
         // ------------------------------------------------------------------------

@@ -270,7 +270,7 @@
                 foreach ($category->home_show_category as $ctg): ?>
                     <?php $i = 0;
                     foreach ($ctg->home_show_link as $link): ?>
-                      <a href="<?= $link->url ?>" data-category="<?= $link->title ?>" <?php if ($category->home_show_isAmg) echo "data-amg=\"true\""?>
+                      <a href="<?= $link->url ?>" data-category="<?= $link->title ?>" <?php if ($category->home_show_isAmg) echo "data-amg=\"1\""?>
                          data-price="<?= getLowestPrice($link->id, $pages) ?>"
                          class="home-product <?php if ($i == 0) echo 'home-product--first' ?>">
                           <?php bd($pages->get("id=" . $link->id)->class_preview->first()->url);
