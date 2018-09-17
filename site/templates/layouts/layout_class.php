@@ -5,7 +5,7 @@
          <div class="header__inner">
             <div class="header__top">
                <div class="header__logo">
-                  <a href="/"><img src="https://sales.mercedes-orenburg.ru/static/build/img/logo/logo.svg" alt=""></a>
+                  <a href="/"><img src="<?= $config->urls->templates . 'assets/img/logo.svg' ?>" alt=""></a>
                </div>
                <div class="header__right">
                   <div class="header__dealer">
