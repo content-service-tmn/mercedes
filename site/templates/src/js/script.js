@@ -162,7 +162,6 @@ function getModelInfo(t) {
         },
         callbacks: {
             close: function() {
-                history.replaceState([], $("title").text(), location.origin + location.pathname)
             }
         },
         tClose: "Закрыть",
