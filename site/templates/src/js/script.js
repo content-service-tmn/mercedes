@@ -82,39 +82,43 @@ function listFilterInit() {
 }
 
 function homeFilter() {
-  var isAmg = $("#home-filter input[name='amg']").attr("value")==1?true:false;
-  var min = $("#home-filter input[name='price[min]']").attr("value");
-  var max = $("#home-filter input[name='price[max]']").attr("value");
+  var isAmg = $("#home-filter input[name='amg']").attr("value");
+  var min = parseInt($("#home-filter input[name='price[min]']").attr("value").replace(/\s/g, ''));
+  var max = parseInt($("#home-filter input[name='price[max]']").attr("value").replace(/\s/g, ''));
   var categories = [];
   $("#home-filter input.filter-cars__input:checked").each(function(index) {
     categories[index]=$(this).attr('id');
   });
-  console.log(categories);
-  //todo
+  $(".home-product").addClass('js-hidden');
+  $(".home-product").filter(function() {
+    var price = parseInt($(this).attr('data-price').replace(/\s/g, ''));
+    return price>=min && price<=max;
+  })
+  .filter(function(){
+    if (categories.length==0) return true;
+    return categories.includes($(this).attr("data-category"));
+  })
+  .filter (function() {
+    if (isAmg=="0") return true;
+    return $(this).attr("data-amg")==isAmg;
+  })
+  .removeClass('js-hidden');
 
-    // $.ajax({
-    //     url: "index.php?route=common/home/filter",
-    //     type: "post",
-    //     data: $("#home-filter").serialize(),
-    //     dataType: "html"
-    // }).done(function(t) {
-    //     $(".home-products").html(t)
-    // }).fail(function(t) {
-    //     console.log(t)
-    // })
 }
 
 function listFilter() {
-    $.ajax({
-        url: "index.php?route=car/model/filter",
-        type: "post",
-        data: $("#list-filter").serialize(),
-        dataType: "html"
-    }).done(function(t) {
-        $("#list-content").html(t)
-    }).fail(function(t) {
-        console.log(t)
-    })
+  var model = $('select.js-select[name="engine"] option:selected').text();
+  var min = parseInt($("input[name='price[min]']").attr("value").replace(/\s/g, ''));
+  var max = parseInt($("input[name='price[max]']").attr("value").replace(/\s/g, ''));
+  var isAvail = $("input#stock_status_yes:checked").length;
+  var notAvail = $("input#stock_status_no:checked").length;
+  var isAmg = $("input#status_amg:checked").length;
+  var colors = [];
+  $("input.input-color__input:checked").each(function(index) {
+    colors[index] = $(this).attr("value");
+  });
+  console.log(colors);
+
 }
 
 function getModelInfo(t) {
@@ -145,47 +149,7 @@ function getModelInfo(t) {
 }
 
 function updateTradeIn() {
-    // $(document).on("click", '[data-name="brand"] .select-js__item', function() {
-    //     $.ajax({
-    //         url: "index.php?route=common/bottom/updateTradeIn",
-    //         type: "post",
-    //         data: {
-    //             brand: $('#form-trade_in [name="brand"]').val()
-    //         },
-    //         dataType: "json"
-    //     }).done(function(t) {
-    //         if (0 !== t.length) {
-    //             var e = "",
-    //                 i = "";
-    //             for (var n in t.models.forEach(function(t) {
-    //                     "Модель" === t.model ? e += '<option value="Не выбрана">' + t.model + "</option>" : e += '<option value="' + t.model + '">' + t.model + "</option>"
-    //                 }), t.years.reverse()) "Год" === t.years[n] ? i += '<option value="Не выбран">' + t.years[n] + "</option>" : i += '<option value="' + t.years[n] + '">' + t.years[n] + "</option>";
-    //             $('#form-trade_in [data-name="model"]').remove(), $('#form-trade_in select[name="model"]').html(e).select(), $('#form-trade_in [data-name="year"]').remove(), $('#form-trade_in select[name="year"]').html(i).select()
-    //         }
-    //     }).fail(function(t) {
-    //         console.log(t)
-    //     })
-    // }), $('#form-trade_in [name="brand"]').on("change", function() {
-    //     $.ajax({
-    //         url: "index.php?route=common/bottom/updateTradeIn",
-    //         type: "post",
-    //         data: {
-    //             brand: $(this).val()
-    //         },
-    //         dataType: "json"
-    //     }).done(function(t) {
-    //         if (0 !== t.length) {
-    //             var e = "",
-    //                 i = "";
-    //             for (var n in t.models.forEach(function(t) {
-    //                     "Модель" === t.model ? e += '<option value="Не выбрана">' + t.model + "</option>" : e += '<option value="' + t.model + '">' + t.model + "</option>"
-    //                 }), t.years.reverse()) "Год" === t.years[n] ? i += '<option value="Не выбран">' + t.years[n] + "</option>" : i += '<option value="' + t.years[n] + '">' + t.years[n] + "</option>";
-    //             $('#form-trade_in select[name="model"]').html(e), $('#form-trade_in select[name="year"]').html(i), appendSelectValue()
-    //         }
-    //     }).fail(function(t) {
-    //         console.log(t)
-    //     })
-    // })
+
 }
 
 function appendSelectValue() {

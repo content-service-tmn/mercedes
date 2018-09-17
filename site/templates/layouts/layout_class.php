@@ -549,7 +549,7 @@
                     <div class="title-40 tac">К сожалению, выбранной модели нет в наличии</div>
 
                     <div class="mb-20 tac">
-                        <img src="/static/build/img/product-not-available.jpg" alt="К сожалению, выбранной модели нет в наличии">
+                        <img src="https://sales.mercedes-orenburg.ru/static/build/img/product-not-available.jpg" alt="К сожалению, выбранной модели нет в наличии">
                     </div>
 
                     <div class="mb-20 tac">
