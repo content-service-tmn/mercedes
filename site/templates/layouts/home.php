@@ -1363,6 +1363,46 @@
         </div>
       </div>
     </section>
+    <section class="lp-premser">
+      <div class="container">
+        <div class="title-40">Преимущества для покупателей из других городов</div>
+        <div class="lp-premser__bottom">
+          <div class="lp-premser__bot-left-нет xl-70 lg-100">
+            <ul class="lp-premser__list row row-15">
+              <li class="xl-33">
+                <i>
+                  <svg class="icon icon-premser1">
+                    <use xlink:href="<?= $config->urls->templates . 'assets/img/spr.svg' ?>#1"></use>
+                  </svg>
+                </i>
+                <span>Онлайн-запись <br>на сервис 24 часа</span>
+              </li>
+              <li class="xl-33">
+                <i>
+                  <svg class="icon icon-premser2">
+                    <use xlink:href="<?= $config->urls->templates . 'assets/img/spr.svg' ?>#2"></use>
+                  </svg>
+                </i>
+                <span>Персональный консультант</span>
+              </li>
+              <li class="xl-33">
+                <i>
+                  <svg class="icon icon-premser3">
+                    <use xlink:href="<?= $config->urls->templates . 'assets/img/spr.svg' ?>#3"></use>
+                  </svg>
+                </i>
+                <span>Обслуживание без ожидания и очередей</span>
+              </li>
+            </ul>
+          </div>
+          <div class="lp-premser__bot-btn xl-30 lg-100">
+            <a href="#feedback_modal" data-code="service"
+               data-text="Получите индивидуальную консультацию нашего сервисного специалиста"
+               class="btn btn--blue js-open-modal">Узнать подробности</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <section class="s-final-order">
       <div class="form-type3 form form--gold">
