@@ -29,7 +29,7 @@
           <ul>
               <?php foreach ($pages->find("parent=catalog") as $category): ?>
                 <li>
-                  <a href="<?= $category->url ?>"><?= $category->title ?></a>
+                  <a href="<?= $pages->find("template=layout_class, parent={$category->id}")->first()->url ?>"><?= $category->title ?></a>
                   <ul>
                       <?php foreach ($pages->find("parent={$category->id}") as $pge): ?>
                         <li><a href="<?= $pge->url ?>"><?= $pge->title ?></a></li>
@@ -275,7 +275,7 @@
                          data-category="<?= $link->title ?>" <?php if ($category->home_show_isAmg) echo "data-amg=\"1\"" ?>
                          data-price="<?= getLowestPrice($link->id, $pages) ?>"
                          class="home-product <?php if ($i == 0) echo 'home-product--first' ?>">
-                          <?php bd($pages->get("id=" . $link->id)->class_preview->first()->url);
+                          <?php
                           if ($i == 0): ?>
                             <div class="home-product__category"><?= ($category->home_show_isAmg) ? $ctg->home_show_title . " AMG" : $ctg->home_show_title ?></div>
                           <?php endif; ?>
@@ -497,7 +497,7 @@
                 <div class="premser">
                   <div class="premser__top">
                     <div class="premser__image">
-                      <img src="<?= $benifit->benefit_image_url ?>"
+                      <img src="<?= $benifit->benefit_image->url ?>"
                            alt="Бутик аксессуаров">
                     </div>
                     <div class="premser__title"><?= $benifit->benefit_title ?></div>
@@ -517,54 +517,16 @@
         <div class="lp-premser__bottom">
           <div class="lp-premser__bot-left-нет xl-70 lg-100">
             <ul class="lp-premser__list row row-15">
-              <li class="xl-33">
-                <i>
-                  <svg class="icon icon-premser1">
-                    <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-premser1"></use>
-                  </svg>
-                </i>
-                <span>Онлайн-запись <br>на сервис 24 часа</span>
-              </li>
-              <li class="xl-33">
-                <i>
-                  <svg class="icon icon-premser2">
-                    <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-premser2"></use>
-                  </svg>
-                </i>
-                <span>Персональный консультант</span>
-              </li>
-              <li class="xl-33">
-                <i>
-                  <svg class="icon icon-premser3">
-                    <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-premser3"></use>
-                  </svg>
-                </i>
-                <span>Обслуживание без ожидания и очередей</span>
-              </li>
-              <li class="xl-33">
-                <i>
-                  <svg class="icon icon-premser4">
-                    <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-premser4"></use>
-                  </svg>
-                </i>
-                <span>Нормо-час от 1 100 руб для постгарантийных автомобилей и от 2400 руб. для автомобилей на гарантии</span>
-              </li>
-              <li class="xl-33">
-                <i>
-                  <svg class="icon icon-premser6">
-                    <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-premser6"></use>
-                  </svg>
-                </i>
-                <span>Программа «Мерседес-Бенц» Service Привилегия 3+ </span>
-              </li>
-              <li class="xl-33">
-                <i>
-                  <svg class="icon icon-premser7">
-                    <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-premser7"></use>
-                  </svg>
-                </i>
-                <span>Возможность отслеживать статус ремонта</span>
-              </li>
+                <?php $i=1; foreach ($page->benefits as $benefit): ?>
+                  <li class="xl-33">
+                    <i>
+                      <svg class="icon icon-premser<?=$i?>">
+                        <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-premser<?=$i?>"></use>
+                      </svg>
+                    </i>
+                    <span><?=$benefit->benefit_description?></span>
+                  </li>
+                <?php $i++; if ($i==5) $i++; endforeach; ?>
             </ul>
           </div>
           <div class="lp-premser__bot-btn xl-30 lg-100">
