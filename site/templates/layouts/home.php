@@ -117,6 +117,7 @@
               <div class="home-promo__slide-subtitle">Особые условия на приобретение автомобилей «Мерседес
                 -
                 Бенц» от официального дилера.</div>
+                <a href="" class="btn btn--blue home-promo__btn">Подробнее</a>
             </div>
           </div>
         </div>
