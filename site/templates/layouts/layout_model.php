@@ -588,7 +588,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="xl-60 md-70 sm-100 product-modal__footer-buttons">
+                    <div class="xl-90 md-90 sm-100 product-modal__footer-buttons">
                         <a href="#feedback_modal"
                            data-code="best_price"
                            data-back="0852407636"
@@ -603,6 +603,13 @@
                            data-info="CLS 350 d 4MATIC Sport"
                            data-text="Получите индивидуальную консультацию нашего финансового специалиста"
                            class="btn btn--blue js-open-modal">Купить в кредит</a>
+                        <a href="#feedback_modal"
+                           data-code="best_price"
+                           data-back="0852407636"
+                           data-order="0852407636"
+                           data-info="CLS 350 d 4MATIC Sport"
+                           data-text="Получите индивидуальную консультацию нашего финансового специалиста"
+                           class="btn btn--blue js-open-modal">Взять с пробегом</a>
                     </div>
                 </div>
                             </div>
