@@ -504,56 +504,40 @@
             </div>
         </div>
     </section>
-    <section class="contacts-contacts" id="a-contacts">
-        <div class="container">
-            <div class="row row-15">
-                <div class="xl-50 md-100 contacts-contacts__left">
-                    <div class="title-40">Контакты</div>
-                    <div class="mb-20">
-                                                <p>ООО «Каскад-Авто»</p>
-                                                <p>460507, Оренбург, п. Пригородный, 12.350 км. шоссе Оренбург-Орск</p>
-                        <p>Тел.:
-                            <a href="tel:+73532910102">+7 (3532) 910-102</a>
-                        </p>
-                        <p>Facebook:
-                            <a href="https://www.facebook.com/MercedesOrb/" target="_blank">www.facebook.com/MercedesOrb/</a>
-                        </p>
-                        <p>Instagram:
-                            <a href="https://www.instagram.com/mercedesoren/" target="_blank">www.instagram.com/mercedesoren/</a>
-                        </p>
-                                                <p>E-mail:
-                            <a href="mailto:mercedes@kaskad-auto.ru" target="_blank">mercedes@kaskad-auto.ru</a>
-                        </p>
-                                            </div>
-                    <div class="mb-10">Режим работы</div>
-                    <div class="row row-15 mb-40">
-                        <div class="xl-40 xs-50 contacts-contacts__xs">
-                            <p>Отдел продаж</p>
-                            <p>Пн - Сб: 9 00 – 19 30</p>
-                            <p>Вс: 10 00 – 19 30</p>
-                        </div>
-                        <div class="xl-40 xs-50 contacts-contacts__xs">
-                            <p>Сервис</p>
-                            <p>Пн - Сб: 9 00 – 19 30</p>
-                            <p>Вс: 10 00 – 19 30</p>
-                        </div>
-                    </div>
-                    <div class="contacts-contacts__btns row row-15">
-                        <div class="xl-50 lg-100">
-                            <a href="#feedback_modal" data-code="consultation" data-text="Перезвоним Вам в ближайшее время и ответим на все интересующие вопросы" class="btn btn--blue js-open-modal">Заказать консультацию</a>
-                        </div>
-                        <div class="xl-50 lg-100">
-                            <a href="#feedback_modal" data-code="best_offer" data-text="Специально для Вас мы готовы сделать особое предложение!" class="btn btn--blue js-open-modal">Получить лучшее предложение</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="xl-50 md-100">
-                                        <div class="title-40">Схема проезда</div>
-                    <div class="contacts-contacts__map" id="map"></div>
-                                    </div>
+    <section class="custom-contacts">
+      <div class="container">
+        <h2 class="custom-contacts__heading">Контакты</h2>
+        <div class="custom-contacts__grid">
+          <div class="custom-contacts__cell">
+            <div class="custom-contacts__item" style="background-image:url(<?= $config->urls->templates . 'assets/img/01.svg' ?>)">
+              <p>пр. Победы, 71</p>
+              <p>456620 Копейск</p>
             </div>
+          </div>
+          <div class="custom-contacts__cell">
+            <div class="custom-contacts__item" style="background-image:url(<?= $config->urls->templates . 'assets/img/01.svg' ?>)">
+              <p>пр. Победы, 71</p>
+              <p>456620 Копейск</p>
+            </div>
+          </div>
+          <div class="custom-contacts__cell">
+            <div class="custom-contacts__item" style="background-image:url(<?= $config->urls->templates . 'assets/img/01.svg' ?>)">
+              <p> Новые автомобили: <a href="">+7 (351) 2-555-666</a></p>
+              <p>Сервис: <a href="">+7 (351) 2-555-666</a></p>
+            </div>
+          </div>
+          <div class="custom-contacts__cell">
+            <div class="custom-contacts__item" style="background-image:url(<?= $config->urls->templates . 'assets/img/01.svg' ?>)">
+              <p>Instagram - <a href="">@mercedes_asterion</a></p>
+              <p>ФБ - <a href="">@MercedesAsterion</a></p>
+              <p>YouTube - <a href="">Мерседес Астерион</a></p>
+              <p>Google - <a href="">Отзывы</a></p>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
+    <section class="custom-map" id="map"></section>
 
 </main>
 
