@@ -1307,7 +1307,7 @@
               <li class="xl-33">
                 <i>
                   <svg class="icon icon-premser1">
-                    <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-premser1"></use>
+                    <use xlink:href="<?= $config->urls->templates . 'assets/img/spr.svg' ?>#1"></use>
                   </svg>
                 </i>
                 <span>Онлайн-запись <br>на сервис 24 часа</span>
@@ -1315,7 +1315,7 @@
               <li class="xl-33">
                 <i>
                   <svg class="icon icon-premser2">
-                    <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-premser2"></use>
+                    <use xlink:href="<?= $config->urls->templates . 'assets/img/spr.svg' ?>#2"></use>
                   </svg>
                 </i>
                 <span>Персональный консультант</span>
@@ -1323,7 +1323,7 @@
               <li class="xl-33">
                 <i>
                   <svg class="icon icon-premser3">
-                    <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-premser3"></use>
+                    <use xlink:href="<?= $config->urls->templates . 'assets/img/spr.svg' ?>#3"></use>
                   </svg>
                 </i>
                 <span>Обслуживание без ожидания и очередей</span>
@@ -1331,7 +1331,7 @@
               <li class="xl-33">
                 <i>
                   <svg class="icon icon-premser4">
-                    <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-premser4"></use>
+                    <use xlink:href="<?= $config->urls->templates . 'assets/img/spr.svg' ?>#4"></use>
                   </svg>
                 </i>
                 <span>Нормо-час от 1 100 руб для постгарантийных автомобилей и от 2400 руб. для автомобилей на гарантии</span>
@@ -1339,7 +1339,7 @@
               <li class="xl-33">
                 <i>
                   <svg class="icon icon-premser6">
-                    <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-premser6"></use>
+                    <use xlink:href="<?= $config->urls->templates . 'assets/img/spr.svg' ?>#5"></use>
                   </svg>
                 </i>
                 <span>Программа «Мерседес-Бенц» Service Привилегия 3+ </span>
@@ -1347,7 +1347,7 @@
               <li class="xl-33">
                 <i>
                   <svg class="icon icon-premser7">
-                    <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-premser7"></use>
+                    <use xlink:href="<?= $config->urls->templates . 'assets/img/spr.svg' ?>#6"></use>
                   </svg>
                 </i>
                 <span>Возможность отслеживать статус ремонта</span>
