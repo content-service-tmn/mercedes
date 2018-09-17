@@ -516,14 +516,10 @@
           </div>
           <div class="custom-contacts__cell">
             <div class="custom-contacts__item" style="background-image:url(<?= $config->urls->templates . 'assets/img/01.svg' ?>)">
-              <p>пр. Победы, 71</p>
-              <p>456620 Копейск</p>
-            </div>
-          </div>
-          <div class="custom-contacts__cell">
-            <div class="custom-contacts__item" style="background-image:url(<?= $config->urls->templates . 'assets/img/01.svg' ?>)">
-              <p> Новые автомобили: <a href="">+7 (351) 2-555-666</a></p>
-              <p>Сервис: <a href="">+7 (351) 2-555-666</a></p>
+              <p>НОВЫЕ АВТОМОБИЛИ: <a href="">+7 (351) 2-555-666</a></p>
+              <p>СЕРВИС: +7 (351) <a href="">2-555-666</a></p>
+              <p>ЗАПЧАСТИ: +7 (351) <a href="">2-555-666</a></p>
+              <p>EMAIL: <a href="">UAH@UAH.UU.RU</a></p>
             </div>
           </div>
           <div class="custom-contacts__cell">
