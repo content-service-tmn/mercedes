@@ -117,7 +117,29 @@ function listFilter() {
   $("input.input-color__input:checked").each(function(index) {
     colors[index] = $(this).attr("value");
   });
-  console.log(colors);
+  $(".product").addClass('js-hidden');
+  $(".product").filter(function() {
+    var price = parseInt($(this).attr('data-price').replace(/\s/g, ''));
+    return price>=min && price<=max;
+  })
+  .filter(function() {
+    var md = $(this).attr('data-model');
+    if (md=="Все") return true;
+    return model==md;
+  })
+  .filter(function() {
+    var isAvailable = $(this).attr('data-available');
+    var isNotAvailable = $(this).attr('data-not-available');
+    var amg = $(this).attr('data-amg');
+    if (isAvailable==0 && isNotAvailable==0 && amg==0) return true;
+    return isAvailable==isAvail && isNotAvailable==notAvail && isAmg==amg;
+  })
+  .filter(function(){
+    var color = $(this).attr('data-color');
+    if (colors.length==0) return true;
+    return colors.include(color);
+  })
+  .removeClass('js-hidden');
 
 }
 

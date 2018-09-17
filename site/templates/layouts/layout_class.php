@@ -1,21 +1,27 @@
 <?php namespace Processwire;
 if ($page->parent()->name == "catalog") $session->redirect($pages->find("template=layout_class, parent={$page->id}")->first()->url) ?>
 <div class="site-wrapper">
-  <header class="header js-header">
-    <div class="container">
-      <div class="header__inner">
-        <div class="header__top">
-          <div class="header__logo">
-            <a href="/"><img src="https://sales.mercedes-orenburg.ru/static/build/img/logo/logo.svg" alt=""></a>
-          </div>
-          <div class="header__right">
-            <div class="header__dealer">
-              <div class="header__dealer-text">
-                Официальный дилер в Оренбурге <span class="-nowrap">«Каскад-Авто»</span>
-              </div>
-              <div class="header__dealer-phone">
-                <a href="tel:+73532910102">+7 (3532) 910-102</a>
-              </div>
+   <header class="header js-header">
+      <div class="container">
+         <div class="header__inner">
+            <div class="header__top">
+               <div class="header__logo">
+                  <a href="/"><img src="<?= $config->urls->templates . 'assets/img/logo.svg' ?>" alt=""></a>
+               </div>
+               <div class="header__right">
+                  <div class="header__dealer">
+                     <div class="header__dealer-text">
+                        Официальный дилер в Оренбурге <span class="-nowrap">«Каскад-Авто»</span>
+                     </div>
+                     <div class="header__dealer-phone">
+                        <a href="tel:+73532910102">+7 (3532) 910-102</a>
+                     </div>
+                  </div>
+                  <div class="header__button">
+                     <a href="#feedback_modal" data-code="consultation" data-text="Перезвоним Вам в ближайшее время и ответим на все интересующие вопросы" class="btn btn--blue js-open-modal">Заказать консультацию</a>
+                  </div>
+                  <div class="cd-nav__trigger"><span class="cd-nav__trigger-icon"></span></div>
+               </div>
             </div>
             <div class="header__button">
               <a href="#feedback_modal" data-code="consultation"
