@@ -129,6 +129,15 @@
         <div class="container">
           <div class="home-promo__nav-title">Выберите интересующую вас модель</div>
           <div class="header__nav nav-class js-navigation-promo"></div>
+          <div class="header__nav nav-class custom-nav">
+            <ul>
+              <li><a href="" class="is-parent">Коммерческий транспорт</a></li>
+              <li><a href="" class="is-parent">Сервисное обслуживание</a></li>
+              <li><a href="" class="is-parent">Оригинальные запасные части и аксессуары</a></li>
+              <li><a href="" class="is-parent">Mercedes Benz Financial</a></li>
+              <li><a href="" class="is-parent">Преимущества для покупателей из других регионов</a></li>
+            </ul>
+          </div>
         </div>
       </div>
 
@@ -1372,7 +1381,7 @@
               <li class="xl-33">
                 <i>
                   <svg class="icon icon-premser1">
-                    <use xlink:href="<?= $config->urls->templates . 'assets/img/spr.svg' ?>#1"></use>
+                    <use xlink:href="<?= $config->urls->templates . 'assets/img/benefits.svg' ?>#1"></use>
                   </svg>
                 </i>
                 <span>Онлайн-запись <br>на сервис 24 часа</span>
@@ -1380,7 +1389,7 @@
               <li class="xl-33">
                 <i>
                   <svg class="icon icon-premser2">
-                    <use xlink:href="<?= $config->urls->templates . 'assets/img/spr.svg' ?>#2"></use>
+                    <use xlink:href="<?= $config->urls->templates . 'assets/img/benefits.svg' ?>#2"></use>
                   </svg>
                 </i>
                 <span>Персональный консультант</span>
@@ -1388,7 +1397,7 @@
               <li class="xl-33">
                 <i>
                   <svg class="icon icon-premser3">
-                    <use xlink:href="<?= $config->urls->templates . 'assets/img/spr.svg' ?>#3"></use>
+                    <use xlink:href="<?= $config->urls->templates . 'assets/img/benefits.svg' ?>#3"></use>
                   </svg>
                 </i>
                 <span>Обслуживание без ожидания и очередей</span>
