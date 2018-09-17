@@ -48,9 +48,61 @@
     text-transform:uppercase;
     color:#2b2b2b;
   }
+  &__socials {
+    display:flex;
+    margin-top:30px;
+    margin-left: -30px;
+    flex-wrap: wrap;
+    justify-content: center;
+    @media(max-width: 959px) {
+      margin-top:0;
+    }
+  }
+  &__social {
+    position:relative;
+    border-radius: 50%;
+    background-color:#2b2b2b;
+    display:inline-block;
+    margin-left: 30px;
+    margin-top:30px;
+    width:40px;
+    height:40px;
+    &:after {
+      position:absolute;
+      font-size:24px;
+      top:50%;
+      left:50%;
+      color:white;
+      font-family: "FontAwesome";
+      transform:translate(-50%,-50%);
+    }
+    &_vk:after {
+      content:"\f189";
+    }
+    &_fb:after {
+      content:"\f39e";
+    }
+    &_yt:after {
+      content:"\f167";
+    }
+    &_gg:after {
+      content:"\f1a0";
+    }
+  }
 }
 
 .custom-map {
   height:480px;
   width:100%;
+  &__wrapper {
+    position:relative;
+  }
+  &__link {
+    position:absolute;
+    left:0;
+    top:0;
+    right:0;
+    bottom:0;
+    z-index:1;
+  }
 }

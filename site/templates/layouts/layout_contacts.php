@@ -531,9 +531,19 @@
             </div>
           </div>
         </div>
+        <div class="custom-contacts__socials">
+          <a href="" class="custom-contacts__social custom-contacts__social_vk"></a>
+          <a href="" class="custom-contacts__social custom-contacts__social_fb"></a>
+          <a href="" class="custom-contacts__social custom-contacts__social_yt"></a>
+          <a href="" class="custom-contacts__social custom-contacts__social_gg"></a>
+        </div>
       </div>
     </section>
-    <section class="custom-map" id="map"></section>
+    <section class="custom-map__wrapper">
+      <section class="custom-map" id="map">
+      </section>
+      <a href="" target="_blank" class="custom-map__link"></a>
+    </section>
 
 </main>
 
