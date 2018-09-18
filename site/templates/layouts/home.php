@@ -131,6 +131,16 @@
           <div class="header__nav nav-class js-navigation-promo"></div>
           <div class="header__nav nav-class custom-nav">
             <ul>
+                <?php foreach ($pages->find("parent=catalog") as $category): ?>
+                  <li>
+                    <a href="<?= $pages->find("template=layout_class, parent={$category->id}")->first()->url ?>"><?= $category->title ?></a>
+                    <ul>
+                        <?php foreach ($pages->find("parent={$category->id}") as $pge): ?>
+                          <li><a href="<?= $pge->url ?>"><?= $pge->title ?></a></li>
+                        <?php endforeach; ?>
+                    </ul>
+                  </li>
+                <?php endforeach; ?>
               <li><a href="" class="is-parent">Коммерческий транспорт</a></li>
               <li><a href="" class="is-parent">Сервисное обслуживание</a></li>
               <li><a href="" class="is-parent">Оригинальные запасные части и аксессуары</a></li>
