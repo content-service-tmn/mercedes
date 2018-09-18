@@ -1,5 +1,4 @@
 <?php namespace Processwire;
-bd(getAccessories($pages));
 if ($page->parent()->name == "catalog") $session->redirect($pages->find("template=layout_class, parent={$page->id}")->first()->url) ?>
 <div class="site-wrapper">
   <header class="header js-header">

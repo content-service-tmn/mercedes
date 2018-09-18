@@ -12,25 +12,6 @@ function fixed_header() {
 }
 
 
-function qwerty (id) {
-    $.ajax({
-        url: "/mercedes/car",
-        type: 'POST',
-        data: {id: id},
-        success: function (result) {
-            console.log("success")
-        },
-        error: function (result) {
-            console.log("error")
-        }
-
-    })
-}
-
-$(".CKFormTrigger").on('click', function (e) {
-    console.log("send");
-    e.preventDefault();
-});
 
 function homeFilterInit() {
     var t = parseInt($(".home-filter").attr("data-min")),
@@ -165,32 +146,52 @@ function listFilter() {
 }
 
 function getModelInfo(t) {
-    history.replaceState([], $("title").text(), location.origin + location.pathname + "#order_id=" + t), $.magnificPopup.open({
+    console.log(t);
+    var ident = t;
+    history.replaceState([], $("title").text(), location.origin + location.pathname + "#order_id=" + t),
+        $.magnificPopup.open({
         items: {
             src: "/mercedes/car"
         },
         type: "ajax",
-        fixedContentPos: !0,
-        closeOnBgClick: !1,
+        // fixedContentPos: !0,
+        // closeOnBgClick: !1,
         ajax: {
             settings: {
-                type: "post",
+                type: "POST",
                 data: {
-                    order_id: t
+                    order_id: (t)
                 },
                 dataType: "html"
             }
         },
         callbacks: {
             close: function() {
+                history.replaceState([], $("title").text(), location.origin + location.pathname)
             }
         },
         tClose: "Закрыть",
         tLoading: "Загрузка…"
-    })
+    });
 }
 
 function updateTradeIn() {
+
+}
+
+function qwerty(t){
+    $.ajax({
+        url: "/ajax-handler",
+        type: 'POST',
+        data: {data: {id: t}},
+        success: function (result) {
+            console.log("success");
+        },
+        error: function (result) {
+            console.log("error");
+        }
+
+    });
 
 }
 

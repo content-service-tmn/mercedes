@@ -1,5 +1,8 @@
 <?php namespace Processwire;?>
-<?php $info = getCarInfo($pages, $_REQUEST["id"]);?>
+<?php
+bd($page->path);
+?>
+<?php $info = getCarInfo($pages, $_REQUEST["order_id"]); $codes = getAccessories($pages); ?>
 
 <div id="product_modal" class="product-modal modal-template">
 
@@ -140,10 +143,12 @@
             </div>
 
             <ul class="product-modal__char-table">
+              <?php foreach (explode(",", $info["car_accessories"]) as $cde): if (isset($codes[$cde])): ?>
                 <li>
-                    <span>03B</span>
-                    <span>Инструкция по эксплуатации и сервисная книжка на русском языке</span>
+                    <span><?=$cde?></span>
+                    <span><?=$codes[$cde]?></span>
                 </li>
+              <?php endif; endforeach; ?>
             </ul>
 
             <div class="product-modal__footer">
