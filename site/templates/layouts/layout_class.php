@@ -582,6 +582,7 @@ if ($page->parent()->name == "catalog") $session->redirect($pages->find("templat
                 <div>
 
                     <?php foreach ($pages->find("template=layout_car, parent={$page->id}") as $car): ?>
+                        <?php bd(getCarInfo($pages, $car->car_id))?>
                       <div class="product" <?php if ($car->car_inStock) echo "data-available=\"1\""; else echo "data-not-available=\"1\""; echo "data-color=\"black\""; echo "data-price=\"{$car->car_price}\"";
                       foreach ($page->modifications as $modif){if ($modif->class_id==$car->car_modification_id) echo "data-model="."\"$modif->class_name\""; }?>>
                         <div class="product__name--m">
