@@ -294,182 +294,34 @@ if ($page->parent()->name == "catalog") $session->redirect($pages->find("templat
     <section class="product-promo">
       <div class="product-gallery product-gallery--promo">
         <div class="product-gallery__images owl-carousel">
-          <div class="product-gallery__image">
-            <picture>
-              <source srcset="https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845744040001-767x320_resize.jpg"
-                      data-srcset="https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845744040001-767x320_resize.jpg, https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845744040001-767x320_resize.jpg 1.5x"
-                      media="(max-width: 767px)">
-              <img src="https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845744040001-1920x800_resize.jpg"
-                   data-srcset="https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845744040001-3840x1600_resize.jpg 1.5x"
-                   alt="G-Класс внедорожник">
-            </picture>
-          </div>
-          <div class="product-gallery__image">
-            <picture>
-              <source srcset=""
-                      data-srcset="https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845744400002-767x320_resize.jpg, https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845744400002-767x320_resize.jpg 1.5x"
-                      media="(max-width: 767px)">
-              <img data-src="https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845744400002-1920x800_resize.jpg"
-                   data-srcset="https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845744400002-3840x1600_resize.jpg 1.5x"
-                   alt="G-Класс внедорожник">
-            </picture>
-          </div>
-          <div class="product-gallery__image">
-            <picture>
-              <source srcset=""
-                      data-srcset="https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845744500003-767x320_resize.jpg, https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845744500003-767x320_resize.jpg 1.5x"
-                      media="(max-width: 767px)">
-              <img data-src="https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845744500003-1920x800_resize.jpg"
-                   data-srcset="https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845744500003-3840x1600_resize.jpg 1.5x"
-                   alt="G-Класс внедорожник">
-            </picture>
-          </div>
-          <div class="product-gallery__image">
-            <picture>
-              <source srcset=""
-                      data-srcset="https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845744610004-767x320_resize.jpg, https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845744610004-767x320_resize.jpg 1.5x"
-                      media="(max-width: 767px)">
-              <img data-src="https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845744610004-1920x800_resize.jpg"
-                   data-srcset="https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845744610004-3840x1600_resize.jpg 1.5x"
-                   alt="G-Класс внедорожник">
-            </picture>
-          </div>
-          <div class="product-gallery__image">
-            <picture>
-              <source srcset=""
-                      data-srcset="https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845744840005-767x320_resize.jpg, https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845744840005-767x320_resize.jpg 1.5x"
-                      media="(max-width: 767px)">
-              <img data-src="https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845744840005-1920x800_resize.jpg"
-                   data-srcset="https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845744840005-3840x1600_resize.jpg 1.5x"
-                   alt="G-Класс внедорожник">
-            </picture>
-          </div>
-          <div class="product-gallery__image">
-            <picture>
-              <source srcset=""
-                      data-srcset="https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845745080006-767x320_resize.jpg, https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845745080006-767x320_resize.jpg 1.5x"
-                      media="(max-width: 767px)">
-              <img data-src="https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845745080006-1920x800_resize.jpg"
-                   data-srcset="https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845745080006-3840x1600_resize.jpg 1.5x"
-                   alt="G-Класс внедорожник">
-            </picture>
-          </div>
-          <div class="product-gallery__image">
-            <picture>
-              <source srcset=""
-                      data-srcset="https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845745200007-767x320_resize.jpg, https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845745200007-767x320_resize.jpg 1.5x"
-                      media="(max-width: 767px)">
-              <img data-src="https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845745200007-1920x800_resize.jpg"
-                   data-srcset="https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845745200007-3840x1600_resize.jpg 1.5x"
-                   alt="G-Класс внедорожник">
-            </picture>
-          </div>
-          <div class="product-gallery__image">
-            <picture>
-              <source srcset=""
-                      data-srcset="https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845745310008-767x320_resize.jpg, https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845745310008-767x320_resize.jpg 1.5x"
-                      media="(max-width: 767px)">
-              <img data-src="https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845745310008-1920x800_resize.jpg"
-                   data-srcset="https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845745310008-3840x1600_resize.jpg 1.5x"
-                   alt="G-Класс внедорожник">
-            </picture>
-          </div>
-          <div class="product-gallery__image">
-            <picture>
-              <source srcset=""
-                      data-srcset="https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845745430009-767x320_resize.jpg, https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845745430009-767x320_resize.jpg 1.5x"
-                      media="(max-width: 767px)">
-              <img data-src="https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845745430009-1920x800_resize.jpg"
-                   data-srcset="https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845745430009-3840x1600_resize.jpg 1.5x"
-                   alt="G-Класс внедорожник">
-            </picture>
-          </div>
+            <?php foreach ($page->class_images as $img): ?>
+              <div class="product-gallery__image">
+                <picture>
+                  <source srcset="<?= $img->size(760, 320, [])->url ?>"
+                          data-srcset="<?= $img->size(760, 320, [])->url ?>, <?= $img->size(760, 320, [])->url ?> 1.5x"
+                          media="(max-width: 767px)">
+                  <img src="<?= $img->url ?>"
+                       data-srcset="<?= $img->url ?>"
+                       alt="<?= $page->parent()->title . " " . $page->title ?>">
+                </picture>
+              </div>
+            <?php endforeach; ?>
         </div>
         <div class="product-gallery__bottom">
           <div class="container">
-            <h1 class="product-gallery__title">«Мерседес-Бенц» <?=$page->parent()->title . " " . $page->title ?></h1>
+            <h1 class="product-gallery__title">«Мерседес-Бенц» <?= $page->parent()->title . " " . $page->title ?></h1>
             <div class="product-gallery__thumbs owl-carousel">
-              <div class="product-gallery__thumb is-active">
-                <picture>
-                  <source srcset="https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845744040001-110x46_crop.jpg, https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845744040001-220x92_crop.jpg 1.5x"
-                          media="(max-width: 767px)">
-                  <img src="https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845744040001-184x77_crop.jpg"
-                       srcset="https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845744040001-368x154_crop.jpg 1.5x"
-                       alt="G-Класс внедорожник">
-                </picture>
-              </div>
-              <div class="product-gallery__thumb ">
-                <picture>
-                  <source srcset="https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845744400002-110x46_crop.jpg, https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845744400002-220x92_crop.jpg 1.5x"
-                          media="(max-width: 767px)">
-                  <img src="https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845744400002-184x77_crop.jpg"
-                       srcset="https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845744400002-368x154_crop.jpg 1.5x"
-                       alt="G-Класс внедорожник">
-                </picture>
-              </div>
-              <div class="product-gallery__thumb ">
-                <picture>
-                  <source srcset="https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845744500003-110x46_crop.jpg, https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845744500003-220x92_crop.jpg 1.5x"
-                          media="(max-width: 767px)">
-                  <img src="https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845744500003-184x77_crop.jpg"
-                       srcset="https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845744500003-368x154_crop.jpg 1.5x"
-                       alt="G-Класс внедорожник">
-                </picture>
-              </div>
-              <div class="product-gallery__thumb ">
-                <picture>
-                  <source srcset="https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845744610004-110x46_crop.jpg, https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845744610004-220x92_crop.jpg 1.5x"
-                          media="(max-width: 767px)">
-                  <img src="https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845744610004-184x77_crop.jpg"
-                       srcset="https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845744610004-368x154_crop.jpg 1.5x"
-                       alt="G-Класс внедорожник">
-                </picture>
-              </div>
-              <div class="product-gallery__thumb ">
-                <picture>
-                  <source srcset="https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845744840005-110x46_crop.jpg, https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845744840005-220x92_crop.jpg 1.5x"
-                          media="(max-width: 767px)">
-                  <img src="https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845744840005-184x77_crop.jpg"
-                       srcset="https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845744840005-368x154_crop.jpg 1.5x"
-                       alt="G-Класс внедорожник">
-                </picture>
-              </div>
-              <div class="product-gallery__thumb ">
-                <picture>
-                  <source srcset="https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845745080006-110x46_crop.jpg, https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845745080006-220x92_crop.jpg 1.5x"
-                          media="(max-width: 767px)">
-                  <img src="https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845745080006-184x77_crop.jpg"
-                       srcset="https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845745080006-368x154_crop.jpg 1.5x"
-                       alt="G-Класс внедорожник">
-                </picture>
-              </div>
-              <div class="product-gallery__thumb ">
-                <picture>
-                  <source srcset="https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845745200007-110x46_crop.jpg, https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845745200007-220x92_crop.jpg 1.5x"
-                          media="(max-width: 767px)">
-                  <img src="https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845745200007-184x77_crop.jpg"
-                       srcset="https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845745200007-368x154_crop.jpg 1.5x"
-                       alt="G-Класс внедорожник">
-                </picture>
-              </div>
-              <div class="product-gallery__thumb ">
-                <picture>
-                  <source srcset="https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845745310008-110x46_crop.jpg, https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845745310008-220x92_crop.jpg 1.5x"
-                          media="(max-width: 767px)">
-                  <img src="https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845745310008-184x77_crop.jpg"
-                       srcset="https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845745310008-368x154_crop.jpg 1.5x"
-                       alt="G-Класс внедорожник">
-                </picture>
-              </div>
-              <div class="product-gallery__thumb ">
-                <picture>
-                  <source srcset="https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845745430009-110x46_crop.jpg, https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845745430009-220x92_crop.jpg 1.5x"
-                          media="(max-width: 767px)">
-                  <img src="https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845745430009-184x77_crop.jpg"
-                       srcset="https://sales.mercedes-orenburg.ru/image/cache/catalog/models/model_15/15161845745430009-368x154_crop.jpg 1.5x"
-                       alt="G-Класс внедорожник">
-                </picture>
-              </div>
+                <?php $i=0; foreach ($page->class_images as  $img): ?>
+                  <div class="product-gallery__thumb <?php if ($i==0) echo 'is-active'?> ">
+                    <picture>
+                      <source srcset="<?= $img->size(760, 320, [])->url ?>, <?= $img->size(110, 46, [])->url ?>, <?= $img->size(760, 320, [])->url ?>, <?= $img->size(220, 92, [])->url ?> 1.5x"
+                              media="(max-width: 767px)">
+                      <img src="<?= $img->size(760, 320, [])->url ?>, <?= $img->size(184, 77, [])->url ?>"
+                           srcset="<?= $img->size(760, 320, [])->url ?>, <?= $img->size(368, 154, [])->url ?> 1.5x"
+                           alt="<?= $page->parent()->title . " " . $page->title ?>">
+                    </picture>
+                  </div>
+                <?php $i++; endforeach ?>
             </div>
             <ul class="product-gallery__variants">
                 <?php foreach ($pages->find("template=layout_class, parent={$page->parent()->id}") as $child): ?>
@@ -758,7 +610,7 @@ if ($page->parent()->name == "catalog") $session->redirect($pages->find("templat
     <section class="prd-specifications">
       <div class="container">
         <div class="prd-specifications__title title-40">Двигатели и технические характеристики
-            <?=$page->parent()->title . " " . $page->title ?>
+
         </div>
         <div class="specifications-table">
             <?php $count = $page->modifications->count();

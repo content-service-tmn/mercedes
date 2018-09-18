@@ -60,7 +60,39 @@
         <div class="header-fixed">
           <div class="container">
             <div class="header-fixed__inner">
-              <div class="header-fixed__nav nav-class js-header-fixed-nav"></div>
+              <div class="header-fixed__nav nav-class js-header-fixed-nav">
+                <ul>
+                    <?php $i = 0;
+                    foreach ($pages->find("parent=catalog") as $category): if ($i < 8): ?>
+                      <li>
+                        <a href="<?= $pages->find("template=layout_class, parent={$category->id}")->first()->url ?>"><?= $category->title ?></a>
+                        <ul>
+                            <?php foreach ($pages->find("parent={$category->id}") as $pge): ?>
+                              <li><a href="<?= $pge->url ?>"><?= $pge->title ?></a></li>
+                            <?php endforeach; ?>
+                        </ul>
+                      </li>
+                        <?php $i++; endif; endforeach; ?>
+                  <li>
+                    <a href="">Другое</a>
+                    <ul>
+                        <?php $i = 0;
+                        foreach ($pages->find("parent=catalog") as $category): if ($i >= 8): ?>
+                          <li>
+                            <a href="<?= $pages->find("template=layout_class, parent={$category->id}")->first()->url ?>"><?= $category->title ?></a>
+                          </li>
+                        <?php endif;
+                            $i++; endforeach; ?>
+                      <li><a href="" class="is-parent">Коммерческий транспорт</a></li>
+                      <li><a href="" class="is-parent">Сервисное обслуживание</a></li>
+                      <li><a href="" class="is-parent">Оригинальные запасные части и аксессуары</a></li>
+                      <li><a href="" class="is-parent">Mercedes Benz Financial</a></li>
+                      <li><a href="" class="is-parent">Преимущества для покупателей из других регионов</a></li>
+                    </ul>
+                  </li>
+
+                </ul>
+              </div>
               <div class="header-fixed__button">
                 <a href="#feedback_modal" data-code="consultation"
                    data-text="Перезвоним Вам в ближайшее время и ответим на все интересующие вопросы"
@@ -117,7 +149,7 @@
               <div class="home-promo__slide-subtitle">Особые условия на приобретение автомобилей «Мерседес
                 -
                 Бенц» от официального дилера.</div>
-                <a href="" class="btn btn--blue home-promo__btn">Подробнее</a>
+              <a href="" class="btn btn--blue home-promo__btn">Подробнее</a>
             </div>
           </div>
         </div>
@@ -131,7 +163,8 @@
           <div class="header__nav nav-class js-navigation-promo"></div>
           <div class="header__nav nav-class custom-nav">
             <ul>
-                <?php foreach ($pages->find("parent=catalog") as $category): ?>
+                <?php $i = 0;
+                foreach ($pages->find("parent=catalog") as $category): if ($i < 8): ?>
                   <li>
                     <a href="<?= $pages->find("template=layout_class, parent={$category->id}")->first()->url ?>"><?= $category->title ?></a>
                     <ul>
@@ -140,12 +173,25 @@
                         <?php endforeach; ?>
                     </ul>
                   </li>
-                <?php endforeach; ?>
-              <li><a href="" class="is-parent">Коммерческий транспорт</a></li>
-              <li><a href="" class="is-parent">Сервисное обслуживание</a></li>
-              <li><a href="" class="is-parent">Оригинальные запасные части и аксессуары</a></li>
-              <li><a href="" class="is-parent">Mercedes Benz Financial</a></li>
-              <li><a href="" class="is-parent">Преимущества для покупателей из других регионов</a></li>
+                    <?php $i++; endif; endforeach; ?>
+              <li>
+                <a href="">Другое</a>
+                <ul>
+                    <?php $i = 0;
+                    foreach ($pages->find("parent=catalog") as $category): if ($i >= 8): ?>
+                      <li>
+                        <a href="<?= $pages->find("template=layout_class, parent={$category->id}")->first()->url ?>"><?= $category->title ?></a>
+                      </li>
+                    <?php endif;
+                        $i++; endforeach; ?>
+                  <li><a href="" class="is-parent">Коммерческий транспорт</a></li>
+                  <li><a href="" class="is-parent">Сервисное обслуживание</a></li>
+                  <li><a href="" class="is-parent">Оригинальные запасные части и аксессуары</a></li>
+                  <li><a href="" class="is-parent">Mercedes Benz Financial</a></li>
+                  <li><a href="" class="is-parent">Преимущества для покупателей из других регионов</a></li>
+                </ul>
+              </li>
+
             </ul>
           </div>
         </div>
