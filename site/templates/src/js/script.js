@@ -33,9 +33,18 @@ $(".CKFormTrigger").on('click', function (e) {
 });
 
 function homeFilterInit() {
+  var min=-1,max=0;
+  $(".home-product").each(function() {
+    var tmp = $(this).attr("data-price").replace(/\s/g, '');
+    if (min==-1) min=tmp;
+    else if (tmp<min) min=tmp;
+    if (tmp>max) max=tmp;
+  });
     var t = parseInt($(".home-filter").attr("data-min")),
         e = parseInt($(".home-filter").attr("data-max")),
         i = $("#range-price");
+        t = min;
+        e = max;
     i.ionRangeSlider({
         type: "double",
         min: t,
@@ -72,10 +81,20 @@ function homeFilterInit() {
 }
 
 function listFilterInit() {
+  var min=-1,max=0;
+  $(".product").each(function() {
+    var tmp = $(this).attr("data-price").replace(/\s/g, '');
+    if (min==-1) min=tmp;
+    else if (tmp<min) min=tmp;
+    if (tmp>max) max=tmp;
+  });
+  if (min==-1) min=0;
     if ($("section").hasClass("product-filters")) {
         var e = $("#range-price"),
             i = parseInt($(".product-filters").attr("data-min")),
             n = parseInt($(".product-filters").attr("data-max"));
+            i = min;
+            n = max;
         e.ionRangeSlider({
             type: "double",
             min: i,
@@ -135,6 +154,7 @@ function listFilter() {
   var notAvail = $("input#stock_status_no:checked").length;
   var isAmg = $("input#status_amg:checked").length;
   var colors = [];
+  console.log(model,min,max,isAvail,notAvail,isAmg,colors);
   $("input.input-color__input:checked").each(function(index) {
     colors[index] = $(this).attr("value");
   });
@@ -145,7 +165,7 @@ function listFilter() {
   })
   .filter(function() {
     var md = $(this).attr('data-model');
-    if (md=="Все") return true;
+    if (model=="Все") return true;
     return model==md;
   })
   .filter(function() {
