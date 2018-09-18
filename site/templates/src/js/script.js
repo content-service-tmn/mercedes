@@ -171,7 +171,7 @@ function getModelInfo(t) {
     history.replaceState([], $("title").text(), location.origin + location.pathname + "#order_id=" + t),
         $.magnificPopup.open({
         items: {
-            src: "/car"
+            src: "/car/"
         },
         type: "ajax",
         // fixedContentPos: !0,
