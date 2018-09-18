@@ -95,7 +95,7 @@ function getLowestPrice($id, $pages) {
 }
 
 function getAccessories($pages){
-    return file_get_contents($pages->get("id=1")->home_accessories->url);
+    return json_encode(file_get_contents($pages->get("id=1")->home_accessories->filename));
 }
 
 
