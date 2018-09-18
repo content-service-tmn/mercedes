@@ -151,7 +151,7 @@ function getModelInfo(t) {
     history.replaceState([], $("title").text(), location.origin + location.pathname + "#order_id=" + t),
         $.magnificPopup.open({
         items: {
-            src: "/mercedes/car"
+            src: "/mercedes/car/"
         },
         type: "ajax",
         // fixedContentPos: !0,
@@ -181,7 +181,7 @@ function updateTradeIn() {
 
 function qwerty(t){
     $.ajax({
-        url: "/ajax-handler",
+        url: "/mercedes/ajax-handler/",
         type: 'POST',
         data: {data: {id: t}},
         success: function (result) {
