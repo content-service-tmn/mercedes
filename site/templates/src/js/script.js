@@ -228,7 +228,7 @@ function sendRequest(l, c) {
         e = $(l).serialize(),
         d = $(l).find("button").text();
     $.ajax({
-        url: "/mercedes/ajax-handler",
+        url: "/mercedes/car/",
         type: "post",
         data: e,
         dataType: "json",
