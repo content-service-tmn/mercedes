@@ -1,275 +1,280 @@
 <?php namespace Processwire;
-bd(getAccessories($pages));
 if ($page->parent()->name == "catalog") $session->redirect($pages->find("template=layout_class, parent={$page->id}")->first()->url) ?>
 <div class="site-wrapper">
   <header class="header js-header">
-      <div class="container">
-         <div class="header__inner">
-            <div class="header__top">
-               <div class="header__logo">
-                  <a href="/"><img src="<?= $config->urls->templates . 'assets/img/logo.svg' ?>" alt=""></a>
-               </div>
-               <div class="header__right">
-                  <div class="header__dealer">
-                     <div class="header__dealer-text">
-                        Официальный дилер в Оренбурге <span class="-nowrap">«Каскад-Авто»</span>
-                     </div>
-                     <div class="header__dealer-phone">
-                        <a href="tel:+73532910102">+7 (3532) 910-102</a>
-                     </div>
-                  </div>
-                  <div class="header__button">
-                     <a href="#feedback_modal" data-code="consultation" data-text="Перезвоним Вам в ближайшее время и ответим на все интересующие вопросы" class="btn btn--blue js-open-modal">Заказать консультацию</a>
-                  </div>
-                  <div class="cd-nav__trigger"><span class="cd-nav__trigger-icon"></span></div>
-               </div>
+    <div class="container">
+      <div class="header__inner">
+        <div class="header__top">
+          <div class="header__logo">
+            <a href="/"><img src="<?= $config->urls->templates . 'assets/img/logo.svg' ?>" alt=""></a>
+          </div>
+          <div class="header__right">
+            <div class="header__dealer">
+              <div class="header__dealer-text">
+                Официальный дилер в Оренбурге <span class="-nowrap">«Каскад-Авто»</span>
+              </div>
+              <div class="header__dealer-phone">
+                <a href="tel:+73532910102">+7 (3532) 910-102</a>
+              </div>
             </div>
-            <div class="header__nav nav-class js-navigation-desktop">
-               <ul>
-                  <li>
-                     <a href="https://sales.mercedes-orenburg.ru/a-hatchback/amg/">AMG</a>
-                     <ul>
-                        <li>
-                           <a href="https://sales.mercedes-orenburg.ru/a-hatchback/amg/">A-Класс AMG</a>
-                        </li>
-                        <li>
-                           <a href="https://sales.mercedes-orenburg.ru/c-sedan/amg/">C-Класс AMG</a>
-                        </li>
-                        <li>
-                           <a href="https://sales.mercedes-orenburg.ru/cla-coupe/amg/">CLA AMG</a>
-                        </li>
-                        <li>
-                           <a href="https://sales.mercedes-orenburg.ru/cls-coupe/amg/">CLS AMG</a>
-                        </li>
-                        <li>
-                           <a href="https://sales.mercedes-orenburg.ru/e-sedan/amg/">E-Класс AMG</a>
-                        </li>
-                        <li>
-                           <a href="https://sales.mercedes-orenburg.ru/g-suv/amg/">G-Класс AMG</a>
-                        </li>
-                        <li>
-                           <a href="https://sales.mercedes-orenburg.ru/gla-suv/amg/">GLA AMG</a>
-                        </li>
-                        <li>
-                           <a href="https://sales.mercedes-orenburg.ru/glc-suv/amg/">GLC AMG</a>
-                        </li>
-                        <li>
-                           <a href="https://sales.mercedes-orenburg.ru/gle-suv/amg/">GLE AMG</a>
-                        </li>
-                        <li>
-                           <a href="https://sales.mercedes-orenburg.ru/gls-suv/amg/">GLS AMG</a>
-                        </li>
-                        <li>
-                           <a href="https://sales.mercedes-orenburg.ru/s-sedan/amg/">S-Класс AMG</a>
-                        </li>
-                        <li>
-                           <a href="https://sales.mercedes-orenburg.ru/sl-roadster/amg/">SL AMG</a>
-                        </li>
-                        <li>
-                           <a href="https://sales.mercedes-orenburg.ru/slc-roadster/amg/">SLC AMG</a>
-                        </li>
-                        <li>
-                           <a href="https://sales.mercedes-orenburg.ru/amg-gt-coupe/">AMG GT</a>
-                        </li>
-                     </ul>
-                  </li>
-                  <li>
-                     <a href="https://sales.mercedes-orenburg.ru/c-sedan/">
-                     C<span>-Класс</span>
-                     </a>
-                     <ul>
-                        <li>
-                           <a href="https://sales.mercedes-orenburg.ru/c-sedan/">
-                           седан                                                                                                                    </a>
-                        </li>
-                        <li>
-                           <a href="https://sales.mercedes-orenburg.ru/c-coupe/">
-                           купе                                                                                                                    </a>
-                        </li>
-                        <li>
-                           <a href="https://sales.mercedes-orenburg.ru/c-wagon/">
-                           универсал                                                                                                                    </a>
-                        </li>
-                        <li>
-                           <a href="https://sales.mercedes-orenburg.ru/c-cabriolet/">
-                           кабриолет                                                                                                                    </a>
-                        </li>
-                     </ul>
-                  </li>
-                  <li>
-                     <a href="https://sales.mercedes-orenburg.ru/cls-coupe/">
-                     CLS                                                            </a>
-                  </li>
-                  <li>
-                     <a href="https://sales.mercedes-orenburg.ru/e-sedan/">
-                     E<span>-Класс</span>
-                     </a>
-                     <ul>
-                        <li>
-                           <a href="https://sales.mercedes-orenburg.ru/e-sedan/">
-                           седан                                                                                                                    </a>
-                        </li>
-                        <li>
-                           <a href="https://sales.mercedes-orenburg.ru/e-coupe/">
-                           купе                                                                                                                    </a>
-                        </li>
-                        <li>
-                           <a href="https://sales.mercedes-orenburg.ru/e-wagon/">
-                           универсал                                                                                                                    </a>
-                        </li>
-                        <li>
-                           <a href="https://sales.mercedes-orenburg.ru/e-all-terrain/">
-                           All-Terrain                                                                                                                    </a>
-                        </li>
-                        <li>
-                           <a href="https://sales.mercedes-orenburg.ru/e-cabriolet/">
-                           кабриолет                                                                                                                    </a>
-                        </li>
-                     </ul>
-                  </li>
-                  <li>
-                     <a href="https://sales.mercedes-orenburg.ru/g-suv/">
-                     G<span>-Класс</span>
-                     </a>
-                  </li>
-                  <li>
-                     <a href="https://sales.mercedes-orenburg.ru/gla-suv/">
-                     GLA                                                            </a>
-                  </li>
-                  <li>
-                     <a href="https://sales.mercedes-orenburg.ru/glc-suv/">
-                     GLC                                                            </a>
-                     <ul>
-                        <li>
-                           <a href="https://sales.mercedes-orenburg.ru/glc-suv/">
-                           внедорожник                                                                                                                    </a>
-                        </li>
-                        <li>
-                           <a href="https://sales.mercedes-orenburg.ru/glc-coupe/">
-                           купе                                                                                                                    </a>
-                        </li>
-                     </ul>
-                  </li>
-                  <li>
-                     <a href="https://sales.mercedes-orenburg.ru/gle-suv/">
-                     GLE                                                            </a>
-                     <ul>
-                        <li>
-                           <a href="https://sales.mercedes-orenburg.ru/gle-suv/">
-                           внедорожник                                                                                                                    </a>
-                        </li>
-                        <li>
-                           <a href="https://sales.mercedes-orenburg.ru/gle-coupe/">
-                           купе                                                                                                                    </a>
-                        </li>
-                     </ul>
-                  </li>
-                  <li>
-                     <a href="https://sales.mercedes-orenburg.ru/gls-suv/">
-                     GLS                                                            </a>
-                  </li>
-                  <li>
-                     <a href="https://sales.mercedes-orenburg.ru/s-sedan/">
-                     S<span>-Класс</span>
-                     </a>
-                     <ul>
-                        <li>
-                           <a href="https://sales.mercedes-orenburg.ru/s-sedan/">
-                           седан                                                                                                                    </a>
-                        </li>
-                        <li>
-                           <a href="https://sales.mercedes-orenburg.ru/s-coupe/">
-                           купе                                                                                                                    </a>
-                        </li>
-                        <li>
-                           <a href="https://sales.mercedes-orenburg.ru/s-cabriolet/">
-                           кабриолет                                                                                                                    </a>
-                        </li>
-                        <li>
-                           <a href="https://sales.mercedes-orenburg.ru/s-maybach/">
-                           Maybach                                                                                                                    </a>
-                        </li>
-                     </ul>
-                  </li>
-                  <li>
-                     <a href="https://sales.mercedes-orenburg.ru/x-pickup/">
-                     X<span>-Класс</span>
-                     </a>
-                  </li>
-                  <li>
-                     <a href="https://sales.mercedes-orenburg.ru/a-hatchback/">
-                     Другие                                                            </a>
-                     <ul>
-                        <li>
-                           <a href="https://sales.mercedes-orenburg.ru/a-hatchback/">
-                           A<span>-Класс</span>
-                           </a>
-                        </li>
-                        <li>
-                           <a href="https://sales.mercedes-orenburg.ru/b-hatchback/">
-                           B<span>-Класс</span>
-                           </a>
-                        </li>
-                        <li>
-                           <a href="https://sales.mercedes-orenburg.ru/cla-coupe/">
-                           CLA                                                                                купе                                                                                                                    </a>
-                        </li>
-                        <li>
-                           <a href="https://sales.mercedes-orenburg.ru/cla-shooting-brake/">
-                           CLA                                                                                Shooting Brake                                                                                                                    </a>
-                        </li>
-                        <li>
-                           <a href="https://sales.mercedes-orenburg.ru/sl-roadster/">
-                           SL                                                                                родстер                                                                                                                    </a>
-                        </li>
-                        <li>
-                           <a href="https://sales.mercedes-orenburg.ru/slc-roadster/">
-                           SLC                                                                                родстер                                                                                                                    </a>
-                        </li>
-                        <li>
-                           <a href="https://sales.mercedes-orenburg.ru/v-minivan/">
-                           V<span>-Класс</span>
-                           </a>
-                        </li>
-                        <li>
-                           <a href="https://sales.mercedes-orenburg.ru/amg-gt-coupe/">
-                           AMG GT                                                                                купе                                                                                                                    </a>
-                        </li>
-                        <li>
-                           <a href="https://sales.mercedes-orenburg.ru/amg-gt-roadster/">
-                           AMG GT                                                                                родстер                                                                                                                    </a>
-                        </li>
-                     </ul>
-                  </li>
-               </ul>
+            <div class="header__button">
+              <a href="#feedback_modal" data-code="consultation"
+                 data-text="Перезвоним Вам в ближайшее время и ответим на все интересующие вопросы"
+                 class="btn btn--blue js-open-modal">Заказать консультацию</a>
             </div>
-            <div class="header__mobile cd-nav">
-               <div class="cd-nav__inner">
-                  <div class="cd-nav__dealer">
-                     <a href="https://sales.mercedes-orenburg.ru/contact/">Официальный дилер в Оренбурге <span class="-nowrap">«Каскад-Авто»</span></a>
-                  </div>
-                  <div class="cd-nav__phone">
-                     <a href="tel:+73532910102">+7 (3532) 910-102</a>
-                  </div>
-                  <div class="cd-nav__button">
-                     <a href="#feedback_modal" data-code="consultation" data-text="Перезвоним Вам в ближайшее время и ответим на все интересующие вопросы" class="btn btn--blue js-open-modal">Заказать консультацию</a>
-                  </div>
-                  <div class="cd-nav__navigation js-navigation-mobile js-accordion"></div>
-               </div>
+            <div class="cd-nav__trigger"><span class="cd-nav__trigger-icon"></span></div>
+          </div>
+        </div>
+        <div class="header__nav nav-class js-navigation-desktop">
+          <ul>
+            <li>
+              <a href="https://sales.mercedes-orenburg.ru/a-hatchback/amg/">AMG</a>
+              <ul>
+                <li>
+                  <a href="https://sales.mercedes-orenburg.ru/a-hatchback/amg/">A-Класс AMG</a>
+                </li>
+                <li>
+                  <a href="https://sales.mercedes-orenburg.ru/c-sedan/amg/">C-Класс AMG</a>
+                </li>
+                <li>
+                  <a href="https://sales.mercedes-orenburg.ru/cla-coupe/amg/">CLA AMG</a>
+                </li>
+                <li>
+                  <a href="https://sales.mercedes-orenburg.ru/cls-coupe/amg/">CLS AMG</a>
+                </li>
+                <li>
+                  <a href="https://sales.mercedes-orenburg.ru/e-sedan/amg/">E-Класс AMG</a>
+                </li>
+                <li>
+                  <a href="https://sales.mercedes-orenburg.ru/g-suv/amg/">G-Класс AMG</a>
+                </li>
+                <li>
+                  <a href="https://sales.mercedes-orenburg.ru/gla-suv/amg/">GLA AMG</a>
+                </li>
+                <li>
+                  <a href="https://sales.mercedes-orenburg.ru/glc-suv/amg/">GLC AMG</a>
+                </li>
+                <li>
+                  <a href="https://sales.mercedes-orenburg.ru/gle-suv/amg/">GLE AMG</a>
+                </li>
+                <li>
+                  <a href="https://sales.mercedes-orenburg.ru/gls-suv/amg/">GLS AMG</a>
+                </li>
+                <li>
+                  <a href="https://sales.mercedes-orenburg.ru/s-sedan/amg/">S-Класс AMG</a>
+                </li>
+                <li>
+                  <a href="https://sales.mercedes-orenburg.ru/sl-roadster/amg/">SL AMG</a>
+                </li>
+                <li>
+                  <a href="https://sales.mercedes-orenburg.ru/slc-roadster/amg/">SLC AMG</a>
+                </li>
+                <li>
+                  <a href="https://sales.mercedes-orenburg.ru/amg-gt-coupe/">AMG GT</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="https://sales.mercedes-orenburg.ru/c-sedan/">
+                C<span>-Класс</span>
+              </a>
+              <ul>
+                <li>
+                  <a href="https://sales.mercedes-orenburg.ru/c-sedan/">
+                    седан </a>
+                </li>
+                <li>
+                  <a href="https://sales.mercedes-orenburg.ru/c-coupe/">
+                    купе </a>
+                </li>
+                <li>
+                  <a href="https://sales.mercedes-orenburg.ru/c-wagon/">
+                    универсал </a>
+                </li>
+                <li>
+                  <a href="https://sales.mercedes-orenburg.ru/c-cabriolet/">
+                    кабриолет </a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="https://sales.mercedes-orenburg.ru/cls-coupe/">
+                CLS </a>
+            </li>
+            <li>
+              <a href="https://sales.mercedes-orenburg.ru/e-sedan/">
+                E<span>-Класс</span>
+              </a>
+              <ul>
+                <li>
+                  <a href="https://sales.mercedes-orenburg.ru/e-sedan/">
+                    седан </a>
+                </li>
+                <li>
+                  <a href="https://sales.mercedes-orenburg.ru/e-coupe/">
+                    купе </a>
+                </li>
+                <li>
+                  <a href="https://sales.mercedes-orenburg.ru/e-wagon/">
+                    универсал </a>
+                </li>
+                <li>
+                  <a href="https://sales.mercedes-orenburg.ru/e-all-terrain/">
+                    All-Terrain </a>
+                </li>
+                <li>
+                  <a href="https://sales.mercedes-orenburg.ru/e-cabriolet/">
+                    кабриолет </a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="https://sales.mercedes-orenburg.ru/g-suv/">
+                G<span>-Класс</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://sales.mercedes-orenburg.ru/gla-suv/">
+                GLA </a>
+            </li>
+            <li>
+              <a href="https://sales.mercedes-orenburg.ru/glc-suv/">
+                GLC </a>
+              <ul>
+                <li>
+                  <a href="https://sales.mercedes-orenburg.ru/glc-suv/">
+                    внедорожник </a>
+                </li>
+                <li>
+                  <a href="https://sales.mercedes-orenburg.ru/glc-coupe/">
+                    купе </a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="https://sales.mercedes-orenburg.ru/gle-suv/">
+                GLE </a>
+              <ul>
+                <li>
+                  <a href="https://sales.mercedes-orenburg.ru/gle-suv/">
+                    внедорожник </a>
+                </li>
+                <li>
+                  <a href="https://sales.mercedes-orenburg.ru/gle-coupe/">
+                    купе </a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="https://sales.mercedes-orenburg.ru/gls-suv/">
+                GLS </a>
+            </li>
+            <li>
+              <a href="https://sales.mercedes-orenburg.ru/s-sedan/">
+                S<span>-Класс</span>
+              </a>
+              <ul>
+                <li>
+                  <a href="https://sales.mercedes-orenburg.ru/s-sedan/">
+                    седан </a>
+                </li>
+                <li>
+                  <a href="https://sales.mercedes-orenburg.ru/s-coupe/">
+                    купе </a>
+                </li>
+                <li>
+                  <a href="https://sales.mercedes-orenburg.ru/s-cabriolet/">
+                    кабриолет </a>
+                </li>
+                <li>
+                  <a href="https://sales.mercedes-orenburg.ru/s-maybach/">
+                    Maybach </a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="https://sales.mercedes-orenburg.ru/x-pickup/">
+                X<span>-Класс</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://sales.mercedes-orenburg.ru/a-hatchback/">
+                Другие </a>
+              <ul>
+                <li>
+                  <a href="https://sales.mercedes-orenburg.ru/a-hatchback/">
+                    A<span>-Класс</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://sales.mercedes-orenburg.ru/b-hatchback/">
+                    B<span>-Класс</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://sales.mercedes-orenburg.ru/cla-coupe/">
+                    CLA купе </a>
+                </li>
+                <li>
+                  <a href="https://sales.mercedes-orenburg.ru/cla-shooting-brake/">
+                    CLA Shooting Brake </a>
+                </li>
+                <li>
+                  <a href="https://sales.mercedes-orenburg.ru/sl-roadster/">
+                    SL родстер </a>
+                </li>
+                <li>
+                  <a href="https://sales.mercedes-orenburg.ru/slc-roadster/">
+                    SLC родстер </a>
+                </li>
+                <li>
+                  <a href="https://sales.mercedes-orenburg.ru/v-minivan/">
+                    V<span>-Класс</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://sales.mercedes-orenburg.ru/amg-gt-coupe/">
+                    AMG GT купе </a>
+                </li>
+                <li>
+                  <a href="https://sales.mercedes-orenburg.ru/amg-gt-roadster/">
+                    AMG GT родстер </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="header__mobile cd-nav">
+          <div class="cd-nav__inner">
+            <div class="cd-nav__dealer">
+              <a href="https://sales.mercedes-orenburg.ru/contact/">Официальный дилер в Оренбурге <span class="-nowrap">«Каскад-Авто»</span></a>
             </div>
-            <div class="header-fixed">
-               <div class="container">
-                  <div class="header-fixed__inner">
-                     <div class="header-fixed__nav nav-class js-header-fixed-nav"></div>
-                     <div class="header-fixed__button">
-                        <a href="#feedback_modal" data-code="consultation" data-text="Перезвоним Вам в ближайшее время и ответим на все интересующие вопросы" class="btn btn--blue btn--blue-sm js-open-modal">Заказать консультацию</a>
-                     </div>
-                  </div>
-               </div>
+            <div class="cd-nav__phone">
+              <a href="tel:+73532910102">+7 (3532) 910-102</a>
             </div>
-         </div>
+            <div class="cd-nav__button">
+              <a href="#feedback_modal" data-code="consultation"
+                 data-text="Перезвоним Вам в ближайшее время и ответим на все интересующие вопросы"
+                 class="btn btn--blue js-open-modal">Заказать консультацию</a>
+            </div>
+            <div class="cd-nav__navigation js-navigation-mobile js-accordion"></div>
+          </div>
+        </div>
+        <div class="header-fixed">
+          <div class="container">
+            <div class="header-fixed__inner">
+              <div class="header-fixed__nav nav-class js-header-fixed-nav"></div>
+              <div class="header-fixed__button">
+                <a href="#feedback_modal" data-code="consultation"
+                   data-text="Перезвоним Вам в ближайшее время и ответим на все интересующие вопросы"
+                   class="btn btn--blue btn--blue-sm js-open-modal">Заказать консультацию</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-   </header>
+    </div>
+  </header>
   <main class="site-content">
     <section class="subheader-mobile">
       <div class="container">
@@ -558,30 +563,37 @@ if ($page->parent()->name == "catalog") $session->redirect($pages->find("templat
       <div class="container">
         <div id="list-content">
             <?php $count = $pages->find("template=layout_car, parent={$page->id}")->count(); ?>
-              <div class="s-product-in-stock <?php if ($count==0) echo "js-hidden"; ?>">
-                <div class="s-product-in-stock__title">
-                  <span class="s-product-in-stock__big-title">Автомобили в продаже</span>
-                  <span class="s-product-in-stock__mini-title">Предложений по запросу: <?= $count ?></span>
-                </div>
-                <div class="s-product-in-stock__head">
-                  <div class="s-product-in-stock__head-item1">Модель</div>
-                  <div class="s-product-in-stock__head-item2">Описание</div>
-                  <div class="s-product-in-stock__head-item3">Цена</div>
-                </div>
-                <div>
+          <div class="s-product-in-stock <?php if ($count == 0) echo "js-hidden"; ?>">
+            <div class="s-product-in-stock__title">
+              <span class="s-product-in-stock__big-title">Автомобили в продаже</span>
+              <span class="s-product-in-stock__mini-title">Предложений по запросу: <?= $count ?></span>
+            </div>
+            <div class="s-product-in-stock__head">
+              <div class="s-product-in-stock__head-item1">Модель</div>
+              <div class="s-product-in-stock__head-item2">Описание</div>
+              <div class="s-product-in-stock__head-item3">Цена</div>
+            </div>
+            <div>
 
-                    <?php foreach ($pages->find("template=layout_car, parent={$page->id}") as $car): ?>
-                        <?php bd(getCarInfo($pages, $car->car_id))?>
-                      <div class="product" <?php if ($car->car_inStock) echo "data-available=\"1\""; else echo "data-not-available=\"1\""; echo "data-color=\"black\""; echo "data-price=\"{$car->car_price}\"";
-                      foreach ($page->modifications as $modif){if ($modif->class_id==$car->car_modification_id) echo "data-model="."\"$modif->class_name\""; }?>>
-                        <div class="product__name--m">
-                          <p><?= $car->title ?></p>
-                        </div>
-                        <div class="product__image">
-                           <span href="javascript:void(0)" onclick="getModelInfo('<?=$car->car_id?>');">
+                <?php foreach ($pages->find("template=layout_car, parent={$page->id}") as $car): ?>
+                  <div class="product" <?php if ($car->car_inStock) echo "data-available=\"1\""; else echo "data-not-available=\"1\"";
+                  echo "data-color=\"black\"";
+                  echo "data-price=\"{$car->car_price}\"";
+                  foreach ($page->modifications as $modif) {
+                      if ($modif->class_id == $car->car_modification_id) echo "data-model=" . "\"$modif->class_name\"";
+                  } ?>>
+                    <div class="product__name--m">
+                      <p><?= $car->title ?></p>
+                    </div>
+                    <div class="product__image">
+                           <span href="javascript:void(0)" onclick="getModelInfo('<?= $car->car_id ?>');">
                               <img src="<?= $car->car_photos->first()->url ?>">
                               <div class="brazzers">
-                                 <div class="brazzers__thumbs"></div>
+                                 <div class="brazzers__thumbs">
+                                   <?php foreach ($car->car_photos as $i => $photo): ?>
+                                     <i <?php if ($i != 0) echo "class"; ?>> </i>
+                                   <?php endforeach; ?>
+                                 </div>
                                  <div class="brazzers__images">
                                    <?php foreach ($car->car_photos as $photo): ?>
                                      <img data-src="<?= $photo->url ?>"
@@ -589,6 +601,12 @@ if ($page->parent()->name == "catalog") $session->redirect($pages->find("templat
                                  </div>
                               </div>
                            </span>
+                    </div>
+                    <a href="javascript:void(0);" class="product__info" onclick="getModelInfo('<?= $car->car_id ?>');">
+                        <?php $chars = getCarInfo($pages, $car->car_id); ?>
+                      <div class="product__info-item product__info-item1">
+                        <div class="product__name">
+                          <p><?= $car->title ?></p>
                         </div>
                         <a href="javascript:void(0);" class="product__info" onclick="getModelInfo('<?=$car->car_id?>');">
                           <div class="product__info-item product__info-item1">
@@ -635,69 +653,95 @@ if ($page->parent()->name == "catalog") $session->redirect($pages->find("templat
                              data-text="Специально для Вас мы готовы рассчитать кредит на особых условиях"
                              class="btn btn--blue js-open-modal">Тест драйв</a>
                         </div>
+                        <div class="product__equipment">Комплектация</div>
                       </div>
-                    <?php endforeach; ?>
-
-
-                </div>
-              </div>
-              <div class="s-product-not-available <?php if ($count > 0) echo "js-hidden"; ?>">
-
-                <div class="title-40 tac">К сожалению, выбранной модели нет в наличии</div>
-
-                <div class="mb-20 tac">
-                  <img src="https://sales.mercedes-orenburg.ru/static/build/img/product-not-available.jpg"
-                       alt="К сожалению, выбранной модели нет в наличии">
-                </div>
-
-                <div class="mb-20 tac">
-                  Оставьте заявку и наш менеджер подберет или закажет для Вас подходящий автомобиль.
-                </div>
-
-                <form id="form-not-available" class="CKiForm">
-
-                  <input type="hidden" name="code" value="not_available">
-
-                  <input type="hidden" name="page" value="SL родстер">
-
-                  <div class="row row-15 s-product-not-available__form form">
-
-                    <div class="xl-33 sm-100">
-                      <div class="form__input-wrapper js-label-fly">
-                        <input type="text" data-callkeeper="person" class="form__input-text"
-                               id="form-not-available-name" name="name">
-                        <label class="form__label-fly" for="form-not-available-name">Ваше имя</label>
+                      <div class="product__info-item product__info-item2">
+                        <p><b>Цвет:</b> <?= $chars["car_color"] ?></p>
+                        <p><b>Год выпуска:</b><?= $chars["car_year"] ?></p>
+                        <p><b>Мощность:</b><?= $chars["class_power"] ?></p>
+                        <p><b>Тип топлива:</b> <?= $chars["class_fuel"] ?></p>
+                        <p><b>Салон:</b> <?= $chars["car_cabin"] ?></p>
+                        <p><b>Привод:</b> <?= $chars["class_gear"] ?></p>
                       </div>
-                    </div>
-                    <div class="xl-33 sm-100">
-                      <div class="form__input-wrapper js-label-fly">
-                        <input type="tel" data-callkeeper="tel" class="form__input-text" id="form-not-available-phone"
-                               name="phone">
-                        <label class="form__label-fly" for="form-not-available-phone">Ваш номер
-                          телефона</label>
+                      <div class="product__info-item product__info-item3">
+                        <p>
+                          <span class="price-new"><span><?= $car->car_price ?></span> ₽</span>
+                        </p>
                       </div>
-                    </div>
-                    <div class="form__input-wrapper">
-                      <input type="checkbox" class="form__checkbox-input" id="form-not-available-confirm" name="confirm"
-                             checked="" onchange="confirmRequest('#form-not-available')">
-                      <label class="form__checkbox-label form__checkbox-label--small" for="form-not-available-confirm">
-                        Я согласен на обработку персональных данных. <br>
-                        <a target="_blank" href="https://sales.mercedes-orenburg.ru/politic/"
-                           class="link-hover-border -color-blue -nowrap">
-                          С Политикой защиты данных </a>
-                        ООО «Каскад-Авто»
-                        ознакомлен.
-                      </label>
-                    </div>
-                    <div class="xl-33 sm-100">
-                      <button type="button" class="btn btn--blue CKFormTrigger"
-                              onclick="sendRequest('#form-not-available')">Получить предложение
-                      </button>
+                    </a>
+                    <div class="product__buttons">
+                      <a href="#feedback_modal" data-code="best_price" data-order="<?= $car->car_id ?>"
+                         data-info="<?= $car->car_title ?>"
+                         data-text="Специально для Вас мы готовы сделать особое предложение!"
+                         class="btn btn--blue js-open-modal">Хочу дешевле</a>
+                      <a href="#feedback_modal" data-code="credit" data-order="<?= $car->car_id ?>"
+                         data-info="<?= $car->car_title ?>"
+                         data-text="Специально для Вас мы готовы рассчитать кредит на особых условиях"
+                         class="btn btn--blue js-open-modal">Рассчитать кредит</a>
                     </div>
                   </div>
-                </form>
+                <?php endforeach; ?>
+            </div>
 
+
+          </div>
+          <div class="s-product-not-available <?php if ($count > 0) echo "js-hidden"; ?>">
+
+            <div class="title-40 tac">К сожалению, выбранной модели нет в наличии</div>
+
+            <div class="mb-20 tac">
+              <img src="https://sales.mercedes-orenburg.ru/static/build/img/product-not-available.jpg"
+                   alt="К сожалению, выбранной модели нет в наличии">
+            </div>
+
+            <div class="mb-20 tac">
+              Оставьте заявку и наш менеджер подберет или закажет для Вас подходящий автомобиль.
+            </div>
+
+            <form id="form-not-available" class="CKiForm">
+
+              <input type="hidden" name="code" value="not_available">
+
+              <input type="hidden" name="page" value="SL родстер">
+
+              <div class="row row-15 s-product-not-available__form form">
+
+                <div class="xl-33 sm-100">
+                  <div class="form__input-wrapper js-label-fly">
+                    <input type="text" data-callkeeper="person" class="form__input-text"
+                           id="form-not-available-name" name="name">
+                    <label class="form__label-fly" for="form-not-available-name">Ваше имя</label>
+                  </div>
+                </div>
+                <div class="xl-33 sm-100">
+                  <div class="form__input-wrapper js-label-fly">
+                    <input type="tel" data-callkeeper="tel" class="form__input-text" id="form-not-available-phone"
+                           name="phone">
+                    <label class="form__label-fly" for="form-not-available-phone">Ваш номер
+                      телефона</label>
+                  </div>
+                </div>
+                <div class="form__input-wrapper">
+                  <input type="checkbox" class="form__checkbox-input" id="form-not-available-confirm" name="confirm"
+                         checked="" onchange="confirmRequest('#form-not-available')">
+                  <label class="form__checkbox-label form__checkbox-label--small" for="form-not-available-confirm">
+                    Я согласен на обработку персональных данных. <br>
+                    <a target="_blank" href="https://sales.mercedes-orenburg.ru/politic/"
+                       class="link-hover-border -color-blue -nowrap">
+                      С Политикой защиты данных </a>
+                    ООО «Каскад-Авто»
+                    ознакомлен.
+                  </label>
+                </div>
+                <div class="xl-33 sm-100">
+                  <button type="button" class="btn btn--blue CKFormTrigger"
+                          onclick="sendRequest('#form-not-available')">Получить предложение
+                  </button>
+                </div>
               </div>
+            </form>
+
+          </div>
         </div>
         <div class="form-type1 form form--black">
           <div class="title-40">Получите индивидуальное предложение</div>

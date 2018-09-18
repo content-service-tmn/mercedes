@@ -1,5 +1,9 @@
 <?php namespace ProcessWire;
 
+require('spreadsheet-reader/php-excel-reader/excel_reader2.php');
+
+require('spreadsheet-reader/SpreadsheetReader.php');
+
 function notify($name, $text, $result) {
 	$notify = isset($notify) ? $notify : array();
 	$notify[$name]["text"] = $text;
@@ -95,7 +99,14 @@ function getLowestPrice($id, $pages) {
 }
 
 function getAccessories($pages){
-    return json_encode(file_get_contents($pages->get("id=1")->home_accessories->filename));
+
+    $result = [];
+    $Reader = new \SpreadsheetReader($pages->get("id=1")->home_accessories->filename);
+    foreach ($Reader as $Row)
+    {
+        $result[$Row[0]] = $Row[1] ;
+    }
+    return $result;
 }
 
 
