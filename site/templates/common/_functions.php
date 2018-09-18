@@ -94,4 +94,8 @@ function getLowestPrice($id, $pages) {
     else return 0;
 }
 
+function getAccessories($pages){
+    return file_get_contents($pages->get("id=1")->home_accessories->url);
+}
+
 
