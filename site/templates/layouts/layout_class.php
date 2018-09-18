@@ -611,6 +611,12 @@ if ($page->parent()->name == "catalog") $session->redirect($pages->find("templat
                           </div>
                           <div class="product__info-item product__info-item3">
                             <p>
+                              <span class=""><span><?= $car->car_price ?></span> ₽</span>
+                            </p>
+                            <p>
+                              <span class="">Специальное предложение:</span>
+                            </p>
+                            <p>
                               <span class="price-new"><span><?= $car->car_price ?></span> ₽</span>
                             </p>
                           </div>
@@ -624,6 +630,10 @@ if ($page->parent()->name == "catalog") $session->redirect($pages->find("templat
                              data-info="<?= $car->car_title ?>"
                              data-text="Специально для Вас мы готовы рассчитать кредит на особых условиях"
                              class="btn btn--blue js-open-modal">Рассчитать кредит</a>
+                          <a href="#feedback_modal" data-code="credit" data-order="<?= $car->car_id ?>"
+                             data-info="<?= $car->car_title ?>"
+                             data-text="Специально для Вас мы готовы рассчитать кредит на особых условиях"
+                             class="btn btn--blue js-open-modal">Тест драйв</a>
                         </div>
                       </div>
                     <?php endforeach; ?>

@@ -41,32 +41,6 @@
             <div class="product-modal__price">Данный автомобиль: <b><span><?=$info["car_price"]?></span> ₽</b></div>
             <div class="product-modal__spec-price">Специальное предложение: <b><span><?=$info["car_special_proposal"]?></span> ₽</b></div>
 
-            <div class="product-modal__button">
-                <a href="#feedback_modal"
-                   data-code="best_price"
-                   data-back="<?=$info["car_id"]?>"
-                   data-order="<?=$info["car_id"]?>"
-                   data-info="<?=$info["title"]?>"
-                   data-text="Специально для Вас мы готовы сделать особое предложение!"
-                   class="btn btn--blue js-open-modal">Хочу дешевле</a>
-            </div>
-            <div class="product-modal__credit-title">
-                <span>В кредит:</span>
-            </div>
-            <div class="product-modal__credit-info">
-                <p>Первоначальный взнос от <span>1 068 345</span> ₽</p>
-                <p>Ежемесячный платеж от <span>80 644</span> ₽</p>
-            </div>
-            <div class="product-modal__button">
-                <a href="#feedback_modal"
-                   data-code="credit"
-                   data-back="<?=$info["car_id"]?>"
-                   data-order="<?=$info["car_id"]?>"
-                   data-info="<?=$info["title"]?>t"
-                   data-text="Получите индивидуальную консультацию нашего финансового специалиста"
-                   class="btn btn--blue js-open-modal">Купить в кредит</a>
-            </div>
-
             <div class="product-modal__title-18">Описание</div>
             <ul class="product-modal__desc-table">
               <?php foreach ($info as $key => $value): if($value != null):?>
@@ -80,7 +54,7 @@
 
         <div class="product-modal__box2">
             <div class="form-type2 form">
-                <div class="form-type2__head">Получить лучшее предложение</div>
+                <div class="form-type2__head custom-form-head">Получить лучшее предложение</div>
                 <div class="form-type2__body">
                     <form id="form-best-offer" class="CKiForm">
 
@@ -108,7 +82,31 @@
                     </form>
                 </div>
             </div>
-
+            <div class="product-modal__credit-title">
+                <span>В кредит:</span>
+            </div>
+            <div class="product-modal__credit-info">
+                <p>Первоначальный взнос от <span>1 068 345</span> ₽</p>
+                <p>Ежемесячный платеж от <span>80 644</span> ₽</p>
+            </div>
+            <div class="product-modal__button custom-button-margin">
+                <a href="#feedback_modal"
+                   data-code="credit"
+                   data-back="<?=$info["car_id"]?>"
+                   data-order="<?=$info["car_id"]?>"
+                   data-info="<?=$info["title"]?>t"
+                   data-text="Получите индивидуальную консультацию нашего финансового специалиста"
+                   class="btn btn--blue js-open-modal">Купить в кредит</a>
+            </div>
+            <div class="product-modal__button">
+                <a href="#feedback_modal"
+                   data-code="credit"
+                   data-back="0852407636"
+                   data-order="0852407636"
+                   data-info="CLS 350 d 4MATIC Sport"
+                   data-text="Получите индивидуальную консультацию нашего финансового специалиста"
+                   class="btn btn--blue js-open-modal">Купить в трейд-ин</a>
+            </div>
             <div class="form-type2 form">
                 <div class="form-type2__head">Контакты автосалона</div>
                 <div class="form-type2__body">
@@ -150,11 +148,17 @@
 
                 <div class="xl-60 sm-100 product-modal__footer-left">
                     <div class="product-modal__price">Данный автомобиль: <b><span><?=$info["car_price"]?></span> ₽</b></div>
+                    <div class="product-modal__price">Ваше преимущество: <b><span>5 506 933</span> ₽</b></div>
                     <div class="product-modal__spec-price">Специальное предложение: <b><span><?=$info["car_special_proposal"]?></span> ₽</b></div>
                 </div>
 
 
                 <div class="xl-40 sm-100 product-modal__footer-right">
+                  <div class="mb-10">
+                    <a href="https://sales.mercedes-orenburg.ru/index.php?route=car/model/printInfo&amp;order_id=0852407636" class="-color-blue link-with-border" target="_blank">
+                      <b>Отправить на email</b>
+                    </a>
+                  </div>
                     <div class="mb-10">
                         <a href="#feedback_modal"
                            data-code="equipment"
@@ -171,7 +175,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="xl-60 md-70 sm-100 product-modal__footer-buttons">
+                <div class="xl-90 md-90 sm-100 product-modal__footer-buttons">
                     <a href="#feedback_modal"
                        data-code="best_price"
                        data-back="<?=$info["car_id"]?>"
@@ -186,6 +190,13 @@
                        data-info="<?=$info["title"]?>"
                        data-text="Получите индивидуальную консультацию нашего финансового специалиста"
                        class="btn btn--blue js-open-modal">Купить в кредит</a>
+                       <a href="#feedback_modal"
+                          data-code="best_price"
+                          data-back="0852407636"
+                          data-order="0852407636"
+                          data-info="CLS 350 d 4MATIC Sport"
+                          data-text="Получите индивидуальную консультацию нашего финансового специалиста"
+                          class="btn btn--blue js-open-modal">Взять с пробегом</a>
                 </div>
             </div>
         </div>
