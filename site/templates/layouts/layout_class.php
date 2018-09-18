@@ -387,7 +387,7 @@ if ($page->parent()->name == "catalog") $session->redirect($pages->find("templat
         </div>
         <div class="product-gallery__bottom">
           <div class="container">
-            <h1 class="product-gallery__title">«Мерседес-Бенц» G-Класс внедорожник</h1>
+            <h1 class="product-gallery__title">«Мерседес-Бенц» <?=$page->parent()->title . " " . $page->title ?></h1>
             <div class="product-gallery__thumbs owl-carousel">
               <div class="product-gallery__thumb is-active">
                 <picture>
@@ -525,10 +525,6 @@ if ($page->parent()->name == "catalog") $session->redirect($pages->find("templat
                   <input type="checkbox" class="form__checkbox-input" id="stock_status_no" name="stock_status[no]">
                   <label class="form__checkbox-label" for="stock_status_no">Скоро в продаже</label>
                 </div>
-                <div class="product-filters__radio">
-                  <input type="checkbox" class="form__checkbox-input" id="status_amg" name="amg">
-                  <label class="form__checkbox-label" for="status_amg">AMG</label>
-                </div>
               </div>
             </div>
             <!-- СТОИМОСТЬ -->
@@ -587,11 +583,12 @@ if ($page->parent()->name == "catalog") $session->redirect($pages->find("templat
                     <div class="product__name--m">
                       <p><?= $car->title ?></p>
                     </div>
-                    <div class="product__image is-loaded" >
+                    <div class="product__image is-loaded">
                            <span href="javascript:void(0)" onclick="getModelInfo('<?= $car->car_id ?>');">
 
-                              <img src="<?= $car->car_photos->first()->url ?>" srcset="<?= $car->car_photos->first()->url ?> 1.5x" alt="">
-                              <!--<div class="brazzers">
+                              <img src="<?= $car->car_photos->first()->url ?>"
+                                   srcset="<?= $car->car_photos->first()->url ?> 1.5x" alt="">
+                             <!--<div class="brazzers">
                                  <div class="brazzers__thumbs">
                                    <?php foreach ($car->car_photos as $i => $photo): ?>
                                      <i <?php if ($i != 0) echo "class"; ?>> </i>
@@ -608,13 +605,13 @@ if ($page->parent()->name == "catalog") $session->redirect($pages->find("templat
                     <a href="javascript:void(0);" class="product__info" onclick="getModelInfo('<?= $car->car_id ?>');">
                         <?php $chars = getCarInfo($pages, $car->car_id); ?>
                       <div class="product__info-item product__info-item1">
-                          <div class="product__name">
-                            <p><?= $car->title ?></p>
-                          </div>
-                          <div class="product__color-year">
-                            <p><?= $car->car_color ?></p>
-                          </div>
-                          <div class="product__equipment">Комплектация</div>
+                        <div class="product__name">
+                          <p><?= $car->title ?></p>
+                        </div>
+                        <div class="product__color-year">
+                          <p><?= $car->car_color ?></p>
+                        </div>
+                        <div class="product__equipment">Комплектация</div>
                       </div>
                       <div class="product__info-item product__info-item2">
                         <p><b>Цвет:</b> <?= $chars["car_color"] ?></p>
@@ -761,813 +758,86 @@ if ($page->parent()->name == "catalog") $session->redirect($pages->find("templat
     <section class="prd-specifications">
       <div class="container">
         <div class="prd-specifications__title title-40">Двигатели и технические характеристики
-          G -
-          Класс внедорожник.
+            <?=$page->parent()->title . " " . $page->title ?>
         </div>
         <div class="specifications-table">
-          <div class="specifications-table__item row row-15">
-            <div class="xl-30 xs-100">
-              <div class="mb-20">
-                <div class="specifications-table__title">G
-                  350
-                  d</div>
-                <div>Тип топлива Дизель</div>
-              </div>
-              <div class="mb-20">
-                <div class="specifications-table__desc">Мощность</div>
-                <div class="specifications-table__title">245
-                  л.с.</div>
-              </div>
-            </div>
-            <div class="xl-40 xs-100">
-              <div class="mb-20">
-                <div class="specifications-table__desc">Номинальная мощность</div>
-                <div class="specifications-table__title">180(245)
-                  кВт
-                  [
-                  л. с.] /
-                  3600
-                  об/мин</div>
-              </div>
-              <div class="mb-20">
-                <div class="specifications-table__desc">Рабочий объем</div>
-                <div class="specifications-table__title">2987
-                  см
-                  3</div>
-              </div>
-            </div>
-            <div class="xl-30 xs-100">
-              <div class="mb-20">
-                <div class="specifications-table__desc">Расположение и количество цилиндров</div>
-                <div class="specifications-table__title">V6</div>
-              </div>
-              <div class="mb-20">
-                <div class="specifications-table__desc">Расход топлива смешанный</div>
-                <div class="specifications-table__title">9.9
-                  л/
-                  100
-                  км</div>
-              </div>
-            </div>
-          </div>
-          <div class="specifications-table__item row row-15">
-            <div class="xl-30 xs-100">
-              <div class="mb-20">
-                <div class="specifications-table__title">G
-                  500</div>
-                <div>Тип топлива Бензин</div>
-              </div>
-              <div class="mb-20">
-                <div class="specifications-table__desc">Мощность</div>
-                <div class="specifications-table__title">422
-                  л.с.</div>
-              </div>
-            </div>
-            <div class="xl-40 xs-100">
-              <div class="mb-20">
-                <div class="specifications-table__desc">Номинальная мощность</div>
-                <div class="specifications-table__title">310(422) / 5250 - 5500</div>
-              </div>
-              <div class="mb-20">
-                <div class="specifications-table__desc">Рабочий объем</div>
-                <div class="specifications-table__title">3982
-                  см
-                  3</div>
-              </div>
-            </div>
-            <div class="xl-30 xs-100">
-              <div class="mb-20">
-                <div class="specifications-table__desc">Расположение и количество цилиндров</div>
-                <div class="specifications-table__title">V8</div>
-              </div>
-              <div class="mb-20">
-                <div class="specifications-table__desc">Расход топлива смешанный</div>
-                <div class="specifications-table__title">11.5 - 12.1
-                  л/
-                  100
-                  км</div>
-              </div>
-            </div>
-          </div>
-          <a href="#" class="expand-btn">Развернуть</a>
-          <div class="expand-box">
-            <div class="specifications-table__item row row-15">
-              <div class="xl-30 xs-100">
-                <div class="mb-20">
-                  <div class="specifications-table__title">Mercedes-AMG G 63<br>Mercedes-AMG G 63</div>
-                  <div>Тип топлива Бензин</div>
-                </div>
-                <div class="mb-20">
-                  <div class="specifications-table__desc">Мощность</div>
-                  <div class="specifications-table__title">522
-                    л.с.</div>
-                </div>
-              </div>
-              <div class="xl-40 xs-100">
-                <div class="mb-20">
-                  <div class="specifications-table__desc">Номинальная мощность</div>
-                  <div class="specifications-table__title">420(571)
-                    кВт
-                    [
-                    л. с.] /
-                    5500
-                    об/мин</div>
-                </div>
-                <div class="mb-20">
-                  <div class="specifications-table__desc">Рабочий объем</div>
-                  <div class="specifications-table__title">5461
-                    см
-                    3</div>
-                </div>
-              </div>
-              <div class="xl-30 xs-100">
-                <div class="mb-20">
-                  <div class="specifications-table__desc">Расположение и количество цилиндров</div>
-                  <div class="specifications-table__title">V8</div>
-                </div>
-                <div class="mb-20">
-                  <div class="specifications-table__desc">Расход топлива смешанный</div>
-                  <div class="specifications-table__title">13.8
-                    л/
-                    100
-                    км</div>
-                </div>
-              </div>
-            </div>
-            <div class="specifications-table__item row row-15">
-              <div class="xl-30 xs-100">
-                <div class="mb-20">
-                  <div class="specifications-table__title">G
-                    65
-                    AMG</div>
-                  <div>Тип топлива Бензин</div>
-                </div>
-                <div class="mb-20">
-                  <div class="specifications-table__desc">Мощность</div>
-                  <div class="specifications-table__title">630
-                    л.с.</div>
-                </div>
-              </div>
-              <div class="xl-40 xs-100">
-                <div class="mb-20">
-                  <div class="specifications-table__desc">Номинальная мощность</div>
-                  <div class="specifications-table__title">463(630)
-                    кВт
-                    [
-                    л. с.] /
-                    5000 - 5300
-                    об/мин</div>
-                </div>
-                <div class="mb-20">
-                  <div class="specifications-table__desc">Рабочий объем</div>
-                  <div class="specifications-table__title">5980
-                    см
-                    3</div>
-                </div>
-              </div>
-              <div class="xl-30 xs-100">
-                <div class="mb-20">
-                  <div class="specifications-table__desc">Расположение и количество цилиндров</div>
-                  <div class="specifications-table__title">V12</div>
-                </div>
-                <div class="mb-20">
-                  <div class="specifications-table__desc">Расход топлива смешанный</div>
-                  <div class="specifications-table__title">17
-                    л/
-                    100
-                    км</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="lp-credit">
-      <div class="container">
-        <div class="title-40">Кредитные и лизинговые программы</div>
-        <a href="javascript:void(0);" class="expand-btn">Развернуть</a>
-        <div class="expand-box">
-          <div class="row row-15">
-            <div class="xl-50 md-100">
-              <div class="lp-credit__title">Сниженные ставки по кредиту
-                -
-                от
-                6, 3 %</div>
-              <ul>
-                <li>Возможность получения дополнительной скидки от производителя;</li>
-                <li>Включение лизинговых платежей в себестоимость продукции и применение ускоренной амортизации
-                  предмета лизинга;
-                </li>
-                <li>Низкий авансовый платеж - от 10% от стоимости транспортного средства.</li>
-              </ul>
-            </div>
-            <div class="xl-50 md-100">
-              <div class="lp-credit__title">Лизинг</div>
-              <ul>
-                <li>Оптимальные сроки кредитования: от 1 года до 5 лет;</li>
-                <li>Минимальный срок рассмотрения заявки: 1 рабочий день;</li>
-                <li>Принцип «Одного окна»: предоставление документов для рассмотрения кредита,
-                  а также подписание кредитной документации осуществляется в
-                  «Каскад-Авто».
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="lp-credit__button">
-            <a href="#feedback_modal" data-code="credit_and_leasing"
-               data-text="Получите индивидуальную консультацию нашего финансового специалиста"
-               class="btn btn--blue js-open-modal">Узнать подробности</a>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="lp-tradein">
-      <div class="container">
-        <div class="title-40">Трейд
-          -
-          ин</div>
-        <a href="javascript:void(0);" class="expand-btn">Развернуть</a>
-        <div class="expand-box">
-          <div class="lp-tradein__subtitle">
-            У Вас есть возможность приобрести автомобиль с дополнительной выгодой.
-            Trade - In -
-            один из способов оплаты понравившегося Вам «Мерседес
-            -
-            Бенц».
-          </div>
-          <ul class="lp-tradein__list">
-            <li class="xl-30 md-33 sm-100">
-              <i>
-                <svg class="icon icon-trade-car">
-                  <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-trade-car"></use>
-                </svg>
-              </i>
-              <span>Вы просто сдаете нам Ваш существующий автомобиль.</span>
-            </li>
-            <li class="xl-30 md-33 sm-100">
-              <i>
-                <svg class="icon icon-trade-money">
-                  <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-trade-money"></use>
-                </svg>
-              </i>
-              <span>При необходимости доплачиваете разницу в цене.</span>
-            </li>
-            <li class="xl-30 md-33 sm-100">
-              <i>
-                <svg class="icon icon-trade-finger">
-                  <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-trade-finger"></use>
-                </svg>
-              </i>
-              <span>Уезжаете на новом автомобиле или на понравившемся Вам автомобиле с пробегом.</span>
-            </li>
-          </ul>
-          <form id="form-trade_in" class="CKiForm">
-            <input type="hidden" name="code" value="trade_in">
-            <input type="hidden" name="page" value="G-Класс внедорожник">
-            <div class="tradein-form form mb-20">
-              <div class="tradein-form__inner">
-                <div class="tradein-form__item xl-25 sm-100">
-                  <div class="js-select-wrap select select--type2">
-                    <select class="js-select" name="brand">
-                      <option value="Не выбрана">Марка</option>
-                      <option value="Lada">Lada</option>
-                      <option value="Audi">Audi</option>
-                      <option value="BMW">BMW</option>
-                      <option value="Chery">Chery</option>
-                      <option value="Cadillac">Cadillac</option>
-                      <option value="Chevrolet">Chevrolet</option>
-                      <option value="Chrysler">Chrysler</option>
-                      <option value="Citroen">Citroen</option>
-                      <option value="Daewoo">Daewoo</option>
-                      <option value="Datsun">Datsun</option>
-                      <option value="Dodge">Dodge</option>
-                      <option value="Fiat">Fiat</option>
-                      <option value="Ford">Ford</option>
-                      <option value="Geely">Geely</option>
-                      <option value="Great Wall">Great Wall</option>
-                      <option value="Honda">Honda</option>
-                      <option value="Hyundai">Hyundai</option>
-                      <option value="Infiniti">Infiniti</option>
-                      <option value="Jaguar">Jaguar</option>
-                      <option value="Jeep">Jeep</option>
-                      <option value="Kia">Kia</option>
-                      <option value="Land Rover">Land Rover</option>
-                      <option value="Lexus">Lexus</option>
-                      <option value="Lifan">Lifan</option>
-                      <option value="Mazda">Mazda</option>
-                      <option value="Mercedes-Benz">Mercedes-Benz</option>
-                      <option value="Mitsubishi">Mitsubishi</option>
-                      <option value="Nissan">Nissan</option>
-                      <option value="Opel">Opel</option>
-                      <option value="Peugeot">Peugeot</option>
-                      <option value="Porsche">Porsche</option>
-                      <option value="Renault">Renault</option>
-                      <option value="Skoda">Skoda</option>
-                      <option value="SsangYong">SsangYong</option>
-                      <option value="Subaru">Subaru</option>
-                      <option value="Suzuki">Suzuki</option>
-                      <option value="Toyota">Toyota</option>
-                      <option value="Volkswagen">Volkswagen</option>
-                      <option value="Volvo">Volvo</option>
-                      <option value="ГАЗ">ГАЗ</option>
-                      <option value="ЗАЗ">ЗАЗ</option>
-                      <option value="УАЗ">УАЗ</option>
-                      <option value="Haval&nbsp;">Haval&nbsp;</option>
-                      <option value="MINI">MINI</option>
-                      <option value="Ravon">Ravon</option>
-                      <option value="Changan">Changan</option>
-                      <option value="Smart">Smart</option>
-                      <option value="DongFeng">DongFeng</option>
-                      <option value="Genesis">Genesis</option>
-                      <option value="FAW">FAW</option>
-                      <option value="Brilliance">Brilliance</option>
-                      <option value="Alfa Romeo">Alfa Romeo</option>
-                      <option value="Acura">Acura</option>
-                    </select>
+            <?php $count = $page->modifications->count();
+            foreach ($page->modifications as $i => $modif): if ($i < 2): ?>
+              <div class="specifications-table__item row row-15">
+                <div class="xl-30 xs-100">
+                  <div class="mb-20">
+                    <div class="specifications-table__title"><?= $modif->class_name ?></div>
+                    <div>Тип топлива <?= $modif->class_fuel ?></div>
+                  </div>
+                  <div class="mb-20">
+                    <div class="specifications-table__desc">Мощность</div>
+                    <div class="specifications-table__title"><?= $modif->class_power ?></div>
                   </div>
                 </div>
-                <div class="tradein-form__item xl-25 sm-100">
-                  <div class="js-select-wrap select select--type2">
-                    <select class="js-select" name="model">
-                      <option value="Не выбрана">Модель</option>
-                    </select>
+                <div class="xl-40 xs-100">
+                  <div class="mb-20">
+                    <div class="specifications-table__desc">Номинальная мощность</div>
+                    <div class="specifications-table__title"><?= $modif->class_rated_power ?></div>
+                  </div>
+                  <div class="mb-20">
+                    <div class="specifications-table__desc">Рабочий объем</div>
+                    <div class="specifications-table__title"><?= $modif->class_capacity ?></div>
                   </div>
                 </div>
-                <div class="tradein-form__item xl-20 sm-100">
-                  <div class="js-select-wrap select select--type2">
-                    <select class="js-select" name="year">
-                      <option value="Не выбран">Год</option>
-                    </select>
+                <div class="xl-30 xs-100">
+                  <div class="mb-20">
+                    <div class="specifications-table__desc">Расположение и количество цилиндров</div>
+                    <div class="specifications-table__title"><?= $modif->class_cylinders ?></div>
+                  </div>
+                  <div class="mb-20">
+                    <div class="specifications-table__desc">Расход топлива смешанный</div>
+                    <div class="specifications-table__title"><?= $modif->class_fuel_consumption ?></div>
                   </div>
                 </div>
-                <div class="tradein-form__item xl-30 sm-100">
-                  <input type="tel" data-callkeeper="tel" class="form__input-text" name="phone" placeholder="Телефон">
-                </div>
               </div>
-              <div class="tradein-form__button">
-                <button type="button" class="btn btn--blue CKFormTrigger" onclick="sendRequest('#form-trade_in')">
-                  Оценить
-                </button>
+            <?php endif; endforeach; ?>
+            <?php if ($count > 2): ?>
+              <a href="#" class="expand-btn">Развернуть</a>
+              <div class="expand-box">
+                  <?php foreach ($page->modifications as $i => $modif): if ($i >= 2): ?>
+                    <div class="specifications-table__item row row-15">
+                      <div class="xl-30 xs-100">
+                        <div class="mb-20">
+                          <div class="specifications-table__title"><?= $modif->class_name ?></div>
+                          <div>Тип топлива <?= $modif->class_fuel ?></div>
+                        </div>
+                        <div class="mb-20">
+                          <div class="specifications-table__desc">Мощность</div>
+                          <div class="specifications-table__title"><?= $modif->class_power ?></div>
+                        </div>
+                      </div>
+                      <div class="xl-40 xs-100">
+                        <div class="mb-20">
+                          <div class="specifications-table__desc">Номинальная мощность</div>
+                          <div class="specifications-table__title"><?= $modif->class_rated_power ?></div>
+                        </div>
+                        <div class="mb-20">
+                          <div class="specifications-table__desc">Рабочий объем</div>
+                          <div class="specifications-table__title"><?= $modif->class_capacity ?></div>
+                        </div>
+                      </div>
+                      <div class="xl-30 xs-100">
+                        <div class="mb-20">
+                          <div class="specifications-table__desc">Расположение и количество цилиндров</div>
+                          <div class="specifications-table__title"><?= $modif->class_cylinders ?></div>
+                        </div>
+                        <div class="mb-20">
+                          <div class="specifications-table__desc">Расход топлива смешанный</div>
+                          <div class="specifications-table__title"><?= $modif->class_fuel_consumption ?></div>
+                        </div>
+                      </div>
+                    </div>
+                  <?php endif; endforeach; ?>
               </div>
-            </div>
-            <div class="tradein-form form__input-wrapper">
-              <input class="form__checkbox-input" type="checkbox" id="form-tradein-confirm" name="confirm" checked=""
-                     onchange="confirmRequest('#form-trade_in')">
-              <label class="form__checkbox-label form__checkbox-label--small" for="form-tradein-confirm">
-                Я согласен на обработку персональных данных.
-                <a href="https://sales.mercedes-orenburg.ru/politic/" target="_blank"
-                   class="link-hover-border -color-gold -nowrap">С Политикой защиты данных </a>
-                ООО «Каскад-Авто»
-                ознакомлен.
-              </label>
-            </div>
-          </form>
-        </div>
-      </div>
-    </section>
-    <section class="lp-testdrive">
-      <div class="lp-testdrive__left-img">
-        <img src="https://sales.mercedes-orenburg.ru/static/build/img/bg/testdrive.png" alt="Запись на тест-драйв">
-      </div>
-      <div class="lp-testdrive__right">
-        <div class="title-40">Запись на тест
-          -
-          драйв</div>
-        <a href="javascript:void(0);" class="expand-btn">Развернуть</a>
-        <div class="expand-box">
-          <form id="form-test-drive" class="CKiForm">
-            <input type="hidden" name="code" value="test_drive">
-            <input type="hidden" name="page" value="G-Класс внедорожник">
-            <div class="lp-testdrive__form form form--gold">
-              <div class="form__input-wrapper js-label-fly">
-                <input type="text" data-callkeeper="person" class="form__input-text" id="form-test-drive-name"
-                       name="name">
-                <label class="form__label-fly" for="form-test-drive-name">Ваше имя</label>
-              </div>
-              <div class="form__input-wrapper js-label-fly">
-                <input type="tel" data-callkeeper="tel" class="form__input-text" id="form-test-drive-phone"
-                       name="phone">
-                <label class="form__label-fly" for="form-test-drive-phone">Ваш номер телефона</label>
-              </div>
-              <div class="form__input-wrapper js-label-fly">
-                <div class="js-select-wrap select select--type3">
-                  <select class="js-select" name="model">
-                    <option value="Не выбрана">Модель</option>
-                    <option value="A-Класс хэтчбек">A-Класс хэтчбек</option>
-                    <option value="C-Класс седан">C-Класс седан</option>
-                    <option value="C-Класс купе">C-Класс купе</option>
-                    <option value="CLS купе">CLS купе</option>
-                    <option value="E-Класс седан">E-Класс седан</option>
-                    <option value="E-Класс купе">E-Класс купе</option>
-                    <option value="G-Класс внедорожник">G-Класс внедорожник</option>
-                    <option value="GLA внедорожник">GLA внедорожник</option>
-                    <option value="GLC внедорожник">GLC внедорожник</option>
-                    <option value="GLC купе">GLC купе</option>
-                    <option value="GLE внедорожник">GLE внедорожник</option>
-                    <option value="GLE купе">GLE купе</option>
-                    <option value="GLS внедорожник">GLS внедорожник</option>
-                    <option value="S-Класс седан">S-Класс седан</option>
-                    <option value="S-Класс купе">S-Класс купе</option>
-                    <option value="S-Класс Maybach">S-Класс Maybach</option>
-                    <option value="X-Класс пикап">X-Класс пикап</option>
-                  </select>
-                </div>
-              </div>
-              <div class="form__input-wrapper">
-                <input class="form__checkbox-input" type="checkbox" id="form-test-drive-confirm" name="confirm"
-                       checked="" onchange="confirmRequest('#form-test-drive')">
-                <label class="form__checkbox-label form__checkbox-label--small" for="form-test-drive-confirm">
-                  Я согласен на обработку персональных данных.
-                  <a href="https://sales.mercedes-orenburg.ru/politic/" target="_blank"
-                     class="link-hover-border -color-gold -nowrap">С Политикой защиты данных </a>
-                  ООО «Каскад-Авто»
-                  ознакомлен.
-                </label>
-              </div>
-              <button type="button" class="btn btn--blue CKFormTrigger" onclick="sendRequest('#form-test-drive')">
-                Записаться
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </section>
-    <section class="lp-premser">
-      <div class="container">
-        <div class="title-40">Искусство премиального сервиса</div>
-        <div class="lp-premser__group row row-15">
-          <div class="lp-premser__item xl-50">
-            <div class="premser">
-              <div class="premser__top">
-                <div class="premser__image">
-                  <img src="https://sales.mercedes-orenburg.ru/static/build/img/service/premser1_2x.jpg"
-                       srcset="https://sales.mercedes-orenburg.ru/static/build/img/service/premser1_2x.jpg 1.5x"
-                       alt="Бутик аксессуаров">
-                </div>
-                <div class="premser__title">Бутик аксессуаров</div>
-                <div class="premser__square">
-                  <i></i>
-                  <i></i>
-                  <i></i>
-                  <i></i>
-                </div>
-              </div>
-              <div class="premser__text">
-                Прямо в дилерском центре Вы можете выбрать премиальные аксессуары для жизни в стиле
-                «Мерседес
-                -
-                Бенц».
-              </div>
-            </div>
-          </div>
-          <div class="lp-premser__item xl-50">
-            <div class="premser">
-              <div class="premser__top">
-                <div class="premser__image">
-                  <img src="https://sales.mercedes-orenburg.ru/static/build/img/service/premser2_2x.jpg"
-                       srcset="https://sales.mercedes-orenburg.ru/static/build/img/service/premser2_2x.jpg 1.5x"
-                       alt="«Мерседес-Бенц» S-Lounge">
-                </div>
-                <div class="premser__title">«Мерседес
-                  -
-                  Бенц»
-                  S - Lounge</div>
-                <div class="premser__square">
-                  <i></i>
-                  <i></i>
-                  <i></i>
-                  <i></i>
-                </div>
-              </div>
-              <div class="premser__text">
-                Вместе с автомобилем семейства
-                S -
-                Класса мы предлагаем Вам
-                не только эксклюзивный продукт, но и ощущение исключительного
-                комфорта и удобства. Став участником программы
-                S - Lounge,
-                Вы откроете
-                для себя мир уникальных привилегий и премиального сервиса,
-                который позволит Вам в полной мере насладиться философией современной
-                роскоши от «Мерседес
-                -
-                Бенц».
-              </div>
-            </div>
-          </div>
-          <div class="lp-premser__item xl-50">
-            <div class="premser">
-              <div class="premser__top">
-                <div class="premser__image">
-                  <img src="https://sales.mercedes-orenburg.ru/static/build/img/service/premser3_2x.jpg"
-                       srcset="https://sales.mercedes-orenburg.ru/static/build/img/service/premser3_2x.jpg 1.5x"
-                       alt="Сертифицированный персонал">
-                </div>
-                <div class="premser__title">Сертифицированный персонал</div>
-                <div class="premser__square">
-                  <i></i>
-                  <i></i>
-                  <i></i>
-                  <i></i>
-                </div>
-              </div>
-              <div class="premser__text">
-                Квалификация наших сотрудников подтверждена официальными сертификатами «Мерседес
-                -
-                Бенц»
-                и многолетним успешным опытом работы.
-              </div>
-            </div>
-          </div>
-          <div class="lp-premser__item xl-50">
-            <div class="premser">
-              <div class="premser__top">
-                <div class="premser__image">
-                  <img src="https://sales.mercedes-orenburg.ru/static/build/img/service/premser4_2x.jpg"
-                       srcset="https://sales.mercedes-orenburg.ru/static/build/img/service/premser4_2x.jpg 1.5x"
-                       alt="Зона отдыха и кафе">
-                </div>
-                <div class="premser__title">Зона отдыха и кафе</div>
-                <div class="premser__square">
-                  <i></i>
-                  <i></i>
-                  <i></i>
-                  <i></i>
-                </div>
-              </div>
-              <div class="premser__text">
-                В дилерском центре «Каскад
-                -
-                Авто» работает зона отдыха и
-                кафе где
-                Вы в комфортной обстановке сможете отдохнуть.
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="title-40">Преимущества сервиса</div>
-        <div class="lp-premser__bottom">
-          <div class="lp-premser__bot-left-нет xl-70 lg-100">
-            <ul class="lp-premser__list row row-15">
-              <li class="xl-33">
-                <i>
-                  <svg class="icon icon-premser1">
-                    <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-premser1"></use>
-                  </svg>
-                </i>
-                <span>Онлайн-запись <br>на сервис 24 часа</span>
-              </li>
-              <li class="xl-33">
-                <i>
-                  <svg class="icon icon-premser2">
-                    <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-premser2"></use>
-                  </svg>
-                </i>
-                <span>Персональный консультант</span>
-              </li>
-              <li class="xl-33">
-                <i>
-                  <svg class="icon icon-premser3">
-                    <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-premser3"></use>
-                  </svg>
-                </i>
-                <span>Обслуживание без ожидания и очередей</span>
-              </li>
-              <li class="xl-33">
-                <i>
-                  <svg class="icon icon-premser4">
-                    <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-premser4"></use>
-                  </svg>
-                </i>
-                <span>Нормо-час от 1 100 руб для постгарантийных автомобилей и от 2400 руб. для автомобилей на гарантии</span>
-              </li>
-              <li class="xl-33">
-                <i>
-                  <svg class="icon icon-premser6">
-                    <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-premser6"></use>
-                  </svg>
-                </i>
-                <span>Программа «Мерседес-Бенц» Service Привилегия 3+ </span>
-              </li>
-              <li class="xl-33">
-                <i>
-                  <svg class="icon icon-premser7">
-                    <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-premser7"></use>
-                  </svg>
-                </i>
-                <span>Возможность отслеживать статус ремонта</span>
-              </li>
-            </ul>
-          </div>
-          <div class="lp-premser__bot-btn xl-30 lg-100">
-            <a href="#feedback_modal" data-code="service"
-               data-text="Получите индивидуальную консультацию нашего сервисного специалиста"
-               class="btn btn--blue js-open-modal">Записаться на сервис</a>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="s-final-order">
-      <div class="form-type3 form form--gold">
-        <div class="form-type3__wrapper">
-          <div class="form-type3__inner">
-            <form id="form-issues" class="CKiForm">
-              <input type="hidden" name="code" value="issues">
-              <input type="hidden" name="page" value="G-Класс внедорожник">
-              <div class="title-40">У Вас есть вопросы
-                        ?</div>
-              <div class="form-type3__subtitle">Оставьте заявку, и менеджер Вам перезвонит</div>
-              <div class="form-type3__narrow">
-                <div class="form__input-wrapper js-label-fly">
-                  <input type="text" data-callkeeper="person" class="form__input-text" id="form-issues-name"
-                         name="name">
-                  <label class="form__label-fly">Ваше имя</label>
-                </div>
-                <div class="form__input-wrapper js-label-fly">
-                  <input type="tel" data-callkeeper="tel" class="form__input-text" id="form-issues-phone" name="phone">
-                  <label class="form__label-fly">Ваш номер телефона</label>
-                </div>
-                <div class="form__input-wrapper">
-                  <input type="checkbox" class="form__checkbox-input" id="form-issues-confirm" name="confirm" checked=""
-                         onchange="confirmRequest('#form-issues')">
-                  <label class="form__checkbox-label form__checkbox-label--small" for="form-issues-confirm">
-                    Я согласен на обработку персональных данных.
-                    <a href="https://sales.mercedes-orenburg.ru/politic/" target="_blank"
-                       class="link-hover-border -color-gold -nowrap">С Политикой защиты данных </a>
-                    ООО «Каскад-Авто»
-                    ознакомлен.
-                  </label>
-                </div>
-              </div>
-              <button type="button" class="btn btn--blue-bd CKFormTrigger" onclick="sendRequest('#form-issues')">
-                Заказать
-                консультацию
-              </button>
-            </form>
-          </div>
+            <?php endif; ?>
         </div>
       </div>
     </section>
   </main>
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__inner">
-        <div class="footer__buttons">
-          <a href="#feedback_modal" data-code="best_offer"
-             data-text="Специально для Вас мы готовы сделать особое предложение!" class="btn btn--blue js-open-modal">Получить
-            лучшее предложение</a>
-          <a href="#feedback_modal" data-code="consultation"
-             data-text="Перезвоним Вам в ближайшее время и ответим на все интересующие вопросы"
-             class="btn btn--blue js-open-modal">Заказать консультацию</a>
-        </div>
-        <div class="footer__title title-40 xl-30 sm-100">Контакты</div>
-        <div class="footer__nav xl-70 sm-100">
-          <ul>
-            <li>
-              <a href="https://sales.mercedes-orenburg.ru/contact/">О нас</a>
-            </li>
-            <li>
-              <a href="https://sales.mercedes-orenburg.ru/contact/#a-contacts">Контакты</a>
-            </li>
-            <li>
-              <a href="https://sales.mercedes-orenburg.ru/contact/#a-contacts">Схема проезда</a>
-            </li>
-            <li>
-              <a href="https://sales.mercedes-orenburg.ru/contact/#a-managers">Ваши менеджеры</a>
-            </li>
-          </ul>
-        </div>
-        <div class="footer__contacts xl-85 sm-100">
-          <div class="footer__contacts-title">ООО «Каскад
-            -
-            Авто»</div>
-          <div class="footer__contacts-item">
-            <div class="footer__contacts-mini-title">Фактический адрес:</div>
-            <div>460507,
-              Оренбург, п. Пригородный,
-              12.350
-              км. шоссе Оренбург
-              -
-              Орск</div>
-          </div>
-          <div class="footer__contacts-item">
-            <div class="footer__contacts-mini-title">Телефон:</div>
-            <div>
-              <a href="tel:+73532910102">+7 (3532) 910-102</a>
-            </div>
-          </div>
-          <div class="footer__contacts-item">
-            <div class="footer__contacts-mini-title">E - mail
-              :</div>
-            <div><a href="mailto:mercedes@kaskad-auto.ru" target="_blank">mercedes@kaskad-auto.ru</a></div>
-          </div>
-        </div>
-        <div class="footer__soc xl-15 sm-100">
-          <a href="https://www.facebook.com/MercedesOrb/" class="footer__soc-btn" target="_blank">
-            <svg class="icon icon-fb">
-              <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-fb"></use>
-            </svg>
-          </a>
-          <a href="https://www.instagram.com/mercedesoren/" class="footer__soc-btn" target="_blank">
-            <svg class="icon icon-inst">
-              <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-inst"></use>
-            </svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </footer>
-  <noindex>
-    <svg style="position: absolute; top: 0; left: 0; width: 0; height: 0;">
-      <linearGradient id="linear-gradient" x1="50%" y1="0%" x2="50%" y2="100%">
-        <stop offset="0%" stop-color="#2e2f31"></stop>
-        <stop offset="100%" stop-color="#2e2f31"></stop>
-      </linearGradient>
-    </svg>
-    <div class="hide">
-      <div id="success_modal" class="modal-success modal-feedback modal-template" data-back="" data-close="1">
-        <div class="modal-success__icon">
-          <svg class="icon icon-success">
-            <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-success"></use>
-          </svg>
-        </div>
-        <div class="modal-success__title">Спасибо
-          !</div>
-        <div class="modal-success__subtitle">
-          Ваша заявка отправлена. <br> В ближайшее время мы с Вами свяжемся!
-        </div>
-        <button type="button" class="modal-success__btn btn btn--blue js-modal-close" on="">ОК</button>
-      </div>
-      <div id="feedback_modal" class="modal-feedback modal-template">
-        <div class="modal-feedback__head--desktop">
-          <div class="title-24 tac" id="popup-title-desktop">Индивидуальные условия на покупку нового автомобиля
-            для Вас. Перезвоним Вам и ответим на все вопросы.
-          </div>
-        </div>
-        <div class="modal-feedback__head--mobile">
-          <div class="title-24 tac" id="popup-title-mobile">Получите индивидуальное предложение</div>
-          <div class="tac mb-20">
-            Вы можете связаться с нами по
-            телефону
-            <div><a href="tel:+73532910102" class="-color-blue">+7 (3532) 910-102</a></div>
-            или оставить заявку, заполнив форму. <br> Наш менеджер свяжется с вами.
-          </div>
-        </div>
-        <form id="form-modal" class="js-enter CKiForm">
-          <input type="hidden" name="code">
-          <input type="hidden" name="order_id">
-          <input type="hidden" name="page" value="G-Класс внедорожник" data-page="G-Класс внедорожник">
-          <div class="modal-feedback__narrow form form--blue">
-            <div class="form__input-wrapper js-label-fly">
-              <input type="text" data-callkeeper="person" class="form__input-text" id="form-modal-name" name="name">
-              <label class="form__label-fly" for="form-modal-name">Ваше имя</label>
-            </div>
-            <div class="form__input-wrapper js-label-fly">
-              <input type="tel" data-callkeeper="tel" class="form__input-text" id="form-modal-phone" name="phone">
-              <label class="form__label-fly" for="form-modal-phone">Ваш номер телефона</label>
-            </div>
-            <div class="form__input-wrapper">
-              <input type="checkbox" class="form__checkbox-input" id="form-modal-confirm" name="confirm" checked=""
-                     onchange="confirmRequest('#form-modal')">
-              <label class="form__checkbox-label form__checkbox-label--small" for="form-modal-confirm">
-                Я согласен на обработку персональных данных. <a target="_blank"
-                                                                href="https://sales.mercedes-orenburg.ru/politic/"
-                                                                class="link-hover-border -color-blue -nowrap">
-                  С Политикой защиты данных </a>
-                ООО «Каскад-Авто»
-                ознакомлен.
-              </label>
-            </div>
-            <button type="button" class="btn btn--blue CKFormTrigger" onclick="sendRequest('#form-modal')">Отправить
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
-    <div class="bottom-plank">
-      <a href="tel:+73532910102" class="bottom-plank__phone-icon">
-        <svg class="icon icon-success">
-          <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-telephone"></use>
-        </svg>
-      </a>
-      <a href="#feedback_modal" class="btn btn--white js-open-modal">Заказать звонок</a>
-      <a href="tel:+73532910102" class="btn btn--white bottom-plank__phone-btn">
-        <svg class="icon icon-success">
-          <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-telephone"></use>
-        </svg>
-        <span>Позвонить</span>
-      </a>
-      <div class="bottom-plank__btn-on-top js-btn-on-top">
-        <svg class="icon icon-success">
-          <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-arrow-round"></use>
-        </svg>
-      </div>
-    </div>
-    <div class="btn-on-top js-btn-on-top ">
-      <svg class="icon icon-success">
-        <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-arrow-round"></use>
-      </svg>
-    </div>
-  </noindex>
+
 </div>
