@@ -14,7 +14,7 @@
 
 <script src="<?= $config->urls->templates . 'assets/js/script.js'?>"></script>
 <?php
-  if ($page->template->name == "layout_contacts") { ?>
+  if ($page->template->name == "layout_contacts"): ?>
     <script type="text/javascript">
       function initMap() {
         var coordinates= {lat: 57.1419482, lng: 65.5986856},
@@ -32,7 +32,7 @@
       }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDz-fa3z3jDQhfL6rwyNt3DEJ3XHbyoUHk&callback=initMap" async></script>
-<? } ?>
+<?php endif; ?>
 </body>
 
 </html>

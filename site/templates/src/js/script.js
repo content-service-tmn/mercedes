@@ -146,7 +146,7 @@ function listFilter() {
 function getModelInfo(t) {
     history.replaceState([], $("title").text(), location.origin + location.pathname + "#order_id=" + t), $.magnificPopup.open({
         items: {
-            src: "index.php?route=car/model/getInfo"
+            src: "/mercedes/car"
         },
         type: "ajax",
         fixedContentPos: !0,
@@ -162,7 +162,6 @@ function getModelInfo(t) {
         },
         callbacks: {
             close: function() {
-                history.replaceState([], $("title").text(), location.origin + location.pathname)
             }
         },
         tClose: "Закрыть",
