@@ -167,76 +167,74 @@ $codes = []/*getAccessories($pages)*/
           </p>
         </div>
       </div>
-      >>>>>>> 206e6c512c2bafa8c6497b969ff93ae080f5557b
     </div>
   </div>
-</div>
 
-<div class="product-modal__box3">
-  <div class="product-modal__title-18">Комплектация</div>
+  <div class="product-modal__box3">
+    <div class="product-modal__title-18">Комплектация</div>
 
-  <div class="product-modal__print">
-    <a class="-color-blue link-with-border"
-       href="https://sales.mercedes-orenburg.ru/index.php?route=car/model/printInfo&amp;order_id=<?= $info["car_id"] ?>"
-       target="_blank">
-      <b>Распечатать</b>
-    </a>
-  </div>
-
-  <ul class="product-modal__char-table">
-      <?php foreach (explode(",", $info["car_accessories"]) as $cde): if (isset($codes[$cde])): ?>
-        <li>
-          <span><?= $cde ?></span>
-          <span><?= $codes[$cde] ?></span>
-        </li>
-      <?php endif; endforeach; ?>
-  </ul>
-
-  <div class="product-modal__footer">
-
-    <div class="xl-60 sm-100 product-modal__footer-left">
-      <div class="product-modal__price">Данный автомобиль: <b><span><?= $info["car_price"] ?></span> ₽</b></div>
-      <div class="product-modal__spec-price">Специальное предложение:
-        <b><span><?= $info["car_special_proposal"] ?></span> ₽</b></div>
+    <div class="product-modal__print">
+      <a class="-color-blue link-with-border"
+         href="https://sales.mercedes-orenburg.ru/index.php?route=car/model/printInfo&amp;order_id=<?= $info["car_id"] ?>"
+         target="_blank">
+        <b>Распечатать</b>
+      </a>
     </div>
 
+    <ul class="product-modal__char-table">
+        <?php foreach (explode(",", $info["car_accessories"]) as $cde): if (isset($codes[$cde])): ?>
+          <li>
+            <span><?= $cde ?></span>
+            <span><?= $codes[$cde] ?></span>
+          </li>
+        <?php endif; endforeach; ?>
+    </ul>
 
-    <div class="xl-40 sm-100 product-modal__footer-right">
-      <div class="mb-10">
+    <div class="product-modal__footer">
+
+      <div class="xl-60 sm-100 product-modal__footer-left">
+        <div class="product-modal__price">Данный автомобиль: <b><span><?= $info["car_price"] ?></span> ₽</b></div>
+        <div class="product-modal__spec-price">Специальное предложение:
+          <b><span><?= $info["car_special_proposal"] ?></span> ₽</b></div>
+      </div>
+
+
+      <div class="xl-40 sm-100 product-modal__footer-right">
+        <div class="mb-10">
+          <a href="#feedback_modal"
+             data-code="equipment"
+             data-back="<?= $info["car_id"] ?>"
+             data-order="<?= $info["car_id"] ?>"
+             data-text="Индивидуальные условия на покупку нового автомобиля для Вас. Перезвоним Вам и ответим на все вопросы."
+             class="-color-blue link-with-border js-open-modal">
+            <b>Подобрать свою комплектацию</b>
+          </a>
+        </div>
+        <div class="mb-10">
+          <a href="https://sales.mercedes-orenburg.ru/index.php?route=car/model/printInfo&amp;order_id=<?= $info["car_id"] ?>"
+             class="-color-blue link-with-border" target="_blank">
+            <b>Распечатать</b>
+          </a>
+        </div>
+      </div>
+      <div class="xl-60 md-70 sm-100 product-modal__footer-buttons">
         <a href="#feedback_modal"
-           data-code="equipment"
+           data-code="best_price"
            data-back="<?= $info["car_id"] ?>"
            data-order="<?= $info["car_id"] ?>"
-           data-text="Индивидуальные условия на покупку нового автомобиля для Вас. Перезвоним Вам и ответим на все вопросы."
-           class="-color-blue link-with-border js-open-modal">
-          <b>Подобрать свою комплектацию</b>
-        </a>
+           data-info="<?= $info["title"] ?>"
+           data-text="Специально для Вас мы готовы сделать особое предложение!"
+           class="btn btn--blue js-open-modal">Хочу дешевле</a>
+        <a href="#feedback_modal"
+           data-code="best_price"
+           data-back="<?= $info["car_id"] ?>"
+           data-order="<?= $info["car_id"] ?>"
+           data-info="<?= $info["title"] ?>"
+           data-text="Получите индивидуальную консультацию нашего финансового специалиста"
+           class="btn btn--blue js-open-modal">Купить в кредит</a>
       </div>
-      <div class="mb-10">
-        <a href="https://sales.mercedes-orenburg.ru/index.php?route=car/model/printInfo&amp;order_id=<?= $info["car_id"] ?>"
-           class="-color-blue link-with-border" target="_blank">
-          <b>Распечатать</b>
-        </a>
-      </div>
-    </div>
-    <div class="xl-60 md-70 sm-100 product-modal__footer-buttons">
-      <a href="#feedback_modal"
-         data-code="best_price"
-         data-back="<?= $info["car_id"] ?>"
-         data-order="<?= $info["car_id"] ?>"
-         data-info="<?= $info["title"] ?>"
-         data-text="Специально для Вас мы готовы сделать особое предложение!"
-         class="btn btn--blue js-open-modal">Хочу дешевле</a>
-      <a href="#feedback_modal"
-         data-code="best_price"
-         data-back="<?= $info["car_id"] ?>"
-         data-order="<?= $info["car_id"] ?>"
-         data-info="<?= $info["title"] ?>"
-         data-text="Получите индивидуальную консультацию нашего финансового специалиста"
-         class="btn btn--blue js-open-modal">Купить в кредит</a>
     </div>
   </div>
-</div>
 
 </div>
 
