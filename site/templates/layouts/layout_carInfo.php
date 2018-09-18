@@ -3,7 +3,7 @@
 bd($page->path);
 ?>
 <?php $info = getCarInfo($pages, $_REQUEST["order_id"]);
-$codes = getAccessories($pages); ?>
+$codes = []/*getAccessories($pages)*/; ?>
 
 <div id="product_modal" class="product-modal modal-template">
 
