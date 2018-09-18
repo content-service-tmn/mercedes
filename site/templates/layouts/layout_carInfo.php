@@ -168,7 +168,6 @@ $codes = []/*getAccessories($pages)*/
         </div>
       </div>
     </div>
-  </div>
 
   <div class="product-modal__box3">
     <div class="product-modal__title-18">Комплектация</div>
