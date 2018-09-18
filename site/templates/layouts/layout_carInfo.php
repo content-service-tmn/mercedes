@@ -93,6 +93,7 @@ $codes = getAccessories($pages); ?>
             <input type="hidden" name="order_id" value="<?= $info["car_id"] ?>">
             <input type="hidden" name="page" value="<?= $info["title"] ?>">
 
+<<<<<<< HEAD
             <div class="form__input-wrapper js-label-fly">
               <input type="text" type="text" data-callkeeper="person" class="form__input-text" id="form-best-offer-name"
                      name="name">
@@ -138,6 +139,93 @@ $codes = getAccessories($pages); ?>
             <br>
             <a href="tel:+73532910102">+7 (3532) 910-102</a>
           </p>
+=======
+            <div class="product-modal__title-18">Описание</div>
+            <ul class="product-modal__desc-table">
+              <?php foreach ($info as $key => $value): if($value != null):?>
+                <li>
+                    <span><?=$key?></span>
+                    <span><?=$value?></span>
+                </li>
+              <?php endif; endforeach; ?>
+            </ul>
+        </div>
+
+        <div class="product-modal__box2">
+            <div class="form-type2 form">
+                <div class="form-type2__head custom-form-head">Получить лучшее предложение</div>
+                <div class="form-type2__body">
+                    <form id="form-best-offer" class="CKiForm">
+
+                        <input type="hidden" name="code" value="best_offer">
+                        <input type="hidden" name="order_id" value="<?=$info["car_id"]?>">
+                        <input type="hidden" name="page" value="<?=$info["title"]?>">
+
+                        <div class="form__input-wrapper js-label-fly">
+                            <input type="text" type="text" data-callkeeper="person" class="form__input-text" id="form-best-offer-name" name="name">
+                            <label class="form__label-fly">Ваше имя</label>
+                        </div>
+                        <div class="form__input-wrapper js-label-fly">
+                            <input type="tel" type="text" data-callkeeper="tel" class="form__input-text" id="form-best-offer-phone" name="phone">
+                            <label class="form__label-fly">Ваш номер телефона</label>
+                        </div>
+                        <div class="form__input-wrapper">
+                            <input class="form__checkbox-input" type="checkbox" id="form-best-offer-confirm" name="confirm" checked onchange="confirmRequest('#form-best-offer')">
+                            <label class="form__checkbox-label form__checkbox-label--small" for="form-best-offer-confirm">Я согласен на обработку персональных данных.
+                                <a href="https://sales.mercedes-orenburg.ru/politic/" target="_blank" class="link-hover-border -color-blue -nowrap">С Политикой защиты данных </a>
+                                ООО «Каскад-Авто»
+                                ознакомлен.
+                            </label>
+                        </div>
+                        <button type="button" class="btn btn--blue CKFormTrigger" onclick="sendRequest('#form-best-offer', '<?=$info["car_id"]?>')">Отправить</button>
+                    </form>
+                </div>
+            </div>
+            <div class="product-modal__credit-title">
+                <span>В кредит:</span>
+            </div>
+            <div class="product-modal__credit-info">
+                <p>Первоначальный взнос от <span>1 068 345</span> ₽</p>
+                <p>Ежемесячный платеж от <span>80 644</span> ₽</p>
+            </div>
+            <div class="product-modal__button custom-button-margin">
+                <a href="#feedback_modal"
+                   data-code="credit"
+                   data-back="<?=$info["car_id"]?>"
+                   data-order="<?=$info["car_id"]?>"
+                   data-info="<?=$info["title"]?>t"
+                   data-text="Получите индивидуальную консультацию нашего финансового специалиста"
+                   class="btn btn--blue js-open-modal">Купить в кредит</a>
+            </div>
+            <div class="product-modal__button">
+                <a href="#feedback_modal"
+                   data-code="credit"
+                   data-back="0852407636"
+                   data-order="0852407636"
+                   data-info="CLS 350 d 4MATIC Sport"
+                   data-text="Получите индивидуальную консультацию нашего финансового специалиста"
+                   class="btn btn--blue js-open-modal">Купить в трейд-ин</a>
+            </div>
+            <div class="form-type2 form">
+                <div class="form-type2__head">Контакты автосалона</div>
+                <div class="form-type2__body">
+                    <p>
+                        <b>460507, Оренбург, п. Пригородный, 12.350 км. шоссе Оренбург-Орск</b>
+                    </p>
+                    <p>
+                        <b>Время работы дилерского центра:</b>
+                        <br>
+                        <b>пн-сб</b> с 9-00 до 19-30
+                        <br>
+                        <b>вс</b> с 10-00 до 19-30 </p>
+                    <p>
+                        <b>Телефон:</b>
+                        <br>
+                        <a href="tel:+73532910102">+7 (3532) 910-102</a>
+                    </p>
+                </div>
+            </div>
+>>>>>>> 206e6c512c2bafa8c6497b969ff93ae080f5557b
         </div>
       </div>
     </div>

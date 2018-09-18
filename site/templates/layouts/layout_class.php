@@ -608,8 +608,50 @@ if ($page->parent()->name == "catalog") $session->redirect($pages->find("templat
                         <div class="product__name">
                           <p><?= $car->title ?></p>
                         </div>
-                        <div class="product__color-year">
-                          <p><?= $car->car_color ?></p>
+                        <a href="javascript:void(0);" class="product__info" onclick="getModelInfo('<?=$car->car_id?>');">
+                          <div class="product__info-item product__info-item1">
+                            <div class="product__name">
+                              <p><?= $car->title ?></p>
+                            </div>
+                            <div class="product__color-year">
+                              <p><?= $car->car_color ?></p>
+                            </div>
+                            <div class="product__equipment">Комплектация</div>
+                          </div>
+                            <?php $chars = getCarInfo($pages, $car->car_id); ?>
+                          <div class="product__info-item product__info-item2">
+                            <p><b>Цвет:</b> <?= $chars["car_color"] ?></p>
+                            <p><b>Год выпуска:</b><?= $chars["car_year"] ?></p>
+                            <p><b>Мощность:</b><?= $chars["class_power"] ?></p>
+                            <p><b>Тип топлива:</b> <?= $chars["class_fuel"] ?></p>
+                            <p><b>Салон:</b> <?= $chars["car_cabin"] ?></p>
+                            <p><b>Привод:</b> <?= $chars["class_gear"] ?></p>
+                          </div>
+                          <div class="product__info-item product__info-item3">
+                            <p>
+                              <span class=""><span><?= $car->car_price ?></span> ₽</span>
+                            </p>
+                            <p>
+                              <span class="">Специальное предложение:</span>
+                            </p>
+                            <p>
+                              <span class="price-new"><span><?= $car->car_price ?></span> ₽</span>
+                            </p>
+                          </div>
+                        </a>
+                        <div class="product__buttons">
+                          <a href="#feedback_modal" data-code="best_price" data-order="<?= $car->car_id ?>"
+                             data-info="<?= $car->car_title ?>"
+                             data-text="Специально для Вас мы готовы сделать особое предложение!"
+                             class="btn btn--blue js-open-modal">Хочу дешевле</a>
+                          <a href="#feedback_modal" data-code="credit" data-order="<?= $car->car_id ?>"
+                             data-info="<?= $car->car_title ?>"
+                             data-text="Специально для Вас мы готовы рассчитать кредит на особых условиях"
+                             class="btn btn--blue js-open-modal">Рассчитать кредит</a>
+                          <a href="#feedback_modal" data-code="credit" data-order="<?= $car->car_id ?>"
+                             data-info="<?= $car->car_title ?>"
+                             data-text="Специально для Вас мы готовы рассчитать кредит на особых условиях"
+                             class="btn btn--blue js-open-modal">Тест драйв</a>
                         </div>
                         <div class="product__equipment">Комплектация</div>
                       </div>
