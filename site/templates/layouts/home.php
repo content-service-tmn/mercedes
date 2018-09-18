@@ -117,6 +117,7 @@
               <div class="home-promo__slide-subtitle">Особые условия на приобретение автомобилей «Мерседес
                 -
                 Бенц» от официального дилера.</div>
+                <a href="" class="btn btn--blue home-promo__btn">Подробнее</a>
             </div>
           </div>
         </div>
@@ -128,6 +129,15 @@
         <div class="container">
           <div class="home-promo__nav-title">Выберите интересующую вас модель</div>
           <div class="header__nav nav-class js-navigation-promo"></div>
+          <div class="header__nav nav-class custom-nav">
+            <ul>
+              <li><a href="" class="is-parent">Коммерческий транспорт</a></li>
+              <li><a href="" class="is-parent">Сервисное обслуживание</a></li>
+              <li><a href="" class="is-parent">Оригинальные запасные части и аксессуары</a></li>
+              <li><a href="" class="is-parent">Mercedes Benz Financial</a></li>
+              <li><a href="" class="is-parent">Преимущества для покупателей из других регионов</a></li>
+            </ul>
+          </div>
         </div>
       </div>
 
@@ -533,6 +543,46 @@
             <a href="#feedback_modal" data-code="service"
                data-text="Получите индивидуальную консультацию нашего сервисного специалиста"
                class="btn btn--blue js-open-modal">Записаться на сервис</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="lp-premser">
+      <div class="container">
+        <div class="title-40">Преимущества для покупателей из других городов</div>
+        <div class="lp-premser__bottom">
+          <div class="lp-premser__bot-left-нет xl-70 lg-100">
+            <ul class="lp-premser__list row row-15">
+              <li class="xl-33">
+                <i>
+                  <svg class="icon icon-premser1">
+                    <use xlink:href="<?= $config->urls->templates . 'assets/img/benefits.svg' ?>#1"></use>
+                  </svg>
+                </i>
+                <span>Онлайн-запись <br>на сервис 24 часа</span>
+              </li>
+              <li class="xl-33">
+                <i>
+                  <svg class="icon icon-premser2">
+                    <use xlink:href="<?= $config->urls->templates . 'assets/img/benefits.svg' ?>#2"></use>
+                  </svg>
+                </i>
+                <span>Персональный консультант</span>
+              </li>
+              <li class="xl-33">
+                <i>
+                  <svg class="icon icon-premser3">
+                    <use xlink:href="<?= $config->urls->templates . 'assets/img/benefits.svg' ?>#3"></use>
+                  </svg>
+                </i>
+                <span>Обслуживание без ожидания и очередей</span>
+              </li>
+            </ul>
+          </div>
+          <div class="lp-premser__bot-btn xl-30 lg-100">
+            <a href="#feedback_modal" data-code="service"
+               data-text="Получите индивидуальную консультацию нашего сервисного специалиста"
+               class="btn btn--blue js-open-modal">Узнать подробности</a>
           </div>
         </div>
       </div>

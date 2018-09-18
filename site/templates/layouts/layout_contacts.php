@@ -547,10 +547,11 @@
             </div>
           </div>
           <div class="custom-contacts__cell">
-            <div class="custom-contacts__item"
-                 style="background-image:url(<?= $config->urls->templates . 'assets/img/01.svg' ?>)">
-              <p>пр. Победы, 71</p>
-              <p>456620 Копейск</p>
+            <div class="custom-contacts__item" style="background-image:url(<?= $config->urls->templates . 'assets/img/01.svg' ?>)">
+              <p>НОВЫЕ АВТОМОБИЛИ: <a href="">+7 (351) 2-555-666</a></p>
+              <p>СЕРВИС: +7 (351) <a href="">2-555-666</a></p>
+              <p>ЗАПЧАСТИ: +7 (351) <a href="">2-555-666</a></p>
+              <p>EMAIL: <a href="">UAH@UAH.UU.RU</a></p>
             </div>
           </div>
           <div class="custom-contacts__cell">
@@ -560,19 +561,20 @@
               <p>Сервис: <a href="">+7 (351) 2-555-666</a></p>
             </div>
           </div>
-          <div class="custom-contacts__cell">
-            <div class="custom-contacts__item"
-                 style="background-image:url(<?= $config->urls->templates . 'assets/img/01.svg' ?>)">
-              <p>Instagram - <a href="">@mercedes_asterion</a></p>
-              <p>ФБ - <a href="">@MercedesAsterion</a></p>
-              <p>YouTube - <a href="">Мерседес Астерион</a></p>
-              <p>Google - <a href="">Отзывы</a></p>
-            </div>
-          </div>
+        </div>
+        <div class="custom-contacts__socials">
+          <a href="" class="custom-contacts__social custom-contacts__social_vk"></a>
+          <a href="" class="custom-contacts__social custom-contacts__social_fb"></a>
+          <a href="" class="custom-contacts__social custom-contacts__social_yt"></a>
+          <a href="" class="custom-contacts__social custom-contacts__social_gg"></a>
         </div>
       </div>
     </section>
-    <section class="custom-map" id="map"></section>
+    <section class="custom-map__wrapper">
+      <section class="custom-map" id="map">
+      </section>
+      <a href="" target="_blank" class="custom-map__link"></a>
+    </section>
 
   </main>
 
