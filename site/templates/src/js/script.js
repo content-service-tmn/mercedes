@@ -6061,6 +6061,3 @@ function(e) {
     })
 
 }(jQuery));
-
-
-
