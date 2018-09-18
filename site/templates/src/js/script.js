@@ -174,8 +174,8 @@ function getModelInfo(t) {
             src: "/car/"
         },
         type: "ajax",
-        // fixedContentPos: !0,
-        // closeOnBgClick: !1,
+        fixedContentPos: !0,
+        closeOnBgClick: !1,
         ajax: {
             settings: {
                 type: "POST",
