@@ -167,7 +167,7 @@ function listFilter() {
     }
     else {
       $(".s-product-not-available").addClass("js-hidden");
-      $(".s-product-in-stock__head").removeClass("js-hidden");      
+      $(".s-product-in-stock__head").removeClass("js-hidden");
     }
   }
 }
