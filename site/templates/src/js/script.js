@@ -26,6 +26,8 @@ function homeFilterInit() {
         i = $("#range-price");
         t = min;
         e = max;
+    $("#home-filter input[name='price[min]']").attr("value",t);
+    $("#home-filter input[name='price[max]']").attr("value",e);
     i.ionRangeSlider({
         type: "double",
         min: t,
@@ -76,6 +78,8 @@ function listFilterInit() {
             n = parseInt($(".product-filters").attr("data-max"));
             i = min;
             n = max;
+        $("#list-filter input[name='price[min]']").attr("value",i);
+        $("#list-filter input[name='price[max]']").attr("value",n);
         e.ionRangeSlider({
             type: "double",
             min: i,
@@ -134,6 +138,7 @@ function listFilter() {
   var isAvail = $("input#stock_status_yes:checked").length;
   var notAvail = $("input#stock_status_no:checked").length;
   var colors = [];
+  console.log(model,min,max,isAvail,notAvail,colors);
   $("input.input-color__input:checked").each(function(index) {
     colors[index] = $(this).attr("value");
   });
