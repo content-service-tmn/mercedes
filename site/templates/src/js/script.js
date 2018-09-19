@@ -134,7 +134,6 @@ function listFilter() {
   var isAvail = $("input#stock_status_yes:checked").length;
   var notAvail = $("input#stock_status_no:checked").length;
   var colors = [];
-  console.log(model,min,max,isAvail,notAvail,colors);
   $("input.input-color__input:checked").each(function(index) {
     colors[index] = $(this).attr("value");
   });
@@ -150,13 +149,14 @@ function listFilter() {
   })
   .filter(function() {
     var isNotAvailable = $(this).attr('data-not-available');
-    if (isAvailable==isNotAvailable) return true;
-    return isNotAvailable==notAvail || isNotAvailable!=Avail;
+    if (isAvail==notAvail) return true;
+    return isNotAvailable==notAvail || isNotAvailable!=isAvail;
   })
   .filter(function(){
     var color = $(this).attr('data-color');
+    console.log(1);
     if (colors.length==0) return true;
-    return colors.include(color);
+    return colors.includes(color);
   })
   .removeClass('js-hidden');
   var tmp = $(".product").length;
