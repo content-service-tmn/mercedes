@@ -26,6 +26,8 @@ function homeFilterInit() {
         i = $("#range-price");
         t = min;
         e = max;
+    $("#home-filter input[name='price[min]']").attr("value",t);
+    $("#home-filter input[name='price[max]']").attr("value",e);
     i.ionRangeSlider({
         type: "double",
         min: t,
@@ -76,6 +78,8 @@ function listFilterInit() {
             n = parseInt($(".product-filters").attr("data-max"));
             i = min;
             n = max;
+        $("#list-filter input[name='price[min]']").attr("value",i);
+        $("#list-filter input[name='price[max]']").attr("value",n);
         e.ionRangeSlider({
             type: "double",
             min: i,
@@ -150,16 +154,18 @@ function listFilter() {
   })
   .filter(function() {
     var isNotAvailable = $(this).attr('data-not-available');
-    if (isAvailable==isNotAvailable) return true;
-    return isNotAvailable==notAvail || isNotAvailable!=Avail;
+    if (isAvail==notAvail) return true;
+    return isNotAvailable==notAvail || isNotAvailable!=isAvail;
   })
   .filter(function(){
     var color = $(this).attr('data-color');
+    console.log(1);
     if (colors.length==0) return true;
-    return colors.include(color);
+    return colors.includes(color);
   })
   .removeClass('js-hidden');
   var tmp = $(".product").length;
+  $(".s-product-in-stock__mini-title").attr("text",tmp);
   if (tmp>0) {
     if (tmp==$(".product.js-hidden").length) {
       $(".s-product-not-available").removeClass("js-hidden");
