@@ -2601,7 +2601,7 @@ body.overflow-hidden {
 	position: relative;
 	z-index: 1;
 	padding: 10px 15px;
-	text-transform: capitalize
+	text-transform: none;
 }
 
 .nav-class>ul>li>ul {
@@ -4350,14 +4350,11 @@ body.overflow-hidden {
 }
 
 .tradein-form {
-	-webkit-box-pack: justify;
-	-webkit-justify-content: space-between;
-	-ms-flex-pack: justify;
-	justify-content: space-between
+	justify-content: center
 }
 
 .tradein-form__inner {
-	width: 79%;
+	max-width: 350px;
 	border: 1px solid #4f5052;
 	-webkit-box-align: center;
 	-webkit-align-items: center;
@@ -4367,6 +4364,7 @@ body.overflow-hidden {
 
 .tradein-form__item {
 	position: relative;
+	width:100%;
 	border-left: 1px solid #4f5052
 }
 
@@ -6710,8 +6708,14 @@ screen and (max-height:300px) {
 	width:180px;
 }
 
+.custom-nav {
+	&__wrapper {
+		background-color:white;
+		padding:15px 0;
+	}
+}
 .custom-nav>ul {
-	flex-wrap: wrap;
+	// flex-wrap: wrap;
 }
 
 .custom-button-margin {
@@ -6721,4 +6725,8 @@ screen and (max-height:300px) {
 .custom-form-head {
 	color:rgb(41, 170, 226);
 	font-size:26px;
+}
+
+.custom-btn {
+	white-space: nowrap;
 }

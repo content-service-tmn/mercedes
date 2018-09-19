@@ -34,6 +34,7 @@
                       <?php foreach ($pages->find("parent={$category->id}") as $pge): ?>
                         <li><a href="<?= $pge->url ?>"><?= $pge->title ?></a></li>
                       <?php endforeach; ?>
+                      <li><a href="" class="is-parent">Коммерческий транспорт</a></li>
                   </ul>
                 </li>
               <?php endforeach; ?>
@@ -84,10 +85,10 @@
                         <?php endif;
                             $i++; endforeach; ?>
                       <li><a href="" class="is-parent">Коммерческий транспорт</a></li>
-                      <li><a href="" class="is-parent">Сервисное обслуживание</a></li>
+                      <li><a href="#benefits" class="is-parent js-smooth-scroll">Сервисное обслуживание</a></li>
                       <li><a href="" class="is-parent">Оригинальные запасные части и аксессуары</a></li>
                       <li><a href="" class="is-parent">Mercedes Benz Financial</a></li>
-                      <li><a href="" class="is-parent">Преимущества для покупателей из других регионов</a></li>
+                      <li><a href="#benefits-foreign" class="is-parent js-smooth-scroll">Преимущества для покупателей из других регионов</a></li>
                     </ul>
                   </li>
 
@@ -96,7 +97,7 @@
               <div class="header-fixed__button">
                 <a href="#feedback_modal" data-code="consultation"
                    data-text="Перезвоним Вам в ближайшее время и ответим на все интересующие вопросы"
-                   class="btn btn--blue btn--blue-sm js-open-modal">Заказать консультацию</a>
+                   class="btn btn--blue btn--blue-sm custom-btn js-open-modal">Заказать консультацию</a>
               </div>
             </div>
           </div>
@@ -184,13 +185,10 @@
                       </li>
                     <?php endif;
                         $i++; endforeach; ?>
-                  <li><a href="" class="is-parent">Коммерческий транспорт</a></li>
-                  <li><a href="" class="is-parent">Сервисное обслуживание</a></li>
-                  <li><a href="" class="is-parent">Оригинальные запасные части и аксессуары</a></li>
-                  <li><a href="" class="is-parent">Mercedes Benz Financial</a></li>
-                  <li><a href="" class="is-parent">Преимущества для покупателей из других регионов</a></li>
                 </ul>
               </li>
+              <li><a href="" class="is-parent">Коммерческий транспорт</a></li>
+
 
             </ul>
           </div>
@@ -198,7 +196,18 @@
       </div>
 
     </section>
-
+    <section class="custom-nav__wrapper">
+      <div class="container">
+        <div class="header__nav nav-class custom-nav">
+          <ul>
+            <li><a href="#benefits" class="is-parent js-smooth-scroll">Обслуживание</a></li>
+            <li><a href="" class="is-parent">Запчасти и аксессуары</a></li>
+            <li><a href="" class="is-parent">Mercedes Benz Financial</a></li>
+            <li><a href="#benefits-foreign" class="is-parent js-smooth-scroll">Преимущества для покупателей из регионов</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
     <section class="home-main">
       <div class="container">
 
