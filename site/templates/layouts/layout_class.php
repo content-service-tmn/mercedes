@@ -1,5 +1,5 @@
 <?php namespace Processwire;
-if ($page->parent()->name == "catalog") $session->redirect($pages->find("template=layout_class, parent={$page->id}")->first()->url) ?>
+if ($page->parent()->name == "catalog" || $page->name == "catalog") $session->redirect($pages->find("template=layout_class, parent={$page->id}")->first()->url) ?>
 <div class="site-wrapper">
   <header class="header js-header">
     <div class="container">
@@ -11,10 +11,11 @@ if ($page->parent()->name == "catalog") $session->redirect($pages->find("templat
           <div class="header__right">
             <div class="header__dealer">
               <div class="header__dealer-text">
-                Официальный дилер в Тюмени <span class="-nowrap">«<?=$pages->get("template=layout_contacts")->contacts_company_name?>»</span>
+                Официальный дилер в Тюмени <span
+                        class="-nowrap">«<?= $pages->get("template=layout_contacts")->contacts_company_name ?>»</span>
               </div>
               <div class="header__dealer-phone">
-                <a href="tel:<?=phoneLink($pages->get("template=layout_contacts")->contacts_phone)?>"><?=$pages->get("template=layout_contacts")->contacts_phone?></a>
+                <a href="tel:<?= phoneLink($pages->get("template=layout_contacts")->contacts_phone) ?>"><?= $pages->get("template=layout_contacts")->contacts_phone ?></a>
               </div>
             </div>
             <div class="header__button">
@@ -26,45 +27,17 @@ if ($page->parent()->name == "catalog") $session->redirect($pages->find("templat
           </div>
         </div>
         <div class="header__nav nav-class js-navigation-desktop">
-          <ul>
-              <?php $i = 0;
-              foreach ($pages->find("parent=catalog, sort=sort") as $category): if ($i < 8): ?>
-                <li>
-                  <a href="<?= $pages->find("template=layout_class, parent={$category->id}")->first()->url ?>"><?= $category->title ?></a>
-                  <ul>
-                      <?php foreach ($pages->find("parent={$category->id}") as $pge): ?>
-                        <li><a href="<?= $pge->url ?>"><?= $pge->title ?></a></li>
-                      <?php endforeach; ?>
-                  </ul>
-                </li>
-                  <?php $i++; endif; endforeach; ?>
-            <li>
-              <a href="">Другое</a>
-              <ul>
-                  <?php $i = 0;
-                  foreach ($pages->find("parent=catalog") as $category): if ($i >= 8): ?>
-                    <li>
-                      <a href="<?= $pages->find("template=layout_class, parent={$category->id}")->first()->url ?>"><?= $category->title ?></a>
-                    </li>
-                  <?php endif;
-                      $i++; endforeach; ?>
-                <li><a href="" class="is-parent">Коммерческий транспорт</a></li>
-                <li><a href="" class="is-parent">Сервисное обслуживание</a></li>
-                <li><a href="" class="is-parent">Оригинальные запасные части и аксессуары</a></li>
-                <li><a href="" class="is-parent">Mercedes Benz Financial</a></li>
-                <li><a href="" class="is-parent">Преимущества для покупателей из других регионов</a></li>
-              </ul>
-            </li>
-
-          </ul>
+            <?php include($config->paths->templates . "common/_navigation.php"); ?>
         </div>
         <div class="header__mobile cd-nav">
           <div class="cd-nav__inner">
             <div class="cd-nav__dealer">
-              <a href="https://sales.mercedes-orenburg.ru/contact/">Официальный дилер в Тюмени <span class="-nowrap">«<?=$pages->get("template=layout_contacts")->contacts_company_name?>»</span></a>
+              <a href="https://sales.mercedes-orenburg.ru/contact/">Официальный дилер в Тюмени <span
+                        class="-nowrap">«<?= $pages->get("template=layout_contacts")->contacts_company_name ?>
+                  »</span></a>
             </div>
             <div class="cd-nav__phone">
-              <a href="tel:<?=phoneLink($pages->get("template=layout_contacts")->contacts_phone)?>"><?=$pages->get("template=layout_contacts")->contacts_phone?></a>
+              <a href="tel:<?= phoneLink($pages->get("template=layout_contacts")->contacts_phone) ?>"><?= $pages->get("template=layout_contacts")->contacts_phone ?></a>
             </div>
             <div class="cd-nav__button">
               <a href="#feedback_modal" data-code="consultation"
@@ -93,10 +66,10 @@ if ($page->parent()->name == "catalog") $session->redirect($pages->find("templat
     <section class="subheader-mobile">
       <div class="container">
         <div class="subheader-mobile__dealer-text">Официальный дилер в Тюмени
-          <span class="-nowrap">«<?=$pages->get("template=layout_contacts")->contacts_company_name?>»</span>
+          <span class="-nowrap">«<?= $pages->get("template=layout_contacts")->contacts_company_name ?>»</span>
         </div>
         <div class="subheader-mobile__dealer-phone">
-          <a href="tel:<?=phoneLink($pages->get("template=layout_contacts")->contacts_phone)?>"><?=$pages->get("template=layout_contacts")->contacts_phone?></a>
+          <a href="tel:<?= phoneLink($pages->get("template=layout_contacts")->contacts_phone) ?>"><?= $pages->get("template=layout_contacts")->contacts_phone ?></a>
         </div>
         <div class="subheader-mobile__button">
           <a href="#feedback_modal" data-code="consultation"
@@ -139,11 +112,19 @@ if ($page->parent()->name == "catalog") $session->redirect($pages->find("templat
                     <?php $i++; endforeach ?>
             </div>
             <ul class="product-gallery__variants">
-                <?php foreach ($pages->find("template=layout_class, parent={$page->parent()->id}") as $child): ?>
-                  <li <?php if ($child->id == $page->id): ?>class="is-active"<?php endif; ?>>
-                    <a href="<?= $child->url ?>"><?= $child->title ?></a>
-                  </li>
-                <?php endforeach; ?>
+                <?php if (!$page->isAmg): ?>
+                    <?php foreach ($pages->find("template=layout_class, parent={$page->parent()->id}") as $child): ?>
+                    <li <?php if ($child->id == $page->id): ?>class="is-active"<?php endif; ?>>
+                      <a href="<?= $child->url ?>"><?= $child->title ?></a>
+                    </li>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <?php foreach ($pages->find("template=layout_class, parent={$page->id}") as $child): ?>
+                    <li <?php if ($child->id == $page->id): ?>class="is-active"<?php endif; ?>>
+                      <a href="<?= $child->url ?>"><?= $child->title ?></a>
+                    </li>
+                    <?php endforeach; ?>
+                <?php endif; ?>
             </ul>
           </div>
         </div>
@@ -370,7 +351,7 @@ if ($page->parent()->name == "catalog") $session->redirect($pages->find("templat
                     <a target="_blank" href="/privacy"
                        class="link-hover-border -color-blue -nowrap">
                       С Политикой защиты данных </a>
-                    ООО «<?=$pages->get("template=layout_contacts")->contacts_company_name?>»
+                    ООО «<?= $pages->get("template=layout_contacts")->contacts_company_name ?>»
                     ознакомлен.
                   </label>
                 </div>
@@ -392,7 +373,9 @@ if ($page->parent()->name == "catalog") $session->redirect($pages->find("templat
             <div class="form-type1__inner row">
               <div class="form-type1__text xl-50 lg-100">Если вас заинтересовало данное предложение, Вы можете
                 связаться с нами по телефону
-                <a href="tel:<?=phoneLink($pages->get("template=layout_contacts")->contacts_phone)?>" class="form-type1__phone"><?=$pages->get("template=layout_contacts")->contacts_phone?></a> или оставить заявку, заполнив
+                <a href="tel:<?= phoneLink($pages->get("template=layout_contacts")->contacts_phone) ?>"
+                   class="form-type1__phone"><?= $pages->get("template=layout_contacts")->contacts_phone ?></a> или
+                оставить заявку, заполнив
                 форму. Наш
                 менеджер свяжется с вами.
               </div>
@@ -421,7 +404,7 @@ if ($page->parent()->name == "catalog") $session->redirect($pages->find("templat
                       <a href="/privacy" target="_blank"
                          class="link-hover-border -color-blue -nowrap">С Политикой защиты
                         данных </a>
-                      ООО «<?=$pages->get("template=layout_contacts")->contacts_company_name?>»
+                      ООО «<?= $pages->get("template=layout_contacts")->contacts_company_name ?>»
                       ознакомлен.
                     </label>
                   </div>

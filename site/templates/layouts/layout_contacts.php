@@ -30,37 +30,7 @@
         </div>
 
         <div class="header__nav nav-class js-navigation-desktop">
-          <ul>
-              <?php $i = 0;
-              foreach ($pages->find("parent=catalog, sort=sort") as $category): if ($i < 8): ?>
-                <li>
-                  <a href="<?= $pages->find("template=layout_class, parent={$category->id}")->first()->url ?>"><?= $category->title ?></a>
-                  <ul>
-                      <?php foreach ($pages->find("parent={$category->id}") as $pge): ?>
-                        <li><a href="<?= $pge->url ?>"><?= $pge->title ?></a></li>
-                      <?php endforeach; ?>
-                  </ul>
-                </li>
-                  <?php $i++; endif; endforeach; ?>
-            <li>
-              <a href="">Другое</a>
-              <ul>
-                  <?php $i = 0;
-                  foreach ($pages->find("parent=catalog") as $category): if ($i >= 8): ?>
-                    <li>
-                      <a href="<?= $pages->find("template=layout_class, parent={$category->id}")->first()->url ?>"><?= $category->title ?></a>
-                    </li>
-                  <?php endif;
-                      $i++; endforeach; ?>
-                <li><a href="" class="is-parent">Коммерческий транспорт</a></li>
-                <li><a href="" class="is-parent">Сервисное обслуживание</a></li>
-                <li><a href="" class="is-parent">Оригинальные запасные части и аксессуары</a></li>
-                <li><a href="" class="is-parent">Mercedes Benz Financial</a></li>
-                <li><a href="" class="is-parent">Преимущества для покупателей из других регионов</a></li>
-              </ul>
-            </li>
-
-          </ul>
+            <?php include($config->paths->templates . "common/_navigation.php"); ?>
         </div>
 
         <div class="header__mobile cd-nav">
