@@ -367,7 +367,7 @@ if ($page->parent()->name == "catalog") $session->redirect($pages->find("templat
                          checked="" onchange="confirmRequest('#form-not-available')">
                   <label class="form__checkbox-label form__checkbox-label--small" for="form-not-available-confirm">
                     Я согласен на обработку персональных данных. <br>
-                    <a target="_blank" href="https://sales.mercedes-orenburg.ru/politic/"
+                    <a target="_blank" href="/privacy"
                        class="link-hover-border -color-blue -nowrap">
                       С Политикой защиты данных </a>
                     ООО «<?=$pages->get("template=layout_contacts")->contacts_company_name?>»
@@ -418,7 +418,7 @@ if ($page->parent()->name == "catalog") $session->redirect($pages->find("templat
                            name="confirm" checked="" onchange="confirmRequest('#form-individual-offer')">
                     <label class="form__checkbox-label form__checkbox-label--small" for="form-individual-offer-confirm">
                       Я согласен на обработку персональных данных.
-                      <a href="https://sales.mercedes-orenburg.ru/politic/" target="_blank"
+                      <a href="/privacy" target="_blank"
                          class="link-hover-border -color-blue -nowrap">С Политикой защиты
                         данных </a>
                       ООО «<?=$pages->get("template=layout_contacts")->contacts_company_name?>»

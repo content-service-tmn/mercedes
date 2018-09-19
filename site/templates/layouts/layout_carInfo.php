@@ -90,7 +90,7 @@ $codes = []/*getAccessories($pages)*/
                      onchange="confirmRequest('#form-best-offer')">
               <label class="form__checkbox-label form__checkbox-label--small" for="form-best-offer-confirm">Я согласен
                 на обработку персональных данных.
-                <a href="https://sales.mercedes-orenburg.ru/politic/" target="_blank"
+                <a href="/privacy" target="_blank"
                    class="link-hover-border -color-blue -nowrap">С Политикой защиты данных </a>
                 ООО «<?=$pages->get("template=layout_contacts")->contacts_company_name?>»
                 ознакомлен.
@@ -267,7 +267,7 @@ $codes = []/*getAccessories($pages)*/
                      checked onchange="confirmRequest('#form-issues-modal')">
               <label class="form__checkbox-label form__checkbox-label--small" for="form-issues-modal-confirm">
                 Я согласен на обработку персональных данных.
-                <a href="https://sales.mercedes-orenburg.ru/politic/" target="_blank"
+                <a href="/privacy" target="_blank"
                    class="link-hover-border -color-blue -nowrap">С Политикой защиты данных </a>
                 ООО «<?=$pages->get("template=layout_contacts")->contacts_company_name?>»
                 ознакомлен.
