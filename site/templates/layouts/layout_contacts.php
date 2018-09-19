@@ -14,9 +14,9 @@
           <div class="header__right">
             <div class="header__dealer">
               <div class="header__dealer-text">
-                Официальный дилер в Оренбурге <span class="-nowrap">«Каскад-Авто»</span></div>
+                Официальный дилер в Тюмени <span class="-nowrap">«<?=$pages->get("template=layout_contacts")->contacts_company_name?>»</span></div>
               <div class="header__dealer-phone">
-                <a href="tel:+73532910102">+7 (3532) 910-102</a>
+                <a href="tel:<?=phoneLink($pages->get("template=layout_contacts")->contacts_phone)?>"><?=$pages->get("template=layout_contacts")->contacts_phone?></a>
               </div>
             </div>
             <div class="header__button">
@@ -32,7 +32,7 @@
         <div class="header__nav nav-class js-navigation-desktop">
           <ul>
               <?php $i = 0;
-              foreach ($pages->find("parent=catalog") as $category): if ($i < 8): ?>
+              foreach ($pages->find("parent=catalog, sort=sort") as $category): if ($i < 8): ?>
                 <li>
                   <a href="<?= $pages->find("template=layout_class, parent={$category->id}")->first()->url ?>"><?= $category->title ?></a>
                   <ul>
@@ -66,10 +66,10 @@
         <div class="header__mobile cd-nav">
           <div class="cd-nav__inner">
             <div class="cd-nav__dealer">
-              <a href="https://sales.mercedes-orenburg.ru/contact/">Официальный дилер в Оренбурге <span class="-nowrap">«Каскад-Авто»</span></a>
+              <a href="https://sales.mercedes-orenburg.ru/contact/">Официальный дилер в Тюмени <span class="-nowrap">«<?=$pages->get("template=layout_contacts")->contacts_company_name?>»</span></a>
             </div>
             <div class="cd-nav__phone">
-              <a href="tel:+73532910102">+7 (3532) 910-102</a>
+              <a href="tel:<?=phoneLink($pages->get("template=layout_contacts")->contacts_phone)?>"><?=$pages->get("template=layout_contacts")->contacts_phone?></a>
             </div>
             <div class="cd-nav__button">
               <a href="#feedback_modal" data-code="consultation"
@@ -101,10 +101,10 @@
     <section class="subheader-mobile">
       <div class="container">
         <div class="subheader-mobile__dealer-text">Официальный дилер в Оренбурге <span
-                  class="-nowrap">«Каскад-Авто»</span>
+                  class="-nowrap">«<?=$pages->get("template=layout_contacts")->contacts_company_name?>»</span>
         </div>
         <div class="subheader-mobile__dealer-phone">
-          <a href="tel:+73532910102">+7 (3532) 910-102</a>
+          <a href="tel:<?=phoneLink($pages->get("template=layout_contacts")->contacts_phone)?>"><?=$pages->get("template=layout_contacts")->contacts_phone?></a>
         </div>
         <div class="subheader-mobile__button">
           <a href="#feedback_modal" data-code="consultation"
@@ -119,7 +119,7 @@
         <div class="container">
           <div class="title-40">О нас</div>
           <p>
-            <span class="contacts-promo__title-20">«Каскад-Авто»</span> – официальный дилер «Мерседес-Бенц»
+            <span class="contacts-promo__title-20">«<?=$pages->get("template=layout_contacts")->contacts_company_name?>»</span> – официальный дилер «Мерседес-Бенц»
             в Оренбурге и Оренбургской области, является частью
             автомобильной группы «Каскад-Авто». В своей многолетней истории компания сочетает
             высочайшие
@@ -223,186 +223,5 @@
 
   </main>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__inner">
-
-        <div class="footer__buttons">
-          <a href="#feedback_modal" data-code="best_offer"
-             data-text="Специально для Вас мы готовы сделать особое предложение!" class="btn btn--blue js-open-modal">Получить
-            лучшее предложение</a>
-          <a href="#feedback_modal" data-code="consultation"
-             data-text="Перезвоним Вам в ближайшее время и ответим на все интересующие вопросы"
-             class="btn btn--blue js-open-modal">Заказать консультацию</a>
-        </div>
-
-        <div class="footer__title title-40 xl-30 sm-100">Контакты</div>
-        <div class="footer__nav xl-70 sm-100">
-          <ul>
-            <li>
-              <a href="https://sales.mercedes-orenburg.ru/contact/">О нас</a>
-            </li>
-            <li>
-              <a href="https://sales.mercedes-orenburg.ru/contact/#a-contacts">Контакты</a>
-            </li>
-            <li>
-              <a href="https://sales.mercedes-orenburg.ru/contact/#a-contacts">Схема проезда</a>
-            </li>
-            <li>
-              <a href="https://sales.mercedes-orenburg.ru/contact/#a-managers">Ваши менеджеры</a>
-            </li>
-          </ul>
-        </div>
-        <div class="footer__contacts xl-85 sm-100">
-          <div class="footer__contacts-title">ООО «Каскад
-            -
-            Авто»</div>
-          <div class="footer__contacts-item">
-            <div class="footer__contacts-mini-title">Фактический адрес:</div>
-            <div>460507,
-              Оренбург, п. Пригородный,
-              12.350
-              км. шоссе Оренбург
-              -
-              Орск</div>
-          </div>
-          <div class="footer__contacts-item">
-            <div class="footer__contacts-mini-title">Телефон:</div>
-            <div>
-              <a href="tel:+73532910102">+7 (3532) 910-102</a>
-            </div>
-          </div>
-          <div class="footer__contacts-item">
-            <div class="footer__contacts-mini-title">E - mail
-              :</div>
-            <div><a href="mailto:mercedes@kaskad-auto.ru" target="_blank">mercedes@kaskad-auto.ru</a></div>
-          </div>
-        </div>
-        <div class="footer__soc xl-15 sm-100">
-          <a href="https://www.facebook.com/MercedesOrb/" class="footer__soc-btn" target="_blank">
-            <svg class="icon icon-fb">
-              <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-fb"></use>
-            </svg>
-          </a>
-          <a href="https://www.instagram.com/mercedesoren/" class="footer__soc-btn" target="_blank">
-            <svg class="icon icon-inst">
-              <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-inst"></use>
-            </svg>
-          </a>
-        </div>
-      </div>
-    </div>
-
-  </footer>
-
-  <noindex>
-
-    <svg style="position: absolute; top: 0; left: 0; width: 0; height: 0;">
-      <linearGradient id="linear-gradient" x1="50%" y1="0%" x2="50%" y2="100%">
-        <stop offset="0%" stop-color="#c1a374"></stop>
-        <stop offset="100%" stop-color="#4d4132"></stop>
-      </linearGradient>
-    </svg>
-
-    <div class="hide">
-
-      <div id="success_modal" class="modal-success modal-feedback modal-template" data-back="" data-close="1">
-        <div class="modal-success__icon">
-          <svg class="icon icon-success">
-            <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-success"></use>
-          </svg>
-        </div>
-        <div class="modal-success__title">Спасибо
-          !</div>
-        <div class="modal-success__subtitle">
-          Ваша заявка отправлена. <br> В ближайшее время мы с Вами свяжемся!
-        </div>
-        <button type="button" class="modal-success__btn btn btn--blue js-modal-close" on="">ОК</button>
-      </div>
-
-      <div id="feedback_modal" class="modal-feedback modal-template">
-
-        <div class="modal-feedback__head--desktop">
-          <div class="title-24 tac" id="popup-title-desktop">Индивидуальные условия на покупку нового автомобиля
-            для Вас. Перезвоним Вам и ответим на все вопросы.
-          </div>
-        </div>
-        <div class="modal-feedback__head--mobile">
-          <div class="title-24 tac" id="popup-title-mobile">Получите индивидуальное предложение</div>
-          <div class="tac mb-20">Вы можете связаться с нами по
-            телефону
-            <div><a href="tel:+73532910102" class="-color-blue">+7 (3532) 910-102</a></div>
-            или оставить заявку, заполнив форму. <br> Наш менеджер свяжется с вами.
-          </div>
-
-        </div>
-
-        <form id="form-modal" class="js-enter CKiForm">
-
-          <input type="hidden" name="code">
-          <input type="hidden" name="order_id">
-
-          <input type="hidden" name="page" value="Контакты - «Мерседес-Бенц» в Оренбурге"
-                 data-page="Контакты - «Мерседес-Бенц» в Оренбурге">
-
-          <div class="modal-feedback__narrow form form--blue">
-            <div class="form__input-wrapper js-label-fly">
-              <input type="text" data-callkeeper="person" class="form__input-text" id="form-modal-name" name="name">
-              <label class="form__label-fly" for="form-modal-name">Ваше имя</label>
-            </div>
-            <div class="form__input-wrapper js-label-fly">
-              <input type="tel" data-callkeeper="tel" class="form__input-text" id="form-modal-phone" name="phone">
-              <label class="form__label-fly" for="form-modal-phone">Ваш номер телефона</label>
-            </div>
-            <div class="form__input-wrapper">
-              <input type="checkbox" class="form__checkbox-input" id="form-modal-confirm" name="confirm" checked=""
-                     onchange="confirmRequest('#form-modal')">
-              <label class="form__checkbox-label form__checkbox-label--small" for="form-modal-confirm">
-                Я согласен на обработку персональных данных. <a target="_blank"
-                                                                href="https://sales.mercedes-orenburg.ru/politic/"
-                                                                class="link-hover-border -color-blue -nowrap">
-                  С Политикой защиты данных </a>
-                ООО «Каскад-Авто»
-                ознакомлен.
-              </label>
-            </div>
-            <button type="button" class="btn btn--blue CKFormTrigger" onclick="sendRequest('#form-modal')">Отправить
-            </button>
-          </div>
-        </form>
-
-      </div>
-
-    </div>
-
-
-    <div class="bottom-plank">
-      <a href="tel:+73532910102" class="bottom-plank__phone-icon">
-        <svg class="icon icon-success">
-          <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-telephone"></use>
-        </svg>
-      </a>
-      <a href="#feedback_modal" class="btn btn--white js-open-modal">Заказать звонок</a>
-      <a href="tel:+73532910102" class="btn btn--white bottom-plank__phone-btn">
-        <svg class="icon icon-success">
-          <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-telephone"></use>
-        </svg>
-        <span>Позвонить</span>
-      </a>
-      <div class="bottom-plank__btn-on-top js-btn-on-top">
-        <svg class="icon icon-success">
-          <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-arrow-round"></use>
-        </svg>
-      </div>
-    </div>
-
-
-    <div class="btn-on-top js-btn-on-top ">
-      <svg class="icon icon-success">
-        <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-arrow-round"></use>
-      </svg>
-    </div>
-
-  </noindex>
 
 </div>

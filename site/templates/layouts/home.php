@@ -10,9 +10,9 @@
           <div class="header__right">
             <div class="header__dealer">
               <div class="header__dealer-text">
-                Официальный дилер в Оренбурге <span class="-nowrap">«Каскад-Авто»</span></div>
+                Официальный дилер в Тюмени <span class="-nowrap">«<?=$pages->get("template=layout_contacts")->contacts_company_name?>»</span></div>
               <div class="header__dealer-phone">
-                <a href="tel:+73532910102">+7 (3532) 910-102</a>
+                <a href="tel:<?=phoneLink($pages->get("template=layout_contacts")->contacts_phone)?>"><?=$pages->get("template=layout_contacts")->contacts_phone?></a>
               </div>
             </div>
             <div class="header__button">
@@ -44,10 +44,10 @@
         <div class="header__mobile cd-nav">
           <div class="cd-nav__inner">
             <div class="cd-nav__dealer">
-              <a href="https://sales.mercedes-orenburg.ru/contact/">Официальный дилер в Оренбурге <span class="-nowrap">«Каскад-Авто»</span></a>
+              <a href="contacts/">Официальный дилер в Тюмени <span class="-nowrap">«<?=$pages->get("template=layout_contacts")->contacts_company_name?>»</span></a>
             </div>
             <div class="cd-nav__phone">
-              <a href="tel:+73532910102">+7 (3532) 910-102</a>
+              <a href="tel:<?=phoneLink($pages->get("template=layout_contacts")->contacts_phone)?>"><?=$pages->get("template=layout_contacts")->contacts_phone?></a>
             </div>
             <div class="cd-nav__button">
               <a href="#feedback_modal" data-code="consultation"
@@ -64,7 +64,7 @@
               <div class="header-fixed__nav nav-class js-header-fixed-nav">
                 <ul>
                     <?php $i = 0;
-                    foreach ($pages->find("parent=catalog") as $category): if ($i < 8): ?>
+                    foreach ($pages->find("parent=catalog, sort=sort") as $category): if ($i < 8): ?>
                       <li>
                         <a href="<?= $pages->find("template=layout_class, parent={$category->id}")->first()->url ?>"><?= $category->title ?></a>
                         <ul>
@@ -110,11 +110,11 @@
 
     <section class="subheader-mobile">
       <div class="container">
-        <div class="subheader-mobile__dealer-text">Официальный дилер в Оренбурге
-          <span class="-nowrap">«Каскад-Авто»</span>
+        <div class="subheader-mobile__dealer-text">Официальный дилер в Тюмени
+          <span class="-nowrap">«<?=$pages->get("template=layout_contacts")->contacts_company_name?>»</span>
         </div>
         <div class="subheader-mobile__dealer-phone">
-          <a href="tel:+73532910102">+7 (3532) 910-102</a>
+          <a href="tel:<?=phoneLink($pages->get("template=layout_contacts")->contacts_phone)?>"><?=$pages->get("template=layout_contacts")->contacts_phone?></a>
         </div>
         <div class="subheader-mobile__button">
           <a href="#feedback_modal" data-code="consultation"
@@ -165,7 +165,7 @@
           <div class="header__nav nav-class">
             <ul>
                 <?php $i = 0;
-                foreach ($pages->find("parent=catalog") as $category): if ($i < 8): ?>
+                foreach ($pages->find("parent=catalog, sort=sort") as $category): if ($i < 8): ?>
                   <li>
                     <a href="<?= $pages->find("template=layout_class, parent={$category->id}")->first()->url ?>"><?= $category->title ?></a>
                     <ul>
@@ -392,7 +392,7 @@
               <div class="form-type1__text xl-50 lg-100">
                 Специально для Вас мы готовы улучшить любое предложение!
                 Вы можете связаться с нами по телефону
-                <a href="tel:+73532910102" class="form-type1__phone">+7 (3532) 910-102</a>
+                <a href="tel:<?=phoneLink($pages->get("template=layout_contacts")->contacts_phone)?>" class="form-type1__phone"><?=$pages->get("template=layout_contacts")->contacts_phone?></a>
                 или оставить заявку, заполнив форму. Наш менеджер свяжется с Вами.
               </div>
 
@@ -417,9 +417,9 @@
                            name="confirm" checked="" onchange="confirmRequest('#form-individual-offer')">
                     <label class="form__checkbox-label form__checkbox-label--small" for="form-individual-offer-confirm">
                       Я согласен на обработку персональных данных.
-                      <a href="https://sales.mercedes-orenburg.ru/politic/" target="_blank"
+                      <a href="/privacy" target="_blank"
                          class="link-hover-border -color-blue -nowrap">С Политикой защиты данных </a>
-                      ООО «Каскад-Авто»
+                      ООО «<?=$pages->get("template=layout_contacts")->contacts_company_name?>»
                       ознакомлен.
                     </label>
                   </div>
