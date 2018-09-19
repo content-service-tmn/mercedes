@@ -61,6 +61,76 @@
   </div>
 </section>
 
+<section class="lp-tradein">
+      <div class="container">
+         <div class="title-40">Трейд
+          -
+          ин</div>
+        <a href="javascript:void(0);" class="expand-btn">Развернуть</a>
+         <div class="expand-box">
+          <div class="lp-tradein__subtitle">
+            У Вас есть возможность приобрести автомобиль с дополнительной выгодой.
+            Trade - In -
+            один из способов оплаты понравившегося Вам «Мерседес
+            -
+            Бенц».
+          </div>
+           <ul class="lp-tradein__list">
+            <li class="xl-30 md-33 sm-100">
+              <i>
+                <svg class="icon icon-trade-car">
+                  <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-trade-car"></use>
+                </svg>
+              </i>
+              <span>Вы просто сдаете нам Ваш существующий автомобиль.</span>
+            </li>
+            <li class="xl-30 md-33 sm-100">
+              <i>
+                <svg class="icon icon-trade-money">
+                  <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-trade-money"></use>
+                </svg>
+              </i>
+              <span>При необходимости доплачиваете разницу в цене.</span>
+            </li>
+            <li class="xl-30 md-33 sm-100">
+              <i>
+                <svg class="icon icon-trade-finger">
+                  <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-trade-finger"></use>
+                </svg>
+              </i>
+              <span>Уезжаете на новом автомобиле или на понравившемся Вам автомобиле с пробегом.</span>
+            </li>
+          </ul>
+           <form id="form-trade_in" class="CKiForm">
+             <input type="hidden" name="code" value="trade_in">
+             <div class="tradein-form form mb-20">
+              <div class="tradein-form__inner xl-70 sm-100">
+                 <div class="tradein-form__item">
+                  <input type="tel" data-callkeeper="tel" class="form__input-text" name="phone" placeholder="Телефон">
+                </div>
+              </div>
+              <div class="tradein-form__button xl-30 sm-100">
+                <button type="button" class="btn btn--blue CKFormTrigger" onclick="sendRequest('#form-trade_in')">
+                  Оценить
+                </button>
+              </div>
+            </div>
+            <div class="tradein-form form__input-wrapper">
+              <input class="form__checkbox-input" type="checkbox" id="form-tradein-confirm" name="confirm" checked=""
+                     onchange="confirmRequest('#form-trade_in')">
+              <label class="form__checkbox-label form__checkbox-label--small" for="form-tradein-confirm">
+                Я согласен на обработку персональных данных.
+                <a href="https://sales.mercedes-orenburg.ru/politic/" target="_blank"
+                   class="link-hover-border -color-gold -nowrap">С Политикой защиты данных </a>
+                ООО «Каскад-Авто»
+                ознакомлен.
+              </label>
+            </div>
+           </form>
+        </div>
+       </div>
+    </section>
+
 <section class="lp-testdrive">
 
   <div class="lp-testdrive__left-img">
@@ -166,20 +236,20 @@
           </div>
         <?php endforeach; ?>
     </div>
-    <div class="title-40">Преимущества сервиса</div>
+    <div id="benefits" class="title-40">Преимущества сервиса</div>
     <div class="lp-premser__bottom">
       <div class="lp-premser__bot-left-нет xl-70 lg-100">
         <ul class="lp-premser__list row row-15">
             <?php $i=1; foreach ($pages->get("id=1")->benefits as $benefit): ?>
               <li class="xl-33">
                 <i>
-                  <svg class="icon icon-premser<?=$i?>">
-                    <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-premser<?=$i?>"></use>
+                  <svg class="icon icon-premser<?=$i>=5?$i+1:$i ?>">
+                    <use xlink:href="<?= $config->urls->templates . 'assets/img/spr.svg' ?>#<?=$i?>"></use>
                   </svg>
                 </i>
                 <span><?=$benefit->benefit_description?></span>
               </li>
-                <?php $i++; if ($i==5) $i++; endforeach; ?>
+                <?php $i++; endforeach; ?>
         </ul>
       </div>
       <div class="lp-premser__bot-btn xl-30 lg-100">
@@ -190,7 +260,7 @@
     </div>
   </div>
 </section>
-<section class="lp-premser">
+<section id="benefits-foreign" class="lp-premser">
   <div class="container">
     <div class="title-40">Преимущества для покупателей из других городов</div>
     <div class="lp-premser__bottom">
@@ -443,6 +513,7 @@
 </noindex>
 
 <script src="<?= $config->urls->templates . 'assets/js/script.js'?>"></script>
+<script src="<?= $config->urls->templates . 'assets/js/template.js'?>"></script>
 <?php
   if ($page->template->name == "layout_contacts"): ?>
     <script type="text/javascript">
