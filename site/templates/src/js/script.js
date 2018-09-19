@@ -134,14 +134,13 @@ function listFilter() {
   var isAvail = $("input#stock_status_yes:checked").length;
   var notAvail = $("input#stock_status_no:checked").length;
   var colors = [];
-  console.log(model,min,max,isAvail,notAvail,isAmg,colors);
+  console.log(model,min,max,isAvail,notAvail,colors);
   $("input.input-color__input:checked").each(function(index) {
     colors[index] = $(this).attr("value");
   });
   $(".product").addClass('js-hidden');
   $(".product").filter(function() {
     var price = parseInt($(this).attr('data-price').replace(/\s/g, ''));
-    console.log(price>=min && price<=max);
     return price>=min && price<=max;
   })
   .filter(function() {
@@ -160,6 +159,17 @@ function listFilter() {
     return colors.include(color);
   })
   .removeClass('js-hidden');
+  var tmp = $(".product").length;
+  if (tmp>0) {
+    if (tmp==$(".product.js-hidden").length) {
+      $(".s-product-not-available").removeClass("js-hidden");
+      $(".s-product-in-stock__head").addClass("js-hidden");
+    }
+    else {
+      $(".s-product-not-available").addClass("js-hidden");
+      $(".s-product-in-stock__head").removeClass("js-hidden");      
+    }
+  }
 }
 
 function getModelInfo(t) {
