@@ -418,7 +418,7 @@
   <noindex>
     <svg style="position: absolute; top: 0; left: 0; width: 0; height: 0;">
       <linearGradient id="linear-gradient" x1="50%" y1="0%" x2="50%" y2="100%">
-        <stop offset="0%" stop-color="#2e2f31"></stop>
+        <stop offset="0%" stop-color="#9caab5"></stop>
         <stop offset="100%" stop-color="#2e2f31"></stop>
       </linearGradient>
     </svg>

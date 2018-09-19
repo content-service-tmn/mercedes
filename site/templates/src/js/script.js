@@ -160,6 +160,7 @@ function listFilter() {
   })
   .removeClass('js-hidden');
   var tmp = $(".product").length;
+  $(".s-product-in-stock__mini-title").attr("text",tmp);
   if (tmp>0) {
     if (tmp==$(".product.js-hidden").length) {
       $(".s-product-not-available").removeClass("js-hidden");
