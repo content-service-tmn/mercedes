@@ -133,7 +133,6 @@ function listFilter() {
   var max = parseInt($("input[name='price[max]']").attr("value").replace(/\s/g, ''));
   var isAvail = $("input#stock_status_yes:checked").length;
   var notAvail = $("input#stock_status_no:checked").length;
-  var isAmg = $("input#status_amg:checked").length;
   var colors = [];
   console.log(model,min,max,isAvail,notAvail,isAmg,colors);
   $("input.input-color__input:checked").each(function(index) {
@@ -142,6 +141,7 @@ function listFilter() {
   $(".product").addClass('js-hidden');
   $(".product").filter(function() {
     var price = parseInt($(this).attr('data-price').replace(/\s/g, ''));
+    console.log(price>=min && price<=max);
     return price>=min && price<=max;
   })
   .filter(function() {
@@ -150,11 +150,9 @@ function listFilter() {
     return model==md;
   })
   .filter(function() {
-    var isAvailable = $(this).attr('data-available');
     var isNotAvailable = $(this).attr('data-not-available');
-    var amg = $(this).attr('data-amg');
-    if (isAvailable==0 && isNotAvailable==0 && amg==0) return true;
-    return isAvailable==isAvail && isNotAvailable==notAvail && isAmg==amg;
+    if (isAvailable==isNotAvailable) return true;
+    return isNotAvailable==notAvail || isNotAvailable!=Avail;
   })
   .filter(function(){
     var color = $(this).attr('data-color');
@@ -162,7 +160,6 @@ function listFilter() {
     return colors.include(color);
   })
   .removeClass('js-hidden');
-
 }
 
 function getModelInfo(t) {
