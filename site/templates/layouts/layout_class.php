@@ -27,221 +27,35 @@ if ($page->parent()->name == "catalog") $session->redirect($pages->find("templat
         </div>
         <div class="header__nav nav-class js-navigation-desktop">
           <ul>
+              <?php $i = 0;
+              foreach ($pages->find("parent=catalog") as $category): if ($i < 8): ?>
+                <li>
+                  <a href="<?= $pages->find("template=layout_class, parent={$category->id}")->first()->url ?>"><?= $category->title ?></a>
+                  <ul>
+                      <?php foreach ($pages->find("parent={$category->id}") as $pge): ?>
+                        <li><a href="<?= $pge->url ?>"><?= $pge->title ?></a></li>
+                      <?php endforeach; ?>
+                  </ul>
+                </li>
+                  <?php $i++; endif; endforeach; ?>
             <li>
-              <a href="https://sales.mercedes-orenburg.ru/a-hatchback/amg/">AMG</a>
+              <a href="">Другое</a>
               <ul>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/a-hatchback/amg/">A-Класс AMG</a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/c-sedan/amg/">C-Класс AMG</a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/cla-coupe/amg/">CLA AMG</a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/cls-coupe/amg/">CLS AMG</a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/e-sedan/amg/">E-Класс AMG</a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/g-suv/amg/">G-Класс AMG</a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/gla-suv/amg/">GLA AMG</a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/glc-suv/amg/">GLC AMG</a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/gle-suv/amg/">GLE AMG</a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/gls-suv/amg/">GLS AMG</a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/s-sedan/amg/">S-Класс AMG</a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/sl-roadster/amg/">SL AMG</a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/slc-roadster/amg/">SLC AMG</a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/amg-gt-coupe/">AMG GT</a>
-                </li>
+                  <?php $i = 0;
+                  foreach ($pages->find("parent=catalog") as $category): if ($i >= 8): ?>
+                    <li>
+                      <a href="<?= $pages->find("template=layout_class, parent={$category->id}")->first()->url ?>"><?= $category->title ?></a>
+                    </li>
+                  <?php endif;
+                      $i++; endforeach; ?>
+                <li><a href="" class="is-parent">Коммерческий транспорт</a></li>
+                <li><a href="" class="is-parent">Сервисное обслуживание</a></li>
+                <li><a href="" class="is-parent">Оригинальные запасные части и аксессуары</a></li>
+                <li><a href="" class="is-parent">Mercedes Benz Financial</a></li>
+                <li><a href="" class="is-parent">Преимущества для покупателей из других регионов</a></li>
               </ul>
             </li>
-            <li>
-              <a href="https://sales.mercedes-orenburg.ru/c-sedan/">
-                C<span>-Класс</span>
-              </a>
-              <ul>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/c-sedan/">
-                    седан </a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/c-coupe/">
-                    купе </a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/c-wagon/">
-                    универсал </a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/c-cabriolet/">
-                    кабриолет </a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a href="https://sales.mercedes-orenburg.ru/cls-coupe/">
-                CLS </a>
-            </li>
-            <li>
-              <a href="https://sales.mercedes-orenburg.ru/e-sedan/">
-                E<span>-Класс</span>
-              </a>
-              <ul>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/e-sedan/">
-                    седан </a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/e-coupe/">
-                    купе </a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/e-wagon/">
-                    универсал </a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/e-all-terrain/">
-                    All-Terrain </a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/e-cabriolet/">
-                    кабриолет </a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a href="https://sales.mercedes-orenburg.ru/g-suv/">
-                G<span>-Класс</span>
-              </a>
-            </li>
-            <li>
-              <a href="https://sales.mercedes-orenburg.ru/gla-suv/">
-                GLA </a>
-            </li>
-            <li>
-              <a href="https://sales.mercedes-orenburg.ru/glc-suv/">
-                GLC </a>
-              <ul>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/glc-suv/">
-                    внедорожник </a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/glc-coupe/">
-                    купе </a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a href="https://sales.mercedes-orenburg.ru/gle-suv/">
-                GLE </a>
-              <ul>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/gle-suv/">
-                    внедорожник </a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/gle-coupe/">
-                    купе </a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a href="https://sales.mercedes-orenburg.ru/gls-suv/">
-                GLS </a>
-            </li>
-            <li>
-              <a href="https://sales.mercedes-orenburg.ru/s-sedan/">
-                S<span>-Класс</span>
-              </a>
-              <ul>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/s-sedan/">
-                    седан </a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/s-coupe/">
-                    купе </a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/s-cabriolet/">
-                    кабриолет </a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/s-maybach/">
-                    Maybach </a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a href="https://sales.mercedes-orenburg.ru/x-pickup/">
-                X<span>-Класс</span>
-              </a>
-            </li>
-            <li>
-              <a href="https://sales.mercedes-orenburg.ru/a-hatchback/">
-                Другие </a>
-              <ul>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/a-hatchback/">
-                    A<span>-Класс</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/b-hatchback/">
-                    B<span>-Класс</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/cla-coupe/">
-                    CLA купе </a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/cla-shooting-brake/">
-                    CLA Shooting Brake </a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/sl-roadster/">
-                    SL родстер </a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/slc-roadster/">
-                    SLC родстер </a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/v-minivan/">
-                    V<span>-Класс</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/amg-gt-coupe/">
-                    AMG GT купе </a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/amg-gt-roadster/">
-                    AMG GT родстер </a>
-                </li>
-              </ul>
-            </li>
+
           </ul>
         </div>
         <div class="header__mobile cd-nav">
@@ -311,8 +125,9 @@ if ($page->parent()->name == "catalog") $session->redirect($pages->find("templat
           <div class="container">
             <h1 class="product-gallery__title">«Мерседес-Бенц» <?= $page->parent()->title . " " . $page->title ?></h1>
             <div class="product-gallery__thumbs owl-carousel">
-                <?php $i=0; foreach ($page->class_images as  $img): ?>
-                  <div class="product-gallery__thumb <?php if ($i==0) echo 'is-active'?> ">
+                <?php $i = 0;
+                foreach ($page->class_images as $img): ?>
+                  <div class="product-gallery__thumb <?php if ($i == 0) echo 'is-active' ?> ">
                     <picture>
                       <source srcset="<?= $img->size(760, 320, [])->url ?>, <?= $img->size(110, 46, [])->url ?>, <?= $img->size(760, 320, [])->url ?>, <?= $img->size(220, 92, [])->url ?> 1.5x"
                               media="(max-width: 767px)">
@@ -321,7 +136,7 @@ if ($page->parent()->name == "catalog") $session->redirect($pages->find("templat
                            alt="<?= $page->parent()->title . " " . $page->title ?>">
                     </picture>
                   </div>
-                <?php $i++; endforeach ?>
+                    <?php $i++; endforeach ?>
             </div>
             <ul class="product-gallery__variants">
                 <?php foreach ($pages->find("template=layout_class, parent={$page->parent()->id}") as $child): ?>
@@ -440,18 +255,23 @@ if ($page->parent()->name == "catalog") $session->redirect($pages->find("templat
 
                               <img src="<?= $car->car_photos->first()->url ?>"
                                    srcset="<?= $car->car_photos->first()->url ?> 1.5x" alt="">
-                             <!--<div class="brazzers">
-                                 <div class="brazzers__thumbs">
-                                   <?php foreach ($car->car_photos as $i => $photo): ?>
-                                     <i <?php if ($i != 0) echo "class"; ?>> </i>
-                                   <?php endforeach; ?>
-                                 </div>
-                                 <div class="brazzers__images">
-                                   <?php foreach ($car->car_photos as $photo): ?>
-                                     <img data-src="<?= $photo->url ?>"
-                                   <?php endforeach; ?>
-                                 </div>
-                              </div>-->
+
+                             <div class="brazzers" style="opacity: 0;">
+                                                    <div class="brazzers__thumbs">
+                                                    </div>
+                                                      <div class="brazzers__images">
+                                                                                           <?php foreach ($car->car_photos as $photo): ?>
+                                                                                             <img data-src="<?= $photo->size(225, 140, [])->url ?>"
+                                                                                                  data-srcset="<?= $photo->size(250, 280, [])->url ?> 1.5x"
+                                                                                                  alt="<?= $car->title ?>"
+                                                                                                  src="<?= $photo->size(225, 140, [])->url ?>"
+                                                                                                  srcset="<?= $photo->size(450, 280, [])->url ?> 1.5x"
+                                                                                                  style="opacity: 0;">
+                                                                                           <?php endforeach; ?>
+
+                                                                                                            </div>
+                             </div>
+
                            </span>
                     </div>
                     <a href="javascript:void(0);" class="product__info" onclick="getModelInfo('<?= $car->car_id ?>');">
