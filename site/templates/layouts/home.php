@@ -75,7 +75,7 @@
                       </li>
                         <?php $i++; endif; endforeach; ?>
                   <li>
-                    <a href="">Другое</a>
+                    <a href="">Другие</a>
                     <ul>
                         <?php $i = 0;
                         foreach ($pages->find("parent=catalog") as $category): if ($i >= 8): ?>
@@ -162,7 +162,7 @@
         <div class="container">
           <div class="home-promo__nav-title">Выберите интересующую вас модель</div>
           <div class="header__nav nav-class js-navigation-promo"></div>
-          <div class="header__nav nav-class custom-nav">
+          <div class="header__nav nav-class">
             <ul>
                 <?php $i = 0;
                 foreach ($pages->find("parent=catalog, sort=sort") as $category): if ($i < 8): ?>
@@ -176,7 +176,7 @@
                   </li>
                     <?php $i++; endif; endforeach; ?>
               <li>
-                <a href="">Другое</a>
+                <a href="">Другие</a>
                 <ul>
                     <?php $i = 0;
                     foreach ($pages->find("parent=catalog") as $category): if ($i >= 8): ?>
