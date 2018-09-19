@@ -63,7 +63,7 @@
               <div class="header-fixed__nav nav-class js-header-fixed-nav">
                 <ul>
                     <?php $i = 0;
-                    foreach ($pages->find("parent=catalog") as $category): if ($i < 8): ?>
+                    foreach ($pages->find("parent=catalog, sort=sort") as $category): if ($i < 8): ?>
                       <li>
                         <a href="<?= $pages->find("template=layout_class, parent={$category->id}")->first()->url ?>"><?= $category->title ?></a>
                         <ul>
@@ -164,7 +164,7 @@
           <div class="header__nav nav-class custom-nav">
             <ul>
                 <?php $i = 0;
-                foreach ($pages->find("parent=catalog") as $category): if ($i < 8): ?>
+                foreach ($pages->find("parent=catalog, sort=sort") as $category): if ($i < 8): ?>
                   <li>
                     <a href="<?= $pages->find("template=layout_class, parent={$category->id}")->first()->url ?>"><?= $category->title ?></a>
                     <ul>

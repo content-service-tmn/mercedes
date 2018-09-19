@@ -28,7 +28,7 @@ if ($page->parent()->name == "catalog") $session->redirect($pages->find("templat
         <div class="header__nav nav-class js-navigation-desktop">
           <ul>
               <?php $i = 0;
-              foreach ($pages->find("parent=catalog") as $category): if ($i < 8): ?>
+              foreach ($pages->find("parent=catalog, sort=sort") as $category): if ($i < 8): ?>
                 <li>
                   <a href="<?= $pages->find("template=layout_class, parent={$category->id}")->first()->url ?>"><?= $category->title ?></a>
                   <ul>
