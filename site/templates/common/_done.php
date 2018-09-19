@@ -122,7 +122,7 @@
                 Я согласен на обработку персональных данных.
                 <a href="https://sales.mercedes-orenburg.ru/politic/" target="_blank"
                    class="link-hover-border -color-gold -nowrap">С Политикой защиты данных </a>
-                ООО «Каскад-Авто»
+                ООО «<?=$pages->get("template=layout_contacts")->contacts_company_name?>»
                 ознакомлен.
               </label>
             </div>
@@ -196,7 +196,7 @@
               Я согласен на обработку персональных данных.
               <a href="https://sales.mercedes-orenburg.ru/politic/" target="_blank"
                  class="link-hover-border -color-gold -nowrap">С Политикой защиты данных </a>
-              ООО «Каскад-Авто»
+              ООО «<?=$pages->get("template=layout_contacts")->contacts_company_name?>»
               ознакомлен.
             </label>
           </div>
@@ -331,7 +331,7 @@
                 Я согласен на обработку персональных данных.
                 <a href="https://sales.mercedes-orenburg.ru/politic/" target="_blank"
                    class="link-hover-border -color-gold -nowrap">С Политикой защиты данных </a>
-                ООО «Каскад-Авто»
+                ООО «<?=$pages->get("template=layout_contacts")->contacts_company_name?>»
                 ознакомлен.
               </label>
             </div>
@@ -378,17 +378,10 @@
           </ul>
         </div>
         <div class="footer__contacts xl-85 sm-100">
-          <div class="footer__contacts-title">ООО «Каскад
-            -
-            Авто»</div>
+          <div class="footer__contacts-title">ООО «<?=$pages->get("template=layout_contacts")->contacts_company_name?>»</div>
           <div class="footer__contacts-item">
             <div class="footer__contacts-mini-title">Фактический адрес:</div>
-            <div>460507,
-              Оренбург, п. Пригородный,
-              12.350
-              км. шоссе Оренбург
-              -
-              Орск</div>
+            <div><?=$pages->get("template=layout_contacts")->contacts_address?></div>
           </div>
           <div class="footer__contacts-item">
             <div class="footer__contacts-mini-title">Телефон:</div>
@@ -476,7 +469,7 @@
                                                               href="https://sales.mercedes-orenburg.ru/politic/"
                                                               class="link-hover-border -color-blue -nowrap">
                 С Политикой защиты данных </a>
-              ООО «Каскад-Авто»
+              ООО «<?=$pages->get("template=layout_contacts")->contacts_company_name?>»
               ознакомлен.
             </label>
           </div>

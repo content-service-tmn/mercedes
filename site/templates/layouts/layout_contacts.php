@@ -14,9 +14,9 @@
           <div class="header__right">
             <div class="header__dealer">
               <div class="header__dealer-text">
-                Официальный дилер в Оренбурге <span class="-nowrap">«Каскад-Авто»</span></div>
+                Официальный дилер в Тюмени <span class="-nowrap">«<?=$pages->get("template=layout_contacts")->contacts_company_name?>»</span></div>
               <div class="header__dealer-phone">
-                <a href="tel:+73532910102">+7 (3532) 910-102</a>
+                <a href="tel:<?=phoneLink($pages->get("template=layout_contacts")->contacts_phone)?>"><?=$pages->get("template=layout_contacts")->contacts_phone?></a>
               </div>
             </div>
             <div class="header__button">
@@ -66,10 +66,10 @@
         <div class="header__mobile cd-nav">
           <div class="cd-nav__inner">
             <div class="cd-nav__dealer">
-              <a href="https://sales.mercedes-orenburg.ru/contact/">Официальный дилер в Оренбурге <span class="-nowrap">«Каскад-Авто»</span></a>
+              <a href="https://sales.mercedes-orenburg.ru/contact/">Официальный дилер в Тюмени <span class="-nowrap">«<?=$pages->get("template=layout_contacts")->contacts_company_name?>»</span></a>
             </div>
             <div class="cd-nav__phone">
-              <a href="tel:+73532910102">+7 (3532) 910-102</a>
+              <a href="tel:<?=phoneLink($pages->get("template=layout_contacts")->contacts_phone)?>"><?=$pages->get("template=layout_contacts")->contacts_phone?></a>
             </div>
             <div class="cd-nav__button">
               <a href="#feedback_modal" data-code="consultation"
@@ -101,10 +101,10 @@
     <section class="subheader-mobile">
       <div class="container">
         <div class="subheader-mobile__dealer-text">Официальный дилер в Оренбурге <span
-                  class="-nowrap">«Каскад-Авто»</span>
+                  class="-nowrap">«<?=$pages->get("template=layout_contacts")->contacts_company_name?>»</span>
         </div>
         <div class="subheader-mobile__dealer-phone">
-          <a href="tel:+73532910102">+7 (3532) 910-102</a>
+          <a href="tel:<?=phoneLink($pages->get("template=layout_contacts")->contacts_phone)?>"><?=$pages->get("template=layout_contacts")->contacts_phone?></a>
         </div>
         <div class="subheader-mobile__button">
           <a href="#feedback_modal" data-code="consultation"
@@ -119,7 +119,7 @@
         <div class="container">
           <div class="title-40">О нас</div>
           <p>
-            <span class="contacts-promo__title-20">«Каскад-Авто»</span> – официальный дилер «Мерседес-Бенц»
+            <span class="contacts-promo__title-20">«<?=$pages->get("template=layout_contacts")->contacts_company_name?>»</span> – официальный дилер «Мерседес-Бенц»
             в Оренбурге и Оренбургской области, является частью
             автомобильной группы «Каскад-Авто». В своей многолетней истории компания сочетает
             высочайшие
@@ -254,22 +254,15 @@
           </ul>
         </div>
         <div class="footer__contacts xl-85 sm-100">
-          <div class="footer__contacts-title">ООО «Каскад
-            -
-            Авто»</div>
+          <div class="footer__contacts-title">ООО «<?=$pages->get("template=layout_contacts")->contacts_company_name?>»</div>
           <div class="footer__contacts-item">
             <div class="footer__contacts-mini-title">Фактический адрес:</div>
-            <div>460507,
-              Оренбург, п. Пригородный,
-              12.350
-              км. шоссе Оренбург
-              -
-              Орск</div>
+            <div><?=$pages->get("template=layout_contacts")->contacts_address?></div>
           </div>
           <div class="footer__contacts-item">
             <div class="footer__contacts-mini-title">Телефон:</div>
             <div>
-              <a href="tel:+73532910102">+7 (3532) 910-102</a>
+              <a href="tel:<?=phoneLink($pages->get("template=layout_contacts")->contacts_phone)?>"><?=$pages->get("template=layout_contacts")->contacts_phone?></a>
             </div>
           </div>
           <div class="footer__contacts-item">
@@ -331,7 +324,7 @@
           <div class="title-24 tac" id="popup-title-mobile">Получите индивидуальное предложение</div>
           <div class="tac mb-20">Вы можете связаться с нами по
             телефону
-            <div><a href="tel:+73532910102" class="-color-blue">+7 (3532) 910-102</a></div>
+            <div><a href="tel:<?=phoneLink($pages->get("template=layout_contacts")->contacts_phone)?>" class="-color-blue"><?=$pages->get("template=layout_contacts")->contacts_phone?></a></div>
             или оставить заявку, заполнив форму. <br> Наш менеджер свяжется с вами.
           </div>
 
@@ -362,7 +355,7 @@
                                                                 href="https://sales.mercedes-orenburg.ru/politic/"
                                                                 class="link-hover-border -color-blue -nowrap">
                   С Политикой защиты данных </a>
-                ООО «Каскад-Авто»
+                ООО «<?=$pages->get("template=layout_contacts")->contacts_company_name?>»
                 ознакомлен.
               </label>
             </div>
@@ -377,13 +370,13 @@
 
 
     <div class="bottom-plank">
-      <a href="tel:+73532910102" class="bottom-plank__phone-icon">
+      <a href="tel:<?=phoneLink($pages->get("template=layout_contacts")->contacts_phone)?>" class="bottom-plank__phone-icon">
         <svg class="icon icon-success">
           <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-telephone"></use>
         </svg>
       </a>
       <a href="#feedback_modal" class="btn btn--white js-open-modal">Заказать звонок</a>
-      <a href="tel:+73532910102" class="btn btn--white bottom-plank__phone-btn">
+      <a href="tel:<?=phoneLink($pages->get("template=layout_contacts")->contacts_phone)?>" class="btn btn--white bottom-plank__phone-btn">
         <svg class="icon icon-success">
           <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-telephone"></use>
         </svg>

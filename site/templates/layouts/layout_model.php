@@ -1,3 +1,4 @@
+<?php namespace Processwire; ?>
 <div id="product_modal" class="product-modal modal-template">
 
     <div class="product-modal__head">CLS 350 d 4MATIC Sport, номер заказа 0852407636</div>
@@ -147,7 +148,7 @@
                             <input class="form__checkbox-input" type="checkbox" id="form-best-offer-confirm" name="confirm" checked onchange="confirmRequest('#form-best-offer')">
                             <label class="form__checkbox-label form__checkbox-label--small" for="form-best-offer-confirm">Я согласен на обработку персональных данных.
                                 <a href="https://sales.mercedes-orenburg.ru/politic/" target="_blank" class="link-hover-border -color-blue -nowrap">С Политикой защиты данных </a>
-                                                                ООО «Каскад-Авто»
+                                                                ООО «<?=$pages->get("template=layout_contacts")->contacts_company_name?>»
                                                                 ознакомлен.
                             </label>
                         </div>
@@ -193,7 +194,7 @@
                 <div class="form-type2__head">Контакты автосалона</div>
                 <div class="form-type2__body">
                     <p>
-                        <b>460507, Оренбург, п. Пригородный, 12.350 км. шоссе Оренбург-Орск</b>
+                        <b><?=$pages->get("template=layout_contacts")->contacts_address?></b>
                     </p>
                     <p>
                         <b>Время работы дилерского центра:</b>
@@ -204,7 +205,7 @@
                     <p>
                         <b>Телефон:</b>
                         <br>
-                        <a href="tel:+73532910102">+7 (3532) 910-102</a>
+                        <a href="tel:<?=phoneLink($pages->get("template=layout_contacts")->contacts_phone)?>"><?=$pages->get("template=layout_contacts")->contacts_phone?></a>
                     </p>
                 </div>
             </div>
@@ -657,7 +658,7 @@
                                 <label class="form__checkbox-label form__checkbox-label--small" for="form-issues-modal-confirm">
                                     Я согласен на обработку персональных данных.
                                     <a href="https://sales.mercedes-orenburg.ru/politic/" target="_blank" class="link-hover-border -color-blue -nowrap">С Политикой защиты данных </a>
-                                                                        ООО «Каскад-Авто»
+                                                                        ООО «<?=$pages->get("template=layout_contacts")->contacts_company_name?>»
                                                                         ознакомлен.
                                 </label>
                             </div>

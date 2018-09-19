@@ -92,7 +92,7 @@ $codes = []/*getAccessories($pages)*/
                 на обработку персональных данных.
                 <a href="https://sales.mercedes-orenburg.ru/politic/" target="_blank"
                    class="link-hover-border -color-blue -nowrap">С Политикой защиты данных </a>
-                ООО «Каскад-Авто»
+                ООО «<?=$pages->get("template=layout_contacts")->contacts_company_name?>»
                 ознакомлен.
               </label>
             </div>
@@ -133,7 +133,7 @@ $codes = []/*getAccessories($pages)*/
         <div class="form-type2__head">Контакты автосалона</div>
         <div class="form-type2__body">
           <p>
-            <b>460507, Оренбург, п. Пригородный, 12.350 км. шоссе Оренбург-Орск</b>
+            <b><?=$pages->get("template=layout_contacts")->contacts_address?></b>
           </p>
           <p>
             <b>Время работы дилерского центра:</b>
@@ -144,7 +144,7 @@ $codes = []/*getAccessories($pages)*/
           <p>
             <b>Телефон:</b>
             <br>
-            <a href="tel:+73532910102">+7 (3532) 910-102</a>
+            <a href="tel:<?=phoneLink($pages->get("template=layout_contacts")->contacts_phone)?>"><?=$pages->get("template=layout_contacts")->contacts_phone?></a>
           </p>
         </div>
       </div>
@@ -269,7 +269,7 @@ $codes = []/*getAccessories($pages)*/
                 Я согласен на обработку персональных данных.
                 <a href="https://sales.mercedes-orenburg.ru/politic/" target="_blank"
                    class="link-hover-border -color-blue -nowrap">С Политикой защиты данных </a>
-                ООО «Каскад-Авто»
+                ООО «<?=$pages->get("template=layout_contacts")->contacts_company_name?>»
                 ознакомлен.
               </label>
             </div>
