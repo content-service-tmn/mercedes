@@ -1,3 +1,4 @@
+<?php namespace Processwire?>
 <div class="site-wrapper">
 
   <header class="header js-header">
@@ -30,221 +31,35 @@
 
         <div class="header__nav nav-class js-navigation-desktop">
           <ul>
+              <?php $i = 0;
+              foreach ($pages->find("parent=catalog") as $category): if ($i < 8): ?>
+                <li>
+                  <a href="<?= $pages->find("template=layout_class, parent={$category->id}")->first()->url ?>"><?= $category->title ?></a>
+                  <ul>
+                      <?php foreach ($pages->find("parent={$category->id}") as $pge): ?>
+                        <li><a href="<?= $pge->url ?>"><?= $pge->title ?></a></li>
+                      <?php endforeach; ?>
+                  </ul>
+                </li>
+                  <?php $i++; endif; endforeach; ?>
             <li>
-              <a href="https://sales.mercedes-orenburg.ru/a-hatchback/amg/">AMG</a>
+              <a href="">Другое</a>
               <ul>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/a-hatchback/amg/">A-Класс AMG</a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/c-sedan/amg/">C-Класс AMG</a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/cla-coupe/amg/">CLA AMG</a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/cls-coupe/amg/">CLS AMG</a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/e-sedan/amg/">E-Класс AMG</a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/g-suv/amg/">G-Класс AMG</a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/gla-suv/amg/">GLA AMG</a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/glc-suv/amg/">GLC AMG</a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/gle-suv/amg/">GLE AMG</a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/gls-suv/amg/">GLS AMG</a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/s-sedan/amg/">S-Класс AMG</a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/sl-roadster/amg/">SL AMG</a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/slc-roadster/amg/">SLC AMG</a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/amg-gt-coupe/">AMG GT</a>
-                </li>
+                  <?php $i = 0;
+                  foreach ($pages->find("parent=catalog") as $category): if ($i >= 8): ?>
+                    <li>
+                      <a href="<?= $pages->find("template=layout_class, parent={$category->id}")->first()->url ?>"><?= $category->title ?></a>
+                    </li>
+                  <?php endif;
+                      $i++; endforeach; ?>
+                <li><a href="" class="is-parent">Коммерческий транспорт</a></li>
+                <li><a href="" class="is-parent">Сервисное обслуживание</a></li>
+                <li><a href="" class="is-parent">Оригинальные запасные части и аксессуары</a></li>
+                <li><a href="" class="is-parent">Mercedes Benz Financial</a></li>
+                <li><a href="" class="is-parent">Преимущества для покупателей из других регионов</a></li>
               </ul>
             </li>
-            <li>
-              <a href="https://sales.mercedes-orenburg.ru/c-sedan/">
-                C<span>-Класс</span>
-              </a>
-              <ul>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/c-sedan/">
-                    седан </a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/c-coupe/">
-                    купе </a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/c-wagon/">
-                    универсал </a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/c-cabriolet/">
-                    кабриолет </a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a href="https://sales.mercedes-orenburg.ru/cls-coupe/">
-                CLS </a>
-            </li>
-            <li>
-              <a href="https://sales.mercedes-orenburg.ru/e-sedan/">
-                E<span>-Класс</span>
-              </a>
-              <ul>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/e-sedan/">
-                    седан </a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/e-coupe/">
-                    купе </a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/e-wagon/">
-                    универсал </a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/e-all-terrain/">
-                    All-Terrain </a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/e-cabriolet/">
-                    кабриолет </a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a href="https://sales.mercedes-orenburg.ru/g-suv/">
-                G<span>-Класс</span>
-              </a>
-            </li>
-            <li>
-              <a href="https://sales.mercedes-orenburg.ru/gla-suv/">
-                GLA </a>
-            </li>
-            <li>
-              <a href="https://sales.mercedes-orenburg.ru/glc-suv/">
-                GLC </a>
-              <ul>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/glc-suv/">
-                    внедорожник </a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/glc-coupe/">
-                    купе </a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a href="https://sales.mercedes-orenburg.ru/gle-suv/">
-                GLE </a>
-              <ul>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/gle-suv/">
-                    внедорожник </a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/gle-coupe/">
-                    купе </a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a href="https://sales.mercedes-orenburg.ru/gls-suv/">
-                GLS </a>
-            </li>
-            <li>
-              <a href="https://sales.mercedes-orenburg.ru/s-sedan/">
-                S<span>-Класс</span>
-              </a>
-              <ul>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/s-sedan/">
-                    седан </a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/s-coupe/">
-                    купе </a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/s-cabriolet/">
-                    кабриолет </a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/s-maybach/">
-                    Maybach </a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a href="https://sales.mercedes-orenburg.ru/x-pickup/">
-                X<span>-Класс</span>
-              </a>
-            </li>
-            <li>
-              <a href="https://sales.mercedes-orenburg.ru/a-hatchback/">
-                Другие </a>
-              <ul>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/a-hatchback/">
-                    A<span>-Класс</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/b-hatchback/">
-                    B<span>-Класс</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/cla-coupe/">
-                    CLA купе </a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/cla-shooting-brake/">
-                    CLA Shooting Brake </a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/sl-roadster/">
-                    SL родстер </a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/slc-roadster/">
-                    SLC родстер </a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/v-minivan/">
-                    V<span>-Класс</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/amg-gt-coupe/">
-                    AMG GT купе </a>
-                </li>
-                <li>
-                  <a href="https://sales.mercedes-orenburg.ru/amg-gt-roadster/">
-                    AMG GT родстер </a>
-                </li>
-              </ul>
-            </li>
+
           </ul>
         </div>
 
@@ -299,7 +114,7 @@
       </div>
     </section>
 
-    <section class="contacts-promo">
+    <section class="contacts-promo" style="background-image: url(<?=$page->contacts_header_image->size(1920, 0, [])->url?>), -webkit-gradient(linear, left top, left bottom, from(#5d6069), to(#2e2f33));">
       <div class="contacts-promo__about">
         <div class="container">
           <div class="title-40">О нас</div>
@@ -337,202 +152,31 @@
     </section>
     <section class="contacts-managers" id="a-managers">
       <div class="container">
-        <div class="title-40">Ваши менеджеры</div>
-        <div class="managers row row-15">
-
-          <div class="managers__item xl-33 lg-50 sm-100">
-            <div class="managers__foto">
-              <img src="https://sales.mercedes-orenburg.ru/image/cache/catalog/managers/brovko-110x110_crop.jpg"
-                   srcset="https://sales.mercedes-orenburg.ru/image/cache/catalog/managers/brovko-220x220_crop.jpg 1.5x"
-                   alt="Бровко Артем">
+          <?php foreach ($page->contacts_teams as $team): ?>
+            <div class="title-40"><?=$team->contacts_team_title?></div>
+            <div class="managers row row-15">
+                <?php foreach($team->contacts_team as $tm): ?>
+              <div class="managers__item xl-33 lg-50 sm-100">
+                <div class="managers__foto">
+                  <img src="<?=$tm->contacts_teammate_photo->size(110, 110, [])->url?>"
+                       srcset="<?=$tm->contacts_teammate_photo->size(220, 220, [])->url?> 1.5x"
+                       alt="<?=$tm->contacts_teammate_name?>">
+                </div>
+                <div class="managers__text">
+                  <p>
+                    <b><?=$tm->contacts_teammate_name?></b>
+                  </p>
+                  <p><?=$tm->contacts_teammate_position?></p>
+                  <p>Телефон:
+                    <a href="tel:<?=phoneLink($tm->contacts_teammate_phone)?>"><?=$tm->contacts_teammate_phone?></a></p>
+                  <p>Email:
+                    <a href="mailto:<?=$tm->contacts_teammate_mail?>" target="_blank"><?=$tm->contacts_teammate_mail?></a>
+                  </p>
+                </div>
+              </div>
+              <?php endforeach; ?>
             </div>
-            <div class="managers__text">
-              <p>
-                <b>Бровко Артем</b>
-              </p>
-              <p>Директор по продажам лекговых автомобилей и автомобилей с пробегом</p>
-              <p>Телефон:
-                <a href="tel:+73532910102">+7 (3532) 910-102</a></p>
-              <p>Email:
-                <a href="mailto:artem.brovko@kaskad-auto.ru" target="_blank">artem.brovko@kaskad-auto.ru</a>
-              </p>
-            </div>
-          </div>
-          <div class="managers__item xl-33 lg-50 sm-100">
-            <div class="managers__foto">
-              <img src="https://sales.mercedes-orenburg.ru/image/cache/catalog/managers/feschenko-110x110_crop.jpg"
-                   srcset="https://sales.mercedes-orenburg.ru/image/cache/catalog/managers/feschenko-220x220_crop.jpg 1.5x"
-                   alt="Фещенко Евгений">
-            </div>
-            <div class="managers__text">
-              <p>
-                <b>Фещенко Евгений</b>
-              </p>
-              <p>Руководитель отдела продаж легковых автомобилей</p>
-              <p>Телефон:
-                <a href="tel:+73532910102">+7 (3532) 910-102</a></p>
-              <p></p>
-              <p>Email:
-                <a href="mailto:evgeniy.feschenko@kaskad-auto.ru" target="_blank">evgeniy.feschenko@kaskad-auto.ru</a>
-              </p>
-            </div>
-          </div>
-          <div class="managers__item xl-33 lg-50 sm-100">
-            <div class="managers__foto">
-              <img src="https://sales.mercedes-orenburg.ru/image/cache/catalog/managers/dorofeev-110x110_crop.jpg"
-                   srcset="https://sales.mercedes-orenburg.ru/image/cache/catalog/managers/dorofeev-220x220_crop.jpg 1.5x"
-                   alt="Дорофеев Никита">
-            </div>
-            <div class="managers__text">
-              <p>
-                <b>Дорофеев Никита</b>
-              </p>
-              <p>Руководитель отдела корпоративных продаж</p>
-              <p>Телефон:
-                <a href="tel:+73532910102">+7 (3532) 910-102</a></p>
-              <p></p>
-              <p>Email:
-                <a href="mailto:corp.sales@kaskad-auto.ru" target="_blank">corp.sales@kaskad-auto.ru</a>
-              </p>
-            </div>
-          </div>
-          <div class="managers__item xl-33 lg-50 sm-100">
-            <div class="managers__foto">
-              <img src="https://sales.mercedes-orenburg.ru/image/cache/catalog/managers/petrashev-110x110_crop.jpg"
-                   srcset="https://sales.mercedes-orenburg.ru/image/cache/catalog/managers/petrashev-220x220_crop.jpg 1.5x"
-                   alt="Петрашов Максим">
-            </div>
-            <div class="managers__text">
-              <p>
-                <b>Петрашов Максим</b>
-              </p>
-              <p>Менеджер по продаже автомобилей, S-Эксперт</p>
-              <p>Телефон:
-                <a href="tel:+73532910102">+7 (3532) 910-102</a></p>
-              <p></p>
-              <p>Email:
-                <a href="mailto:maksim.petrashov@kaskad-auto.ru" target="_blank">maksim.petrashov@kaskad-auto.ru</a>
-              </p>
-            </div>
-          </div>
-          <div class="managers__item xl-33 lg-50 sm-100">
-            <div class="managers__foto">
-              <img src="https://sales.mercedes-orenburg.ru/image/cache/catalog/managers/dobrovolsky-110x110_crop.jpg"
-                   srcset="https://sales.mercedes-orenburg.ru/image/cache/catalog/managers/dobrovolsky-220x220_crop.jpg 1.5x"
-                   alt="Добровольский Николай">
-            </div>
-            <div class="managers__text">
-              <p>
-                <b>Добровольский Николай</b>
-              </p>
-              <p>Менеджер по продаже автомобилей</p>
-              <p>Телефон:
-                <a href="tel:+73532910102">+7 (3532) 910-102</a></p>
-              <p></p>
-              <p>Email:
-                <a href="mailto:dmitrij.kidryasov@kaskad-auto.ru" target="_blank">nikolai.dobrovolski@kaskad-auto.ru</a>
-              </p>
-            </div>
-          </div>
-          <div class="managers__item xl-33 lg-50 sm-100">
-            <div class="managers__foto">
-              <img src="https://sales.mercedes-orenburg.ru/image/cache/catalog/managers/sokolov-110x110_crop.jpg"
-                   srcset="https://sales.mercedes-orenburg.ru/image/cache/catalog/managers/sokolov-220x220_crop.jpg 1.5x"
-                   alt="Соколов Антон">
-            </div>
-            <div class="managers__text">
-              <p>
-                <b>Соколов Антон</b>
-              </p>
-              <p>Менеджер по продаже автомобилей</p>
-              <p>Телефон:
-                <a href="tel:+73532910102">+7 (3532) 910-102</a></p>
-              <p></p>
-              <p>Email:
-                <a href="mailto:anton.sokolov@kaskad-auto.ru" target="_blank">anton.sokolov@kaskad-auto.ru</a>
-              </p>
-            </div>
-          </div>
-          <div class="managers__item xl-33 lg-50 sm-100">
-            <div class="managers__foto">
-              <img src="https://sales.mercedes-orenburg.ru/image/cache/catalog/managers/korochkin-110x110_crop.jpg"
-                   srcset="https://sales.mercedes-orenburg.ru/image/cache/catalog/managers/korochkin-220x220_crop.jpg 1.5x"
-                   alt="Корочкин Юрий">
-            </div>
-            <div class="managers__text">
-              <p>
-                <b>Корочкин Юрий</b>
-              </p>
-              <p>Менеджер по продаже автомобилей</p>
-              <p>Телефон:
-                <a href="tel:+73532910102">+7 (3532) 910-102</a></p>
-              <p></p>
-              <p>Email:
-                <a href="mailto:yuriy.korochkin@kaskad-auto.ru" target="_blank">yuriy.korochkin@kaskad-auto.ru</a>
-              </p>
-            </div>
-          </div>
-          <div class="managers__item xl-33 lg-50 sm-100">
-            <div class="managers__foto">
-              <img src="https://sales.mercedes-orenburg.ru/image/cache/catalog/managers/kulik-110x110_crop.jpg"
-                   srcset="https://sales.mercedes-orenburg.ru/image/cache/catalog/managers/kulik-220x220_crop.jpg 1.5x"
-                   alt="Кулик Владислав">
-            </div>
-            <div class="managers__text">
-              <p>
-                <b>Кулик Владислав</b>
-              </p>
-              <p>Менеджер по продаже автомобилей</p>
-              <p>Телефон:
-                <a href="tel:+73532910102">+7 (3532) 910-102</a></p>
-              <p></p>
-              <p>Email:
-                <a href="mailto:vlad.kulik@kaskad-auto.ru" target="_blank">vlad.kulik@kaskad-auto.ru</a>
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="title-40">Ваши финансовые консультанты</div>
-        <div class="managers row row-15">
-          <div class="managers__item xl-33 lg-50 sm-100">
-            <div class="managers__foto">
-              <img src="https://sales.mercedes-orenburg.ru/image/cache/catalog/managers/krasnoschekova-110x110_crop.jpg"
-                   srcset="https://sales.mercedes-orenburg.ru/image/cache/catalog/managers/krasnoschekova-220x220_crop.jpg 1.5x"
-                   alt="Краснощекова Виктория">
-            </div>
-            <div class="managers__text">
-              <p>
-                <b>Краснощекова Виктория</b>
-              </p>
-              <p>Специалист по кредитованию</p>
-              <p>Телефон:
-                <a href="tel:+73532910102">+7 (3532) 910-102</a></p>
-              <p></p>
-              <p>Email:
-                <a href="mailto:credit.mercedes@kaskad-auto.ru" target="_blank">credit.mercedes@kaskad-auto.ru</a>
-              </p>
-            </div>
-          </div>
-          <div class="managers__item xl-33 lg-50 sm-100">
-            <div class="managers__foto">
-              <img src="https://sales.mercedes-orenburg.ru/image/cache/catalog/managers/gaisina-110x110_crop.jpg"
-                   srcset="https://sales.mercedes-orenburg.ru/image/cache/catalog/managers/gaisina-220x220_crop.jpg 1.5x"
-                   alt="Гайсина Юлия">
-            </div>
-            <div class="managers__text">
-              <p>
-                <b>Гайсина Юлия</b>
-              </p>
-              <p>Специалист по страхованию</p>
-              <p>Телефон:
-                <a href="tel:+73532910102">+7 (3532) 910-102</a></p>
-              <p></p>
-              <p>Email:
-                <a href="mailto:insurance@kaskad-auto.ru" target="_blank">insurance@kaskad-auto.ru</a>
-              </p>
-            </div>
-          </div>
-        </div>
+          <?php endforeach; ?>
       </div>
     </section>
     <section class="custom-contacts">
@@ -547,7 +191,8 @@
             </div>
           </div>
           <div class="custom-contacts__cell">
-            <div class="custom-contacts__item" style="background-image:url(<?= $config->urls->templates . 'assets/img/01.svg' ?>)">
+            <div class="custom-contacts__item"
+                 style="background-image:url(<?= $config->urls->templates . 'assets/img/01.svg' ?>)">
               <p>НОВЫЕ АВТОМОБИЛИ: <a href="">+7 (351) 2-555-666</a></p>
               <p>СЕРВИС: +7 (351) <a href="">2-555-666</a></p>
               <p>ЗАПЧАСТИ: +7 (351) <a href="">2-555-666</a></p>
