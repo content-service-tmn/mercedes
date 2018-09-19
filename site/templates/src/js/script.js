@@ -171,11 +171,11 @@ function getModelInfo(t) {
     history.replaceState([], $("title").text(), location.origin + location.pathname + "#order_id=" + t),
         $.magnificPopup.open({
         items: {
-            src: "/car"
+            src: "/car/"
         },
         type: "ajax",
-        // fixedContentPos: !0,
-        // closeOnBgClick: !1,
+        fixedContentPos: !0,
+        closeOnBgClick: !1,
         ajax: {
             settings: {
                 type: "POST",
@@ -228,7 +228,7 @@ function sendRequest(l, c) {
         e = $(l).serialize(),
         d = $(l).find("button").text();
     $.ajax({
-        url: "/mercedes/ajax-handler",
+        url: "/mercedes/car/",
         type: "post",
         data: e,
         dataType: "json",
