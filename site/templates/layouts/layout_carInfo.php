@@ -46,16 +46,6 @@ $codes = []/*getAccessories($pages)*/
       <div class="product-modal__price">Данный автомобиль: <b><span><?= $info["car_price"] ?></span> ₽</b></div>
       <div class="product-modal__spec-price">Специальное предложение:
         <b><span><?= $info["car_special_proposal"] ?></span> ₽</b></div>
-
-      <div class="product-modal__button">
-        <a href="#feedback_modal"
-           data-code="best_price"
-           data-back="<?= $info["car_id"] ?>"
-           data-order="<?= $info["car_id"] ?>"
-           data-info="<?= $info["title"] ?>"
-           data-text="Специально для Вас мы готовы сделать особое предложение!"
-           class="btn btn--blue js-open-modal">Хочу дешевле</a>
-      </div>
       <!--<div class="product-modal__credit-title">
         <span>В кредит:</span>
       </div>
@@ -63,15 +53,6 @@ $codes = []/*getAccessories($pages)*/
         <p>Первоначальный взнос от <span>1 068 345</span> ₽</p>
         <p>Ежемесячный платеж от <span>80 644</span> ₽</p>
       </div>-->
-      <div class="product-modal__button">
-        <a href="#feedback_modal"
-           data-code="credit"
-           data-back="<?= $info["car_id"] ?>"
-           data-order="<?= $info["car_id"] ?>"
-           data-info="<?= $info["title"] ?>t"
-           data-text="Получите индивидуальную консультацию нашего финансового специалиста"
-           class="btn btn--blue js-open-modal">Купить в кредит</a>
-      </div>
 
       <div class="product-modal__title-18">Описание</div>
       <ul class="product-modal__desc-table">
@@ -86,7 +67,7 @@ $codes = []/*getAccessories($pages)*/
 
     <div class="product-modal__box2">
       <div class="form-type2 form">
-        <div class="form-type2__head">Получить лучшее предложение</div>
+        <div class="form-type2__head custom-form-head">Получить лучшее предложение</div>
         <div class="form-type2__body">
           <form id="form-best-offer" class="CKiForm">
 
@@ -193,12 +174,23 @@ $codes = []/*getAccessories($pages)*/
 
       <div class="xl-60 sm-100 product-modal__footer-left">
         <div class="product-modal__price">Данный автомобиль: <b><span><?= $info["car_price"] ?></span> ₽</b></div>
+        <div class="product-modal__price">Ваше преимущество: <b><span><?= $info["car_price"] ?></span> ₽</b></div>
         <div class="product-modal__spec-price">Специальное предложение:
           <b><span><?= $info["car_special_proposal"] ?></span> ₽</b></div>
       </div>
 
 
       <div class="xl-40 sm-100 product-modal__footer-right">
+        <div class="mb-10">
+          <a href="#feedback_modal"
+             data-code="equipment"
+             data-back="<?= $info["car_id"] ?>"
+             data-order="<?= $info["car_id"] ?>"
+             data-text="Индивидуальные условия на покупку нового автомобиля для Вас. Перезвоним Вам и ответим на все вопросы."
+             class="-color-blue link-with-border js-open-modal">
+            <b>Отправить на email</b>
+          </a>
+        </div>
         <div class="mb-10">
           <a href="#feedback_modal"
              data-code="equipment"
@@ -216,7 +208,7 @@ $codes = []/*getAccessories($pages)*/
           </a>
         </div>
       </div>
-      <div class="xl-60 md-70 sm-100 product-modal__footer-buttons">
+      <div class="xl-90 md-90 sm-100 product-modal__footer-buttons">
         <a href="#feedback_modal"
            data-code="best_price"
            data-back="<?= $info["car_id"] ?>"
@@ -231,6 +223,13 @@ $codes = []/*getAccessories($pages)*/
            data-info="<?= $info["title"] ?>"
            data-text="Получите индивидуальную консультацию нашего финансового специалиста"
            class="btn btn--blue js-open-modal">Купить в кредит</a>
+         <a href="#feedback_modal"
+            data-code="best_price"
+            data-back="<?= $info["car_id"] ?>"
+            data-order="<?= $info["car_id"] ?>"
+            data-info="<?= $info["title"] ?>"
+            data-text="Специально для Вас мы готовы сделать особое предложение!"
+            class="btn btn--blue js-open-modal">С пробегом</a>
       </div>
     </div>
   </div>

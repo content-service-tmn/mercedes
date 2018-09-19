@@ -1,8 +1,8 @@
 <?php namespace ProcessWire;
 
-require('spreadsheet-reader/php-excel-reader/excel_reader2.php');
+//require('spreadsheet-reader/php-excel-reader/excel_reader2.php');
 
-require('spreadsheet-reader/SpreadsheetReader.php');
+//require('spreadsheet-reader/SpreadsheetReader.php');
 
 function notify($name, $text, $result) {
 	$notify = isset($notify) ? $notify : array();
