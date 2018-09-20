@@ -1,4 +1,5 @@
-<?php namespace Processwire; ?>
+<?php namespace Processwire;
+      if(!isset($templateRender)) { return; } ?>
 
 <?php if ($config->ajax): ?>
     <?= $templateRender; ?>
