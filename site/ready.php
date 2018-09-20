@@ -1,6 +1,6 @@
 <?php namespace Processwire;
 
-require ($config->paths->templates . "common/PhpSpreadsheet/src/PhpSpreadsheet/IOFactory.php");
+require ($config->paths->root . "vendor/autoload.php");
 
 $wire->addHookAfter('Page::getMarkup', function (HookEvent $event) {
     $page = $event->object; // Each page that appears in the Page Reference field
@@ -17,14 +17,28 @@ $wire->addHookAfter('Page::getMarkup', function (HookEvent $event) {
 $this->pages->addHookAfter('save', function($event) {
 
     $page = $event->arguments[0];
-    if ($page->template == "layout_import") {
-//        require_once $config->paths->templates . "common/xls-reader/excel_reader2.php";
-//        $data = new \Spreadsheet_Excel_Reader($page->import_accessories->first()->filename);
-//        bd($data->dump(true,true));
-        ///Applications/MAMP/htdocs/mercedes/site/templates/common/PhpSpreadsheet/src/PhpSpreadsheet/Reader/Xls.php
-//        $spreadsheet = new Spreadsheet($page->import_accessories->first()->filename);
-        $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load($page->import_accessories->first()->filename);
-        bd($spreadsheet);
+    if ($page->template == "layout_equipment") {
+        $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xls();
+        $reader->setReadDataOnly(true);
+        $spreadsheet = $reader->load($page->equipment_file->first()->filename);
+        $sheetData = $spreadsheet->getActiveSheet()->toArray();
+        $equipment = $page->equipments;
 
+        //deleting old
+        $page->of(false);
+        foreach ($equipment as $item){
+            $equipment->remove($item);
+        }
+        $page->save('equipments');
+
+        //adding new
+        foreach ($sheetData as $array) {
+            $page->of(false);
+            $new = $equipment->makeBlankItem();
+            $new->code = $array[0];
+            $new->name = $array[1];
+            $equipment->add($new);
+            $page->save('equipments');
+        }
     }
 });
