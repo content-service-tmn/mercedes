@@ -1,11 +1,11 @@
 <?php namespace Processwire;
 $wire->addHookAfter('Page::getMarkup', function (HookEvent $event) {
     $page = $event->object; // Each page that appears in the Page Reference field
-
-    if ($page->parent()->home_show_title == "Все модели") {
-        bd($page);
+    if ($page->template != "layout_class") return;
+    $name = "";
+    while ($page->name != "catalog" && $page->parent() != null) {
+         $name = $page->title . " " . $name;
+         $page = $page->parent();
     }
-//    if ($key !== 'product-uses-custom-title') return;
-//    $parent = $this->pages->get("template=repeater_address, house=$page");
-    $event->return = "ЗДАРОВА"; //$parent->address_name . ", " . $page->house_num;
+    $event->return = $name;
 });
