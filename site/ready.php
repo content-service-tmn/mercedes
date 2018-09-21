@@ -2,6 +2,13 @@
 
 require ($config->paths->root . "vendor/autoload.php");
 
+$wire->addHookAfter('InputfieldPage::getSelectablePages', function($event) {
+  if($event->object->name == 'type_modifications') {
+    $selector = "template=repeater_class_modifications";
+    $event->return = $event->pages->find($selector);
+  }
+});
+
 $wire->addHookAfter('Page::getMarkup', function (HookEvent $event) {
     $page = $event->object; // Each page that appears in the Page Reference field
     if ($page->template != "layout_class") return;
