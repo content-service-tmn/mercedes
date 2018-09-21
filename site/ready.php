@@ -1,6 +1,13 @@
 <?php namespace Processwire;
 
-require ($config->paths->templates . "common/PhpSpreadsheet/src/PhpSpreadsheet/IOFactory.php");
+//require ($config->paths->templates . "common/PhpSpreadsheet/src/PhpSpreadsheet/IOFactory.php");
+
+$wire->addHookAfter('InputfieldPage::getSelectablePages', function($event) {
+  if($event->object->name == 'type_modifications') {
+    $selector = "template=repeater_class_modifications";
+    $event->return = $event->pages->find($selector);
+  }
+});
 
 $wire->addHookAfter('Page::getMarkup', function (HookEvent $event) {
     $page = $event->object; // Each page that appears in the Page Reference field
