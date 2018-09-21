@@ -84,7 +84,8 @@
       </div>
     </section>
 
-    <section class="contacts-promo" style="background-image: url(<?=$page->contacts_header_image->size(1920, 0, [])->url?>), -webkit-gradient(linear, left top, left bottom, from(#5d6069), to(#2e2f33));">
+    <section class="contacts-promo">
+      <div class="contacts-promo__img" style="background-image:url(<?=$page->contacts_header_image->size(1920, 0, [])->url?>)"></div>
       <div class="contacts-promo__about">
         <div class="container">
           <div class="title-40">О нас</div>
@@ -149,49 +150,8 @@
           <?php endforeach; ?>
       </div>
     </section>
-    <section class="custom-contacts">
-      <div class="container">
-        <h2 class="custom-contacts__heading">Контакты</h2>
-        <div class="custom-contacts__grid">
-          <div class="custom-contacts__cell">
-            <div class="custom-contacts__item"
-                 style="background-image:url(<?= $config->urls->templates . 'assets/img/01.svg' ?>)">
-              <p>пр. Победы, 71</p>
-              <p>456620 Копейск</p>
-            </div>
-          </div>
-          <div class="custom-contacts__cell">
-            <div class="custom-contacts__item"
-                 style="background-image:url(<?= $config->urls->templates . 'assets/img/01.svg' ?>)">
-              <p>НОВЫЕ АВТОМОБИЛИ: <a href="">+7 (351) 2-555-666</a></p>
-              <p>СЕРВИС: +7 (351) <a href="">2-555-666</a></p>
-              <p>ЗАПЧАСТИ: +7 (351) <a href="">2-555-666</a></p>
-              <p>EMAIL: <a href="">UAH@UAH.UU.RU</a></p>
-            </div>
-          </div>
-          <div class="custom-contacts__cell">
-            <div class="custom-contacts__item"
-                 style="background-image:url(<?= $config->urls->templates . 'assets/img/01.svg' ?>)">
-              <p> Новые автомобили: <a href="">+7 (351) 2-555-666</a></p>
-              <p>Сервис: <a href="">+7 (351) 2-555-666</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="custom-contacts__socials">
-          <a href="" class="custom-contacts__social custom-contacts__social_vk"></a>
-          <a href="" class="custom-contacts__social custom-contacts__social_fb"></a>
-          <a href="" class="custom-contacts__social custom-contacts__social_yt"></a>
-          <a href="" class="custom-contacts__social custom-contacts__social_gg"></a>
-        </div>
-      </div>
-    </section>
-    <section class="custom-map__wrapper">
-      <section class="custom-map" id="map">
-      </section>
-      <a href="" target="_blank" class="custom-map__link"></a>
-    </section>
 
   </main>
 
 
-</div>
+</>
