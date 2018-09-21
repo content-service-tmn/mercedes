@@ -28,19 +28,7 @@
           </div>
         </div>
         <div class="header__nav nav-class js-navigation-desktop">
-          <ul>
-              <?php foreach ($pages->find("parent=catalog") as $category): ?>
-                <li>
-                  <a href="<?= $pages->find("template=layout_class, parent={$category->id}")->first()->url ?>"><?= $category->title ?></a>
-                  <ul>
-                      <?php foreach ($pages->find("parent={$category->id}") as $pge): ?>
-                        <li><a href="<?= $pge->url ?>"><?= $pge->title ?></a></li>
-                      <?php endforeach; ?>
-                    <li><a href="" class="is-parent">Коммерческий транспорт</a></li>
-                  </ul>
-                </li>
-              <?php endforeach; ?>
-          </ul>
+          <?php include($config->paths->templates . "common/_navigation.php"); ?>
         </div>
 
         <div class="header__mobile cd-nav">
@@ -145,9 +133,9 @@
           <ul>
             <li><a href="#benefits" class="is-parent js-smooth-scroll">Обслуживание</a></li>
             <li><a href="" class="is-parent">Запчасти и аксессуары</a></li>
-            <li><a href="" class="is-parent">Mercedes Benz Financial</a></li>
             <li><a href="#benefits-foreign" class="is-parent js-smooth-scroll">Преимущества для покупателей из
                 регионов</a></li>
+            <li><a href="" class="is-parent">Mercedes Benz Financial</a></li>
           </ul>
         </div>
       </div>
