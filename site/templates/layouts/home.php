@@ -10,9 +10,11 @@
           <div class="header__right">
             <div class="header__dealer">
               <div class="header__dealer-text">
-                Официальный дилер в Тюмени <span class="-nowrap">«<?=$pages->get("template=layout_contacts")->contacts_company_name?>»</span></div>
+                Официальный дилер в Тюмени <span
+                        class="-nowrap">«<?= $pages->get("template=layout_contacts")->contacts_company_name ?>»</span>
+              </div>
               <div class="header__dealer-phone">
-                <a href="tel:<?=phoneLink($pages->get("template=layout_contacts")->contacts_phone)?>"><?=$pages->get("template=layout_contacts")->contacts_phone?></a>
+                <a href="tel:<?= phoneLink($pages->get("template=layout_contacts")->contacts_phone) ?>"><?= $pages->get("template=layout_contacts")->contacts_phone ?></a>
               </div>
             </div>
             <div class="header__button">
@@ -34,7 +36,7 @@
                       <?php foreach ($pages->find("parent={$category->id}") as $pge): ?>
                         <li><a href="<?= $pge->url ?>"><?= $pge->title ?></a></li>
                       <?php endforeach; ?>
-                      <li><a href="" class="is-parent">Коммерческий транспорт</a></li>
+                    <li><a href="" class="is-parent">Коммерческий транспорт</a></li>
                   </ul>
                 </li>
               <?php endforeach; ?>
@@ -44,10 +46,12 @@
         <div class="header__mobile cd-nav">
           <div class="cd-nav__inner">
             <div class="cd-nav__dealer">
-              <a href="contacts/">Официальный дилер в Тюмени <span class="-nowrap">«<?=$pages->get("template=layout_contacts")->contacts_company_name?>»</span></a>
+              <a href="contacts/">Официальный дилер в Тюмени <span
+                        class="-nowrap">«<?= $pages->get("template=layout_contacts")->contacts_company_name ?>
+                  »</span></a>
             </div>
             <div class="cd-nav__phone">
-              <a href="tel:<?=phoneLink($pages->get("template=layout_contacts")->contacts_phone)?>"><?=$pages->get("template=layout_contacts")->contacts_phone?></a>
+              <a href="tel:<?= phoneLink($pages->get("template=layout_contacts")->contacts_phone) ?>"><?= $pages->get("template=layout_contacts")->contacts_phone ?></a>
             </div>
             <div class="cd-nav__button">
               <a href="#feedback_modal" data-code="consultation"
@@ -62,7 +66,7 @@
           <div class="container">
             <div class="header-fixed__inner">
               <div class="header-fixed__nav nav-class js-header-fixed-nav">
-                  <?php include($config->paths->templates . "common/_navigation.php"); ?>
+
               </div>
               <div class="header-fixed__button">
                 <a href="#feedback_modal" data-code="consultation"
@@ -81,10 +85,10 @@
     <section class="subheader-mobile">
       <div class="container">
         <div class="subheader-mobile__dealer-text">Официальный дилер в Тюмени
-          <span class="-nowrap">«<?=$pages->get("template=layout_contacts")->contacts_company_name?>»</span>
+          <span class="-nowrap">«<?= $pages->get("template=layout_contacts")->contacts_company_name ?>»</span>
         </div>
         <div class="subheader-mobile__dealer-phone">
-          <a href="tel:<?=phoneLink($pages->get("template=layout_contacts")->contacts_phone)?>"><?=$pages->get("template=layout_contacts")->contacts_phone?></a>
+          <a href="tel:<?= phoneLink($pages->get("template=layout_contacts")->contacts_phone) ?>"><?= $pages->get("template=layout_contacts")->contacts_phone ?></a>
         </div>
         <div class="subheader-mobile__button">
           <a href="#feedback_modal" data-code="consultation"
@@ -97,34 +101,30 @@
     <section class="home-promo">
       <div class="home-promo__slider owl-carousel js-home-promo">
 
+          <?php foreach ($page->home_promos as $promo): ?>
+            <div class="home-promo__slide home-promo__slide--type1">
 
-        <div class="home-promo__slide home-promo__slide--type1">
+              <picture>
+                <source srcset="<?=$promo->home_promo_image->size(600, 670, [])->url?>"
+                        data-srcset="<?=$promo->home_promo_image->size(600, 670, [])->url?>, <?=$promo->home_promo_image->size(1200, 1340, [])->url?> 1.5x"
+                        media="(max-width: 540px)">
+                <source srcset="<?=$promo->home_promo_image->size(900, 560, [])->url?>"
+                        data-srcset="<?=$promo->home_promo_image->size(900, 560, [])->url?>, <?=$promo->home_promo_image->size(1800, 1120, [])->url?> 1.5x"
+                        media="(max-width: 900px)">
+                <img src="<?=$promo->home_promo_image->size(1920, 912, [])->url?>"
+                     data-srcset="<?=$promo->home_promo_image->size(3840, 1824, [])->url?> 1.5x"
+                     alt="Mercedes-Benz">
+              </picture>
 
-          <picture>
-            <source srcset="https://sales.mercedes-orenburg.ru/image/cache/catalog/data/15160175055349145-600x670_crop.jpg"
-                    data-srcset="https://sales.mercedes-orenburg.ru/image/cache/catalog/data/15160175055349145-600x670_crop.jpg, https://sales.mercedes-orenburg.ru/image/cache/catalog/data/15160175055349145-1200x1340_crop.jpg 1.5x"
-                    media="(max-width: 540px)">
-            <source srcset="https://sales.mercedes-orenburg.ru/image/cache/catalog/data/15160175027284347-900x560_crop.jpg"
-                    data-srcset="https://sales.mercedes-orenburg.ru/image/cache/catalog/data/15160175027284347-900x560_crop.jpg, https://sales.mercedes-orenburg.ru/image/cache/catalog/data/15160175027284347-1800x1120_crop.jpg 1.5x"
-                    media="(max-width: 900px)">
-            <img src="https://sales.mercedes-orenburg.ru/image/cache/catalog/data/15160174998798049-1920x912_crop.jpg"
-                 data-srcset="https://sales.mercedes-orenburg.ru/image/cache/catalog/data/15160174998798049-3840x1824_crop.jpg 1.5x"
-                 alt="Mercedes-Benz">
-          </picture>
-
-          <div class="home-promo__slide-inner">
-            <div class="container">
-              <div class="home-promo__slide-title">Автомобили «Мерседес
-                -
-                Бенц»</div>
-              <div class="home-promo__slide-subtitle">Особые условия на приобретение автомобилей «Мерседес
-                -
-                Бенц» от официального дилера.</div>
-              <a href="" class="btn btn--blue home-promo__btn">Подробнее</a>
+              <div class="home-promo__slide-inner">
+                <div class="container">
+                  <div class="home-promo__slide-title"><?=$promo->home_promo_title?></div>
+                  <div class="home-promo__slide-subtitle"><?=$promo->home_promo_subtitle?></div>
+                  <a href="" class="btn btn--blue home-promo__btn">Подробнее</a>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-
+          <?php endforeach; ?>
 
       </div>
 
@@ -133,7 +133,7 @@
           <div class="home-promo__nav-title">Выберите интересующую вас модель</div>
           <div class="header__nav nav-class js-navigation-promo"></div>
           <div class="header__nav nav-class">
-            <?php include($config->paths->templates . "common/_navigation.php"); ?>
+
           </div>
         </div>
       </div>
@@ -146,7 +146,8 @@
             <li><a href="#benefits" class="is-parent js-smooth-scroll">Обслуживание</a></li>
             <li><a href="" class="is-parent">Запчасти и аксессуары</a></li>
             <li><a href="" class="is-parent">Mercedes Benz Financial</a></li>
-            <li><a href="#benefits-foreign" class="is-parent js-smooth-scroll">Преимущества для покупателей из регионов</a></li>
+            <li><a href="#benefits-foreign" class="is-parent js-smooth-scroll">Преимущества для покупателей из
+                регионов</a></li>
           </ul>
         </div>
       </div>
@@ -335,7 +336,8 @@
               <div class="form-type1__text xl-50 lg-100">
                 Специально для Вас мы готовы улучшить любое предложение!
                 Вы можете связаться с нами по телефону
-                <a href="tel:<?=phoneLink($pages->get("template=layout_contacts")->contacts_phone)?>" class="form-type1__phone"><?=$pages->get("template=layout_contacts")->contacts_phone?></a>
+                <a href="tel:<?= phoneLink($pages->get("template=layout_contacts")->contacts_phone) ?>"
+                   class="form-type1__phone"><?= $pages->get("template=layout_contacts")->contacts_phone ?></a>
                 или оставить заявку, заполнив форму. Наш менеджер свяжется с Вами.
               </div>
 
@@ -362,7 +364,7 @@
                       Я согласен на обработку персональных данных.
                       <a href="/privacy" target="_blank"
                          class="link-hover-border -color-blue -nowrap">С Политикой защиты данных </a>
-                      ООО «<?=$pages->get("template=layout_contacts")->contacts_company_name?>»
+                      ООО «<?= $pages->get("template=layout_contacts")->contacts_company_name ?>»
                       ознакомлен.
                     </label>
                   </div>
