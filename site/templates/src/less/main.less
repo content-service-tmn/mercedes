@@ -1942,7 +1942,7 @@ body.overflow-hidden {
 	position: relative;
 	display: block;
 	padding: 10px 0;
-	height: 40px;
+	// height: 40px;
 	text-align: center;
 	text-transform: capitalize
 }
@@ -1974,7 +1974,7 @@ body.overflow-hidden {
 }
 
 .cd-nav__navigation>ul>li.is-active>a {
-	max-width: none;
+	// max-width: none;
 	border: 0;
 	background: -webkit-gradient(linear, left top, right top, from(#000), color-stop(40%, #595959), color-stop(60%, #595959), to(#000));
 	background: linear-gradient(to right, #000 0%, #595959 40%, #595959 60%, #000 100%)
@@ -2015,7 +2015,7 @@ body.overflow-hidden {
 }
 
 .cd-nav__navigation>ul>li li a {
-	height: 40px;
+	// height: 40px;
 	position: relative
 }
 
@@ -4855,17 +4855,18 @@ body.overflow-hidden {
 }
 
 .contacts-promo {
-	padding-top: 200px;
-	background-image: url(../img/Panorama2.png), -webkit-gradient(linear, left top, left bottom, from(#5d6069), to(#2e2f33));
-	background-image: url(../img/Panorama2.png), linear-gradient(to bottom, #5d6069 0%, #2e2f33 100%);
-	background-repeat: no-repeat;
-	background-size: 100% auto;
+	// background-image: url(../img/Panorama2.png), -webkit-gradient(linear, left top, left bottom, from(#5d6069), to(#2e2f33));
+	// background-image: url(../img/Panorama2.png), linear-gradient(to bottom, #5d6069 0%, #2e2f33 100%);
+	// background-repeat: no-repeat;
+	// background-size: 100% auto;
+	background-color:#fff;
 	margin-top: 60px
 }
 
 .contacts-promo__about {
+	padding-top:50px;
 	position: relative;
-	color: #fff;
+	// color: #fff;
 	padding-bottom: 50px
 }
 
@@ -6747,4 +6748,11 @@ screen and (max-height:300px) {
 
 .custom-btn {
 	white-space: nowrap;
+}
+.contacts-promo__img {
+	width:100%;
+	padding-top:33.3333%;
+	background-repeat: no-repeat;
+	background-size:cover;
+	background-position: 50% 50%;
 }
