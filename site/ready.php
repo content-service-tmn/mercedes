@@ -21,7 +21,10 @@ $this->pages->addHookAfter('save', function($event) {
         $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xls();
         $reader->setReadDataOnly(true);
         $spreadsheet = $reader->load($page->equipment_file->first()->filename);
+        bd($spreadsheet->getSheetNames());
         $sheetData = $spreadsheet->getActiveSheet()->toArray();
+        bd($spreadsheet->getActiveSheet()->getTitle());
+
         $equipment = $page->equipments;
 
         //deleting old
