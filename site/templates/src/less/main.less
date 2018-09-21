@@ -2892,7 +2892,13 @@ body.overflow-hidden {
 	visibility: visible;
 	opacity: 1;
 	height:auto;
-		padding: 20px;
+	padding: 20px;
+	@media(max-width: 959px) {
+		padding:30px;
+	}
+	@media(max-width: 767px) {
+		padding: 20px 15px 30px
+	}
 }
 
 .home-filter__body-title {
@@ -6425,7 +6431,7 @@ screen and (max-height:300px) {
 		text-align: center
 	}
 	.home-filter__body-inner {
-		padding-bottom: 30px
+		// padding-bottom: 30px
 	}
 	.home-filter__body-close {
 		bottom: 10px;
@@ -6669,7 +6675,7 @@ screen and (max-height:300px) {
 		font-size: 17px
 	}
 	.home-filter__body-inner {
-		padding: 20px 15px 30px
+		// padding: 20px 15px 30px
 	}
 	.filter-cars__item-icon .icon {
 		font-size: 24px

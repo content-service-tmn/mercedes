@@ -186,29 +186,34 @@
                 <div class="home-filter__body-inner home-filter__type-car js-hf__tabs-content">
 
                   <div class="home-filter__body-title">Тип автомобиля</div>
-
-                  <div class="filter-cars">
-                      <?php $used = [];
-                      foreach ($page->home_show_categories as $category): ?>
-                          <?php
-                          foreach ($category->home_show_category as $ctg): ?>
-                              <?php foreach ($ctg->home_show_link as $link): if (!in_array($link->title, $used)): ?>
-                              <div class="filter-cars__item">
-                                <input type="checkbox" class="filter-cars__input" id="<?= $link->title ?>" name="types[]"
-                                       value="<?= $link->title ?>">
-                                <label class="filter-cars__label" for="<?= $link->title ?>">
-                                               <span class="filter-cars__item-icon">
-                                                   <svg class="icon icon-sedan">
-                                                      <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-sedan"></use>
-                                                   </svg>
-                                               </span>
-                                  <span class="filter-cars__item-title"><?= $link->title ?></span>
-                                </label>
-                              </div>
-                                  <?php $used[] = $link->title; endif; endforeach; ?>
+                  <div class="custom-switcher__container">
+                    <div class="custom-switcher__tab">
+                      <div class="filter-cars">
+                          <?php $used = [];
+                          foreach ($page->home_show_categories as $category): ?>
+                              <?php
+                              foreach ($category->home_show_category as $ctg): ?>
+                                  <?php foreach ($ctg->home_show_link as $link): if (!in_array($link->title, $used)): ?>
+                                  <div class="filter-cars__item">
+                                    <input type="checkbox" class="filter-cars__input" data-category="<?= $link->title ?>" id="<?= $link->title ?>" name="types[]"
+                                           value="<?= $link->title ?>">
+                                    <label class="filter-cars__label" for="<?= $link->title ?>">
+                                                   <span class="filter-cars__item-icon">
+                                                       <svg class="icon icon-sedan">
+                                                          <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-sedan"></use>
+                                                       </svg>
+                                                   </span>
+                                      <span class="filter-cars__item-title"><?= $link->title ?></span>
+                                    </label>
+                                  </div>
+                                <?php $used[] = $link->title; endif; endforeach; ?>
+                              <?php endforeach; ?>
                           <?php endforeach; ?>
-                      <?php endforeach; ?>
+                      </div>
+                    </div>
+                    <div class="custom-switcher__tab">
 
+                    </div>
                   </div>
 
                   <div class="home-filter__body-close">

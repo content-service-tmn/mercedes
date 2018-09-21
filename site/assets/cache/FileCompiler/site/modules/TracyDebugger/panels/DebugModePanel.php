@@ -142,7 +142,7 @@ class DebugModePanel extends BasePanel {
                         $pagesLoaded .= "\n<tr>" .
                             "<td>$p->id</td>" .
                             "<td>$path</td>" .
-                            "<td>" . \ProcessWire\wireclassname($p) . "</td>" .
+                            "<td>" . wireClassName($p) . "</td>" .
                             "<td>$p->_debug_loader</td>" .
                             "</tr>";
                     }
@@ -164,7 +164,7 @@ class DebugModePanel extends BasePanel {
                 $modulesNumSkipped = 0;
                 $modulesLoaded = $this->sectionHeader(array('Class', 'Version', 'Title'));
                 foreach($this->wire('modules') as $module) {
-                    if($module instanceof \ProcessWire\ModulePlaceholder) {
+                    if($module instanceof ModulePlaceholder) {
                         $modulesNumSkipped++;
                         continue;
                     }
@@ -187,7 +187,7 @@ class DebugModePanel extends BasePanel {
                     $hooks = array_merge($this->wire()->getHooks('*'), $this->wire('hooks')->getAllLocalHooks());
                 }
                 else {
-                    $hooks = array_merge($this->wire()->getHooks('*'), \ProcessWire\Wire::$allLocalHooks);
+                    $hooks = array_merge($this->wire()->getHooks('*'), Wire::$allLocalHooks);
                 }
                 $hooksSorted = array();
                 foreach($hooks as $hook) {
@@ -221,7 +221,7 @@ class DebugModePanel extends BasePanel {
                     $queryMethod = $this->wire('database')->queryLog();
                 }
                 else {
-                    $queryMethod = \ProcessWire\WireDatabasePDO::getQueryLog();
+                    $queryMethod = WireDatabasePDO::getQueryLog();
                 }
                 foreach($queryMethod as $n => $sql) {
                     $databaseQueries_oc++;
@@ -247,7 +247,7 @@ class DebugModePanel extends BasePanel {
                 // Timers
                 $timers_oc = 0;
                 $timers = $this->sectionHeader(array('Timer', 'Seconds'));
-                $savedTimers = \ProcessWire\Debug::getSavedTimers();
+                $savedTimers = Debug::getSavedTimers();
                 foreach($savedTimers as $name => $timer) {
                     $timers_oc++;
                     $timers .= "\n<tr><td>$name</td><td>$timer</td></tr>";
@@ -292,7 +292,7 @@ class DebugModePanel extends BasePanel {
                     $cacheDetails .= $this->wire('sanitizer')->entities($info['name']) . "</th></tr></thead><tbody>";
                     foreach($info as $key => $value) {
                         if($key == 'name') continue;
-                        if($key == 'size') $value = \ProcessWire\wirebytesstr($value);
+                        if($key == 'size') $value = wireBytesStr($value);
                         $key = $this->wire('sanitizer')->entities($key);
                         $value = $this->wire('sanitizer')->entities($value);
                         $cacheDetails .= "<tr><td width='30%'>$key</td><td>$value</td></tr>";
@@ -393,7 +393,7 @@ class DebugModePanel extends BasePanel {
 
 
     private function addRoot($value) {
-        return \ProcessWire\wire('config')->paths->root . $value;
+        return wire('config')->paths->root . $value;
     }
 
 }
