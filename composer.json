@@ -15,7 +15,9 @@
   ],
   "require": {
     "php": ">=5.3.8",
-    "ext-gd": "*"
+    "ext-gd": "*",
+    "phpoffice/phpspreadsheet": "^1.4",
+    "mpdf/mpdf": "^7.1"
   },
   "autoload": {
     "files": [ "wire/core/ProcessWire.php" ]
