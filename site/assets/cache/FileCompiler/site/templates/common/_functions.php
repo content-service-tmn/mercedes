@@ -101,10 +101,9 @@ function getLowestPrice($id, $pages) {
 function getAccessories($pages){
 
     $result = [];
-    $Reader = new \SpreadsheetReader($pages->get("id=1")->home_accessories->filename);
-    foreach ($Reader as $Row)
-    {
-        $result[$Row[0]] = $Row[1] ;
+    $equipments = $pages->get("template=layout_equipment")->equipments;
+    foreach ($equipments as $equipment){
+        $result[$equipment->code] = $equipment->name;
     }
     return $result;
 }

@@ -34,4 +34,15 @@ $(document).ready(function() {
         }
       }
     });
+
+    $('.custom-switcher__link:first-child').addClass('is-active');
+    $('.custom-switcher__container .custom-switcher__tab:first-child').addClass('is-active');
+    $('.custom-switcher__link').click(function() {
+      var i = $('.custom-switcher__link').index(this);
+      $('.custom-switcher__link').removeClass('is-active');
+      $(this).addClass('is-active');
+      $('.custom-switcher__container').each(function() {
+        $(this).find('.custom-switcher__tab').removeClass('is-active').eq(i).addClass('is-active');
+      });
+    });
 });

@@ -33,13 +33,8 @@
           </li>
         <?php endif;
             $i++; endforeach; ?>
-      <li><a href="" class="is-parent">Коммерческий транспорт</a></li>
-      <li><a href="#benefits" class="is-parent js-smooth-scroll">Сервисное обслуживание</a></li>
-      <li><a href="" class="is-parent">Оригинальные запасные части и аксессуары</a></li>
-      <li><a href="" class="is-parent">Mercedes Benz Financial</a></li>
-      <li><a href="#benefits-foreign" class="is-parent js-smooth-scroll">Преимущества для покупателей из других
-          регионов</a></li>
     </ul>
   </li>
+  <li><a href="" class="is-parent">Коммерческий транспорт</a></li>
 
 </ul>

@@ -348,7 +348,47 @@
       </div>
     </section>
   <?php endif; ?>
-
+  <section class="custom-contacts">
+    <div class="container">
+      <h2 class="custom-contacts__heading">Контакты</h2>
+      <div class="custom-contacts__grid">
+        <div class="custom-contacts__cell">
+          <div class="custom-contacts__item"
+               style="background-image:url(<?= $config->urls->templates . 'assets/img/01.svg' ?>)">
+            <p>Пр. Победы, 71</p>
+            <p>456620 Копейск</p>
+          </div>
+        </div>
+        <div class="custom-contacts__cell">
+          <div class="custom-contacts__item"
+               style="background-image:url(<?= $config->urls->templates . 'assets/img/01.svg' ?>)">
+            <p>Новые автомобили: <a href="">+7 (351) 2-555-666</a></p>
+            <p>Сервис: +7 (351) <a href="">2-555-666</a></p>
+            <p>Запчасти: +7 (351) <a href="">2-555-666</a></p>
+            <p>Email: <a href="">Uah@uah.uu.ru</a></p>
+          </div>
+        </div>
+        <div class="custom-contacts__cell">
+          <div class="custom-contacts__item"
+               style="background-image:url(<?= $config->urls->templates . 'assets/img/01.svg' ?>)">
+            <p>Новые автомобили: <a href="">+7 (351) 2-555-666</a></p>
+            <p>Сервис: <a href="">+7 (351) 2-555-666</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="custom-contacts__socials">
+        <a href="" class="custom-contacts__social custom-contacts__social_vk"></a>
+        <a href="" class="custom-contacts__social custom-contacts__social_fb"></a>
+        <a href="" class="custom-contacts__social custom-contacts__social_yt"></a>
+        <a href="" class="custom-contacts__social custom-contacts__social_gg"></a>
+      </div>
+    </div>
+  </section>
+  <section class="custom-map__wrapper">
+    <section class="custom-map" id="map">
+    </section>
+    <a href="" target="_blank" class="custom-map__link"></a>
+  </section>
   <section class="footer">
     <footer class="footer">
       <div class="container">
@@ -514,8 +554,6 @@
 
   <script src="<?= $config->urls->templates . 'assets/js/script.js' ?>"></script>
   <script src="<?= $config->urls->templates . 'assets/js/template.js' ?>"></script>
-  <?php
-  if ($page->template->name == "layout_contacts"): ?>
     <script type="text/javascript">
         function initMap() {
             var coordinates = {lat: 57.1419482, lng: 65.5986856},
@@ -534,7 +572,6 @@
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDz-fa3z3jDQhfL6rwyNt3DEJ3XHbyoUHk&callback=initMap"
             async></script>
-  <?php endif; ?>
   </body>
 
   </html>
