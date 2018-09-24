@@ -1,6 +1,12 @@
 <?php namespace Processwire; ?>
 
-<?php $codes = getAccessories($page); ?>
+<?php $codes = getAccessories($page);
+$equipments = [];
+array_merge($equipments, explode(",", str_replace(" ", "", $page->car_equipments)));
+array_merge($equipments, explode(",", str_replace(" ", "", $page->car_modification->modification_equipments)));
+
+bd($equipments);
+?>
 
 <div id="product_modal" class="product-modal modal-template">
 

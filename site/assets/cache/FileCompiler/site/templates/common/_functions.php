@@ -77,11 +77,13 @@ function getLowestPrice($id, $pages) {
     else return 0;
 }
 
-function getAccessories($pages){
-
+function getAccessories($page){
     $result = [];
-    $equipments = $pages->get("template=layout_equipment")->equipments;
-    foreach ($equipments as $equipment){
+    $current = $page->parent();
+    while ($current->template!= "layout_class"){
+        $current = $current->parent();
+    }
+    foreach ($current->class_equipments as $equipment){
         $result[$equipment->code] = $equipment->name;
     }
     return $result;
