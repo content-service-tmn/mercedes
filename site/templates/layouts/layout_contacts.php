@@ -36,7 +36,7 @@
         <div class="header__mobile cd-nav">
           <div class="cd-nav__inner">
             <div class="cd-nav__dealer">
-              <a href="https://sales.mercedes-orenburg.ru/contact/">Официальный дилер в Тюмени <span class="-nowrap">«<?=$pages->get("template=layout_contacts")->contacts_company_name?>»</span></a>
+              <a href="">Официальный дилер в Тюмени <span class="-nowrap">«<?=$pages->get("template=layout_contacts")->contacts_company_name?>»</span></a>
             </div>
             <div class="cd-nav__phone">
               <a href="tel:<?=phoneLink($pages->get("template=layout_contacts")->contacts_phone)?>"><?=$pages->get("template=layout_contacts")->contacts_phone?></a>
