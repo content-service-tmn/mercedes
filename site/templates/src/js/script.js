@@ -6043,7 +6043,7 @@ function(e) {
     }
     var e = s("body").attr("data-route");
     switch (enterFormSubmit(), validatePhone(), e) {
-        case "home":
+        case "layout_home":
             lazyLoadOnSlider(), homeFilterInit(), s('#home-filter input[type="checkbox"]').on("change", function() {
                 homeFilter()
             }), updateTradeIn();

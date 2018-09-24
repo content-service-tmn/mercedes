@@ -31,7 +31,7 @@
         <div class="header__mobile cd-nav">
           <div class="cd-nav__inner">
             <div class="cd-nav__dealer">
-              <a href="https://sales.mercedes-orenburg.ru/contact/">Официальный дилер в Тюмени <span
+              <a href="/contacts">Официальный дилер в Тюмени <span
                         class="-nowrap">«<?= $pages->get("template=layout_contacts")->contacts_company_name ?>
                   »</span></a>
             </div>
@@ -318,7 +318,7 @@
             <div class="title-40 tac">К сожалению, выбранной модели нет в наличии</div>
 
             <div class="mb-20 tac">
-              <img src="https://sales.mercedes-orenburg.ru/static/build/img/product-not-available.jpg"
+              <img src="<?= $config->urls->templates . 'assets/img/product-not-available.jpg' ?>"
                    alt="К сожалению, выбранной модели нет в наличии">
             </div>
 
