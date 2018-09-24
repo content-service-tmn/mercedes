@@ -32,6 +32,7 @@ $wire->addHookAfter('InputfieldPage::getSelectablePages', function($event) {
     // Возвращаем список модификации класса
     $result = $parent->get("class_modifications");
 
+
     // Если добавление автомобиля
 //    if($event->object->name == "car_modification") {
 //
@@ -46,6 +47,7 @@ $wire->addHookAfter('InputfieldPage::getSelectablePages', function($event) {
 //        $result->filter("modification_name*=amg");
 //      }
 //    }
+
 
     // Возаращаем результат
     $event->return = $result;
