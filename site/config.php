@@ -47,11 +47,11 @@ $config->defaultAdminTheme = 'AdminThemeUikit';
  * Installer: Database Configuration
  *
  */
-$config->dbHost = 'localhost';
-$config->dbName = 'mercedes';
-$config->dbUser = "root";
-$config->dbPass = 'root';
-$config->dbPort = '3306';
+ $config->dbHost = ( gethostname() == "vh130.timeweb.ru" ) ? 'localhost':'92.53.96.195';
+ $config->dbName = 'cw40247_mercedes';
+ $config->dbUser = 'cw40247_mercedes';
+ $config->dbPass = 'Jp9VPcvM';
+ $config->dbPort = '3306';
 
 /**
  * Installer: User Authentication Salt
