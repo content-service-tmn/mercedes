@@ -17,7 +17,7 @@
 
   <?= $templateRender; ?>
 
-  <?php if ($page->template == "home" || $page->template == "layout_class"): ?>
+  <?php if ($page->template == "layout_home" || $page->template == "layout_class"): ?>
     <section class="lp-credit">
       <div class="container">
 
@@ -134,7 +134,7 @@
     <section class="lp-testdrive">
 
       <div class="lp-testdrive__left-img">
-        <img src="https://sales.mercedes-orenburg.ru/static/build/img/bg/testdrive.png" alt="Запись на тест-драйв">
+        <img src="<?= $config->urls->templates . 'assets/img/testdrive.png' ?>" alt="Запись на тест-драйв">
       </div>
 
       <div class="lp-testdrive__right">
@@ -354,14 +354,14 @@
       <div class="custom-contacts__grid">
         <div class="custom-contacts__cell">
           <div class="custom-contacts__item"
-               style="background-image:url(<?= $config->urls->templates . 'assets/img/01.svg' ?>)">
+               style="background-image:url(<?= $config->urls->templates . 'assets/img/placeholder.svg' ?>)">
             <p>Пр. Победы, 71</p>
             <p>456620 Копейск</p>
           </div>
         </div>
         <div class="custom-contacts__cell">
           <div class="custom-contacts__item"
-               style="background-image:url(<?= $config->urls->templates . 'assets/img/01.svg' ?>)">
+               style="background-image:url(<?= $config->urls->templates . 'assets/img/smartphone.svg' ?>)">
             <p>Новые автомобили: <a href="">+7 (351) 2-555-666</a></p>
             <p>Сервис: +7 (351) <a href="">2-555-666</a></p>
             <p>Запчасти: +7 (351) <a href="">2-555-666</a></p>
@@ -370,7 +370,7 @@
         </div>
         <div class="custom-contacts__cell">
           <div class="custom-contacts__item"
-               style="background-image:url(<?= $config->urls->templates . 'assets/img/01.svg' ?>)">
+               style="background-image:url(<?= $config->urls->templates . 'assets/img/clock.svg' ?>)">
             <p>Новые автомобили: <a href="">+7 (351) 2-555-666</a></p>
             <p>Сервис: <a href="">+7 (351) 2-555-666</a></p>
           </div>
