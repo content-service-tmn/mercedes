@@ -177,13 +177,13 @@ function listFilter() {
   }
 }
 
-function getModelInfo(t) {
+function getModelInfo(t, url) {
     console.log(t);
     var ident = t;
     history.replaceState([], $("title").text(), location.origin + location.pathname + "#order_id=" + t),
         $.magnificPopup.open({
         items: {
-            src: "/car/"
+            src: url
         },
         type: "ajax",
         fixedContentPos: !0,

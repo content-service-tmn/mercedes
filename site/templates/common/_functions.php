@@ -49,27 +49,6 @@ function rusdate($param, $time) {
 	return date(str_replace($arrParam, $arrReplace, $param), $time);
 }
 
-function getCarInfo($pages, $id){
-    $properties = [];
-    $car = $pages->get("template=layout_car, car_id={$id}");
-
-    foreach($car->parent()->modifications as $mod){
-        if ($mod->class_id == $car->car_modification_id){
-            foreach($mod->fields as $field){
-                $properties[$field->name] = $mod[$field->name];
-            }
-        }
-    }
-
-
-    foreach($car->fields as $field){
-        $properties[$field->name] = $car->get($field->name);
-    }
-
-    return $properties;
-}
-
-
 
 function getComplectation($str, $pages) {
     $table = [];
@@ -98,11 +77,13 @@ function getLowestPrice($id, $pages) {
     else return 0;
 }
 
-function getAccessories($pages){
-
+function getAccessories($page){
     $result = [];
-    $equipments = $pages->get("template=layout_equipment")->equipments;
-    foreach ($equipments as $equipment){
+    $current = $page->parent();
+    while ($current->template!= "layout_class"){
+        $current = $current->parent();
+    }
+    foreach ($current->class_equipments as $equipment){
         $result[$equipment->code] = $equipment->name;
     }
     return $result;

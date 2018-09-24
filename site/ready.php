@@ -33,19 +33,19 @@ $wire->addHookAfter('InputfieldPage::getSelectablePages', function($event) {
     $result = $parent->get("class_modifications");
 
     // Если добавление автомобиля
-    if($event->object->name == "car_modification") {
-
-      // Если по дереву есть подкатегория с системным заголовком,
-      // который содержит AMG, то показываем только AMG модификации
-      if(!$page->parent("title*=amg")->id) {
-        $result->filter("modification_name!*=amg");
-      }
-
-      // Если подкатегории нет - исключаем AMG
-      else {
-        $result->filter("modification_name*=amg");
-      }
-    }
+//    if($event->object->name == "car_modification") {
+//
+//      // Если по дереву есть подкатегория с системным заголовком,
+//      // который содержит AMG, то показываем только AMG модификации
+//      if(!$page->parent("title*=amg")->id) {
+//        $result->filter("modification_name!*=amg");
+//      }
+//
+//      // Если подкатегории нет - исключаем AMG
+//      else {
+//        $result->filter("modification_name*=amg");
+//      }
+//    }
 
     // Возаращаем результат
     $event->return = $result;

@@ -1,5 +1,4 @@
-<?php namespace Processwire;
-if ($page->parent()->name == "catalog" || $page->name == "catalog") $session->redirect($pages->find("template=layout_class, parent={$page->id}")->first()->url) ?>
+<?php namespace Processwire; ?>
 <div class="site-wrapper">
   <header class="header js-header">
     <div class="container">
@@ -27,7 +26,7 @@ if ($page->parent()->name == "catalog" || $page->name == "catalog") $session->re
           </div>
         </div>
         <div class="header__nav nav-class js-navigation-desktop">
-            <?php include($config->paths->templates . "common/_navigation.php"); ?>
+
         </div>
         <div class="header__mobile cd-nav">
           <div class="cd-nav__inner">
@@ -112,8 +111,8 @@ if ($page->parent()->name == "catalog" || $page->name == "catalog") $session->re
                     <?php $i++; endforeach ?>
             </div>
             <ul class="product-gallery__variants">
-                <?php if (!$page->isAmg): ?>
-                    <?php foreach ($pages->find("template=layout_class, parent={$page->parent()->id}") as $child): ?>
+                <?php if (1): ?>
+                    <?php foreach ($pages->find("template=layout_type|layout_type_amg, parent={$page->parent()->id}") as $child): ?>
                     <li <?php if ($child->id == $page->id): ?>class="is-active"<?php endif; ?>>
                       <a href="<?= $child->url ?>"><?= $child->title ?></a>
                     </li>
@@ -143,8 +142,8 @@ if ($page->parent()->name == "catalog" || $page->name == "catalog") $session->re
                 <div class="js-select-wrap select select--type1">
                   <select class="js-select" name="engine">
                     <option value="0">Все</option>
-                      <?php foreach ($page->modifications as $modif): ?>
-                        <option value="<?= $modif->class_name ?>"><?= $modif->class_name ?></option>
+                      <?php foreach ($page->type_modifications as $modif): ?>
+                        <option value="<?= $modif->modification_name ?>"><?= $modif->modification_name ?></option>
                       <?php endforeach; ?>
                   </select>
                 </div>
@@ -154,12 +153,21 @@ if ($page->parent()->name == "catalog" || $page->name == "catalog") $session->re
             <div class="product-filters__item xl-50 md-100">
               <div class="product-filters__item-title">Цвет:</div>
               <div class="product-filters__item-content">
-                <div class="input-color">
-                  <input type="checkbox" class="input-color__input" id="color-black" name="colors[]" value="black">
-                  <label class="input-color__label" for="color-black" style="background-color: #222">
-                    <span class="input-color__label-title">Чёрный</span>
-                  </label>
-                </div>
+                  <?php $current = $page->parent();
+                  while ($current->template != "layout_class") {
+                      $current = $current->parent();
+                  }
+                  bd($current);
+                  foreach ($current->class_colors as $color): ?>
+                    <div class="input-color">
+                      <input type="checkbox" class="input-color__input" id="color-<?= $color->color_value ?>"
+                             name="colors[]" value="<?= $color->color_value ?>">
+                      <label class="input-color__label" for="color-<?= $color->color_value ?>"
+                             style="background-color: <?= $color->color_value ?>">
+                        <span class="input-color__label-title"><?= $color->color_name ?></span>
+                      </label>
+                    </div>
+                  <?php endforeach; ?>
               </div>
             </div>
             <div class="product-filters__item xl-50 md-100">
@@ -223,16 +231,15 @@ if ($page->parent()->name == "catalog" || $page->name == "catalog") $session->re
 
                 <?php foreach ($pages->find("template=layout_car, parent={$page->id}") as $car): ?>
                   <div class="product" <?php if ($car->car_inStock) echo "data-available=\"1\""; else echo "data-not-available=\"1\"";
-                  echo "data-color=\"black\"";
+                  echo "data-color=\"{$car->car_color->color_name}\"";
                   echo "data-price=\"{$car->car_price}\"";
-                  foreach ($page->modifications as $modif) {
-                      if ($modif->class_id == $car->car_modification_id) echo "data-model=" . "\"$modif->class_name\"";
-                  } ?>>
+                  echo "data-model=\"{$car->car_modification->modification_name}\""
+                  ?>>
                     <div class="product__name--m">
                       <p><?= $car->title ?></p>
                     </div>
                     <div class="product__image is-loaded">
-                           <span href="javascript:void(0)" onclick="getModelInfo('<?= $car->car_id ?>');">
+                           <span href="javascript:void(0)" onclick="getModelInfo('<?= $car->car_id ?>', '<?= $car->url ?>');">
 
                               <img src="<?= $car->car_photos->first()->url ?>"
                                    srcset="<?= $car->car_photos->first()->url ?> 1.5x" alt="">
@@ -255,24 +262,23 @@ if ($page->parent()->name == "catalog" || $page->name == "catalog") $session->re
 
                            </span>
                     </div>
-                    <a href="javascript:void(0);" class="product__info" onclick="getModelInfo('<?= $car->car_id ?>');">
-                        <?php $chars = getCarInfo($pages, $car->car_id); ?>
+                    <a href="javascript:void(0);" class="product__info" onclick="getModelInfo('<?= $car->car_id ?>', '<?= $car->url ?>');">
                       <div class="product__info-item product__info-item1">
                         <div class="product__name">
                           <p><?= $car->title ?></p>
                         </div>
                         <div class="product__color-year">
-                          <p><?= $car->car_color ?></p>
+                          <p><?= $car->car_color->color_name ?></p>
                         </div>
                         <div class="product__equipment">Комплектация</div>
                       </div>
                       <div class="product__info-item product__info-item2">
-                        <p><b>Цвет:</b> <?= $chars["car_color"] ?></p>
-                        <p><b>Год выпуска:</b><?= $chars["car_year"] ?></p>
-                        <p><b>Мощность:</b><?= $chars["class_power"] ?></p>
-                        <p><b>Тип топлива:</b> <?= $chars["class_fuel"] ?></p>
-                        <p><b>Салон:</b> <?= $chars["car_cabin"] ?></p>
-                        <p><b>Привод:</b> <?= $chars["class_gear"] ?></p>
+                        <p><b>Цвет:</b> <?= $car->car_color->color_name ?></p>
+                        <p><b>Год выпуска: </b><?= $car->car_year ?></p>
+                        <p><b>Мощность: </b><?= $car->car_modification->modification_power ?> л.с.</p>
+                        <p><b>Тип топлива: </b> <?= $car->car_modification->modification_fuel ?></p>
+                        <p><b>Салон: </b> <?= $car->car_interior ?></p>
+                        <p><b>Привод: </b> <?= $car->car_modification->modification_gear ?></p>
                       </div>
                       <div class="product__info-item product__info-item3">
                         <p>
@@ -282,7 +288,7 @@ if ($page->parent()->name == "catalog" || $page->name == "catalog") $session->re
                           Специальное предложение:
                         </p>
                         <p>
-                          <span class="price-new"><span><?= $car->car_price ?></span> ₽</span>
+                          <span class="price-new"><span><?= $car->car_price_special ?></span> ₽</span>
                         </p>
                       </div>
                     </a>
@@ -426,37 +432,37 @@ if ($page->parent()->name == "catalog" || $page->name == "catalog") $session->re
 
         </div>
         <div class="specifications-table">
-            <?php $count = $page->modifications->count();
-            foreach ($page->modifications as $i => $modif): if ($i < 2): ?>
+            <?php $count = $page->type_modifications->count();
+            foreach ($page->type_modifications as $i => $modif): if ($i < 2): ?>
               <div class="specifications-table__item row row-15">
                 <div class="xl-30 xs-100">
                   <div class="mb-20">
                     <div class="specifications-table__title"><?= $modif->class_name ?></div>
-                    <div>Тип топлива <?= $modif->class_fuel ?></div>
+                    <div>Тип топлива <?= $modif->modification_fuel ?></div>
                   </div>
                   <div class="mb-20">
                     <div class="specifications-table__desc">Мощность</div>
-                    <div class="specifications-table__title"><?= $modif->class_power ?></div>
+                    <div class="specifications-table__title"><?= $modif->modification_power ?> л.с.</div>
                   </div>
                 </div>
                 <div class="xl-40 xs-100">
                   <div class="mb-20">
                     <div class="specifications-table__desc">Номинальная мощность</div>
-                    <div class="specifications-table__title"><?= $modif->class_rated_power ?></div>
+                    <div class="specifications-table__title"><?= $modif->modification_power_rated ?></div>
                   </div>
                   <div class="mb-20">
                     <div class="specifications-table__desc">Рабочий объем</div>
-                    <div class="specifications-table__title"><?= $modif->class_capacity ?></div>
+                    <div class="specifications-table__title"><?= $modif->modification_amount ?></div>
                   </div>
                 </div>
                 <div class="xl-30 xs-100">
                   <div class="mb-20">
                     <div class="specifications-table__desc">Расположение и количество цилиндров</div>
-                    <div class="specifications-table__title"><?= $modif->class_cylinders ?></div>
+                    <div class="specifications-table__title"><?= $modif->modification_cylinders ?></div>
                   </div>
                   <div class="mb-20">
                     <div class="specifications-table__desc">Расход топлива смешанный</div>
-                    <div class="specifications-table__title"><?= $modif->class_fuel_consumption ?></div>
+                    <div class="specifications-table__title"><?= $modif->modification_consumption ?></div>
                   </div>
                 </div>
               </div>
@@ -464,36 +470,36 @@ if ($page->parent()->name == "catalog" || $page->name == "catalog") $session->re
             <?php if ($count > 2): ?>
               <a href="#" class="expand-btn">Развернуть</a>
               <div class="expand-box">
-                  <?php foreach ($page->modifications as $i => $modif): if ($i >= 2): ?>
+                  <?php foreach ($page->type_modifications as $i => $modif): if ($i >= 2): ?>
                     <div class="specifications-table__item row row-15">
                       <div class="xl-30 xs-100">
                         <div class="mb-20">
                           <div class="specifications-table__title"><?= $modif->class_name ?></div>
-                          <div>Тип топлива <?= $modif->class_fuel ?></div>
+                          <div>Тип топлива <?= $modif->modification_fuel ?></div>
                         </div>
                         <div class="mb-20">
                           <div class="specifications-table__desc">Мощность</div>
-                          <div class="specifications-table__title"><?= $modif->class_power ?></div>
+                          <div class="specifications-table__title"><?= $modif->modification_power ?> л.с.</div>
                         </div>
                       </div>
                       <div class="xl-40 xs-100">
                         <div class="mb-20">
                           <div class="specifications-table__desc">Номинальная мощность</div>
-                          <div class="specifications-table__title"><?= $modif->class_rated_power ?></div>
+                          <div class="specifications-table__title"><?= $modif->modification_power_rated ?></div>
                         </div>
                         <div class="mb-20">
                           <div class="specifications-table__desc">Рабочий объем</div>
-                          <div class="specifications-table__title"><?= $modif->class_capacity ?></div>
+                          <div class="specifications-table__title"><?= $modif->modification_amount ?></div>
                         </div>
                       </div>
                       <div class="xl-30 xs-100">
                         <div class="mb-20">
                           <div class="specifications-table__desc">Расположение и количество цилиндров</div>
-                          <div class="specifications-table__title"><?= $modif->class_cylinders ?></div>
+                          <div class="specifications-table__title"><?= $modif->modification_cylinders ?></div>
                         </div>
                         <div class="mb-20">
                           <div class="specifications-table__desc">Расход топлива смешанный</div>
-                          <div class="specifications-table__title"><?= $modif->class_fuel_consumption ?></div>
+                          <div class="specifications-table__title"><?= $modif->modification_consumption ?></div>
                         </div>
                       </div>
                     </div>
