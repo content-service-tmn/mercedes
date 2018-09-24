@@ -21,6 +21,7 @@ function homeFilterInit() {
     else if (tmp<min) min=tmp;
     if (tmp>max) max=tmp;
   });
+  if (min==-1) min=0;
     var t = parseInt($(".home-filter").attr("data-min")),
         e = parseInt($(".home-filter").attr("data-max")),
         i = $("#range-price");
@@ -6048,7 +6049,7 @@ function(e) {
                 homeFilter()
             }), updateTradeIn();
             break;
-        case "layout_class":
+        case "layout_type":
             lazyLoadOnList(), listFilterInit(), s("#list-filter").find('input[type="checkbox"], input[type="radio"], select').on("change", function() {
                 listFilter()
             }), s(document).on("click", "#list-filter .select-js__item", function() {
