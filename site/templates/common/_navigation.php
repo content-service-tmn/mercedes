@@ -3,17 +3,16 @@
     <a href="">AMG</a>
     <ul>
         <?php
-        foreach ($pages->find("template=layout_class") as $class): ?>
-            <?php if ($class->isAmg): ?>
+        foreach ($pages->find("template=layout_type_amg") as $class): ?>
             <li>
-              <a href="<?= $pages->find("template=layout_class, parent={$class->id}")->first()->url ?>"><?= ($class->parent()->title != "Catalog")?$class->parent()->title . " ":"" . $class->title ?></a>
+              <a href="<?= $pages->find("template=layout_class, parent={$class->id}")->first()->url ?>"><?= ($class->parent()->title != "Catalog")?$class->parent()->title . " " . $class->title:"" . $class->title ?></a>
             </li>
-            <?php endif; ?>
         <?php endforeach; ?>
     </ul>
   </li>
     <?php $i = 0;
-    foreach ($pages->find("parent=catalog, sort=sort") as $category): if ($i < 8): ?>
+    $catalogs = $pages->find("parent=catalog, sort=sort");
+    foreach ($catalogs as $category): if ($i < 8): ?>
       <li>
         <a href="<?= $pages->find("template=layout_class, parent={$category->id}")->first()->url ?>"><?= $category->title ?></a>
         <ul>
@@ -23,11 +22,12 @@
         </ul>
       </li>
         <?php $i++; endif; endforeach; ?>
+  <?php if($catalogs->count() >= 8): ?>
   <li>
     <a href="">Другие</a>
     <ul>
         <?php $i = 0;
-        foreach ($pages->find("parent=catalog") as $category): if ($i >= 8): ?>
+        foreach ($catalogs as $category): if ($i >= 8): ?>
           <li>
             <a href="<?= $pages->find("template=layout_class, parent={$category->id}")->first()->url ?>"><?= $category->title ?></a>
           </li>
@@ -35,6 +35,7 @@
             $i++; endforeach; ?>
     </ul>
   </li>
+  <?php endif; ?>
   <li><a href="" class="is-parent">Коммерческий транспорт</a></li>
 
 </ul>

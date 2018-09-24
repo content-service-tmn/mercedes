@@ -1,20 +1,16 @@
 <?php namespace Processwire; ?>
-<?php
-bd($page->path);
-?>
-<?php $info = getCarInfo($pages, $_REQUEST["order_id"]);
-$codes = getAccessories($pages)
-; ?>
+
+<?php $codes = getAccessories($page); ?>
 
 <div id="product_modal" class="product-modal modal-template">
 
-  <div class="product-modal__head"><?= $info["title"] ?></div>
+  <div class="product-modal__head"><?= $page->car_title ?></div>
 
   <div class="product-gallery product-gallery--modal">
 
 
     <div class="product-gallery__images owl-carousel">
-        <?php foreach ($info["car_photos"] as $photo): ?>
+        <?php foreach ($page->car_photos as $photo): ?>
           <div class="product-gallery__image">
             <picture>
               <img src="<?= $photo->url ?>">
@@ -25,7 +21,7 @@ $codes = getAccessories($pages)
 
     <div class="product-gallery__modal-bottom">
       <div class="product-gallery__thumbs">
-          <?php foreach ($info["car_photos"] as $i => $photo): ?>
+          <?php foreach ($page->car_photos as $photo): ?>
             <div class="product-gallery__thumb <?php if ($i == 0) echo 'is-active' ?>">
               <picture>
                 <img src="<?= $photo->url ?>">
@@ -41,11 +37,11 @@ $codes = getAccessories($pages)
   <div class="product-modal__content">
     <div class="product-modal__box1">
 
-      <div class="product-modal__title"><?= $info["title"] ?></div>
+      <div class="product-modal__title"><?= $page->car_title ?></div>
 
-      <div class="product-modal__price">Данный автомобиль: <b><span><?= $info["car_price"] ?></span> ₽</b></div>
+      <div class="product-modal__price">Данный автомобиль: <b><span><?= $page->car_price ?></span> ₽</b></div>
       <div class="product-modal__spec-price">Специальное предложение:
-        <b><span><?= $info["car_special_proposal"] ?></span> ₽</b></div>
+        <b><span><?= $page->car_price_special ?></span> ₽</b></div>
       <!--<div class="product-modal__credit-title">
         <span>В кредит:</span>
       </div>
@@ -97,7 +93,7 @@ $codes = getAccessories($pages)
               </label>
             </div>
             <button type="button" class="btn btn--blue CKFormTrigger"
-                    onclick="sendRequest('#form-best-offer', '<?= $info["car_id"] ?>')">Отправить
+                    onclick="sendRequest('#form-best-offer', '<?= $page->car_id ?>')">Отправить
             </button>
           </form>
         </div>
@@ -114,9 +110,9 @@ $codes = getAccessories($pages)
       <div class="product-modal__button custom-button-margin">
         <a href="#feedback_modal"
            data-code="credit"
-           data-back="<?= $info["car_id"] ?>"
-           data-order="<?= $info["car_id"] ?>"
-           data-info="<?= $info["title"] ?>t"
+           data-back="<?= $page->car_id ?>"
+           data-order="<?= $page->car_id ?>"
+           data-info="<?= $page->title ?>t"
            data-text="Получите индивидуальную консультацию нашего финансового специалиста"
            class="btn btn--blue js-open-modal">Купить в кредит</a>
       </div>

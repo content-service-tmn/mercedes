@@ -21,6 +21,7 @@ function homeFilterInit() {
     else if (tmp<min) min=tmp;
     if (tmp>max) max=tmp;
   });
+  if (min==-1) min=0;
     var t = parseInt($(".home-filter").attr("data-min")),
         e = parseInt($(".home-filter").attr("data-max")),
         i = $("#range-price");
@@ -177,13 +178,13 @@ function listFilter() {
   }
 }
 
-function getModelInfo(t) {
+function getModelInfo(t, url) {
     console.log(t);
     var ident = t;
     history.replaceState([], $("title").text(), location.origin + location.pathname + "#order_id=" + t),
         $.magnificPopup.open({
         items: {
-            src: "/car/"
+            src: url
         },
         type: "ajax",
         fixedContentPos: !0,
@@ -6043,12 +6044,12 @@ function(e) {
     }
     var e = s("body").attr("data-route");
     switch (enterFormSubmit(), validatePhone(), e) {
-        case "home":
+        case "layout_home":
             lazyLoadOnSlider(), homeFilterInit(), s('#home-filter input[type="checkbox"]').on("change", function() {
                 homeFilter()
             }), updateTradeIn();
             break;
-        case "layout_class":
+        case "layout_type":
             lazyLoadOnList(), listFilterInit(), s("#list-filter").find('input[type="checkbox"], input[type="radio"], select').on("change", function() {
                 listFilter()
             }), s(document).on("click", "#list-filter .select-js__item", function() {
