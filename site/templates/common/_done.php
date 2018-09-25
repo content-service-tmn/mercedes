@@ -267,30 +267,16 @@
         <div class="lp-premser__bottom">
           <div class="lp-premser__bot-left-нет xl-70 lg-100">
             <ul class="lp-premser__list row row-15">
+              <?php foreach ($pages->get(1)->foreigners_benefits as $i => $benefit): ?>
               <li class="xl-33">
                 <i>
-                  <svg class="icon icon-premser1">
-                    <use xlink:href="<?= $config->urls->templates . 'assets/img/benefits.svg' ?>#1"></use>
+                  <svg class="icon icon-premser<?=$i+1?>">
+                    <use xlink:href="<?= $config->urls->templates . 'assets/img/benefits.svg' ?>#<?=$i+1?>"></use>
                   </svg>
                 </i>
-                <span>Онлайн-запись <br>на сервис 24 часа</span>
+                <span><?=$benefit->foreigners_benefit?></span>
               </li>
-              <li class="xl-33">
-                <i>
-                  <svg class="icon icon-premser2">
-                    <use xlink:href="<?= $config->urls->templates . 'assets/img/benefits.svg' ?>#2"></use>
-                  </svg>
-                </i>
-                <span>Персональный консультант</span>
-              </li>
-              <li class="xl-33">
-                <i>
-                  <svg class="icon icon-premser3">
-                    <use xlink:href="<?= $config->urls->templates . 'assets/img/benefits.svg' ?>#3"></use>
-                  </svg>
-                </i>
-                <span>Обслуживание без ожидания и очередей</span>
-              </li>
+              <?php endforeach; ?>
             </ul>
           </div>
           <div class="lp-premser__bot-btn xl-30 lg-100">

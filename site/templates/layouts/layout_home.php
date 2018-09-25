@@ -28,7 +28,7 @@
           </div>
         </div>
         <div class="header__nav nav-class js-navigation-desktop">
-
+          <?php include($config->paths->templates . "common/_navigation.php"); ?>
         </div>
 
         <div class="header__mobile cd-nav">
@@ -180,7 +180,7 @@
                     <?php foreach ($page->home_categories as $category) : ?>
                       <div class="custom-switcher__tab">
                         <div class="filter-cars">
-                            <?php foreach ($category->categories_type as $type): bd($type->categories_type_icon->value); ?>
+                            <?php foreach ($category->categories_type as $type): ?>
                               <div class="filter-cars__item">
                                 <input type="checkbox" class="filter-cars__input"
                                        data-category="<?= $type->categories_type_icon->value ?>"
@@ -256,7 +256,7 @@
               <div class="custom-switcher__tab">
                 <div class="home-products">
                     <?php foreach ($category->categories_type as $type): $i=0; foreach($type->categories_types as $ct): ?>
-                      <a href="" class="home-product <?php if ($i == 0) echo 'home-product--first' ?>" data-category="<?=$type->categories_type_icon->value?>" data-price="100">
+                      <a href="" class="home-product <?php if ($i == 0) echo 'home-product--first' ?>" data-category="<?=$type->categories_type_icon->value?>" data-price="<?=getLowestPrice($ct)?>">
                           <?php if ($i == 0): ?>
                             <div class="home-product__category"><?= $type->categories_type_name ?></div>
                           <?php endif; ?>

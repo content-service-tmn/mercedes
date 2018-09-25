@@ -5,7 +5,8 @@
 
 <div id="product_modal" class="product-modal modal-template">
 
-  <div class="product-modal__head"><?= $page->car_title ?></div>
+  <div class="product-modal__head"><?=$page->car_modification->modification_name?>, номер заказа <?=$page->car_id?></div>
+
 
   <div class="product-gallery product-gallery--modal">
 
