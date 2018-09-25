@@ -289,7 +289,7 @@
                       </div>
                     </a>
                     <div class="product__buttons">
-                      <a href="#feedback_modal" data-code="best_price" data-order="<?= $car->car_id ?>"
+                      <a href="#feedback_modal" data-code="cheepest" data-order="<?= $car->car_id ?>"
                          data-info="<?= $car->car_title ?>"
                          data-text="Специально для Вас мы готовы сделать особое предложение!"
                          class="btn btn--blue js-open-modal">Хочу дешевле</a>
@@ -297,7 +297,7 @@
                          data-info="<?= $car->car_title ?>"
                          data-text="Специально для Вас мы готовы рассчитать кредит на особых условиях"
                          class="btn btn--blue js-open-modal">Рассчитать кредит</a>
-                      <a href="#feedback_modal" data-code="credit" data-order="<?= $car->car_id ?>"
+                      <a href="#feedback_modal" data-code="test-drive" data-order="<?= $car->car_id ?>"
                          data-info="<?= $car->car_title ?>"
                          data-text="Специально для Вас мы готовы рассчитать кредит на особых условиях"
                          class="btn btn--blue js-open-modal">Тест-драйв</a>

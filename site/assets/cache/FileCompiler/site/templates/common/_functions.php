@@ -70,22 +70,24 @@ function getComplectation($str, $pages)
     return $result;
 }
 
-function getLowestPrice($id, $pages)
+function getLowestPrice($ct)
 {
     $min = 9999999999999;
-    foreach ($pages->find("template=layout_car, parent={$id}") as $pge) {
-        if (isset($pge->car_price) && $pge->car_price < $min) {
+    foreach ($ct->children("template=layout_car") as $pge) {
+        if ($pge->car_price != "" && $pge->car_price < $min) {
             $min = $pge->car_price;
         }
     }
     if ($min != 9999999999999) {
         return $min;
-    } else return 0;
+    } else {
+        return 0;
+    }
 }
 
 function getEquipments($page)
 {
-    if ($page->template != "layout_car"){
+    if ($page->template != "layout_car") {
         return [];
     }
 
@@ -95,8 +97,9 @@ function getEquipments($page)
         $dictionary[$equipment->code] = $equipment->name;
     }
 
-    $complectaton = explode(",", str_replace(" ", "", $page->car_equipments . $page->car_modification->modification_equipments));
-
+    $complectaton = explode(",", str_replace(" ", "", $page->car_equipments . ", " . $page->car_modification->modification_equipments));
+    bd($dictionary);
+    bd($complectaton);
     $result = [];
 
     foreach ($complectaton as $item) {

@@ -117,8 +117,8 @@ function homeFilter() {
       categories[j]=$(this).attr('data-category');
     });
     var products = $('.home-filter+.custom-switcher__container .custom-switcher__tab').eq(i);
-    products.find(".home-product").addClass('js-hidden');
-    products.find(".home-product")
+    products.find(".home-product").addClass('js-hidden').removeClass('home-product--first');
+    var tmp = products.find(".home-product")
     .filter(function(){
       var price = parseInt($(this).attr('data-price').replace(/\s/g, ''));
       return price>=min && price<=max;
@@ -128,6 +128,9 @@ function homeFilter() {
       return categories.includes($(this).attr("data-category"));
     })
     .removeClass('js-hidden');
+    categories.forEach(function(element) {
+      tmp.find('[data-category='+element+']:first-child').addClass('home-product--first');
+    });
   });
 }
 
@@ -241,7 +244,7 @@ function sendRequest(l, c) {
         e = $(l).serialize(),
         d = $(l).find("button").text();
     $.ajax({
-        url: "/mercedes/car/",
+        url: "/mercedes/ajax-handler/",
         type: "post",
         data: e,
         dataType: "json",
