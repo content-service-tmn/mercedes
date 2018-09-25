@@ -129,7 +129,7 @@ function homeFilter() {
     })
     .removeClass('js-hidden');
     categories.forEach(function(element) {
-      tmp.find('[data-category=['+element+']:first-child').addClass('home-product--first');
+      tmp.find('[data-category='+element+']:first-child').addClass('home-product--first');
     });
   });
 }
@@ -244,7 +244,7 @@ function sendRequest(l, c) {
         e = $(l).serialize(),
         d = $(l).find("button").text();
     $.ajax({
-        url: "/mercedes/car/",
+        url: "/mercedes/ajax-handler/",
         type: "post",
         data: e,
         dataType: "json",
