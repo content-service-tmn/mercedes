@@ -217,12 +217,12 @@
       <div class="product-modal__footer">
 
         <div class="xl-60 sm-100 product-modal__footer-left">
-          <div class="product-modal__price">Данный автомобиль: <b><span><?= $page->car_price ?></span> ₽</b></div>
-          <div class="product-modal__spec-price">Специальное предложение:
+          <div class="product-modal__price mg-bottom-10">Данный автомобиль: <b><span><?= $page->car_price ?></span> ₽</b></div>
+          <div class="product-modal__spec-price mg-bottom-10">Специальное предложение:
             <b><span><?= $page->car_price_special ?></span> ₽</b></div>
+          <div class="product-modal__price mg-bottom-30">Ваше преимущество:
+            <b><span><?= $page->car_price - $page->car_price_special ?></span> ₽</b></div>
         </div>
-        <div class="product-modal__price">Ваше преимущество:
-          <b><span><?= $page->car_price - $page->car_price_special ?></span> ₽</b></div>
 
 
         <div class="xl-40 sm-100 product-modal__footer-right">
