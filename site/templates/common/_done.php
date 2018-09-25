@@ -1,5 +1,7 @@
 <?php namespace Processwire;
-      if(!isset($templateRender)) { return; } ?>
+if (!isset($templateRender)) {
+    return;
+} ?>
 
 <?php if ($config->ajax): ?>
     <?= $templateRender; ?>
@@ -26,31 +28,16 @@
 
         <div class="expand-box">
           <div class="row row-15">
-            <div class="xl-50 md-100">
-              <div class="lp-credit__title">Сниженные ставки по кредиту
-                -
-                от
-                6, 3 %</div>
-              <ul>
-                <li>Возможность получения дополнительной скидки от производителя;</li>
-                <li>Включение лизинговых платежей в себестоимость продукции и применение ускоренной амортизации
-                  предмета лизинга;
-                </li>
-                <li>Низкий авансовый платеж - от 10% от стоимости транспортного средства.</li>
-              </ul>
-            </div>
-            <div class="xl-50 md-100">
-              <div class="lp-credit__title">Лизинг</div>
-
-              <ul>
-                <li>Оптимальные сроки кредитования: от 1 года до 5 лет;</li>
-                <li>Минимальный срок рассмотрения заявки: 1 рабочий день;</li>
-                <li>Принцип «Одного окна»: предоставление документов для рассмотрения кредита,
-                  а также подписание кредитной документации осуществляется в
-                  «Каскад-Авто».
-                </li>
-              </ul>
-            </div>
+              <?php foreach ($pages->get(1)->credit_and_leasing as $cal): ?>
+                <div class="xl-50 md-100">
+                  <div class="lp-credit__title"><?= $cal->credit_and_leasing_title ?></div>
+                  <ul>
+                      <?php foreach ($cal->credit_and_leasing_content as $row): ?>
+                        <li><?=$row->point?></li>
+                      <?php endforeach; ?>
+                  </ul>
+                </div>
+              <?php endforeach; ?>
           </div>
           <div class="lp-credit__button">
             <a href="#feedback_modal" data-code="credit_and_leasing"
@@ -267,16 +254,16 @@
         <div class="lp-premser__bottom">
           <div class="lp-premser__bot-left-нет xl-70 lg-100">
             <ul class="lp-premser__list row row-15">
-              <?php foreach ($pages->get(1)->foreigners_benefits as $i => $benefit): ?>
-              <li class="xl-33">
-                <i>
-                  <svg class="icon icon-premser<?=$i+1?>">
-                    <use xlink:href="<?= $config->urls->templates . 'assets/img/benefits.svg' ?>#<?=$i+1?>"></use>
-                  </svg>
-                </i>
-                <span><?=$benefit->foreigners_benefit?></span>
-              </li>
-              <?php endforeach; ?>
+                <?php foreach ($pages->get(1)->foreigners_benefits as $i => $benefit): ?>
+                  <li class="xl-33">
+                    <i>
+                      <svg class="icon icon-premser<?= $i + 1 ?>">
+                        <use xlink:href="<?= $config->urls->templates . 'assets/img/benefits.svg' ?>#<?= $i + 1 ?>"></use>
+                      </svg>
+                    </i>
+                    <span><?= $benefit->foreigners_benefit ?></span>
+                  </li>
+                <?php endforeach; ?>
             </ul>
           </div>
           <div class="lp-premser__bot-btn xl-30 lg-100">
@@ -540,24 +527,24 @@
 
   <script src="<?= $config->urls->templates . 'assets/js/script.js' ?>"></script>
   <script src="<?= $config->urls->templates . 'assets/js/template.js' ?>"></script>
-    <script type="text/javascript">
-        function initMap() {
-            var coordinates = {lat: 57.1419482, lng: 65.5986856},
-                options = {
-                    zoom: 16,
-                    disableDefaultUI: true,
-                    center: coordinates,
-                    draggable: !("ontouchend" in document)
-                };
-            var map = new google.maps.Map(document.getElementById('map'), options);
-            $.getJSON('<?= $config->urls->templates . 'assets/json/google-map.json'?>', function (data) {
-                map.setOptions({styles: data});
-            });
-            new google.maps.Marker({map: map, position: coordinates});
-        }
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDz-fa3z3jDQhfL6rwyNt3DEJ3XHbyoUHk&callback=initMap"
-            async></script>
+  <script type="text/javascript">
+      function initMap() {
+          var coordinates = {lat: 57.1419482, lng: 65.5986856},
+              options = {
+                  zoom: 16,
+                  disableDefaultUI: true,
+                  center: coordinates,
+                  draggable: !("ontouchend" in document)
+              };
+          var map = new google.maps.Map(document.getElementById('map'), options);
+          $.getJSON('<?= $config->urls->templates . 'assets/json/google-map.json'?>', function (data) {
+              map.setOptions({styles: data});
+          });
+          new google.maps.Marker({map: map, position: coordinates});
+      }
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDz-fa3z3jDQhfL6rwyNt3DEJ3XHbyoUHk&callback=initMap"
+          async></script>
   </body>
 
   </html>
