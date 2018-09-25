@@ -199,7 +199,7 @@
 
       <div class="product-modal__print">
         <a class="-color-blue link-with-border"
-           href="https://sales.mercedes-orenburg.ru/index.php?route=car/model/printInfo&amp;order_id=<?= $page->car_id ?>"
+           href="<?=$pages->get("template=layout_pdf")->url?>?id=<?= $page->car_id ?>"
            target="_blank">
           <b>Распечатать</b>
         </a>
@@ -247,7 +247,7 @@
             </a>
           </div>
           <div class="mb-10">
-            <a href="https://sales.mercedes-orenburg.ru/index.php?route=car/model/printInfo&amp;order_id=<?= $page->car_id ?>"
+            <a href="<?=$pages->get("template=layout_pdf")->url?>?id=<?= $page->car_id ?>"
                class="-color-blue link-with-border" target="_blank">
               <b>Распечатать</b>
             </a>
