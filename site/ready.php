@@ -69,7 +69,6 @@ $wire->addHookAfter('Page::getMarkup', function (HookEvent $event) {
   $page = $event->object;
   if ($page->template != "layout_type") return;
   $name = "";
-	bd($page);
   while ($page->name != "catalog" && $page->parent() != null) {
        $name = $page->title . " " . $name;
        $page = $page->parent();
