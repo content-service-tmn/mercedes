@@ -53,6 +53,7 @@ $config->dbUser = 'cw40247_mercedes';
 $config->dbPass = 'Jp9VPcvM';
 $config->dbPort = '3306';
 
+
 /**
  * Installer: User Authentication Salt
  *

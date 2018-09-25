@@ -80,7 +80,7 @@
     <section class="product-promo">
       <div class="product-gallery product-gallery--promo">
         <div class="product-gallery__images owl-carousel">
-            <?php foreach ($page->class_images as $img): ?>
+            <?php foreach ($page->type_photos as $img): ?>
               <div class="product-gallery__image">
                 <picture>
                   <source srcset="<?= $img->size(760, 320, [])->url ?>"
@@ -98,7 +98,7 @@
             <h1 class="product-gallery__title">«Мерседес-Бенц» <?= $page->parent()->title . " " . $page->title ?></h1>
             <div class="product-gallery__thumbs owl-carousel">
                 <?php $i = 0;
-                foreach ($page->class_images as $img): ?>
+                foreach ($page->type_photos as $img): ?>
                   <div class="product-gallery__thumb <?php if ($i == 0) echo 'is-active' ?> ">
                     <picture>
                       <source srcset="<?= $img->size(760, 320, [])->url ?>, <?= $img->size(110, 46, [])->url ?>, <?= $img->size(760, 320, [])->url ?>, <?= $img->size(220, 92, [])->url ?> 1.5x"
@@ -153,12 +153,8 @@
             <div class="product-filters__item xl-50 md-100">
               <div class="product-filters__item-title">Цвет:</div>
               <div class="product-filters__item-content">
-                  <?php $current = $page->parent();
-                  while ($current->template != "layout_class") {
-                      $current = $current->parent();
-                  }
-                  bd($current);
-                  foreach ($current->class_colors as $color): ?>
+                  <?php
+                  foreach ($page->parent("layout_class")->class_colors as $color): ?>
                     <div class="input-color">
                       <input type="checkbox" class="input-color__input" id="color-<?= $color->color_value ?>"
                              name="colors[]" value="<?= $color->color_value ?>">
@@ -231,18 +227,18 @@
 
                 <?php foreach ($pages->find("template=layout_car, parent={$page->id}") as $car): ?>
                   <div class="product" <?php if ($car->car_inStock) echo "data-available=\"1\""; else echo "data-not-available=\"1\"";
-                  echo "data-color=\"{$car->car_color->color_name}\"";
-                  echo "data-price=\"{$car->car_price}\"";
+                  echo "data-color=\"{$car->car_color->color_value}\"";
+                  echo "data-price=\"" . (($car->car_price != "")?$car->car_price:0) . "\"";
                   echo "data-model=\"{$car->car_modification->modification_name}\""
                   ?>>
                     <div class="product__name--m">
-                      <p><?= $car->title ?></p>
+                      <p><?="Mercedes-Benz " . $car->car_modification->modification_name?></p>
                     </div>
                     <div class="product__image is-loaded">
                            <span href="javascript:void(0)" onclick="getModelInfo('<?= $car->car_id ?>', '<?= $car->url ?>');">
 
-                              <img src="<?= $car->car_photos->first()->url ?>"
-                                   srcset="<?= $car->car_photos->first()->url ?> 1.5x" alt="">
+                              <img src="<?=  ($car->car_photos->count() > 0)?$car->car_photos->first()->url : $config->urls->templates . "assets/img/product-not-available.jpg" ?>"
+                                   srcset="<?= ($car->car_photos->count() > 0)?$car->car_photos->first()->url : $config->urls->templates . "assets/img/product-not-available.jpg"?> 1.5x" alt="">
 
                              <div class="brazzers" style="opacity: 0;">
                                                     <div class="brazzers__thumbs">
@@ -265,7 +261,7 @@
                     <a href="javascript:void(0);" class="product__info" onclick="getModelInfo('<?= $car->car_id ?>', '<?= $car->url ?>');">
                       <div class="product__info-item product__info-item1">
                         <div class="product__name">
-                          <p><?= $car->title ?></p>
+                          <p><?="Mercedes-Benz " . $car->car_modification->modification_name?></p>
                         </div>
                         <div class="product__color-year">
                           <p><?= $car->car_color->color_name ?></p>
