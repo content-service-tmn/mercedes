@@ -199,7 +199,7 @@
 
       <div class="product-modal__print">
         <a class="-color-blue link-with-border"
-           href="https://sales.mercedes-orenburg.ru/index.php?route=car/model/printInfo&amp;order_id=<?= $page->car_id ?>"
+           href="<?=$pages->get("template=layout_pdf")->url?>?id=<?= $page->car_id ?>"
            target="_blank">
           <b>Распечатать</b>
         </a>
@@ -217,12 +217,12 @@
       <div class="product-modal__footer">
 
         <div class="xl-60 sm-100 product-modal__footer-left">
-          <div class="product-modal__price">Данный автомобиль: <b><span><?= $page->car_price ?></span> ₽</b></div>
-          <div class="product-modal__spec-price">Специальное предложение:
+          <div class="product-modal__price mg-bottom-10">Данный автомобиль: <b><span><?= $page->car_price ?></span> ₽</b></div>
+          <div class="product-modal__spec-price mg-bottom-10">Специальное предложение:
             <b><span><?= $page->car_price_special ?></span> ₽</b></div>
+          <div class="product-modal__price mg-bottom-30">Ваше преимущество:
+            <b><span><?= $page->car_price - $page->car_price_special ?></span> ₽</b></div>
         </div>
-        <div class="product-modal__price">Ваше преимущество:
-          <b><span><?= $page->car_price - $page->car_price_special ?></span> ₽</b></div>
 
 
         <div class="xl-40 sm-100 product-modal__footer-right">
@@ -247,7 +247,7 @@
             </a>
           </div>
           <div class="mb-10">
-            <a href="https://sales.mercedes-orenburg.ru/index.php?route=car/model/printInfo&amp;order_id=<?= $page->car_id ?>"
+            <a href="<?=$pages->get("template=layout_pdf")->url?>?id=<?= $page->car_id ?>"
                class="-color-blue link-with-border" target="_blank">
               <b>Распечатать</b>
             </a>

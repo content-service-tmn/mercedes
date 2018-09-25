@@ -80,31 +80,32 @@ $wire->addHookAfter('Page::getMarkup', function (HookEvent $event) {
 $this->pages->addHookAfter('save', function($event) {
 
     $page = $event->arguments[0];
-    if ($page->template == "layout_equipment") {
+    if ($page->template == "layout_class" && $page->class_equipment_file->first()) {
         $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xls();
         $reader->setReadDataOnly(true);
-        $spreadsheet = $reader->load($page->equipment_file->first()->filename);
-        bd($spreadsheet->getSheetNames());
+        $spreadsheet = $reader->load($page->class_equipment_file->first()->filename);
+//        bd($spreadsheet->getSheetNames());
         $sheetData = $spreadsheet->getActiveSheet()->toArray();
-        bd($spreadsheet->getActiveSheet()->getTitle());
+//        bd($spreadsheet->getActiveSheet()->getTitle());
 
-        $equipment = $page->equipments;
+        $equipment = $page->class_equipments;
 
         //deleting old
         $page->of(false);
         foreach ($equipment as $item){
             $equipment->remove($item);
         }
-        $page->save('equipments');
+        $page->save('class_equipments');
 
         //adding new
-        foreach ($sheetData as $array) {
+        foreach ($sheetData as $i => $array) {
+            if ($i == 0) continue;
             $page->of(false);
             $new = $equipment->makeBlankItem();
             $new->code = $array[0];
             $new->name = $array[1];
             $equipment->add($new);
-            $page->save('equipments');
+            $page->save('class_equipments');
         }
     }
 });
