@@ -167,7 +167,7 @@
       </div>
       <div class="product-modal__button">
         <a href="#feedback_modal"
-           data-code="credit"
+           data-code="trade_in"
            data-back="0852407636"
            data-order="0852407636"
            data-info="CLS 350 d 4MATIC Sport"
