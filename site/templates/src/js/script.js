@@ -129,7 +129,7 @@ function homeFilter() {
     })
     .removeClass('js-hidden');
     categories.forEach(function(element) {
-      tmp.find('[data-category=['+element+']:first-child').addClass('home-product--first');
+      tmp.find('[data-category='+element+']:first-child').addClass('home-product--first');
     });
   });
 }
