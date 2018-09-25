@@ -3160,14 +3160,14 @@ body.overflow-hidden {
 
 .product-filters__item {
 	margin-bottom: 15px;
-	display: -webkit-box;
-	display: -webkit-flex;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	-webkit-align-items: center;
-	-ms-flex-align: center;
-	align-items: center
+	// display: -webkit-box;
+	// display: -webkit-flex;
+	// display: -ms-flexbox;
+	// display: flex;
+	// -webkit-box-align: center;
+	// -webkit-align-items: center;
+	// -ms-flex-align: center;
+	// align-items: center
 }
 
 .product-filters__item-title {
@@ -3175,7 +3175,8 @@ body.overflow-hidden {
 	-webkit-flex-shrink: 0;
 	-ms-flex-negative: 0;
 	flex-shrink: 0;
-	color: #474747
+	color: #474747;
+	margin-bottom:10px;
 }
 
 .product-filters__item-content {
@@ -3200,7 +3201,7 @@ body.overflow-hidden {
 }
 
 .product-filters__prices-wrap {
-	padding-top: 31px;
+	// padding-top: 31px;
 	max-width: 400px
 }
 
@@ -5149,7 +5150,7 @@ body.overflow-hidden {
 
 @media only screen and (min-width:1024px) {
 	.touch .product-filters__prices-wrap {
-		padding-top: 35px
+		// padding-top: 35px
 	}
 }
 
@@ -5626,7 +5627,7 @@ screen and (max-height:300px) {
 		justify-content: space-between
 	}
 	.product__buttons .btn {
-		width: 49%
+		width: ~"calc(33.3333% - 5px)";
 	}
 	.filter-cars {
 		padding-left: 0;
@@ -6352,9 +6353,9 @@ screen and (max-height:300px) {
 		margin-right: auto
 	}
 	.product-filters__item {
-		-webkit-flex-wrap: wrap;
-		-ms-flex-wrap: wrap;
-		flex-wrap: wrap
+		// -webkit-flex-wrap: wrap;
+		// -ms-flex-wrap: wrap;
+		// flex-wrap: wrap
 	}
 	.product-filters__item-title {
 		width: 100%;
