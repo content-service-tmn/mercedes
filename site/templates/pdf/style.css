@@ -1,0 +1,86 @@
+h1,h2,h3,h4,h5,h6 {
+  font-family: "corporate-a";
+  font-weight: normal;
+}
+
+.pdf_title {
+  text-align: center;
+}
+.pdf_title__heading {
+  display: block;
+  font-weight: normal;
+  padding-top: 90px;
+  margin-bottom: 15px;
+}
+.pdf_title__car {
+  font-weight: normal;
+  margin-bottom: 30px;
+}
+.pdf_greeting {
+  padding: 0 90px;
+}
+.pdf_greeting__heading {
+  font-weight: normal;
+  margin-bottom: 30px;
+}
+.pdf_greeting__footer {
+  padding: 0 90px;
+  margin: 30px 0 10px;
+}
+.pdf_greeting__name {
+  margin: 0;
+}
+.pdf_greeting__position {
+  margin: 0;
+}
+.pdf_images__table {
+  margin-left: -60px;
+}
+.pdf_images__table td {
+  width: 50%;
+  box-sizing: border-box;
+  padding: 60px 0 0 60px;
+}
+.pdf_modification__heading {
+  font-weight: normal;
+  margin-bottom: 30px;
+}
+.pdf_modification__table {
+  font-size: 12px;
+}
+.pdf_modification__table tr:nth-child(odd) {
+  background-color: #f8f8f8;
+}
+.pdf_modification__table td {
+  width: 50%;
+  box-sizing: border-box;
+  padding: 6px 6px;
+}
+.pdf_equipments__heading {
+  font-weight: normal;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.pdf_equipments__table {
+  font-size: 12px;
+}
+.pdf_equipments__table tr:nth-child(odd) {
+  background-color: #f8f8f8;
+}
+.pdf_equipments__table td {
+  box-sizing: border-box;
+  padding: 6px 6px;
+}
+.pdf_equipments__code {
+  width: 20%;
+}
+.pdf_equipments__name {
+  width: 80%;
+}
+.pdf_top {
+  margin-top: 15px;
+  text-align: right;
+}
+.pdf_top p {
+  margin: 0;
+}
