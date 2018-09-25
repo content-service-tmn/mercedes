@@ -132,10 +132,10 @@
 <div class="pdf_equipments">
   <h2 class="pdf_equipments__heading">Комплектация</h2>
   <table class="pdf_equipments__table" cellspacing="0" cellpadding="0" border="0" width="100%">
-    <?php foreach ($e as $i) : ?>
+    <?php foreach (getEquipments($p) as $key => $value) : ?>
       <tr>
-        <td class="pdf_equipments__code"><?= $i->code; ?></td>
-        <td class="pdf_equipments__value"><?= $i->name; ?></td>
+        <td class="pdf_equipments__code"><?= $key; ?></td>
+        <td class="pdf_equipments__value"><?= $value; ?></td>
       </tr>
     <?php endforeach; ?>
   </table>
