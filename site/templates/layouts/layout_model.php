@@ -588,7 +588,7 @@
                         </div>
                         <div class="mb-10">
                             <a href="#feedback_modal"
-                               data-code="equipment"
+                               data-code="individual"
                                data-back="0852407636"
                                data-order="0852407636"
                                data-text="Индивидуальные условия на покупку нового автомобиля для Вас. Перезвоним Вам и ответим на все вопросы."

@@ -267,7 +267,7 @@ if (!isset($templateRender)) {
             </ul>
           </div>
           <div class="lp-premser__bot-btn xl-30 lg-100">
-            <a href="#feedback_modal" data-code="service"
+            <a href="#feedback_modal" data-code="foreigners"
                data-text="Получите индивидуальную консультацию нашего сервисного специалиста"
                class="btn btn--blue js-open-modal">Узнать подробности</a>
           </div>
@@ -327,25 +327,27 @@ if (!isset($templateRender)) {
       <div class="custom-contacts__grid">
         <div class="custom-contacts__cell">
           <div class="custom-contacts__item"
-               style="background-image:url(<?= $config->urls->templates . 'assets/img/placeholder.svg' ?>)">
-            <p>Пр. Победы, 71</p>
-            <p>456620 Копейск</p>
+        style="background-image:url(<?= $config->urls->templates . 'assets/img/placeholder.svg' ?>)">
+              <?= $pages->get("template=layout_contacts")->contacts_address ?>
           </div>
         </div>
         <div class="custom-contacts__cell">
           <div class="custom-contacts__item"
                style="background-image:url(<?= $config->urls->templates . 'assets/img/smartphone.svg' ?>)">
-            <p>Новые автомобили: <a href="">+7 (351) 2-555-666</a></p>
-            <p>Сервис: +7 (351) <a href="">2-555-666</a></p>
-            <p>Запчасти: +7 (351) <a href="">2-555-666</a></p>
-            <p>Email: <a href="">Uah@uah.uu.ru</a></p>
+            <p>Новые автомобили: <a href="<?= phoneLink($pages->get("template=layout_contacts")->contacts_phone) ?>"><?= $pages->get("template=layout_contacts")->contacts_phone ?></a></p>
+            <p>Сервис: <a href="<?= phoneLink($pages->get("template=layout_contacts")->contacts_service_phone) ?>"><?= $pages->get("template=layout_contacts")->contacts_service_phone ?></a></p>
+            <p>Email: <a href="mailto:<?= $pages->get("template=layout_contacts")->contacts_email ?>"
+                         target="_blank"><?= $pages->get("template=layout_contacts")->contacts_email ?></a></p>
           </div>
         </div>
         <div class="custom-contacts__cell">
           <div class="custom-contacts__item"
                style="background-image:url(<?= $config->urls->templates . 'assets/img/clock.svg' ?>)">
-            <p>Новые автомобили: <a href="">+7 (351) 2-555-666</a></p>
-            <p>Сервис: <a href="">+7 (351) 2-555-666</a></p>
+              <?php foreach($pages->get("template=layout_contacts")->contacts_working_hours as $row): ?>
+                <b><?=$row->days?></b> <?=$row->hours?>
+                <br>
+              <?php endforeach; ?>
+
           </div>
         </div>
       </div>
@@ -469,7 +471,7 @@ if (!isset($templateRender)) {
         <form id="form-modal" class="js-enter CKiForm">
           <input type="hidden" name="code">
           <input type="hidden" name="order_id">
-          <input type="hidden" name="page" value="G-Класс внедорожник" data-page="G-Класс внедорожник">
+          <input type="hidden" name="page">
           <div class="modal-feedback__narrow form form--blue">
             <div class="form__input-wrapper js-label-fly">
               <input type="text" data-callkeeper="person" class="form__input-text" id="form-modal-name" name="name">

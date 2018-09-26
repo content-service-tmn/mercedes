@@ -183,9 +183,10 @@
           <p>
             <b>Время работы дилерского центра:</b>
             <br>
-            <b>пн-сб</b> с 9-00 до 19-30
+            <?php foreach($pages->get("template=layout_contacts")->contacts_working_hours as $row): ?>
+            <b><?=$row->days?></b> <?=$row->hours?>
             <br>
-            <b>вс</b> с 10-00 до 19-30 </p>
+            <?php endforeach; ?>
           <p>
             <b>Телефон:</b>
             <br>
@@ -229,7 +230,7 @@
         <div class="xl-40 sm-100 product-modal__footer-right">
           <div class="mb-10">
             <a href="#feedback_modal"
-               data-code="equipment"
+               data-code="individual"
                data-back="<?= $page->car_id ?>"
                data-order="<?= $page->car_id ?>"
                data-text="Индивидуальные условия на покупку нового автомобиля для Вас. Перезвоним Вам и ответим на все вопросы."
@@ -239,7 +240,7 @@
           </div>
           <div class="mb-10">
             <a href="#feedback_modal"
-               data-code="equipment"
+               data-code="individual"
                data-back="<?= $page->car_id ?>"
                data-order="<?= $page->car_id ?>"
                data-text="Индивидуальные условия на покупку нового автомобиля для Вас. Перезвоним Вам и ответим на все вопросы."

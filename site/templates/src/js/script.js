@@ -221,21 +221,6 @@ function updateTradeIn() {
 
 }
 
-function qwerty(t){
-    $.ajax({
-        url: "/mercedes/ajax-handler/",
-        type: 'POST',
-        data: {data: {id: t}},
-        success: function (result) {
-            console.log("success");
-        },
-        error: function (result) {
-            console.log("error");
-        }
-
-    });
-
-}
 
 function appendSelectValue() {
     $(".js-select").each(function(t, e) {
@@ -250,7 +235,7 @@ function sendRequest(l, c) {
         e = $(l).serialize(),
         d = $(l).find("button").text();
     $.ajax({
-        url: "/mercedes/ajax-handler/",
+        url: "/ajax-handler/",
         type: "post",
         data: e,
         dataType: "json",
