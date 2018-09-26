@@ -254,7 +254,7 @@
             </a>
           </div>
         </div>
-        <div class="xl-90 md-90 sm-100 product-modal__footer-buttons">
+        <div class="xl-100 md-100 sm-100 product-modal__footer-buttons">
           <a href="#feedback_modal"
              data-code="best_price"
              data-back="<?= $page->car_id ?>"
