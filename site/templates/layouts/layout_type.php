@@ -216,7 +216,7 @@
           <div class="s-product-in-stock <?php if ($count == 0) echo "js-hidden"; ?>">
             <div class="s-product-in-stock__title">
               <span class="s-product-in-stock__big-title">Автомобили в продаже</span>
-              <span class="s-product-in-stock__mini-title">Предложений по запросу: <?= $count ?></span>
+              <span class="s-product-in-stock__mini-title">Предложений по запросу: <span><?= $count ?></span></span>
             </div>
             <div class="s-product-in-stock__head">
               <div class="s-product-in-stock__head-item1">Модель</div>

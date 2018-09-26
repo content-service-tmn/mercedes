@@ -225,7 +225,7 @@ if (!isset($templateRender)) {
               </div>
             <?php endforeach; ?>
         </div>
-        <div id="benefits" class="title-40">Преимущества сервиса</div>
+        <div id="benefits" class="title-40 anchor">Преимущества сервиса</div>
         <div class="lp-premser__bottom">
           <div class="lp-premser__bot-left-нет xl-70 lg-100">
             <ul class="lp-premser__list row row-15">
