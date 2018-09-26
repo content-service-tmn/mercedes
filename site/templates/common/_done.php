@@ -1,9 +1,13 @@
 <?php namespace Processwire;
-      if(!isset($templateRender)) { return; } ?>
+if (!isset($templateRender)) {
+    return;
+} ?>
 
 <?php if ($config->ajax): ?>
     <?= $templateRender; ?>
-<?php else: ?>
+<?php else:
+    $contacts_page = $pages->get("template=layout_contacts");
+    ?>
 
 
   <!DOCTYPE html>
@@ -26,31 +30,16 @@
 
         <div class="expand-box">
           <div class="row row-15">
-            <div class="xl-50 md-100">
-              <div class="lp-credit__title">Сниженные ставки по кредиту
-                -
-                от
-                6, 3 %</div>
-              <ul>
-                <li>Возможность получения дополнительной скидки от производителя;</li>
-                <li>Включение лизинговых платежей в себестоимость продукции и применение ускоренной амортизации
-                  предмета лизинга;
-                </li>
-                <li>Низкий авансовый платеж - от 10% от стоимости транспортного средства.</li>
-              </ul>
-            </div>
-            <div class="xl-50 md-100">
-              <div class="lp-credit__title">Лизинг</div>
-
-              <ul>
-                <li>Оптимальные сроки кредитования: от 1 года до 5 лет;</li>
-                <li>Минимальный срок рассмотрения заявки: 1 рабочий день;</li>
-                <li>Принцип «Одного окна»: предоставление документов для рассмотрения кредита,
-                  а также подписание кредитной документации осуществляется в
-                  «Каскад-Авто».
-                </li>
-              </ul>
-            </div>
+              <?php foreach ($pages->get(1)->credit_and_leasing as $cal): ?>
+                <div class="xl-50 md-100">
+                  <div class="lp-credit__title"><?= $cal->credit_and_leasing_title ?></div>
+                  <ul>
+                      <?php foreach ($cal->credit_and_leasing_content as $row): ?>
+                        <li><?= $row->point ?></li>
+                      <?php endforeach; ?>
+                  </ul>
+                </div>
+              <?php endforeach; ?>
           </div>
           <div class="lp-credit__button">
             <a href="#feedback_modal" data-code="credit_and_leasing"
@@ -122,7 +111,7 @@
                 Я согласен на обработку персональных данных.
                 <a href="/privacy" target="_blank"
                    class="link-hover-border -color-gold -nowrap">С Политикой защиты данных </a>
-                ООО «<?= $pages->get("template=layout_contacts")->contacts_company_name ?>»
+                ООО «<?= $contacts_page->contacts_company_name ?>»
                 ознакомлен.
               </label>
             </div>
@@ -196,7 +185,7 @@
                   Я согласен на обработку персональных данных.
                   <a href="/privacy" target="_blank"
                      class="link-hover-border -color-gold -nowrap">С Политикой защиты данных </a>
-                  ООО «<?= $pages->get("template=layout_contacts")->contacts_company_name ?>»
+                  ООО «<?= $contacts_page->contacts_company_name ?>»
                   ознакомлен.
                 </label>
               </div>
@@ -236,7 +225,7 @@
               </div>
             <?php endforeach; ?>
         </div>
-        <div id="benefits" class="title-40">Преимущества сервиса</div>
+        <div id="benefits" class="title-40 anchor">Преимущества сервиса</div>
         <div class="lp-premser__bottom">
           <div class="lp-premser__bot-left-нет xl-70 lg-100">
             <ul class="lp-premser__list row row-15">
@@ -267,20 +256,20 @@
         <div class="lp-premser__bottom">
           <div class="lp-premser__bot-left-нет xl-70 lg-100">
             <ul class="lp-premser__list row row-15">
-              <?php foreach ($pages->get(1)->foreigners_benefits as $i => $benefit): ?>
-              <li class="xl-33">
-                <i>
-                  <svg class="icon icon-premser<?=$i+1?>">
-                    <use xlink:href="<?= $config->urls->templates . 'assets/img/benefits.svg' ?>#<?=$i+1?>"></use>
-                  </svg>
-                </i>
-                <span><?=$benefit->foreigners_benefit?></span>
-              </li>
-              <?php endforeach; ?>
+                <?php foreach ($pages->get(1)->foreigners_benefits as $i => $benefit): ?>
+                  <li class="xl-33">
+                    <i>
+                      <svg class="icon icon-premser<?= $i + 1 ?>">
+                        <use xlink:href="<?= $config->urls->templates . 'assets/img/benefits.svg' ?>#<?= $i + 1 ?>"></use>
+                      </svg>
+                    </i>
+                    <span><?= $benefit->foreigners_benefit ?></span>
+                  </li>
+                <?php endforeach; ?>
             </ul>
           </div>
           <div class="lp-premser__bot-btn xl-30 lg-100">
-            <a href="#feedback_modal" data-code="service"
+            <a href="#feedback_modal" data-code="foreigners"
                data-text="Получите индивидуальную консультацию нашего сервисного специалиста"
                class="btn btn--blue js-open-modal">Узнать подробности</a>
           </div>
@@ -318,7 +307,7 @@
                     Я согласен на обработку персональных данных.
                     <a href="/privacy" target="_blank"
                        class="link-hover-border -color-gold -nowrap">С Политикой защиты данных </a>
-                    ООО «<?= $pages->get("template=layout_contacts")->contacts_company_name ?>»
+                    ООО «<?= $contacts_page->contacts_company_name ?>»
                     ознакомлен.
                   </label>
                 </div>
@@ -340,40 +329,61 @@
       <div class="custom-contacts__grid">
         <div class="custom-contacts__cell">
           <div class="custom-contacts__item"
-               style="background-image:url(<?= $config->urls->templates . 'assets/img/placeholder.svg' ?>)">
-            <p>Пр. Победы, 71</p>
-            <p>456620 Копейск</p>
+        style="background-image:url(<?= $config->urls->templates . 'assets/img/placeholder.svg' ?>)">
+              <?= $pages->get("template=layout_contacts")->contacts_address ?>
           </div>
         </div>
         <div class="custom-contacts__cell">
           <div class="custom-contacts__item"
                style="background-image:url(<?= $config->urls->templates . 'assets/img/smartphone.svg' ?>)">
-            <p>Новые автомобили: <a href="">+7 (351) 2-555-666</a></p>
-            <p>Сервис: +7 (351) <a href="">2-555-666</a></p>
-            <p>Запчасти: +7 (351) <a href="">2-555-666</a></p>
-            <p>Email: <a href="">Uah@uah.uu.ru</a></p>
+            <p>Новые автомобили: <a
+                      href="<?= phoneLink($contacts_page->contacts_phone) ?>"><?= $contacts_page->contacts_phone ?></a>
+            </p>
+              <?php if ($contacts_page->contacts_service_phone != ""): ?>
+                <p>Сервис: <a
+                          href="<?= phoneLink($contacts_page->contacts_service_phone) ?>"><?= $contacts_page->contacts_service_phone ?></a>
+                </p>
+              <?php endif; ?>
+              <?php if ($contacts_page->contacts_gear_phone != ""): ?>
+                <p>Запчасти: <a
+                          href="<?= phoneLink($contacts_page->contacts_gear_phone) ?>"><?= $contacts_page->contacts_gear_phone ?></a>
+                </p>
+              <?php endif; ?>
+            <p>Email: <a href="mailto:<?= $contacts_page->contacts_email ?>"
+                         target="_blank"><?= $contacts_page->contacts_email ?></a></p>
           </div>
         </div>
         <div class="custom-contacts__cell">
           <div class="custom-contacts__item"
                style="background-image:url(<?= $config->urls->templates . 'assets/img/clock.svg' ?>)">
-            <p>Новые автомобили: <a href="">+7 (351) 2-555-666</a></p>
-            <p>Сервис: <a href="">+7 (351) 2-555-666</a></p>
+              <?php foreach ($contacts_page->contacts_working_hours as $row): ?>
+                <b><?= $row->days ?></b> <?= $row->hours ?>
+                <br>
+              <?php endforeach; ?>
+
           </div>
         </div>
       </div>
       <div class="custom-contacts__socials">
-        <a href="" class="custom-contacts__social custom-contacts__social_vk"></a>
-        <a href="" class="custom-contacts__social custom-contacts__social_fb"></a>
-        <a href="" class="custom-contacts__social custom-contacts__social_yt"></a>
-        <a href="" class="custom-contacts__social custom-contacts__social_gg"></a>
+          <?php if ($contacts_page->contacts_vk != ""): ?>
+            <a href="<?=$contacts_page->contacts_vk?>" target="_blank" class="custom-contacts__social custom-contacts__social_vk"></a>
+          <?php endif; ?>
+          <?php if ($contacts_page->contacts_facebook != ""): ?>
+            <a href="<?=$contacts_page->contacts_facebook?>" target="_blank" class="custom-contacts__social custom-contacts__social_fb"></a>
+          <?php endif; ?>
+          <?php if ($contacts_page->contacts_youtube != ""): ?>
+            <a href="<?=$contacts_page->contacts_youtube?>" target="_blank" class="custom-contacts__social custom-contacts__social_yt"></a>
+          <?php endif; ?>
+          <?php if ($contacts_page->contacts_google != ""): ?>
+            <a href="<?=$contacts_page->contacts_google?>" target="_blank" class="custom-contacts__social custom-contacts__social_gg"></a>
+          <?php endif; ?>
+
       </div>
     </div>
   </section>
   <section class="custom-map__wrapper">
     <section class="custom-map" id="map">
     </section>
-    <a href="" target="_blank" class="custom-map__link"></a>
   </section>
   <section class="footer">
     <footer class="footer">
@@ -407,31 +417,31 @@
             </ul>
           </div>
           <div class="footer__contacts xl-85 sm-100">
-            <div class="footer__contacts-title">ООО «<?=$pages->get("template=layout_contacts")->contacts_company_name?>»</div>
+            <div class="footer__contacts-title">ООО «<?=$contacts_page->contacts_company_name?>»</div>
             <div class="footer__contacts-item">
               <div class="footer__contacts-mini-title">Фактический адрес:</div>
-              <div><?= $pages->get("template=layout_contacts")->contacts_address ?></div>
+              <div><?= $contacts_page->contacts_address ?></div>
             </div>
             <div class="footer__contacts-item">
               <div class="footer__contacts-mini-title">Телефон:</div>
               <div>
-                <a href="tel:<?= phoneLink($pages->get("template=layout_contacts")->contacts_phone) ?>"><?= $pages->get("template=layout_contacts")->contacts_phone ?></a>
+                <a href="tel:<?= phoneLink($contacts_page->contacts_phone) ?>"><?= $contacts_page->contacts_phone ?></a>
               </div>
             </div>
             <div class="footer__contacts-item">
               <div class="footer__contacts-mini-title">E - mail
                 :</div>
-              <div><a href="mailto:<?= $pages->get("template=layout_contacts")->contacts_email ?>"
-                      target="_blank"><?= $pages->get("template=layout_contacts")->contacts_email ?></a></div>
+              <div><a href="mailto:<?= $contacts_page->contacts_email ?>"
+                      target="_blank"><?= $contacts_page->contacts_email ?></a></div>
             </div>
           </div>
           <div class="footer__soc xl-15 sm-100">
-            <a href="https://www.facebook.com/MercedesOrb/" class="footer__soc-btn" target="_blank">
+            <a href="<?=$contacts_page->contacts_facebook?>" class="footer__soc-btn" target="_blank">
               <svg class="icon icon-fb">
                 <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-fb"></use>
               </svg>
             </a>
-            <a href="https://www.instagram.com/mercedesoren/" class="footer__soc-btn" target="_blank">
+            <a href="<?=$contacts_page->contacts_instagram?>" class="footer__soc-btn" target="_blank">
               <svg class="icon icon-inst">
                 <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-inst"></use>
               </svg>
@@ -474,15 +484,15 @@
           <div class="tac mb-20">
             Вы можете связаться с нами по
             телефону
-            <div><a href="tel:<?= phoneLink($pages->get("template=layout_contacts")->contacts_phone) ?>"
-                    class="-color-blue"><?= ($pages->get("template=layout_contacts")->contacts_phone) ?></a></div>
+            <div><a href="tel:<?= phoneLink($contacts_page->contacts_phone) ?>"
+                    class="-color-blue"><?= ($contacts_page->contacts_phone) ?></a></div>
             или оставить заявку, заполнив форму. <br> Наш менеджер свяжется с вами.
           </div>
         </div>
         <form id="form-modal" class="js-enter CKiForm">
           <input type="hidden" name="code">
           <input type="hidden" name="order_id">
-          <input type="hidden" name="page" value="G-Класс внедорожник" data-page="G-Класс внедорожник">
+          <input type="hidden" name="page">
           <div class="modal-feedback__narrow form form--blue">
             <div class="form__input-wrapper js-label-fly">
               <input type="text" data-callkeeper="person" class="form__input-text" id="form-modal-name" name="name">
@@ -500,7 +510,7 @@
                                                                 href="/privacy"
                                                                 class="link-hover-border -color-blue -nowrap">
                   С Политикой защиты данных </a>
-                ООО «<?= $pages->get("template=layout_contacts")->contacts_company_name ?>»
+                ООО «<?= $contacts_page->contacts_company_name ?>»
                 ознакомлен.
               </label>
             </div>
@@ -511,14 +521,14 @@
       </div>
     </div>
     <div class="bottom-plank">
-      <a href="tel:<?= phoneLink($pages->get("template=layout_contacts")->contacts_phone) ?>"
+      <a href="tel:<?= phoneLink($contacts_page->contacts_phone) ?>"
          class="bottom-plank__phone-icon">
         <svg class="icon icon-success">
           <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-telephone"></use>
         </svg>
       </a>
       <a href="#feedback_modal" class="btn btn--white js-open-modal">Заказать звонок</a>
-      <a href="tel:<?= phoneLink($pages->get("template=layout_contacts")->contacts_phone) ?>"
+      <a href="tel:<?= phoneLink($contacts_page->contacts_phone) ?>"
          class="btn btn--white bottom-plank__phone-btn">
         <svg class="icon icon-success">
           <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-telephone"></use>
@@ -540,24 +550,24 @@
 
   <script src="<?= $config->urls->templates . 'assets/js/script.js' ?>"></script>
   <script src="<?= $config->urls->templates . 'assets/js/template.js' ?>"></script>
-    <script type="text/javascript">
-        function initMap() {
-            var coordinates = {lat: 57.1419482, lng: 65.5986856},
-                options = {
-                    zoom: 16,
-                    disableDefaultUI: true,
-                    center: coordinates,
-                    draggable: !("ontouchend" in document)
-                };
-            var map = new google.maps.Map(document.getElementById('map'), options);
-            $.getJSON('<?= $config->urls->templates . 'assets/json/google-map.json'?>', function (data) {
-                map.setOptions({styles: data});
-            });
-            new google.maps.Marker({map: map, position: coordinates});
-        }
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDz-fa3z3jDQhfL6rwyNt3DEJ3XHbyoUHk&callback=initMap"
-            async></script>
+  <script type="text/javascript">
+      function initMap() {
+          var coordinates = {lat: <?=$contacts_page->contacts_map_ltd?>, lng: <?=$contacts_page->contacts_map_lng?>},
+              options = {
+                  zoom: 16,
+                  disableDefaultUI: true,
+                  center: coordinates,
+                  draggable: !("ontouchend" in document)
+              };
+          var map = new google.maps.Map(document.getElementById('map'), options);
+          $.getJSON('<?= $config->urls->templates . 'assets/json/google-map.json'?>', function (data) {
+              map.setOptions({styles: data});
+          });
+          new google.maps.Marker({map: map, position: coordinates});
+      }
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDz-fa3z3jDQhfL6rwyNt3DEJ3XHbyoUHk&callback=initMap"
+          async></script>
   </body>
 
   </html>

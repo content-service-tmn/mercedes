@@ -108,7 +108,9 @@
                 <div class="container">
                   <div class="home-promo__slide-title"><?= $promo->home_promo_title ?></div>
                   <div class="home-promo__slide-subtitle"><?= $promo->home_promo_subtitle ?></div>
-                  <a href="" class="btn btn--blue home-promo__btn">Подробнее</a>
+                  <?php if($promo->home_promo_link->url != ""):?>
+                    <a href="<?=$promo->home_promo_link->url?>" class="btn btn--blue home-promo__btn">Подробнее</a>
+                  <?php endif; ?>
                 </div>
               </div>
             </div>
@@ -184,9 +186,9 @@
                               <div class="filter-cars__item">
                                 <input type="checkbox" class="filter-cars__input"
                                        data-category="<?= $type->categories_type_icon->value ?>"
-                                       id="<?= $type->categories_type_icon->title ?>" name="types[]"
+                                       id="<?= $type->categories_type_icon->title.$category->id ?>" name="types[]"
                                        value="<?= $type->categories_type_icon->value ?>">
-                                <label class="filter-cars__label" for="<?= $type->categories_type_icon->title ?>">
+                                <label class="filter-cars__label" for="<?= $type->categories_type_icon->title.$category->id ?>">
                                                    <span class="filter-cars__item-icon">
                                                        <svg class="icon icon-<?= $type->categories_type_icon->value ?>">
                                                           <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-<?= $type->categories_type_icon->value ?>"></use>
@@ -256,7 +258,7 @@
               <div class="custom-switcher__tab">
                 <div class="home-products">
                     <?php foreach ($category->categories_type as $type): $i=0; foreach($type->categories_types as $ct): ?>
-                      <a href="" class="home-product <?php if ($i == 0) echo 'home-product--first' ?>" data-category="<?=$type->categories_type_icon->value?>" data-price="<?=getLowestPrice($ct)?>">
+                      <a href="<?=$ct->url?>" class="home-product <?php if ($i == 0) echo 'home-product--first' ?>" data-category="<?=$type->categories_type_icon->value?>" data-price="<?=getLowestPrice($ct)?>">
                           <?php if ($i == 0): ?>
                             <div class="home-product__category"><?= $type->categories_type_name ?></div>
                           <?php endif; ?>

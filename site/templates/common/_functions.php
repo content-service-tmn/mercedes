@@ -97,12 +97,20 @@ function getEquipments($page)
         $dictionary[$equipment->code] = $equipment->name;
     }
 
-    $complectaton = explode(",", str_replace(" ", "", $page->car_equipments . ", " . $page->car_modification->modification_equipments));
-    $result = [];
+    $additional = explode(",", str_replace(" ", "", $page->car_equipments));
+    $base = explode(",", str_replace(" ", "", $page->car_modification->modification_equipments));
 
-    foreach ($complectaton as $item) {
+    $result = ["additional" => [], "base" => []];
+
+    foreach ($additional as $item) {
         if (isset($dictionary[$item])) {
-            $result[$item] = $dictionary[$item];
+            $result["additional"] = [$item => $dictionary[$item]];
+        }
+    }
+
+    foreach ($base as $item) {
+        if (isset($dictionary[$item])) {
+            $result["base"] = [$item => $dictionary[$item]];
         }
     }
 

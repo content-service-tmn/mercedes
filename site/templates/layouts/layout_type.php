@@ -26,7 +26,7 @@
           </div>
         </div>
         <div class="header__nav nav-class js-navigation-desktop">
-
+          <?php include($config->paths->templates . "common/_navigation.php"); ?>
         </div>
         <div class="header__mobile cd-nav">
           <div class="cd-nav__inner">
@@ -49,7 +49,9 @@
         <div class="header-fixed">
           <div class="container">
             <div class="header-fixed__inner">
-              <div class="header-fixed__nav nav-class js-header-fixed-nav"></div>
+              <div class="header-fixed__nav nav-class js-header-fixed-nav">
+                  <?php include($config->paths->templates . "common/_navigation.php"); ?>
+              </div>
               <div class="header-fixed__button">
                 <a href="#feedback_modal" data-code="consultation"
                    data-text="Перезвоним Вам в ближайшее время и ответим на все интересующие вопросы"
@@ -95,7 +97,7 @@
         </div>
         <div class="product-gallery__bottom">
           <div class="container">
-            <h1 class="product-gallery__title">«Мерседес-Бенц» <?= $page->parent()->title . " " . $page->title ?></h1>
+            <h1 class="product-gallery__title">«Мерседес-Бенц» <?php $string = $page->title; $current = $page; while ($current->parent()->template != "layout_class"){$string = $current->parent()->title . " " . $string; $current = $current->parent();} echo $current->parent()->title . " ". $string; ?></h1>
             <div class="product-gallery__thumbs owl-carousel">
                 <?php $i = 0;
                 foreach ($page->type_photos as $img): ?>
@@ -154,7 +156,7 @@
               <div class="product-filters__item-title">Цвет:</div>
               <div class="product-filters__item-content">
                   <?php
-                  foreach ($page->parent("layout_class")->class_colors as $color): ?>
+                  foreach ($page->parent("template=layout_class")->class_colors as $color): ?>
                     <div class="input-color">
                       <input type="checkbox" class="input-color__input" id="color-<?= $color->color_value ?>"
                              name="colors[]" value="<?= $color->color_value ?>">
@@ -214,7 +216,7 @@
           <div class="s-product-in-stock <?php if ($count == 0) echo "js-hidden"; ?>">
             <div class="s-product-in-stock__title">
               <span class="s-product-in-stock__big-title">Автомобили в продаже</span>
-              <span class="s-product-in-stock__mini-title">Предложений по запросу: <?= $count ?></span>
+              <span class="s-product-in-stock__mini-title">Предложений по запросу: <span><?= $count ?></span></span>
             </div>
             <div class="s-product-in-stock__head">
               <div class="s-product-in-stock__head-item1">Модель</div>
@@ -226,7 +228,7 @@
             <div>
 
                 <?php foreach ($pages->find("template=layout_car, parent={$page->id}") as $car): ?>
-                  <div class="product" <?php if ($car->car_inStock) echo "data-available=\"1\""; else echo "data-not-available=\"1\"";
+                  <div class="product" <?php if (!$car->car_inStock) echo "data-not-available=\"1\""; else echo "data-not-available=\"0\"";
                   echo "data-color=\"{$car->car_color->color_value}\"";
                   echo "data-price=\"" . (($car->car_price != "")?$car->car_price:0) . "\"";
                   echo "data-model=\"{$car->car_modification->modification_name}\""
@@ -289,7 +291,7 @@
                       </div>
                     </a>
                     <div class="product__buttons">
-                      <a href="#feedback_modal" data-code="cheepest" data-order="<?= $car->car_id ?>"
+                      <a href="#feedback_modal" data-code="best_price" data-order="<?= $car->car_id ?>"
                          data-info="<?= $car->car_title ?>"
                          data-text="Специально для Вас мы готовы сделать особое предложение!"
                          class="btn btn--blue js-open-modal">Хочу дешевле</a>
@@ -371,7 +373,7 @@
           <div class="title-40">Получите индивидуальное предложение</div>
           <form id="form-individual-offer" data-caption="Получите индивидуальное предложение" class="CKiForm">
             <input type="hidden" name="code" value="individual_offer">
-            <input type="hidden" name="page" value="G-Класс внедорожник">
+            <input type="hidden" name="page" value="«Мерседес-Бенц» <?= $page->parent()->title . " " . $page->title ?>">
             <div class="form-type1__inner row">
               <div class="form-type1__text xl-50 lg-100">Если вас заинтересовало данное предложение, Вы можете
                 связаться с нами по телефону
@@ -433,7 +435,7 @@
               <div class="specifications-table__item row row-15">
                 <div class="xl-30 xs-100">
                   <div class="mb-20">
-                    <div class="specifications-table__title"><?= $modif->class_name ?></div>
+                    <div class="specifications-table__title"><?= $modif->modification_name ?></div>
                     <div>Тип топлива <?= $modif->modification_fuel ?></div>
                   </div>
                   <div class="mb-20">
@@ -448,7 +450,7 @@
                   </div>
                   <div class="mb-20">
                     <div class="specifications-table__desc">Рабочий объем</div>
-                    <div class="specifications-table__title"><?= $modif->modification_amount ?></div>
+                    <div class="specifications-table__title"><?= $modif->modification_amount ?> см<sup>3</sup></div>
                   </div>
                 </div>
                 <div class="xl-30 xs-100">

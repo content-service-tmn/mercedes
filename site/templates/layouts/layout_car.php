@@ -1,11 +1,12 @@
 <?php namespace Processwire; ?>
 
-<?php $equipments = getEquipments($page);
+<?php $equipments_obj = getEquipments($page);
+$equipments = array_merge($equipments_obj["base"], $equipments_obj["additional"]);
 ?>
 
 <div id="product_modal" class="product-modal modal-template">
 
-  <div class="product-modal__head"><?=$page->car_modification->modification_name?>, номер заказа <?=$page->car_id?></div>
+  <div class="product-modal__head"><?="«Mercedes Benz» ". $page->car_modification->modification_name?>, номер заказа <?=$page->car_id?></div>
 
 
   <div class="product-gallery product-gallery--modal">
@@ -57,7 +58,7 @@
       <ul class="product-modal__desc-table">
         <li>
           <span>Наименование</span>
-          <span><?="Mercedes-Benz " . $page->car_modification->modification_name?></span>
+          <span><?="«Mercedes Benz» ". $page->car_modification->modification_name?></span>
         </li>
         <li>
           <span>Тип кузова</span>
@@ -153,24 +154,24 @@
         <span>В кредит:</span>
       </div>
       <div class="product-modal__credit-info">
-        <p>Первоначальный взнос от <span>1 068 345</span> ₽</p>
-        <p>Ежемесячный платеж от <span>80 644</span> ₽</p>
+        <p>Первоначальный взнос от <span><?=$page->car_credit_deposit?></span> ₽</p>
+        <p>Ежемесячный платеж от <span><?=$page->car_credit_pay?></span> ₽</p>
       </div>
       <div class="product-modal__button custom-button-margin">
         <a href="#feedback_modal"
            data-code="credit"
            data-back="<?= $page->car_id ?>"
            data-order="<?= $page->car_id ?>"
-           data-info="<?= $page->title ?>t"
+           data-info="<?= $page->title ?>"
            data-text="Получите индивидуальную консультацию нашего финансового специалиста"
            class="btn btn--blue js-open-modal">Купить в кредит</a>
       </div>
       <div class="product-modal__button">
         <a href="#feedback_modal"
            data-code="trade_in"
-           data-back="0852407636"
-           data-order="0852407636"
-           data-info="CLS 350 d 4MATIC Sport"
+           data-back="<?= $page->car_id ?>"
+           data-order="<?= $page->car_id ?>"
+           data-info="<?= $page->title ?>"
            data-text="Получите индивидуальную консультацию нашего финансового специалиста"
            class="btn btn--blue js-open-modal">Купить в трейд-ин</a>
       </div>
@@ -183,9 +184,10 @@
           <p>
             <b>Время работы дилерского центра:</b>
             <br>
-            <b>пн-сб</b> с 9-00 до 19-30
-            <br>
-            <b>вс</b> с 10-00 до 19-30 </p>
+              <?php foreach ($pages->get("template=layout_contacts")->contacts_working_hours as $row): ?>
+                <b><?= $row->days ?></b> <?= $row->hours ?>
+                <br>
+              <?php endforeach; ?>
           <p>
             <b>Телефон:</b>
             <br>
@@ -229,7 +231,7 @@
         <div class="xl-40 sm-100 product-modal__footer-right">
           <div class="mb-10">
             <a href="#feedback_modal"
-               data-code="equipment"
+               data-code="individual"
                data-back="<?= $page->car_id ?>"
                data-order="<?= $page->car_id ?>"
                data-text="Индивидуальные условия на покупку нового автомобиля для Вас. Перезвоним Вам и ответим на все вопросы."
@@ -239,7 +241,7 @@
           </div>
           <div class="mb-10">
             <a href="#feedback_modal"
-               data-code="equipment"
+               data-code="individual"
                data-back="<?= $page->car_id ?>"
                data-order="<?= $page->car_id ?>"
                data-text="Индивидуальные условия на покупку нового автомобиля для Вас. Перезвоним Вам и ответим на все вопросы."
@@ -254,7 +256,7 @@
             </a>
           </div>
         </div>
-        <div class="xl-90 md-90 sm-100 product-modal__footer-buttons">
+        <div class="xl-100 md-100 sm-100 product-modal__footer-buttons">
           <a href="#feedback_modal"
              data-code="best_price"
              data-back="<?= $page->car_id ?>"
