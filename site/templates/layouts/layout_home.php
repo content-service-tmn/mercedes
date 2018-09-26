@@ -258,7 +258,7 @@
               <div class="custom-switcher__tab">
                 <div class="home-products">
                     <?php foreach ($category->categories_type as $type): $i=0; foreach($type->categories_types as $ct): ?>
-                      <a href="" class="home-product <?php if ($i == 0) echo 'home-product--first' ?>" data-category="<?=$type->categories_type_icon->value?>" data-price="<?=getLowestPrice($ct)?>">
+                      <a href="<?=$ct->url?>" class="home-product <?php if ($i == 0) echo 'home-product--first' ?>" data-category="<?=$type->categories_type_icon->value?>" data-price="<?=getLowestPrice($ct)?>">
                           <?php if ($i == 0): ?>
                             <div class="home-product__category"><?= $type->categories_type_name ?></div>
                           <?php endif; ?>
