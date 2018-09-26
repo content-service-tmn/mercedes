@@ -4102,7 +4102,7 @@ body.overflow-hidden {
 	height: 1px
 }
 
-.product:first-of-type:before {
+.product.js-first:before {
 	content: '';
 	position: absolute;
 	top: -8px;
@@ -5604,7 +5604,7 @@ screen and (max-height:300px) {
 	.product:after {
 		width: ~"calc(100% - 190px)"
 	}
-	.product:first-of-type:before {
+	.product.js-first:before {
 		width: ~"calc(100% - 190px)"
 	}
 	.product__image {
@@ -6028,7 +6028,7 @@ screen and (max-height:300px) {
 	.product:after {
 		width: 100%
 	}
-	.product:first-of-type:before {
+	.product.js-first:before {
 		display: none
 	}
 	.product__color-year {
@@ -6763,4 +6763,9 @@ screen and (max-height:300px) {
 }
 .mg-bottom-30 {
 	margin-bottom:30px;
+}
+
+.anchor {
+	padding-top:60px;
+	margin-top:-60px;
 }

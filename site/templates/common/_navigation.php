@@ -1,6 +1,6 @@
 <ul>
   <li>
-    <a href="">AMG</a>
+    <a href="javascript:void(0)">AMG</a>
     <ul>
         <?php
         foreach ($pages->find("template=layout_type_amg") as $class): ?>
