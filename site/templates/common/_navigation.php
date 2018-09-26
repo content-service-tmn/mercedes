@@ -14,7 +14,9 @@
     $catalogs = $pages->find("parent=catalog, sort=sort");
     foreach ($catalogs as $category): if ($i < 8): ?>
       <li>
-        <a href="<?= $pages->find("template=layout_type, parent={$category->id}")->first()->url ?>"><?= $category->title ?></a>
+      	<?php if ($pages->find("template=layout_type, parent={$category->id}")->count() > 0): ?>
+        	<a href="<?= $pages->find("template=layout_type, parent={$category->id}")->first()->url ?>"><?= $category->title ?></a>
+        <?php endif; ?>
         <ul>
             <?php foreach ($pages->find("parent={$category->id}") as $pge): ?>
               <li><a href="<?= $pge->url ?>"><?= $pge->title ?></a></li>
@@ -29,7 +31,9 @@
         <?php $i = 0;
         foreach ($catalogs as $category): if ($i >= 8): ?>
           <li>
-            <a href="<?= $pages->find("template=layout_class, parent={$category->id}")->first()->url ?>"><?= $category->title ?></a>
+          	<?php if ($pages->find("template=layout_type, parent={$category->id}")->count() > 0): ?>
+            	<a href="<?= $pages->find("template=layout_class, parent={$category->id}")->first()->url ?>"><?= $category->title ?></a>
+            <?php endif; ?>
           </li>
         <?php endif;
             $i++; endforeach; ?>
