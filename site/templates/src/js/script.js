@@ -149,7 +149,7 @@ function listFilter() {
   console.log(model,min,max,isAvail,notAvail,colors);
   $("input.input-color__input:checked").each(function(index) {
     colors[index] = $(this).attr("value");
-  });
+  }); 
   $(".product").addClass('js-hidden');
   $(".product").filter(function() {
     var price = parseInt($(this).attr('data-price').replace(/\s/g, ''));
