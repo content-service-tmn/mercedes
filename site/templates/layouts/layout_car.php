@@ -6,7 +6,7 @@ $equipments = array_merge($equipments_obj["base"], $equipments_obj["additional"]
 
 <div id="product_modal" class="product-modal modal-template">
 
-  <div class="product-modal__head"><?="«Mercedes Benz» ". $page->parent("template=layout_class")->class_name . " " .$page->car_modification->modification_name?>, внешний номер заказа <?=$page->car_id?></div>
+  <div class="product-modal__head"><?="«Mercedes Benz» ". $page->car_modification->modification_name?>, номер заказа <?=$page->car_id?></div>
 
 
   <div class="product-gallery product-gallery--modal">
@@ -58,7 +58,7 @@ $equipments = array_merge($equipments_obj["base"], $equipments_obj["additional"]
       <ul class="product-modal__desc-table">
         <li>
           <span>Наименование</span>
-          <span><?="«Mercedes Benz» ". $page->parent("template=layout_class")->class_name . " " .$page->car_modification->modification_name?>, внешний номер заказа <?=$page->car_id?></span>
+          <span><?="«Mercedes Benz» ". $page->car_modification->modification_name?></span>
         </li>
         <li>
           <span>Тип кузова</span>
@@ -154,8 +154,8 @@ $equipments = array_merge($equipments_obj["base"], $equipments_obj["additional"]
         <span>В кредит:</span>
       </div>
       <div class="product-modal__credit-info">
-        <p>Первоначальный взнос от <span>1 068 345</span> ₽</p>
-        <p>Ежемесячный платеж от <span>80 644</span> ₽</p>
+        <p>Первоначальный взнос от <span><?=$page->car_credit_deposit?></span> ₽</p>
+        <p>Ежемесячный платеж от <span><?=$page->car_credit_pay?></span> ₽</p>
       </div>
       <div class="product-modal__button custom-button-margin">
         <a href="#feedback_modal"

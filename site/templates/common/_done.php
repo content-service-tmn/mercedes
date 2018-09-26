@@ -384,7 +384,6 @@ if (!isset($templateRender)) {
   <section class="custom-map__wrapper">
     <section class="custom-map" id="map">
     </section>
-    <a href="" target="_blank" class="custom-map__link"></a>
   </section>
   <section class="footer">
     <footer class="footer">
@@ -553,10 +552,10 @@ if (!isset($templateRender)) {
   <script src="<?= $config->urls->templates . 'assets/js/template.js' ?>"></script>
   <script type="text/javascript">
       function initMap() {
-          var coordinates = {lat: 57.1419482, lng: 65.5986856},
+          var coordinates = {lat: <?=$contacts_page->contacts_map_ltd?>, lng: <?=$contacts_page->contacts_map_lng?>},
               options = {
                   zoom: 16,
-                  disableDefaultUI: true,
+                  disableDefaultUI: false,
                   center: coordinates,
                   draggable: !("ontouchend" in document)
               };
