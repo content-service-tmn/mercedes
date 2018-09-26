@@ -108,7 +108,9 @@
                 <div class="container">
                   <div class="home-promo__slide-title"><?= $promo->home_promo_title ?></div>
                   <div class="home-promo__slide-subtitle"><?= $promo->home_promo_subtitle ?></div>
-                  <a href="" class="btn btn--blue home-promo__btn">Подробнее</a>
+                  <?php if($promo->home_promo_link->url != ""):?>
+                    <a href="<?=$promo->home_promo_link->url?>" class="btn btn--blue home-promo__btn">Подробнее</a>
+                  <?php endif; ?>
                 </div>
               </div>
             </div>
