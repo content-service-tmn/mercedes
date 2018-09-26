@@ -98,8 +98,6 @@ function getEquipments($page)
     }
 
     $complectaton = explode(",", str_replace(" ", "", $page->car_equipments . ", " . $page->car_modification->modification_equipments));
-    bd($dictionary);
-    bd($complectaton);
     $result = [];
 
     foreach ($complectaton as $item) {
