@@ -17,9 +17,20 @@ $wire->addHookBefore('Pages::saveReady', function($event) {
 	};
 });
 
+
 // Хук для поля выбора страниц
 $wire->addHookAfter('InputfieldPage::getSelectablePages', function($event) {
 
+	// --------------------------------------
+	##### Категории на главной #####
+	// --------------------------------------
+	if($event->object->hasField == 'categories_types') {
+		$event->return = $event->pages->find('template=layout_type');
+	}
+
+	// --------------------------------------
+	##### Модификации #####
+	// --------------------------------------
   // Проверяем чтоб поле было выбором модификации
   if($event->object->name == 'type_modifications' || $event->object->name == "car_modification") {
 
@@ -32,27 +43,13 @@ $wire->addHookAfter('InputfieldPage::getSelectablePages', function($event) {
     // Возвращаем список модификации класса
     $result = $parent->get("class_modifications");
 
-
-    // Если добавление автомобиля
-//    if($event->object->name == "car_modification") {
-//
-//      // Если по дереву есть подкатегория с системным заголовком,
-//      // который содержит AMG, то показываем только AMG модификации
-//      if(!$page->parent("title*=amg")->id) {
-//        $result->filter("modification_name!*=amg");
-//      }
-//
-//      // Если подкатегории нет - исключаем AMG
-//      else {
-//        $result->filter("modification_name*=amg");
-//      }
-//    }
-
-
     // Возаращаем результат
     $event->return = $result;
   }
 
+	// --------------------------------------
+	##### Цвета #####
+	// --------------------------------------
   // Проверяем чтоб поле было выбором цвета
   if($event->object->name == 'car_color') {
 
@@ -65,19 +62,19 @@ $wire->addHookAfter('InputfieldPage::getSelectablePages', function($event) {
     // Возвращаем список цветов класса
     $event->return = $parent->get("class_colors");
   }
+
 });
 
 $wire->addHookAfter('Page::getMarkup', function (HookEvent $event) {
-    $page = $event->object; // Each page that appears in the Page Reference field
-    if ($page->template != "layout_class") return;
-    $name = "";
-    while ($page->name != "catalog" && $page->parent() != null) {
-         $name = $page->title . " " . $name;
-         $page = $page->parent();
-    }
-    $event->return = $name;
+  $page = $event->object;
+  if ($page->template != "layout_type") return;
+  $name = "";
+  while ($page->name != "catalog" && $page->parent() != null) {
+       $name = $page->title . " " . $name;
+       $page = $page->parent();
+  }
+  $event->return = $name;
 });
-
 
 $this->pages->addHookAfter('save', function($event) {
 

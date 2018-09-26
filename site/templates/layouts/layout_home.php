@@ -93,21 +93,21 @@
             <div class="home-promo__slide home-promo__slide--type1">
 
               <picture>
-                <source srcset="<?=$promo->home_promo_image->size(600, 670, [])->url?>"
-                        data-srcset="<?=$promo->home_promo_image->size(600, 670, [])->url?>, <?=$promo->home_promo_image->size(1200, 1340, [])->url?> 1.5x"
+                <source srcset="<?= $promo->home_promo_image->size(600, 670, [])->url ?>"
+                        data-srcset="<?= $promo->home_promo_image->size(600, 670, [])->url ?>, <?= $promo->home_promo_image->size(1200, 1340, [])->url ?> 1.5x"
                         media="(max-width: 540px)">
-                <source srcset="<?=$promo->home_promo_image->size(900, 560, [])->url?>"
-                        data-srcset="<?=$promo->home_promo_image->size(900, 560, [])->url?>, <?=$promo->home_promo_image->size(1800, 1120, [])->url?> 1.5x"
+                <source srcset="<?= $promo->home_promo_image->size(900, 560, [])->url ?>"
+                        data-srcset="<?= $promo->home_promo_image->size(900, 560, [])->url ?>, <?= $promo->home_promo_image->size(1800, 1120, [])->url ?> 1.5x"
                         media="(max-width: 900px)">
-                <img src="<?=$promo->home_promo_image->size(1920, 912, [])->url?>"
-                     data-srcset="<?=$promo->home_promo_image->size(3840, 1824, [])->url?> 1.5x"
+                <img src="<?= $promo->home_promo_image->size(1920, 912, [])->url ?>"
+                     data-srcset="<?= $promo->home_promo_image->size(3840, 1824, [])->url ?> 1.5x"
                      alt="Mercedes-Benz">
               </picture>
 
               <div class="home-promo__slide-inner">
                 <div class="container">
-                  <div class="home-promo__slide-title"><?=$promo->home_promo_title?></div>
-                  <div class="home-promo__slide-subtitle"><?=$promo->home_promo_subtitle?></div>
+                  <div class="home-promo__slide-title"><?= $promo->home_promo_title ?></div>
+                  <div class="home-promo__slide-subtitle"><?= $promo->home_promo_subtitle ?></div>
                   <a href="" class="btn btn--blue home-promo__btn">Подробнее</a>
                 </div>
               </div>
@@ -146,194 +146,142 @@
         <h1 class="title-40">Специальные цены на новые автомобили</h1>
 
         <div class="custom-switcher">
-          <div class="custom-switcher__link">Все модели</div>
-          <div class="custom-switcher__link">Модели AMG</div>
+            <?php foreach ($page->home_categories as $category): ?>
+              <div class="custom-switcher__link"><?= $category->home_categories_name ?></div>
+            <?php endforeach; ?>
         </div>
-          <div class="home-filter js-hf" data-min="0" data-max="15899722">
+        <div class="home-filter js-hf" data-min="0" data-max="15899722">
 
-            <div class="home-filter__tabs js-hf__tabs">
-              <div class="home-filter__tab js-hf__tab">
-                <svg class="icon icon-convertible">
-                  <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-convertible"></use>
-                </svg>
-                <span>Тип автомобиля</span>
-              </div>
-              <div class="home-filter__tab js-hf__tab">
-                <svg class="icon icon-rub">
-                  <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-rub"></use>
-                </svg>
-                <span>Цена</span>
-              </div>
+          <div class="home-filter__tabs js-hf__tabs">
+            <div class="home-filter__tab js-hf__tab">
+              <svg class="icon icon-convertible">
+                <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-convertible"></use>
+              </svg>
+              <span>Тип автомобиля</span>
             </div>
+            <div class="home-filter__tab js-hf__tab">
+              <svg class="icon icon-rub">
+                <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-rub"></use>
+              </svg>
+              <span>Цена</span>
+            </div>
+          </div>
 
-            <div class="home-filter__body js-hf__body">
+          <div class="home-filter__body js-hf__body">
 
-              <form id="home-filter">
+            <form id="home-filter">
 
-                <input type="hidden" name="amg" value="0">
+              <input type="hidden" name="amg" value="0">
 
-                <div class="home-filter__body-inner home-filter__type-car js-hf__tabs-content">
+              <div class="home-filter__body-inner home-filter__type-car js-hf__tabs-content">
 
-                  <div class="home-filter__body-title">Тип автомобиля</div>
-                  <div class="custom-switcher__container">
-                    <div class="custom-switcher__tab">
-                      <div class="filter-cars">
-                          <?php $used = [];
-                          foreach ($page->home_show_categories as $category): ?>
-                              <?php
-                              foreach ($category->home_show_category as $ctg): ?>
-                                  <?php foreach ($ctg->home_show_link as $link): if (!in_array($link->title, $used)): ?>
-                                  <div class="filter-cars__item">
-                                    <input type="checkbox" class="filter-cars__input" data-category="<?= $link->title ?>" id="<?= $link->title ?>" name="types[]"
-                                           value="<?= $link->title ?>">
-                                    <label class="filter-cars__label" for="<?= $link->title ?>">
+                <div class="home-filter__body-title">Тип автомобиля</div>
+                <div class="custom-switcher__container">
+                    <?php foreach ($page->home_categories as $category) : ?>
+                      <div class="custom-switcher__tab">
+                        <div class="filter-cars">
+                            <?php foreach ($category->categories_type as $type): ?>
+                              <div class="filter-cars__item">
+                                <input type="checkbox" class="filter-cars__input"
+                                       data-category="<?= $type->categories_type_icon->value ?>"
+                                       id="<?= $type->categories_type_icon->title ?>" name="types[]"
+                                       value="<?= $type->categories_type_icon->value ?>">
+                                <label class="filter-cars__label" for="<?= $type->categories_type_icon->title ?>">
                                                    <span class="filter-cars__item-icon">
-                                                       <svg class="icon icon-sedan">
-                                                          <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-sedan"></use>
+                                                       <svg class="icon icon-<?= $type->categories_type_icon->value ?>">
+                                                          <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-<?= $type->categories_type_icon->value ?>"></use>
                                                        </svg>
                                                    </span>
-                                      <span class="filter-cars__item-title"><?= $link->title ?></span>
-                                    </label>
-                                  </div>
-                                <?php $used[] = $link->title; endif; endforeach; ?>
-                              <?php endforeach; ?>
-                          <?php endforeach; ?>
+                                  <span class="filter-cars__item-title"><?= $type->categories_type_icon->title ?></span>
+                                </label>
+                              </div>
+                            <?php endforeach; ?>
+                        </div>
                       </div>
-                    </div>
-                    <div class="custom-switcher__tab">
-
-                    </div>
-                  </div>
-
-                  <div class="home-filter__body-close">
-                    <a href="javascript:void(0);" class="status-close js-filter-remove-types">
-                      <i>
-                        <svg class="icon icon-close-mini">
-                          <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-close-mini"></use>
-                        </svg>
-                      </i>Сбросить фильтр
-                    </a>
-                  </div>
-
+                    <?php endforeach; ?>
                 </div>
 
-                <div class="home-filter__body-inner home-filter__type-price js-hf__tabs-content">
+                <div class="home-filter__body-close">
+                  <a href="javascript:void(0);" class="status-close js-filter-remove-types">
+                    <i>
+                      <svg class="icon icon-close-mini">
+                        <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-close-mini"></use>
+                      </svg>
+                    </i>Сбросить фильтр
+                  </a>
+                </div>
 
-                  <input type="hidden" name="price[min]" value="0">
-                  <input type="hidden" name="price[max]" value="15899722">
+              </div>
 
-                  <div class="home-filter__body-title">Цена</div>
+              <div class="home-filter__body-inner home-filter__type-price js-hf__tabs-content">
 
-                  <div class="home-filter__slider">
-                    <div class="range-slider">
-                      <div class="range-slider__slider">
-                        <input type="text" id="range-price">
-                      </div>
-                      <div class="range-slider__text" id="range-price-info"></div>
+                <input type="hidden" name="price[min]" value="0">
+                <input type="hidden" name="price[max]" value="15899722">
+
+                <div class="home-filter__body-title">Цена</div>
+
+                <div class="home-filter__slider">
+                  <div class="range-slider">
+                    <div class="range-slider__slider">
+                      <input type="text" id="range-price">
                     </div>
-                  </div>
-
-                  <div class="home-filter__body-close">
-                    <a href="javascript:void(0);" class="status-close js-filter-remove-price">
-                      <i>
-                        <svg class="icon icon-close-mini">
-                          <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-close-mini"></use>
-                        </svg>
-                      </i>
-                      Сбросить фильтр
-                    </a>
+                    <div class="range-slider__text" id="range-price-info"></div>
                   </div>
                 </div>
 
-                <div class="home-filter__body-exit js-hf__close">
-                  <svg class="icon icon-close">
-                    <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-close"></use>
-                  </svg>
+                <div class="home-filter__body-close">
+                  <a href="javascript:void(0);" class="status-close js-filter-remove-price">
+                    <i>
+                      <svg class="icon icon-close-mini">
+                        <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-close-mini"></use>
+                      </svg>
+                    </i>
+                    Сбросить фильтр
+                  </a>
                 </div>
+              </div>
 
-              </form>
+              <div class="home-filter__body-exit js-hf__close">
+                <svg class="icon icon-close">
+                  <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-close"></use>
+                </svg>
+              </div>
 
-            </div>
+            </form>
+
           </div>
+        </div>
         <div class="custom-switcher__container">
-          <div class="custom-switcher__tab">
-            <div class="home-products">
-
-                <?php foreach ($page->home_show_categories as $category): ?>
-                    <?php
-                    foreach ($category->home_show_category as $ctg): ?>
-                        <?php $i = 0;
-                        foreach ($ctg->home_show_link as $link): ?>
-                          <a href="<?= $link->url ?>"
-                             data-category="<?= $link->title ?>" <?php if ($category->home_show_isAmg) echo "data-amg=\"1\"" ?>
-                             data-price="<?= getLowestPrice($link->id, $pages) ?>"
-                             class="home-product <?php if ($i == 0) echo 'home-product--first' ?>">
-                              <?php
-                              if ($i == 0): ?>
-                                <div class="home-product__category"><?= ($category->home_show_isAmg) ? $ctg->home_show_title . " AMG" : $ctg->home_show_title ?></div>
-                              <?php endif; ?>
-                            <div class="home-product__image">
-                              <img src="<?= $pages->get("id=" . $link->id)->class_preview->first()->url ?>"
-                                   alt="<?= $link->title ?>">
-                            </div>
-                            <div class="home-product__info">
-                              <div class="home-product__name"><?= $link->parent()->title . " " . $link->title ?></div>
-                              <div class="home-product__price"><?php $prc = getLowestPrice($link->id, $pages);
-                                  echo ($prc != 0) ? "от <span>{$prc}</span> ₽" : "По запросу" ?></div>
-                              <div class="home-product__in-stock"><?= $pages->find("template=layout_car, parent={$link->id}")->count() ?>
-                                шт. в наличии
-                              </div>
-                              <div class="home-product__button">
-                                <svg class="icon icon-arrow-round">
-                                  <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-arrow-round"></use>
-                                </svg>
-                              </div>
-                            </div>
-                          </a>
-                            <?php $i++; endforeach; ?>
-                    <?php endforeach; ?>
-                <?php endforeach; ?>
-            </div>
-          </div>
-          <div class="custom-switcher__tab">
-            <div class="home-products">
-
-                <?php foreach ($page->home_show_categories as $category): ?>
-                    <?php
-                    foreach ($category->home_show_category as $ctg): ?>
-                        <?php $i = 0;
-                        foreach ($ctg->home_show_link as $link): ?>
-                          <a href="<?= $link->url ?>"
-                             data-category="<?= $link->title ?>" <?php if ($category->home_show_isAmg) echo "data-amg=\"1\"" ?>
-                             data-price="<?= getLowestPrice($link->id, $pages) ?>"
-                             class="home-product <?php if ($i == 0) echo 'home-product--first' ?>">
-                              <?php
-                              if ($i == 0): ?>
-                                <div class="home-product__category"><?= ($category->home_show_isAmg) ? $ctg->home_show_title . " AMG" : $ctg->home_show_title ?></div>
-                              <?php endif; ?>
-                            <div class="home-product__image">
-                              <img src="<?= $pages->get("id=" . $link->id)->class_preview->first()->url ?>"
-                                   alt="<?= $link->title ?>">
-                            </div>
-                            <div class="home-product__info">
-                              <div class="home-product__name"><?= $link->parent()->title . " " . $link->title ?></div>
-                              <div class="home-product__price"><?php $prc = getLowestPrice($link->id, $pages);
-                                  echo ($prc != 0) ? "от <span>{$prc}</span> ₽" : "По запросу" ?></div>
-                              <div class="home-product__in-stock"><?= $pages->find("template=layout_car, parent={$link->id}")->count() ?>
-                                шт. в наличии
-                              </div>
-                              <div class="home-product__button">
-                                <svg class="icon icon-arrow-round">
-                                  <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-arrow-round"></use>
-                                </svg>
-                              </div>
-                            </div>
-                          </a>
-                            <?php $i++; endforeach; ?>
-                    <?php endforeach; ?>
-                <?php endforeach; ?>
-            </div>
-          </div>
+            <?php foreach ($page->home_categories as $category): ?>
+              <div class="custom-switcher__tab">
+                <div class="home-products">
+                    <?php foreach ($category->categories_type as $type): $i=0; foreach($type->categories_types as $ct): ?>
+                      <a href="" class="home-product <?php if ($i == 0) echo 'home-product--first' ?>" data-category="<?=$type->categories_type_icon->value?>" data-price="<?=getLowestPrice($ct)?>">
+                          <?php if ($i == 0): ?>
+                            <div class="home-product__category"><?= $type->categories_type_name ?></div>
+                          <?php endif; ?>
+                        <div class="home-product__image">
+                          <img src="<?=(isset($ct->type_preview))?$ct->type_preview->url:$config->urls->templates . "assets/img/product-not-available_reverse.jpg"?>"
+                               alt="<?=(($ct->parent()->class_name!="")?$ct->parent()->class_name:$ct->parent()->title) . " " . $ct->type_name?>">
+                        </div>
+                        <div class="home-product__info">
+                          <div class="home-product__name"><?=(($ct->parent()->class_name!="")?$ct->parent()->class_name:$ct->parent()->title) . " " . $ct->type_name?></div>
+                          <div class="home-product__price"><?php $prc = getLowestPrice($ct);
+                              echo ($prc != 0) ? "от <span>{$prc}</span> ₽" : "По запросу" ?></div>
+                          <div class="home-product__in-stock"><?= $pages->find("template=layout_car, parent={$ct->id}")->count() ?>
+                            шт. в наличии
+                          </div>
+                          <div class="home-product__button">
+                            <svg class="icon icon-arrow-round">
+                              <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-arrow-round"></use>
+                            </svg>
+                          </div>
+                        </div>
+                      </a>
+                    <?php $i++; endforeach; endforeach; ?>
+                </div>
+              </div>
+            <?php endforeach; ?>
         </div>
 
         <div class="form-type1 form form--black">
