@@ -72,6 +72,7 @@ function listFilterInit() {
     else if (tmp<min) min=tmp;
     if (tmp>max) max=tmp;
   });
+  $(".product").first().addClass('js-first');
   if (min==-1) min=0;
     if ($("section").hasClass("product-filters")) {
         var e = $("#range-price"),
@@ -149,8 +150,8 @@ function listFilter() {
   console.log(model,min,max,isAvail,notAvail,colors);
   $("input.input-color__input:checked").each(function(index) {
     colors[index] = $(this).attr("value");
-  }); 
-  $(".product").addClass('js-hidden');
+  });
+  $(".product").addClass('js-hidden').removeClass('js-first');
   $(".product").filter(function() {
     var price = parseInt($(this).attr('data-price').replace(/\s/g, ''));
     return price>=min && price<=max;
@@ -172,7 +173,7 @@ function listFilter() {
     if (colors.length==0) return true;
     return colors.includes(color);
   })
-  .removeClass('js-hidden');
+  .removeClass('js-hidden').first().addClass('js-first');
   var tmp = $(".product").length;
   $(".s-product-in-stock__mini-title").attr("text",tmp);
   if (tmp>0) {
@@ -185,6 +186,8 @@ function listFilter() {
       $(".s-product-in-stock__head").removeClass("js-hidden");
     }
   }
+  var length = $(".product:not(.js-hidden)").length;
+  $('.s-product-in-stock__mini-title span').text(length);
 }
 
 function getModelInfo(t, url) {
