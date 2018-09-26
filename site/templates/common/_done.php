@@ -366,16 +366,16 @@ if (!isset($templateRender)) {
       </div>
       <div class="custom-contacts__socials">
           <?php if ($contacts_page->contacts_vk != ""): ?>
-            <a href="<?=$contacts_page->contacts_vk?>" class="custom-contacts__social custom-contacts__social_vk"></a>
+            <a href="<?=$contacts_page->contacts_vk?>" target="_blank" class="custom-contacts__social custom-contacts__social_vk"></a>
           <?php endif; ?>
           <?php if ($contacts_page->contacts_facebook != ""): ?>
-            <a href="<?=$contacts_page->contacts_facebook?>" class="custom-contacts__social custom-contacts__social_fb"></a>
+            <a href="<?=$contacts_page->contacts_facebook?>" target="_blank" class="custom-contacts__social custom-contacts__social_fb"></a>
           <?php endif; ?>
           <?php if ($contacts_page->contacts_youtube != ""): ?>
-            <a href="<?=$contacts_page->contacts_youtube?>" class="custom-contacts__social custom-contacts__social_yt"></a>
+            <a href="<?=$contacts_page->contacts_youtube?>" target="_blank" class="custom-contacts__social custom-contacts__social_yt"></a>
           <?php endif; ?>
           <?php if ($contacts_page->contacts_google != ""): ?>
-            <a href="<?=$contacts_page->contacts_google?>" class="custom-contacts__social custom-contacts__social_gg"></a>
+            <a href="<?=$contacts_page->contacts_google?>" target="_blank" class="custom-contacts__social custom-contacts__social_gg"></a>
           <?php endif; ?>
 
       </div>
@@ -555,7 +555,7 @@ if (!isset($templateRender)) {
           var coordinates = {lat: <?=$contacts_page->contacts_map_ltd?>, lng: <?=$contacts_page->contacts_map_lng?>},
               options = {
                   zoom: 16,
-                  disableDefaultUI: false,
+                  disableDefaultUI: true,
                   center: coordinates,
                   draggable: !("ontouchend" in document)
               };

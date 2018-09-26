@@ -22,7 +22,7 @@
         </ul>
       </li>
         <?php $i++; endif; endforeach; ?>
-  <?php if($catalogs->count() >= 8): ?>
+  <?php if($catalogs->count() > 8): ?>
   <li>
     <a href="">Другие</a>
     <ul>

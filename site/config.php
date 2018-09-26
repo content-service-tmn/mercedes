@@ -95,4 +95,4 @@ $config->installed = 1536742022;
  * Installer: HTTP Hosts Whitelist
  *
  */
-$config->httpHosts = array('mercedes.loc');
+$config->httpHosts = array('mercedes.loc', 'mercedes.cw40247.tmweb.ru');
