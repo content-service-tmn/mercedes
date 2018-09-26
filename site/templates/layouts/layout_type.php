@@ -26,7 +26,7 @@
           </div>
         </div>
         <div class="header__nav nav-class js-navigation-desktop">
-
+          <?php include($config->paths->templates . "common/_navigation.php"); ?>
         </div>
         <div class="header__mobile cd-nav">
           <div class="cd-nav__inner">
@@ -49,7 +49,9 @@
         <div class="header-fixed">
           <div class="container">
             <div class="header-fixed__inner">
-              <div class="header-fixed__nav nav-class js-header-fixed-nav"></div>
+              <div class="header-fixed__nav nav-class js-header-fixed-nav">
+                  <?php include($config->paths->templates . "common/_navigation.php"); ?>
+              </div>
               <div class="header-fixed__button">
                 <a href="#feedback_modal" data-code="consultation"
                    data-text="Перезвоним Вам в ближайшее время и ответим на все интересующие вопросы"
@@ -154,7 +156,7 @@
               <div class="product-filters__item-title">Цвет:</div>
               <div class="product-filters__item-content">
                   <?php
-                  foreach ($page->parent("layout_class")->class_colors as $color): ?>
+                  foreach ($page->parent("template=layout_class")->class_colors as $color): ?>
                     <div class="input-color">
                       <input type="checkbox" class="input-color__input" id="color-<?= $color->color_value ?>"
                              name="colors[]" value="<?= $color->color_value ?>">
@@ -289,7 +291,7 @@
                       </div>
                     </a>
                     <div class="product__buttons">
-                      <a href="#feedback_modal" data-code="cheepest" data-order="<?= $car->car_id ?>"
+                      <a href="#feedback_modal" data-code="best_price" data-order="<?= $car->car_id ?>"
                          data-info="<?= $car->car_title ?>"
                          data-text="Специально для Вас мы готовы сделать особое предложение!"
                          class="btn btn--blue js-open-modal">Хочу дешевле</a>
@@ -371,7 +373,7 @@
           <div class="title-40">Получите индивидуальное предложение</div>
           <form id="form-individual-offer" data-caption="Получите индивидуальное предложение" class="CKiForm">
             <input type="hidden" name="code" value="individual_offer">
-            <input type="hidden" name="page" value="G-Класс внедорожник">
+            <input type="hidden" name="page" value="«Мерседес-Бенц» <?= $page->parent()->title . " " . $page->title ?>">
             <div class="form-type1__inner row">
               <div class="form-type1__text xl-50 lg-100">Если вас заинтересовало данное предложение, Вы можете
                 связаться с нами по телефону
