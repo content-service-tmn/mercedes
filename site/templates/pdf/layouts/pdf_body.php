@@ -107,7 +107,7 @@
       <th>Код опции</th>
       <th>Базовая комплектация</th>
     </tr>
-    <?php foreach ($o->base as $key => $value) : ?>
+    <?php foreach ($o['base'] as $key => $value) : ?>
       <tr>
         <td width="20%"><?= $key; ?></td>
         <td width="80%"><?= $value; ?></td>
@@ -123,7 +123,7 @@
       <th>Код опции</th>
       <th>Дополнительное оборудование</th>
     </tr>
-    <?php foreach ($o->additional as $key => $value) : ?>
+    <?php foreach ($o['additional'] as $key => $value) : ?>
       <tr>
         <td width="20%"><?= $key; ?></td>
         <td width="80%"><?= $value; ?></td>
