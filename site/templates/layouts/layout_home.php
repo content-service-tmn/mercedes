@@ -184,9 +184,9 @@
                               <div class="filter-cars__item">
                                 <input type="checkbox" class="filter-cars__input"
                                        data-category="<?= $type->categories_type_icon->value ?>"
-                                       id="<?= $type->categories_type_icon->title ?>" name="types[]"
+                                       id="<?= $type->categories_type_icon->title.$category->id ?>" name="types[]"
                                        value="<?= $type->categories_type_icon->value ?>">
-                                <label class="filter-cars__label" for="<?= $type->categories_type_icon->title ?>">
+                                <label class="filter-cars__label" for="<?= $type->categories_type_icon->title.$category->id ?>">
                                                    <span class="filter-cars__item-icon">
                                                        <svg class="icon icon-<?= $type->categories_type_icon->value ?>">
                                                           <use xlink:href="<?= $config->urls->templates . 'assets/img/sprite.svg' ?>#icon-<?= $type->categories_type_icon->value ?>"></use>
