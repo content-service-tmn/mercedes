@@ -164,6 +164,7 @@ function listFilter() {
     var isNotAvailable = $(this).attr('data-not-available');
     if (isAvail==notAvail) return true;
     return isNotAvailable==notAvail || isNotAvailable!=isAvail;
+    console.log(isNotAvailable);
   })
   .filter(function(){
     var color = $(this).attr('data-color');
