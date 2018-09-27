@@ -259,15 +259,13 @@
                 <div class="home-products">
                     <?php foreach ($category->categories_type as $type): $i=0; foreach($type->categories_types as $ct): ?>
                       <a href="<?=$ct->url?>" class="home-product <?php if ($i == 0) echo 'home-product--first' ?>" data-category="<?=$type->categories_type_icon->value?>" data-price="<?=getLowestPrice($ct)?>">
-                          <?php if ($i == 0): ?>
-                            <div class="home-product__category"><?= $type->categories_type_name ?></div>
-                          <?php endif; ?>
+                        <div class="home-product__category"><?= $type->categories_type_name ?></div>
                         <div class="home-product__image">
                           <img src="<?=(isset($ct->type_preview))?$ct->type_preview->url:$config->urls->templates . "assets/img/product-not-available_reverse.jpg"?>"
                                alt="<?=(($ct->parent()->class_name!="")?$ct->parent()->class_name:$ct->parent()->title) . " " . $ct->type_name?>">
                         </div>
                         <div class="home-product__info">
-                          <div class="home-product__name"><?=(($ct->parent()->class_name!="")?$ct->parent()->class_name:$ct->parent()->title) . " " . $ct->type_name?></div>
+                          <div class="home-product__name"><?php if ($ct->parent()->template=="layout_type_amg" && $ct->parent()->parent()->template=="layout_class"){echo $ct->parent()->parent()->class_name . " ";} echo (($ct->parent()->class_name!="")?$ct->parent()->class_name:$ct->parent()->title) . " " . $ct->type_name;?></div>
                           <div class="home-product__price"><?php $prc = getLowestPrice($ct);
                               echo ($prc != 0) ? "от <span>{$prc}</span> ₽" : "По запросу" ?></div>
                           <div class="home-product__in-stock"><?= $pages->find("template=layout_car, parent={$ct->id}")->count() ?>

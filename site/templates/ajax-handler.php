@@ -24,6 +24,12 @@ if ($config->ajax) {
         $messageBody = "";
 
         foreach ($_REQUEST as $key => $data) {
+            if ($key=="phone"){
+                if (!preg_match("/\+?[7-8]\d{10}/", $data)){
+                    echo "{\"status\":\"error\",\"error\":{\"phone\":\"Некорректный номер телефона\"}}";
+                    return;
+                }
+            }
             if (!isset($keys[$key]) || $data=="") {
                 continue;
             }

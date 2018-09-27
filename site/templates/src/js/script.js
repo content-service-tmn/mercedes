@@ -231,6 +231,8 @@ function appendSelectValue() {
     })
 }
 
+
+
 function sendRequest(l, c) {
     var h = $("body").data("goal"),
         u = $("#success_modal"),
@@ -238,58 +240,58 @@ function sendRequest(l, c) {
         e = $(l).serialize(),
         d = $(l).find("button").text();
     $.ajax({
-        url: "/ajax-handler/",
+        url: "ajax-handler/",
         type: "post",
         data: e,
         dataType: "json",
         beforeSend: function() {
-            // $(l).find("button").prop("disabled", !0).text("Отправляю…"), h && window["yaCounter" + h].reachGoal("request_send"), "function" == typeof gtag && ("consultation" === t ? gtag("event", "callbackform", {
-            //     event_category: "callback",
-            //     event_action: "send"
-            // }) : "individual_offer" === t ? gtag("event", "offerform", {
-            //     event_category: "offer",
-            //     event_action: "send"
-            // }) : "credit_and_leasing" === t || ("trade_in" === t ? gtag("event", "tradeinform", {
-            //     event_category: "tradein",
-            //     event_action: "send"
-            // }) : "test_drive" === t ? gtag("event", "testdriveform", {
-            //     event_category: "testdrive",
-            //     event_action: "send"
-            // }) : "issues" === t ? gtag("event", "questionform", {
-            //     event_category: "question",
-            //     event_action: "send"
-            // }) : "best_offer" === t || ("credit" === t ? gtag("event", "creditform", {
-            //     event_category: "credit",
-            //     event_action: "send"
-            // }) : "best_price" === t && gtag("event", "cheaperform", {
-            //     event_category: "cheaper",
-            //     event_action: "send"
-            // }))))
+            $(l).find("button").prop("disabled", !0).text("Отправляю…"), h && window["yaCounter" + h].reachGoal("request_send"), "function" == typeof gtag && ("consultation" === t ? gtag("event", "callbackform", {
+                event_category: "callback",
+                event_action: "send"
+            }) : "individual_offer" === t ? gtag("event", "offerform", {
+                event_category: "offer",
+                event_action: "send"
+            }) : "credit_and_leasing" === t || ("trade_in" === t ? gtag("event", "tradeinform", {
+                event_category: "tradein",
+                event_action: "send"
+            }) : "test_drive" === t ? gtag("event", "testdriveform", {
+                event_category: "testdrive",
+                event_action: "send"
+            }) : "issues" === t ? gtag("event", "questionform", {
+                event_category: "question",
+                event_action: "send"
+            }) : "best_offer" === t || ("credit" === t ? gtag("event", "creditform", {
+                event_category: "credit",
+                event_action: "send"
+            }) : "best_price" === t && gtag("event", "cheaperform", {
+                event_category: "cheaper",
+                event_action: "send"
+            }))))
         }
     }).done(function(t) {
         if ($(l).find("button").prop("disabled", !1).text(d), $(l).find(".error").remove(), "success" === t.status) {
-            // try {
-            //     var e = $(l),
-            //         i = e.find('input[name="name"]').val(),
-            //         n = e.find('input[name="phone"]').val(),
-            //         s = e.find('input[name="code"]').val(),
-            //         o = "";
-            //     0 < e.find('select[name="model"]').length && (o = "Модель: " + e.find('select[name="model"]').val());
-            //     var r = {
-            //         fio: i,
-            //         phoneNumber: n,
-            //         subject: s,
-            //         orderComment: o,
-            //         sessionId: window.call_value
-            //     };
-            //     $.ajax({
-            //         url: "https://api-node7.calltouch.ru/calls-service/RestAPI/21690/requests/orders/register/",
-            //         dataType: "json",
-            //         type: "POST",
-            //         data: r,
-            //         async: !1
-            //     })
-            // } catch (t) {}
+            try {
+                var e = $(l),
+                    i = e.find('input[name="name"]').val(),
+                    n = e.find('input[name="phone"]').val(),
+                    s = e.find('input[name="code"]').val(),
+                    o = "";
+                0 < e.find('select[name="model"]').length && (o = "Модель: " + e.find('select[name="model"]').val());
+                var r = {
+                    fio: i,
+                    phoneNumber: n,
+                    subject: s,
+                    orderComment: o,
+                    sessionId: window.call_value
+                };
+                // $.ajax({
+                //     url: "https://api-node7.calltouch.ru/calls-service/RestAPI/21690/requests/orders/register/",
+                //     dataType: "json",
+                //     type: "POST",
+                //     data: r,
+                //     async: !1
+                // })
+            } catch (t) {}
             console.log("success");
             u.attr("data-close", 0), $(l).find('input:not([name="code"], [name="page"])').val("").next().removeClass("is-active"), $.magnificPopup.close(), $.magnificPopup.open({
                 items: {
@@ -312,7 +314,7 @@ function sendRequest(l, c) {
         if ("error" === t.status)
             for (var a in t.error) t.error.hasOwnProperty(a) && "confirm" !== a && $(l).find('[name="' + a + '"]').parent().append('<span class="error">' + t.error[a] + "</span>")
     }).fail(function(t) {
-        console.log(t)
+        for (var a in t.error) t.error.hasOwnProperty(a) && "confirm" !== a && $(l).find('[name="' + a + '"]').parent().append('<span class="error">' + t.error[a] + "</span>")
     })
 }
 

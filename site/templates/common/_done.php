@@ -250,7 +250,7 @@ if (!isset($templateRender)) {
         </div>
       </div>
     </section>
-    <section id="benefits-foreign" class="lp-premser">
+    <section id="benefits-foreign" class="lp-premser lp-premser_no-bg">
       <div class="container">
         <div class="title-40">Преимущества для покупателей из других городов</div>
         <div class="lp-premser__bottom">
