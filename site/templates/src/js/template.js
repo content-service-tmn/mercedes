@@ -45,4 +45,5 @@ $(document).ready(function() {
         $(this).find('.custom-switcher__tab').removeClass('is-active').eq(i).addClass('is-active');
       });
     });
+    
 });
