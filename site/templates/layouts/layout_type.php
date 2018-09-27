@@ -218,7 +218,7 @@
               <span class="s-product-in-stock__big-title">Автомобили в продаже</span>
               <span class="s-product-in-stock__mini-title">Предложений по запросу: <span><?= $count ?></span></span>
             </div>
-            <div class="s-product-in-stock__head">
+            <div class="s-product-in-stock__head <?php if ($count == 0) echo "js-hidden"; ?>">
               <div class="s-product-in-stock__head-item1">Модель</div>
               <div class="s-product-in-stock__head-item2">Описание</div>
               <div class="s-product-in-stock__head-item3">Цена</div>
