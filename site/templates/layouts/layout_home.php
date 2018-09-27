@@ -259,9 +259,7 @@
                 <div class="home-products">
                     <?php foreach ($category->categories_type as $type): $i=0; foreach($type->categories_types as $ct): ?>
                       <a href="<?=$ct->url?>" class="home-product <?php if ($i == 0) echo 'home-product--first' ?>" data-category="<?=$type->categories_type_icon->value?>" data-price="<?=getLowestPrice($ct)?>">
-                          <?php if ($i == 0): ?>
-                            <div class="home-product__category"><?= $type->categories_type_name ?></div>
-                          <?php endif; ?>
+                        <div class="home-product__category"><?= $type->categories_type_name ?></div>
                         <div class="home-product__image">
                           <img src="<?=(isset($ct->type_preview))?$ct->type_preview->url:$config->urls->templates . "assets/img/product-not-available_reverse.jpg"?>"
                                alt="<?=(($ct->parent()->class_name!="")?$ct->parent()->class_name:$ct->parent()->title) . " " . $ct->type_name?>">
