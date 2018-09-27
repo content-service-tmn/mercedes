@@ -482,7 +482,7 @@
                     <div class="specifications-table__item row row-15">
                       <div class="xl-30 xs-100">
                         <div class="mb-20">
-                          <div class="specifications-table__title"><?= $modif->class_name ?></div>
+                          <div class="specifications-table__title"><?= $modif->modification_name ?></div>
                           <div>Тип топлива <?= $modif->modification_fuel ?></div>
                         </div>
                         <div class="mb-20">
