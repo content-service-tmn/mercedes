@@ -12,7 +12,6 @@ if ($config->ajax) {
             return $code;
         }
     }
-    bd($_REQUEST);
     $keys = ["code" => "Запрос на", "phone" => "Телефон", "page" => "Страница", "name" => "Имя", "order_id" => "Номер заказа", "model" => "Модель автомобиля"];
     $m = $mail->new();
     $m->to($page->ajax_email_for_callback);

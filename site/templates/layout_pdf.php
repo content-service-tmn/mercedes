@@ -8,6 +8,12 @@
   <body>
     <?php
 
+    $template = new TemplateFile($config->paths->templates . "pdf/layouts/pdf_title_header.php");
+    $pdf_title_header = $template->render();
+
+    $template = new TemplateFile($config->paths->templates . "pdf/layouts/pdf_title.php");
+    $pdf_title = $template->render();
+
     $template = new TemplateFile($config->paths->templates . "pdf/layouts/pdf_header.php");
     $pdf_header = $template->render();
 
@@ -42,13 +48,20 @@
       'default_font' => 'corporate-s'
     ]);
 
-    $mpdf->SetHTMLHeader($pdf_header);
-    $mpdf->SetHTMLFooter($pdf_footer);
-
     $stylesheet = file_get_contents('pdf/style.css');
     $mpdf->WriteHTML($stylesheet, 1);
 
+    $mpdf->SetHTMLHeader($pdf_title_header);
+    $mpdf->WriteHTML($pdf_title);
+    $mpdf->SetHTMLFooter();
+
+    $mpdf->SetHTMLHeader($pdf_header);
+    $mpdf->AddPage();
+    $mpdf->SetHTMLFooter($pdf_footer);
+
     $mpdf->WriteHTML($pdf_body);
+
+
     $mpdf->Output();
     ?>
   </body>

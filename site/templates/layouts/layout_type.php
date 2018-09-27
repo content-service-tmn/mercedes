@@ -97,7 +97,7 @@
         </div>
         <div class="product-gallery__bottom">
           <div class="container">
-            <h1 class="product-gallery__title">«Мерседес-Бенц» <?= $page->parent()->title . " " . $page->title ?></h1>
+            <h1 class="product-gallery__title">«Мерседес-Бенц» <?php $string = $page->title; $current = $page; while ($current->parent()->template != "layout_class"){$string = $current->parent()->title . " " . $string; $current = $current->parent();} echo $current->parent()->title . " ". $string; ?></h1>
             <div class="product-gallery__thumbs owl-carousel">
                 <?php $i = 0;
                 foreach ($page->type_photos as $img): ?>
@@ -228,7 +228,7 @@
             <div>
 
                 <?php foreach ($pages->find("template=layout_car, parent={$page->id}") as $car): ?>
-                  <div class="product" <?php if ($car->car_inStock) echo "data-available=\"1\""; else echo "data-not-available=\"1\"";
+                  <div class="product" <?php if (!$car->car_inStock) echo "data-not-available=\"1\""; else echo "data-not-available=\"0\"";
                   echo "data-color=\"{$car->car_color->color_value}\"";
                   echo "data-price=\"" . (($car->car_price != "")?$car->car_price:0) . "\"";
                   echo "data-model=\"{$car->car_modification->modification_name}\""
@@ -435,7 +435,7 @@
               <div class="specifications-table__item row row-15">
                 <div class="xl-30 xs-100">
                   <div class="mb-20">
-                    <div class="specifications-table__title"><?= $modif->class_name ?></div>
+                    <div class="specifications-table__title"><?= $modif->modification_name ?></div>
                     <div>Тип топлива <?= $modif->modification_fuel ?></div>
                   </div>
                   <div class="mb-20">
@@ -450,7 +450,7 @@
                   </div>
                   <div class="mb-20">
                     <div class="specifications-table__desc">Рабочий объем</div>
-                    <div class="specifications-table__title"><?= $modif->modification_amount ?></div>
+                    <div class="specifications-table__title"><?= $modif->modification_amount ?> см<sup>3</sup></div>
                   </div>
                 </div>
                 <div class="xl-30 xs-100">
