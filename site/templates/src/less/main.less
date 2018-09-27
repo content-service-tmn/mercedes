@@ -2038,7 +2038,7 @@ body.overflow-hidden {
 }
 
 .footer {
-	background: #000 url(../img/footer.jpg) 100% 100% no-repeat;
+	background-color: #000;
 	color: #fff;
 	padding: 40px 0 20px;
 	overflow: hidden;
@@ -4438,7 +4438,10 @@ body.overflow-hidden {
 	background-position: 100% 100%;
 	background-image: url(../img/service.jpg);
 	padding: 60px 0;
-	color: #fff
+	color: #fff;
+	&_no-bg {
+		background-image:none;
+	}
 }
 
 .lp-premser__item {
@@ -4856,10 +4859,6 @@ body.overflow-hidden {
 }
 
 .contacts-promo {
-	// background-image: url(../img/Panorama2.png), -webkit-gradient(linear, left top, left bottom, from(#5d6069), to(#2e2f33));
-	// background-image: url(../img/Panorama2.png), linear-gradient(to bottom, #5d6069 0%, #2e2f33 100%);
-	// background-repeat: no-repeat;
-	// background-size: 100% auto;
 	background-color:#fff;
 	margin-top: 60px
 }
@@ -6772,4 +6771,13 @@ screen and (max-height:300px) {
 
 .home-product:not(.home-product--first) .home-product__category {
 	display:none;
+}
+
+.js-error {
+	input {
+		border-color:red !important;
+	}
+	label {
+		color:red !important;
+	}
 }
