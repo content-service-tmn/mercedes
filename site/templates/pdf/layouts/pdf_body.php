@@ -144,7 +144,7 @@
       <td width="30%" style="text-align: right;"><?= $p->car_price_special; ?></td>
     </tr>
     <tr>
-      <td width="70%">Ваша выгода:</td>
+      <td width="70%">Ваша преимущество:</td>
       <td width="30%" style="text-align: right;"><?= $p->car_price - $p->car_price_special; ?></td>
     </tr>
     <?php endif; ?>
