@@ -131,7 +131,10 @@
           </div>
         </div>
       </div>
+
     </section>
+      <?php $count = $pages->find("template=layout_car, parent={$page->id}")->count(); ?>
+    <?php if ($count>0):?>
     <section class="product-filters" data-min="15899722" data-max="15899722">
       <div class="container form">
         <form id="list-filter">
@@ -210,10 +213,10 @@
         </form>
       </div>
     </section>
+    <?php endif; ?>
     <section class="s-product-main">
       <div class="container">
         <div id="list-content">
-            <?php $count = $pages->find("template=layout_car, parent={$page->id}")->count(); ?>
           <div class="s-product-in-stock <?php if ($count == 0) echo "js-hidden"; ?>">
             <div class="s-product-in-stock__title">
               <span class="s-product-in-stock__big-title">Автомобили в продаже</span>
