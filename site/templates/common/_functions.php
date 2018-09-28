@@ -91,6 +91,7 @@ function getEquipments($page)
         return [];
     }
 
+
     $dictionary = [];
     $current = $page->parent("template=layout_class");
     foreach ($current->class_equipments as $equipment) {
@@ -104,13 +105,13 @@ function getEquipments($page)
 
     foreach ($additional as $item) {
         if (isset($dictionary[$item])) {
-            $result["additional"] = [$item => $dictionary[$item]];
+            $result["additional"][$item] = $dictionary[$item];
         }
     }
 
     foreach ($base as $item) {
         if (isset($dictionary[$item])) {
-            $result["base"] = [$item => $dictionary[$item]];
+            $result["base"][$item] = $dictionary[$item];
         }
     }
 

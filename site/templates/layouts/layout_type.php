@@ -25,8 +25,7 @@
             <div class="cd-nav__trigger"><span class="cd-nav__trigger-icon"></span></div>
           </div>
         </div>
-        <div class="header__nav nav-class js-navigation-desktop">
-          <?php include($config->paths->templates . "common/_navigation.php"); ?>
+        <div class="header__nav nav-class js-navigation-desktop"><?php include($config->paths->templates . "common/_navigation.php"); ?>
         </div>
         <div class="header__mobile cd-nav">
           <div class="cd-nav__inner">
@@ -50,7 +49,7 @@
           <div class="container">
             <div class="header-fixed__inner">
               <div class="header-fixed__nav nav-class js-header-fixed-nav">
-                  <?php include($config->paths->templates . "common/_navigation.php"); ?>
+
               </div>
               <div class="header-fixed__button">
                 <a href="#feedback_modal" data-code="consultation"
@@ -97,7 +96,13 @@
         </div>
         <div class="product-gallery__bottom">
           <div class="container">
-            <h1 class="product-gallery__title">«Мерседес-Бенц» <?php $string = $page->title; $current = $page; while ($current->parent()->template != "layout_class"){$string = $current->parent()->title . " " . $string; $current = $current->parent();} echo $current->parent()->title . " ". $string; ?></h1>
+            <h1 class="product-gallery__title">«Мерседес-Бенц» <?php $string = $page->title;
+                $current = $page;
+                while ($current->parent()->template != "layout_class") {
+                    $string = $current->parent()->title . " " . $string;
+                    $current = $current->parent();
+                }
+                echo $current->parent()->title . " " . $string; ?></h1>
             <div class="product-gallery__thumbs owl-carousel">
                 <?php $i = 0;
                 foreach ($page->type_photos as $img): ?>
@@ -113,24 +118,23 @@
                     <?php $i++; endforeach ?>
             </div>
             <ul class="product-gallery__variants">
-                <?php if (1): ?>
-                    <?php foreach ($pages->find("template=layout_type|layout_type_amg, parent={$page->parent()->id}") as $child): ?>
-                    <li <?php if ($child->id == $page->id): ?>class="is-active"<?php endif; ?>>
-                      <a href="<?= $child->url ?>"><?= $child->title ?></a>
-                    </li>
-                    <?php endforeach; ?>
-                <?php else: ?>
-                    <?php foreach ($pages->find("template=layout_class, parent={$page->id}") as $child): ?>
-                    <li <?php if ($child->id == $page->id): ?>class="is-active"<?php endif; ?>>
-                      <a href="<?= $child->url ?>"><?= $child->title ?></a>
-                    </li>
-                    <?php endforeach; ?>
-                <?php endif; ?>
+                <?php foreach ($pages->find("template=layout_type|layout_type_amg, parent={$page->parent()->id}") as $child): ?>
+                  <li <?php if ($child->id == $page->id): ?>class="is-active"<?php endif; ?>>
+                    <a href="<?= $child->url ?>"><?php if ($child->parent()->template == "layout_type_amg") {
+                            echo $page->parent()->parent()->title . " " . $page->parent()->title . " " . $child->title;
+                        } else {
+                            echo $page->parent()->title . " " . $child->title;
+                        } ?></a>
+                  </li>
+                <?php endforeach; ?>
             </ul>
           </div>
         </div>
       </div>
+
     </section>
+      <?php $count = $pages->find("template=layout_car, parent={$page->id}")->count(); ?>
+    <?php if ($count>0):?>
     <section class="product-filters" data-min="15899722" data-max="15899722">
       <div class="container form">
         <form id="list-filter">
@@ -209,10 +213,10 @@
         </form>
       </div>
     </section>
+    <?php endif; ?>
     <section class="s-product-main">
       <div class="container">
         <div id="list-content">
-            <?php $count = $pages->find("template=layout_car, parent={$page->id}")->count(); ?>
           <div class="s-product-in-stock <?php if ($count == 0) echo "js-hidden"; ?>">
             <div class="s-product-in-stock__title">
               <span class="s-product-in-stock__big-title">Автомобили в продаже</span>
@@ -230,17 +234,19 @@
                 <?php foreach ($pages->find("template=layout_car, parent={$page->id}") as $car): ?>
                   <div class="product" <?php if (!$car->car_inStock) echo "data-not-available=\"1\""; else echo "data-not-available=\"0\"";
                   echo "data-color=\"{$car->car_color->color_value}\"";
-                  echo "data-price=\"" . (($car->car_price != "")?$car->car_price:0) . "\"";
+                  echo "data-price=\"" . (($car->car_price != "") ? $car->car_price : 0) . "\"";
                   echo "data-model=\"{$car->car_modification->modification_name}\""
                   ?>>
                     <div class="product__name--m">
-                      <p><?="Mercedes-Benz " . $car->car_modification->modification_name?></p>
+                      <p><?= "Mercedes-Benz " . $car->car_modification->modification_name ?></p>
                     </div>
                     <div class="product__image is-loaded">
-                           <span href="javascript:void(0)" onclick="getModelInfo('<?= $car->car_id ?>', '<?= $car->url ?>');">
+                           <span href="javascript:void(0)"
+                                 onclick="getModelInfo('<?= $car->car_id ?>', '<?= $car->url ?>');">
 
-                              <img src="<?=  ($car->car_photos->count() > 0)?$car->car_photos->first()->url : $config->urls->templates . "assets/img/product-not-available.jpg" ?>"
-                                   srcset="<?= ($car->car_photos->count() > 0)?$car->car_photos->first()->url : $config->urls->templates . "assets/img/product-not-available.jpg"?> 1.5x" alt="">
+                              <img src="<?= ($car->car_photos->count() > 0) ? $car->car_photos->first()->url : $config->urls->templates . "assets/img/product-not-available.jpg" ?>"
+                                   srcset="<?= ($car->car_photos->count() > 0) ? $car->car_photos->first()->url : $config->urls->templates . "assets/img/product-not-available.jpg" ?> 1.5x"
+                                   alt="">
 
                              <div class="brazzers" style="opacity: 0;">
                                                     <div class="brazzers__thumbs">
@@ -260,10 +266,11 @@
 
                            </span>
                     </div>
-                    <a href="javascript:void(0);" class="product__info" onclick="getModelInfo('<?= $car->car_id ?>', '<?= $car->url ?>');">
+                    <a href="javascript:void(0);" class="product__info"
+                       onclick="getModelInfo('<?= $car->car_id ?>', '<?= $car->url ?>');">
                       <div class="product__info-item product__info-item1">
                         <div class="product__name">
-                          <p><?="Mercedes-Benz " . $car->car_modification->modification_name?></p>
+                          <p><?= "Mercedes-Benz " . $car->car_modification->modification_name ?></p>
                         </div>
                         <div class="product__color-year">
                           <p><?= $car->car_color->color_name ?></p>
@@ -427,7 +434,13 @@
     <section class="prd-specifications">
       <div class="container">
         <div class="prd-specifications__title title-40">Двигатели и технические характеристики
-
+            <?php $string = $page->title;
+            $current = $page;
+            while ($current->parent()->template != "layout_class") {
+                $string = $current->parent()->title . " " . $string;
+                $current = $current->parent();
+            }
+            echo $current->parent()->title . " " . $string; ?>
         </div>
         <div class="specifications-table">
             <?php $count = $page->type_modifications->count();
@@ -472,7 +485,7 @@
                     <div class="specifications-table__item row row-15">
                       <div class="xl-30 xs-100">
                         <div class="mb-20">
-                          <div class="specifications-table__title"><?= $modif->class_name ?></div>
+                          <div class="specifications-table__title"><?= $modif->modification_name ?></div>
                           <div>Тип топлива <?= $modif->modification_fuel ?></div>
                         </div>
                         <div class="mb-20">

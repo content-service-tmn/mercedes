@@ -265,7 +265,7 @@
                                alt="<?=(($ct->parent()->class_name!="")?$ct->parent()->class_name:$ct->parent()->title) . " " . $ct->type_name?>">
                         </div>
                         <div class="home-product__info">
-                          <div class="home-product__name"><?=(($ct->parent()->class_name!="")?$ct->parent()->class_name:$ct->parent()->title) . " " . $ct->type_name?></div>
+                          <div class="home-product__name"><?php if ($ct->parent()->template=="layout_type_amg" && $ct->parent()->parent()->template=="layout_class"){echo $ct->parent()->parent()->class_name . " ";} echo (($ct->parent()->class_name!="")?$ct->parent()->class_name:$ct->parent()->title) . " " . $ct->type_name;?></div>
                           <div class="home-product__price"><?php $prc = getLowestPrice($ct);
                               echo ($prc != 0) ? "от <span>{$prc}</span> ₽" : "По запросу" ?></div>
                           <div class="home-product__in-stock"><?= $pages->find("template=layout_car, parent={$ct->id}")->count() ?>

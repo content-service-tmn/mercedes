@@ -91,28 +91,36 @@ function getEquipments($page)
         return [];
     }
 
+
     $dictionary = [];
     $current = $page->parent("template=layout_class");
     foreach ($current->class_equipments as $equipment) {
         $dictionary[$equipment->code] = $equipment->name;
     }
 
+    bd($dictionary);
+
     $additional = explode(",", str_replace(" ", "", $page->car_equipments));
     $base = explode(",", str_replace(" ", "", $page->car_modification->modification_equipments));
+
+    bd($additional);
+    bd($base);
 
     $result = ["additional" => [], "base" => []];
 
     foreach ($additional as $item) {
         if (isset($dictionary[$item])) {
-            $result["additional"] = [$item => $dictionary[$item]];
+            $result["additional"][$item] = $dictionary[$item];
         }
     }
 
     foreach ($base as $item) {
         if (isset($dictionary[$item])) {
-            $result["base"] = [$item => $dictionary[$item]];
+            $result["base"][$item] = $dictionary[$item];
         }
     }
+
+    bd($result);
 
     return $result;
 }
