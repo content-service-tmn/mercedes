@@ -115,6 +115,7 @@ function getEquipments($page)
         }
     }
 
+	bd($result);
     return $result;
 }
 

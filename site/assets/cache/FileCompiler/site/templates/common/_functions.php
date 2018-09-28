@@ -98,13 +98,8 @@ function getEquipments($page)
         $dictionary[$equipment->code] = $equipment->name;
     }
 
-    bd($dictionary);
-
     $additional = explode(",", str_replace(" ", "", $page->car_equipments));
     $base = explode(",", str_replace(" ", "", $page->car_modification->modification_equipments));
-
-    bd($additional);
-    bd($base);
 
     $result = ["additional" => [], "base" => []];
 
@@ -120,8 +115,7 @@ function getEquipments($page)
         }
     }
 
-    bd($result);
-
+	bd($result);
     return $result;
 }
 

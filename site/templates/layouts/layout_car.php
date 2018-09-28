@@ -1,7 +1,7 @@
 <?php namespace Processwire; ?>
 
 <?php $equipments_obj = getEquipments($page);
-$equipments = array_merge($equipments_obj["base"], $equipments_obj["additional"]);
+$equipments = $equipments_obj["base"] + $equipments_obj["additional"];
 ?>
 
 <div id="product_modal" class="product-modal modal-template">
