@@ -12,8 +12,6 @@ class EmailBatcher extends ProcessAdminActions {
         'github' => 'adrianbj',
     );
 
-    protected $executeButtonLabel = 'Send Emails';
-
     protected function defineOptions() {
 
         $rolesOptions = array();

@@ -11,8 +11,6 @@ class TemplateFieldsBatcher extends ProcessAdminActions {
         'github' => 'adrianbj',
     );
 
-    protected $executeButtonLabel = 'Apply Field Changes';
-
     protected function defineOptions() {
 
         $fieldOptions = array();

@@ -12,8 +12,6 @@ class TemplateRolesBatcher extends ProcessAdminActions {
         'github' => 'adrianbj',
     );
 
-    protected $executeButtonLabel = 'Apply Roles Changes';
-
     protected function defineOptions() {
 
         $rolesOptions = array();

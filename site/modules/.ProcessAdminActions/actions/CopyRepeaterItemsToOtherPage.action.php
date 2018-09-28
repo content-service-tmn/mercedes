@@ -12,8 +12,6 @@ class CopyRepeaterItemsToOtherPage extends ProcessAdminActions {
         'github' => 'adrianbj',
     );
 
-    protected $executeButtonLabel = 'Copy Repeater Items';
-
     protected function checkRequirements() {
         if(!$this->wire('modules')->isInstalled("FieldtypeRepeater")) {
             $this->wire()->error('The Repeater field type is not currently installed.');
