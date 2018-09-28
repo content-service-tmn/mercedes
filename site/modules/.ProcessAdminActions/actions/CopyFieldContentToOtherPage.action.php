@@ -12,8 +12,6 @@ class CopyFieldContentToOtherPage extends ProcessAdminActions {
         'github' => 'adrianbj',
     );
 
-    protected $executeButtonLabel = 'Copy Content';
-
     protected function defineOptions() {
         return array(
             array(

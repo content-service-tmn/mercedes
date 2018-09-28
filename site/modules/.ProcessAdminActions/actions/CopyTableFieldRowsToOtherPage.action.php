@@ -12,8 +12,6 @@ class CopyTableFieldRowsToOtherPage extends ProcessAdminActions {
         'github' => 'adrianbj',
     );
 
-    protected $executeButtonLabel = 'Copy Table Rows';
-
     protected function checkRequirements() {
         if(!$this->wire('modules')->isInstalled("FieldtypeTable")) {
             $this->requirementsMessage = 'The Table field type is not currently installed.';

@@ -12,8 +12,6 @@ class PageTableToRepeaterMatrix extends ProcessAdminActions {
         'github' => 'adrianbj',
     );
 
-    protected $executeButtonLabel = 'Convert Field';
-
     protected function checkRequirements() {
         if(!$this->wire('modules')->isInstalled("FieldtypeRepeater") && !$this->wire('modules')->isInstallable("FieldtypeRepeater", true)) {
             $this->requirementsMessage = 'The Repeater field type is not currently installable.';

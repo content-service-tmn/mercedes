@@ -117,5 +117,3 @@ function getEquipments($page)
 
     return $result;
 }
-
-

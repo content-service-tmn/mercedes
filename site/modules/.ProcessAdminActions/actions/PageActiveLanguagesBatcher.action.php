@@ -11,8 +11,6 @@ class PageActiveLanguagesBatcher extends ProcessAdminActions {
         'github' => 'adrianbj',
     );
 
-    protected $executeButtonLabel = 'Adjust Language Statuses';
-
     protected function checkRequirements() {
         if(!$this->wire('modules')->isInstalled("LanguageSupport")) {
             $this->requirementsMessage = 'Language support is not enabled, so this module can not do anything.';
