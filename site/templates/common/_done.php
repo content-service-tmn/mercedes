@@ -209,7 +209,7 @@ if (!isset($templateRender)) {
                 <div class="premser">
                   <div class="premser__top">
                     <div class="premser__image">
-                      <img src="<?= $benifit->benefit_image->url ?>"
+                      <img src="<?= $benifit->benefit_image->size(500, 334, [])->url ?>"
                            alt="Бутик аксессуаров">
                     </div>
                     <div class="premser__title"><?= $benifit->benefit_title ?></div>

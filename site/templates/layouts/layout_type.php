@@ -87,8 +87,8 @@
                   <source srcset="<?= $img->size(760, 320, [])->url ?>"
                           data-srcset="<?= $img->size(760, 320, [])->url ?>, <?= $img->size(760, 320, [])->url ?> 1.5x"
                           media="(max-width: 767px)">
-                  <img src="<?= $img->url ?>"
-                       data-srcset="<?= $img->url ?>"
+                  <img src="<?= $img->size(1440, 600, [])->url ?>"
+                       data-srcset="<?= $img->size(1440, 600, [])->url ?>"
                        alt="<?= $page->parent()->title . " " . $page->title ?>">
                 </picture>
               </div>
@@ -244,8 +244,8 @@
                            <span href="javascript:void(0)"
                                  onclick="getModelInfo('<?= $car->car_id ?>', '<?= $car->url ?>');">
 
-                              <img src="<?= ($car->car_photos->count() > 0) ? $car->car_photos->first()->url : $config->urls->templates . "assets/img/product-not-available.jpg" ?>"
-                                   srcset="<?= ($car->car_photos->count() > 0) ? $car->car_photos->first()->url : $config->urls->templates . "assets/img/product-not-available.jpg" ?> 1.5x"
+                              <img src="<?= ($car->car_photos->count() > 0) ? $car->car_photos->first()->size(225, 140, [])->url : $config->urls->templates . "assets/img/product-not-available.jpg" ?>"
+                                   srcset="<?= ($car->car_photos->count() > 0) ? $car->car_photos->first()->size(225, 140, [])->url : $config->urls->templates . "assets/img/product-not-available.jpg" ?> 1.5x"
                                    alt="">
 
                              <div class="brazzers" style="opacity: 0;">

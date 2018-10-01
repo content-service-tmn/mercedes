@@ -93,14 +93,7 @@
             <div class="home-promo__slide home-promo__slide--type1">
 
               <picture>
-                <source srcset="<?= $promo->home_promo_image->size(600, 670, [])->url ?>"
-                        data-srcset="<?= $promo->home_promo_image->size(600, 670, [])->url ?>, <?= $promo->home_promo_image->size(1200, 1340, [])->url ?> 1.5x"
-                        media="(max-width: 540px)">
-                <source srcset="<?= $promo->home_promo_image->size(900, 560, [])->url ?>"
-                        data-srcset="<?= $promo->home_promo_image->size(900, 560, [])->url ?>, <?= $promo->home_promo_image->size(1800, 1120, [])->url ?> 1.5x"
-                        media="(max-width: 900px)">
                 <img src="<?= $promo->home_promo_image->size(1920, 912, [])->url ?>"
-                     data-srcset="<?= $promo->home_promo_image->size(3840, 1824, [])->url ?> 1.5x"
                      alt="Mercedes-Benz">
               </picture>
 

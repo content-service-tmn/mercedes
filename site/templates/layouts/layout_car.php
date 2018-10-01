@@ -16,7 +16,7 @@ $equipments = $equipments_obj["base"] + $equipments_obj["additional"];
         <?php foreach ($page->car_photos as $photo): ?>
           <div class="product-gallery__image">
             <picture>
-              <img src="<?= $photo->url ?>">
+              <img src="<?= $photo->size(960, 600, [])->url ?>">
             </picture>
           </div>
         <?php endforeach; ?>
@@ -28,7 +28,7 @@ $equipments = $equipments_obj["base"] + $equipments_obj["additional"];
           foreach ($page->car_photos as $photo): ?>
             <div class="product-gallery__thumb <?php if ($i == 0) echo 'is-active' ?>">
               <picture>
-                <img src="<?= $photo->url ?>">
+                <img src="<?= $photo->size(127.31, 79.56, [])->url ?>">
               </picture>
             </div>
               <?php $i++; endforeach; ?>
